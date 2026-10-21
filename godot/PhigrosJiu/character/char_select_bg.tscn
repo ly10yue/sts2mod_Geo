@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Texture2D" path="res://PhigrosJiu/character/selection.png" id="1"]
+
+[sub_resource type="Shader" id="Shade"]
+code = "shader_type canvas_item;
+void fragment() { float a = mix(0.97, 0.05, smoothstep(0.15, 0.75, UV.x)); a = max(a, smoothstep(0.7, 1.0, UV.y) * 0.7); COLOR = vec4(0.035, 0.055, 0.09, a); }"
+
+[sub_resource type="ShaderMaterial" id="Gradient"]
+shader = SubResource("Shade")
+
+[node name="GeopeliaSelectionBackground" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Artwork" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1")
+expand_mode = 1
+stretch_mode = 6
+mouse_filter = 2
+
+[node name="Shade" type="ColorRect" parent="."]
+material = SubResource("Gradient")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Credit" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1070.0
+offset_top = 985.0
+offset_right = 1840.0
+offset_bottom = 1025.0
+theme_override_colors/font_color = Color(0.8, 0.85, 0.92, 0.8)
+theme_override_font_sizes/font_size = 20
+text = "PHIGROS / GEOPELIA    ·    Leave All Behind / rider"
+horizontal_alignment = 2
+mouse_filter = 2

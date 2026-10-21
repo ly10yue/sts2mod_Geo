@@ -1,0 +1,874 @@
+[
+  {
+    "name": "ApexPredationCard",
+    "base": "MutationCardBase",
+    "rarity": "Ancient",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Ancient\\ApexPredationCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "BlossomFormCard",
+    "base": "SayaCardBase",
+    "rarity": "Rare",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Ancient\\BlossomFormCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "MomentarySweetnessCard",
+    "base": "BranchChoiceTemplateCard<MomentarySweetnessHealCard, MomentarySweetnessEnergyCard>",
+    "rarity": "Ancient",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Ancient\\MomentarySweetnessCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "MomentarySweetnessEnergyCard",
+    "base": "BranchChoiceOptionCardBase",
+    "rarity": "Ancient",
+    "pool": false,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Ancient\\MomentarySweetnessEnergyCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "MomentarySweetnessHealCard",
+    "base": "BranchChoiceOptionCardBase",
+    "rarity": "Ancient",
+    "pool": false,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Ancient\\MomentarySweetnessHealCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "AttackCard",
+    "base": "SayaCardBase",
+    "rarity": "Basic",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Basic\\AttackCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "DefendCard",
+    "base": "SayaCardBase",
+    "rarity": "Basic",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Basic\\DefendCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "ParasiteSeedCard",
+    "base": "MutationCardBase",
+    "rarity": "Basic",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Basic\\ParasiteSeedCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "PredatoryStrikeCard",
+    "base": "MutationCardBase",
+    "rarity": "Basic",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Basic\\PredatoryStrikeCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "BreakGroundCard",
+    "base": "BranchChoiceOptionCardBase",
+    "rarity": "Common",
+    "pool": false,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Choices\\BreakGroundCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "BreakGroundRebirthCard",
+    "base": "BranchChoiceTemplateCard<BreakGroundCard, RebirthCard>",
+    "rarity": "Common",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Choices\\BreakGroundRebirthCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "LingeringTendernessBloodCard",
+    "base": "BranchChoiceOptionCardBase",
+    "rarity": "Common",
+    "pool": false,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Choices\\LingeringTendernessBloodCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "LingeringTendernessCard",
+    "base": "BranchChoiceTemplateCard<LingeringTendernessMercyCard, LingeringTendernessBloodCard>",
+    "rarity": "Common",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Choices\\LingeringTendernessCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "LingeringTendernessMercyCard",
+    "base": "BranchChoiceOptionCardBase",
+    "rarity": "Common",
+    "pool": false,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Choices\\LingeringTendernessMercyCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "RebirthCard",
+    "base": "BranchChoiceOptionCardBase",
+    "rarity": "Common",
+    "pool": false,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Choices\\RebirthCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "ActivationCard",
+    "base": "SayaCardBase",
+    "rarity": "Common",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\ActivationCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "AgileMutationCard",
+    "base": "MutationChoiceOptionCardBase",
+    "rarity": "Rare",
+    "pool": false,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\AgileMutationCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "AnswerCard",
+    "base": "MutationCardBase",
+    "rarity": "Rare",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\AnswerCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "AssimilationCard",
+    "base": "SayaCardBase",
+    "rarity": "Rare",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\AssimilationCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "AutonomousEvolutionCard",
+    "base": "MutationCardBase",
+    "rarity": "Uncommon",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\AutonomousEvolutionCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "BackfeedingCard",
+    "base": "SayaCardBase",
+    "rarity": "Uncommon",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\BackfeedingCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "BelovedMeCard",
+    "base": "MutationCardBase",
+    "rarity": "Rare",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\BelovedMeCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "BranchSproutingCard",
+    "base": "MutationCardBase",
+    "rarity": "Uncommon",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\BranchSproutingCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "BreedingCard",
+    "base": "SayaCardBase",
+    "rarity": "Rare",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\BreedingCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "ButterflyAcidCard",
+    "base": "PigmentCellOptionCardBase",
+    "rarity": "Rare",
+    "pool": false,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\ButterflyAcidCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "CarnivorousPlantCard",
+    "base": "SayaTokenCardBase",
+    "rarity": "Rare",
+    "pool": false,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\CarnivorousPlantCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "CheekPitsCard",
+    "base": "MutationCardBase",
+    "rarity": "Common",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\CheekPitsCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "CompoundEyesCard",
+    "base": "MutationCardBase",
+    "rarity": "Uncommon",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\CompoundEyesCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "CuvierianTubulesCard",
+    "base": "SayaCardBase",
+    "rarity": "Common",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\CuvierianTubulesCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "DefensiveMucusGlandCard",
+    "base": "MutationCardBase",
+    "rarity": "Uncommon",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\DefensiveMucusGlandCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "DreamFullBranchCard",
+    "base": "SayaTokenCardBase",
+    "rarity": "Rare",
+    "pool": false,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\DreamFullBranchCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "EnvironmentalAdaptationCard",
+    "base": "MutationCardBase",
+    "rarity": "Uncommon",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\EnvironmentalAdaptationCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "EnzymeCard",
+    "base": "PigmentCellOptionCardBase",
+    "rarity": "Rare",
+    "pool": false,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\EnzymeCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "EphemeralDreamCard",
+    "base": "SayaCardBase",
+    "rarity": "Rare",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\EphemeralDreamCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "EvolutionBreathCard",
+    "base": "MutationCardBase",
+    "rarity": "Uncommon",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\EvolutionBreathCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "EvolutionCard",
+    "base": "MutationCardBase",
+    "rarity": "Rare",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\EvolutionCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "EvolutionPathCard",
+    "base": "SharedEvolutionTokenCardBase<AutonomousEvolutionCard>",
+    "rarity": "Uncommon",
+    "pool": false,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\EvolutionPathCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "ExocytosisCard",
+    "base": "SayaCardBase",
+    "rarity": "Common",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\ExocytosisCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "ExtrafloralNectaryCard",
+    "base": "MutationCardBase",
+    "rarity": "Rare",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\ExtrafloralNectaryCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "FinalGiftCard",
+    "base": "SayaTokenCardBase",
+    "rarity": "Rare",
+    "pool": false,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\FinalGiftCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "ForcedSymbiosisCard",
+    "base": "SayaCardBase",
+    "rarity": "Common",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\ForcedSymbiosisCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "GangreneProliferationCard",
+    "base": "SayaCardBase",
+    "rarity": "Common",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\GangreneProliferationCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "GeneralizedResistanceCard",
+    "base": "SayaCardBase, IGenerationCatalystTarget",
+    "rarity": "Uncommon",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\GeneralizedResistanceCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "GenerationCatalystCard",
+    "base": "SayaCardBase",
+    "rarity": "Uncommon",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\GenerationCatalystCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "GiantDevourCard",
+    "base": "MutationCardBase",
+    "rarity": "Uncommon",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\GiantDevourCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "GuanineCard",
+    "base": "PigmentCellOptionCardBase",
+    "rarity": "Rare",
+    "pool": false,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\GuanineCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "HelloQuestionCard",
+    "base": "MultiHitAttackCardBase",
+    "rarity": "Rare",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\HelloQuestionCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "HelloQuestion_RequiemCard",
+    "base": "MultiHitMutationCardBase",
+    "rarity": "Rare",
+    "pool": false,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\HelloQuestion_RequiemCard.cs",
+    "show_false": true
+  },
+  {
+    "name": "ImitationCard",
+    "base": "MutationCardBase",
+    "rarity": "Rare",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\ImitationCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "ImmuneEvasionCard",
+    "base": "MutationCardBase",
+    "rarity": "Common",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\ImmuneEvasionCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "InferiorEvolutionBreedingCard",
+    "base": "InferiorEvolutionOptionCardBase",
+    "rarity": "Rare",
+    "pool": false,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\InferiorEvolutionBreedingCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "InferiorEvolutionCard",
+    "base": "MutationCardBase",
+    "rarity": "Rare",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\InferiorEvolutionCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "InferiorEvolutionCounterCard",
+    "base": "InferiorEvolutionOptionCardBase",
+    "rarity": "Rare",
+    "pool": false,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\InferiorEvolutionCounterCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "InferiorEvolutionImproveCard",
+    "base": "InferiorEvolutionOptionCardBase",
+    "rarity": "Rare",
+    "pool": false,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\InferiorEvolutionImproveCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "KeratinCard",
+    "base": "SayaTokenCardBase",
+    "rarity": "Uncommon",
+    "pool": false,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\KeratinCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "LifeApexCard",
+    "base": "MultiHitMutationCardBase",
+    "rarity": "Uncommon",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\LifeApexCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "LifeCatalysisCard",
+    "base": "SayaCardBase",
+    "rarity": "Uncommon",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\LifeCatalysisCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "LoveCard",
+    "base": "SayaTokenCardBase",
+    "rarity": "Rare",
+    "pool": false,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\LoveCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "LoveEvolutionSongCard",
+    "base": "MutationCardBase",
+    "rarity": "Uncommon",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\LoveEvolutionSongCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "MandelbrotFigureCard",
+    "base": "MutationCardBase",
+    "rarity": "Rare",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\MandelbrotFigureCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "MutationChoiceCard",
+    "base": "MutationCardBase",
+    "rarity": "Rare",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\MutationChoiceCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "NewSproutCard",
+    "base": "SayaTokenCardBase",
+    "rarity": "Uncommon",
+    "pool": false,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\NewSproutCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "NightBalladCard",
+    "base": "SayaCardBase",
+    "rarity": "Rare",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\NightBalladCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "NutrientLeechCard",
+    "base": "SayaCardBase",
+    "rarity": "Common",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\NutrientLeechCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "NutrientTransferCard",
+    "base": "MutationCardBase",
+    "rarity": "Common",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\NutrientTransferCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "ParasiticBarbsCard",
+    "base": "SayaCardBase",
+    "rarity": "Uncommon",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\ParasiticBarbsCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "ParasiticLingeringCard",
+    "base": "SayaCardBase",
+    "rarity": "Common",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\ParasiticLingeringCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "PerfectCard",
+    "base": "SayaCardBase",
+    "rarity": "Rare",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\PerfectCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "PigmentCellCard",
+    "base": "BranchChoiceCardBase",
+    "rarity": "Rare",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\PigmentCellCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "PlunderGenesCard",
+    "base": "MutationCardBase",
+    "rarity": "Uncommon",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\PlunderGenesCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "PurulentInfiltrationCard",
+    "base": "SayaCardBase",
+    "rarity": "Uncommon",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\PurulentInfiltrationCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "RevelationCard",
+    "base": "MutationCardBase",
+    "rarity": "Common",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\RevelationCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "RigidMutationCard",
+    "base": "MutationChoiceOptionCardBase",
+    "rarity": "Rare",
+    "pool": false,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\RigidMutationCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "RotCompletionCard",
+    "base": "SayaCardBase",
+    "rarity": "Uncommon",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\RotCompletionCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "RunawayAppreciationCard",
+    "base": "SayaCardBase, IGenerationCatalystTarget",
+    "rarity": "Uncommon",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\RunawayAppreciationCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "ScrutinizeCard",
+    "base": "SayaCardBase",
+    "rarity": "Common",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\ScrutinizeCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "SecondaryGanglionCard",
+    "base": "MutationCardBase",
+    "rarity": "Uncommon",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\SecondaryGanglionCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "SecretGlanceCard",
+    "base": "SayaCardBase",
+    "rarity": "Uncommon",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\SecretGlanceCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "SharpMutationCard",
+    "base": "MutationChoiceOptionCardBase",
+    "rarity": "Rare",
+    "pool": false,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\SharpMutationCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "ShrinkMutationCard",
+    "base": "MutationChoiceOptionCardBase",
+    "rarity": "Rare",
+    "pool": false,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\ShrinkMutationCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "SporeBurstCard",
+    "base": "SayaCardBase",
+    "rarity": "Uncommon",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\SporeBurstCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "SporeRaidCard",
+    "base": "SayaCardBase",
+    "rarity": "Common",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\SporeRaidCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "StormTossedCard",
+    "base": "MutationCardBase",
+    "rarity": "Uncommon",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\StormTossedCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "StressMoltCard",
+    "base": "MutationCardBase",
+    "rarity": "Common",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\StressMoltCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "UlcerCard",
+    "base": "SayaCardBase",
+    "rarity": "Uncommon",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\UlcerCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "UnihemisphericSlowWaveSleepCard",
+    "base": "MutationCardBase",
+    "rarity": "Common",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\UnihemisphericSlowWaveSleepCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "WeakParasitismCard",
+    "base": "SayaCardBase",
+    "rarity": "Common",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\WeakParasitismCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "WingbeatCard",
+    "base": "MultiHitMutationCardBase",
+    "rarity": "Rare",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\WingbeatCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "WitherSeedCard",
+    "base": "SayaCardBase",
+    "rarity": "Rare",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Evolution\\WitherSeedCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "BrambleCarapaceCard",
+    "base": "SayaCardBase",
+    "rarity": "Common",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Retaliation\\BrambleCarapaceCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "BranchingGrowthCard",
+    "base": "SayaCardBase",
+    "rarity": "Rare",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Retaliation\\BranchingGrowthCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "BurstIntoBlossomCard",
+    "base": "SayaCardBase",
+    "rarity": "Rare",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Retaliation\\BurstIntoBlossomCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "ClumsyThornsCard",
+    "base": "SayaCardBase",
+    "rarity": "Rare",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Retaliation\\ClumsyThornsCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "CorrosiveShellCard",
+    "base": "SayaCardBase",
+    "rarity": "Uncommon",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Retaliation\\CorrosiveShellCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "FallingBlossomIntentCard",
+    "base": "MutationCardBase",
+    "rarity": "Common",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Retaliation\\FallingBlossomIntentCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "GentleWhisperCard",
+    "base": "SayaCardBase",
+    "rarity": "Common",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Retaliation\\GentleWhisperCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "InducedAttackCard",
+    "base": "SayaCardBase",
+    "rarity": "Rare",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Retaliation\\InducedAttackCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "IronbarkPostureCard",
+    "base": "SayaCardBase",
+    "rarity": "Uncommon",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Retaliation\\IronbarkPostureCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "NeedleBarrageCard",
+    "base": "SayaCardBase",
+    "rarity": "Common",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Retaliation\\NeedleBarrageCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "ProlongBloomCard",
+    "base": "SayaCardBase",
+    "rarity": "Common",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Retaliation\\ProlongBloomCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "ScarletBloomCard",
+    "base": "SayaCardBase",
+    "rarity": "Uncommon",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Retaliation\\ScarletBloomCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "SharedVowCard",
+    "base": "SayaCardBase",
+    "rarity": "Rare",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Retaliation\\SharedVowCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "ThornAgonyCard",
+    "base": "SayaCardBase",
+    "rarity": "Rare",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Retaliation\\ThornAgonyCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "ThorncrownPierceCard",
+    "base": "SayaCardBase",
+    "rarity": "Common",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Retaliation\\ThorncrownPierceCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "ThornEntangleCard",
+    "base": "SayaCardBase",
+    "rarity": "Uncommon",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Retaliation\\ThornEntangleCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "ThornOvergrowthCard",
+    "base": "MultiHitAttackCardBase",
+    "rarity": "Uncommon",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Retaliation\\ThornOvergrowthCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "ThornyRoseCard",
+    "base": "SayaCardBase",
+    "rarity": "Uncommon",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Retaliation\\ThornyRoseCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "WalkToWorldsEndWithBelovedCard",
+    "base": "SayaCardBase",
+    "rarity": "Rare",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Retaliation\\WalkToWorldsEndWithBelovedCard.cs",
+    "show_false": false
+  },
+  {
+    "name": "WoodGallNoduleCard",
+    "base": "MutationCardBase",
+    "rarity": "Common",
+    "pool": true,
+    "file": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\sts2-saya-inspection\\api1110\\figure_Saya.Scripts.Cards.Retaliation\\WoodGallNoduleCard.cs",
+    "show_false": false
+  }
+]

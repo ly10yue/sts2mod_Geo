@@ -1,0 +1,36 @@
+{
+  "result": "PASS",
+  "checks": 433,
+  "cards": 85,
+  "uniqueSongs": 85,
+  "uniqueImages": 85,
+  "exhaustCards": 7,
+  "visualScale": 0.85,
+  "bands": {
+    "Basic": {
+      "count": 4,
+      "minimum": 12.4,
+      "maximum": 13.4
+    },
+    "Common": {
+      "count": 25,
+      "minimum": 13.6,
+      "maximum": 14.9
+    },
+    "Uncommon": {
+      "count": 29,
+      "minimum": 15.1,
+      "maximum": 16.2
+    },
+    "Rare": {
+      "count": 25,
+      "minimum": 16.6,
+      "maximum": 17.6
+    },
+    "Ancient": {
+      "count": 2,
+      "minimum": 17.9,
+      "maximum": 18.0
+    }
+  }
+}

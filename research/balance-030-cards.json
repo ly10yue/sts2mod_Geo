@@ -1,0 +1,2456 @@
+[
+  {
+    "className": "GeopeliaStrike",
+    "name": "击弦",
+    "rarity": "Basic",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Attack",
+    "steps": [
+      {
+        "kind": "Attack",
+        "value": 6,
+        "upgrade": 9
+      }
+    ],
+    "themes": [
+      "基础"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_strike.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_STRIKE",
+    "keywords": [],
+    "description": "造成{V0:diff()}点伤害。"
+  },
+  {
+    "className": "GeopeliaDefend",
+    "name": "挡拍",
+    "rarity": "Basic",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Block",
+        "value": 5,
+        "upgrade": 8
+      }
+    ],
+    "themes": [
+      "基础"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_defend.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_DEFEND",
+    "keywords": [],
+    "description": "获得{V0:diff()}点格挡。"
+  },
+  {
+    "className": "GeopeliaOpeningBeat",
+    "name": "起拍采样",
+    "rarity": "Basic",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Block",
+        "value": 4,
+        "upgrade": 6
+      },
+      {
+        "kind": "Signal",
+        "value": 2,
+        "upgrade": 3
+      }
+    ],
+    "themes": [
+      "信号"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_opening_beat.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_OPENING_BEAT",
+    "keywords": [],
+    "description": "获得{V0:diff()}点格挡。\n获得{V1:diff()}点[gold]信号[/gold]。"
+  },
+  {
+    "className": "GeopeliaCounterbeat",
+    "name": "回声试音",
+    "rarity": "Basic",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Attack",
+    "steps": [
+      {
+        "kind": "AttackBonus",
+        "value": 4,
+        "upgrade": 6,
+        "x": 2,
+        "ux": 2,
+        "condition": "signal",
+        "threshold": 1,
+        "pay": 1
+      }
+    ],
+    "themes": [
+      "多牌",
+      "信号"
+    ],
+    "replays": 1,
+    "portrait": "geopelia_christmas_carol.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_COUNTERBEAT",
+    "keywords": [],
+    "description": "额外打出1次。\n造成{V0:diff()}点伤害。若有至少1点信号，消耗1点信号并额外造成{X0:diff()}点伤害。"
+  },
+  {
+    "className": "GeopeliaEltaw",
+    "name": "回环踏步",
+    "rarity": "Common",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Attack",
+    "steps": [
+      {
+        "kind": "Attack",
+        "value": 4,
+        "upgrade": 5
+      }
+    ],
+    "themes": [
+      "多牌"
+    ],
+    "replays": 1,
+    "portrait": "geopelia_eltaw.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_ELTAW",
+    "keywords": [],
+    "description": "额外打出1次。\n造成{V0:diff()}点伤害。"
+  },
+  {
+    "className": "GeopeliaIMustSayNo",
+    "name": "静音拒绝",
+    "rarity": "Common",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Block",
+        "value": 6,
+        "upgrade": 9
+      },
+      {
+        "kind": "Weak",
+        "value": 1,
+        "upgrade": 1
+      }
+    ],
+    "themes": [
+      "基础"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_i_must_say_no.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_I_MUST_SAY_NO",
+    "keywords": [],
+    "description": "获得{V0:diff()}点格挡。\n给予目标{V1:diff()}层虚弱。"
+  },
+  {
+    "className": "GeopeliaCereris",
+    "name": "双星引航",
+    "rarity": "Common",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Attack",
+    "steps": [
+      {
+        "kind": "AllAttack",
+        "value": 6,
+        "upgrade": 8
+      },
+      {
+        "kind": "Signal",
+        "value": 1,
+        "upgrade": 1
+      }
+    ],
+    "themes": [
+      "信号"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_cereris.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_CERERIS",
+    "keywords": [],
+    "description": "对所有敌人造成{V0:diff()}点伤害。\n获得{V1:diff()}点[gold]信号[/gold]。"
+  },
+  {
+    "className": "GeopeliaReimei",
+    "name": "晨光采样",
+    "rarity": "Common",
+    "cost": 0,
+    "upgradeCost": 0,
+    "type": "Attack",
+    "steps": [
+      {
+        "kind": "Attack",
+        "value": 3,
+        "upgrade": 5
+      },
+      {
+        "kind": "Signal",
+        "value": 1,
+        "upgrade": 1
+      }
+    ],
+    "themes": [
+      "信号"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_reimei.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_REIMEI",
+    "keywords": [],
+    "description": "造成{V0:diff()}点伤害。\n获得{V1:diff()}点[gold]信号[/gold]。"
+  },
+  {
+    "className": "GeopeliaRebirth",
+    "name": "重启脉冲",
+    "rarity": "Common",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Block",
+        "value": 11,
+        "upgrade": 15
+      },
+      {
+        "kind": "Draw",
+        "value": 2,
+        "upgrade": 2
+      },
+      {
+        "kind": "EnergyDebt",
+        "value": 1,
+        "upgrade": 1
+      }
+    ],
+    "themes": [
+      "透支"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_rebirth.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_REBIRTH",
+    "keywords": [],
+    "description": "获得{V0:diff()}点格挡。\n抽{V1:diff()}张牌。\n[red]透支[/red]：下回合失去{V2:diff()}点能量。"
+  },
+  {
+    "className": "GeopeliaLuminescence",
+    "name": "余辉二重奏",
+    "rarity": "Common",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Attack",
+    "steps": [
+      {
+        "kind": "Attack",
+        "value": 3,
+        "upgrade": 4
+      },
+      {
+        "kind": "Signal",
+        "value": 1,
+        "upgrade": 1
+      }
+    ],
+    "themes": [
+      "多牌",
+      "信号"
+    ],
+    "replays": 1,
+    "portrait": "geopelia_luminescence.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_LUMINESCENCE",
+    "keywords": [],
+    "description": "额外打出1次。\n造成{V0:diff()}点伤害。\n获得{V1:diff()}点[gold]信号[/gold]。"
+  },
+  {
+    "className": "GeopeliaTap",
+    "name": "点按",
+    "rarity": "Common",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Attack",
+    "steps": [
+      {
+        "kind": "Attack",
+        "value": 7,
+        "upgrade": 10
+      },
+      {
+        "kind": "Draw",
+        "value": 1,
+        "upgrade": 1,
+        "condition": "plays",
+        "threshold": 3
+      }
+    ],
+    "themes": [
+      "多牌"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_feast.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_TAP",
+    "keywords": [],
+    "description": "造成{V0:diff()}点伤害。\n若本回合此前已打出至少3张牌，抽{V1:diff()}张牌。"
+  },
+  {
+    "className": "GeopeliaHold",
+    "name": "长按",
+    "rarity": "Common",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Block",
+        "value": 8,
+        "upgrade": 11
+      },
+      {
+        "kind": "Signal",
+        "value": 1,
+        "upgrade": 1,
+        "condition": "plays",
+        "threshold": 2
+      }
+    ],
+    "themes": [
+      "多牌",
+      "信号"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_happy_disease.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_HOLD",
+    "keywords": [],
+    "description": "获得{V0:diff()}点格挡。\n若本回合此前已打出至少2张牌，获得{V1:diff()}点[gold]信号[/gold]。"
+  },
+  {
+    "className": "GeopeliaFlick",
+    "name": "轻拂",
+    "rarity": "Common",
+    "cost": 0,
+    "upgradeCost": 0,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Block",
+        "value": 3,
+        "upgrade": 5
+      },
+      {
+        "kind": "Signal",
+        "value": 2,
+        "upgrade": 2
+      },
+      {
+        "kind": "DrawDebt",
+        "value": 1,
+        "upgrade": 1
+      }
+    ],
+    "themes": [
+      "透支",
+      "信号"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_i_must_say_no.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_FLICK",
+    "keywords": [],
+    "description": "获得{V0:diff()}点格挡。\n获得{V1:diff()}点[gold]信号[/gold]。\n[red]透支[/red]：下回合少抽{V2:diff()}张牌。"
+  },
+  {
+    "className": "GeopeliaDrag",
+    "name": "滑行",
+    "rarity": "Common",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Attack",
+    "steps": [
+      {
+        "kind": "Attack",
+        "value": 6,
+        "upgrade": 9
+      },
+      {
+        "kind": "Draw",
+        "value": 1,
+        "upgrade": 1
+      }
+    ],
+    "themes": [
+      "多牌"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_luminescence.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_DRAG",
+    "keywords": [],
+    "description": "造成{V0:diff()}点伤害。\n抽{V1:diff()}张牌。"
+  },
+  {
+    "className": "GeopeliaSync",
+    "name": "同步",
+    "rarity": "Common",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Signal",
+        "value": 3,
+        "upgrade": 4
+      },
+      {
+        "kind": "Draw",
+        "value": 1,
+        "upgrade": 1
+      }
+    ],
+    "themes": [
+      "信号"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_opening_beat.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_SYNC",
+    "keywords": [],
+    "description": "获得{V0:diff()}点[gold]信号[/gold]。\n抽{V1:diff()}张牌。"
+  },
+  {
+    "className": "GeopeliaProbe",
+    "name": "寻频",
+    "rarity": "Common",
+    "cost": 0,
+    "upgradeCost": 0,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Signal",
+        "value": 3,
+        "upgrade": 4
+      }
+    ],
+    "themes": [
+      "信号"
+    ],
+    "replays": 0,
+    "keywords": [
+      "Exhaust"
+    ],
+    "portrait": "geopelia_rebirth.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_PROBE",
+    "description": "获得{V0:diff()}点[gold]信号[/gold]。"
+  },
+  {
+    "className": "GeopeliaCarrier",
+    "name": "载波",
+    "rarity": "Common",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Attack",
+    "steps": [
+      {
+        "kind": "AttackBonus",
+        "value": 6,
+        "upgrade": 9,
+        "x": 6,
+        "ux": 7,
+        "condition": "signal",
+        "threshold": 2,
+        "pay": 2
+      }
+    ],
+    "themes": [
+      "信号"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_reimei.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_CARRIER",
+    "keywords": [],
+    "description": "造成{V0:diff()}点伤害。若有至少2点信号，消耗2点信号并额外造成{X0:diff()}点伤害。"
+  },
+  {
+    "className": "GeopeliaEnvelope",
+    "name": "包络护幕",
+    "rarity": "Common",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "BlockBonus",
+        "value": 6,
+        "upgrade": 8,
+        "x": 6,
+        "ux": 8,
+        "condition": "signal",
+        "threshold": 2,
+        "pay": 2
+      }
+    ],
+    "themes": [
+      "信号"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_retribution.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_ENVELOPE",
+    "keywords": [],
+    "description": "获得{V0:diff()}点格挡。若有至少2点信号，消耗2点信号并额外获得{X0:diff()}点格挡。"
+  },
+  {
+    "className": "GeopeliaAdvance",
+    "name": "提前入拍",
+    "rarity": "Common",
+    "cost": 0,
+    "upgradeCost": 0,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Energy",
+        "value": 2,
+        "upgrade": 2
+      },
+      {
+        "kind": "EnergyDebt",
+        "value": 2,
+        "upgrade": 1
+      }
+    ],
+    "themes": [
+      "透支"
+    ],
+    "replays": 0,
+    "keywords": [
+      "Exhaust"
+    ],
+    "portrait": "geopelia_strike.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_ADVANCE",
+    "description": "获得{V0:diff()}点能量。\n[red]透支[/red]：下回合失去{V1:diff()}点能量。"
+  },
+  {
+    "className": "GeopeliaRush",
+    "name": "抢拍",
+    "rarity": "Common",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Attack",
+    "steps": [
+      {
+        "kind": "Attack",
+        "value": 15,
+        "upgrade": 20
+      },
+      {
+        "kind": "EnergyDebt",
+        "value": 1,
+        "upgrade": 1
+      }
+    ],
+    "themes": [
+      "透支"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_terabyte_connection.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_RUSH",
+    "keywords": [],
+    "description": "造成{V0:diff()}点伤害。\n[red]透支[/red]：下回合失去{V1:diff()}点能量。"
+  },
+  {
+    "className": "GeopeliaBorrowShield",
+    "name": "预支护幕",
+    "rarity": "Common",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Block",
+        "value": 13,
+        "upgrade": 17
+      },
+      {
+        "kind": "DrawDebt",
+        "value": 1,
+        "upgrade": 1
+      }
+    ],
+    "themes": [
+      "透支"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_absolute_disorder.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_BORROW_SHIELD",
+    "keywords": [],
+    "description": "获得{V0:diff()}点格挡。\n[red]透支[/red]：下回合少抽{V1:diff()}张牌。"
+  },
+  {
+    "className": "GeopeliaEchoNeedle",
+    "name": "回音针",
+    "rarity": "Common",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Attack",
+    "steps": [
+      {
+        "kind": "Attack",
+        "value": 2,
+        "upgrade": 3
+      }
+    ],
+    "themes": [
+      "多牌"
+    ],
+    "replays": 2,
+    "portrait": "geopelia_believe_light.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_ECHO_NEEDLE",
+    "keywords": [],
+    "description": "额外打出2次。\n造成{V0:diff()}点伤害。"
+  },
+  {
+    "className": "GeopeliaReplayFootnote",
+    "name": "重奏脚注",
+    "rarity": "Common",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Block",
+        "value": 3,
+        "upgrade": 4
+      },
+      {
+        "kind": "Signal",
+        "value": 1,
+        "upgrade": 1,
+        "condition": "replay"
+      }
+    ],
+    "themes": [
+      "多牌",
+      "信号"
+    ],
+    "replays": 1,
+    "portrait": "geopelia_cereris.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_REPLAY_FOOTNOTE",
+    "keywords": [],
+    "description": "额外打出1次。\n获得{V0:diff()}点格挡。\n若此次为额外打出或自动重放，获得{V1:diff()}点[gold]信号[/gold]。"
+  },
+  {
+    "className": "GeopeliaRest",
+    "name": "休止符",
+    "rarity": "Common",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Block",
+        "value": 7,
+        "upgrade": 10
+      },
+      {
+        "kind": "NextEnergy",
+        "value": 1,
+        "upgrade": 1
+      }
+    ],
+    "themes": [
+      "基础"
+    ],
+    "replays": 0,
+    "keywords": [
+      "Exhaust"
+    ],
+    "portrait": "geopelia_christmas_carol.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_REST",
+    "description": "获得{V0:diff()}点格挡。\n下回合获得{V1:diff()}点能量。"
+  },
+  {
+    "className": "GeopeliaRedline",
+    "name": "红线截停",
+    "rarity": "Common",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Attack",
+    "steps": [
+      {
+        "kind": "AttackBonus",
+        "value": 8,
+        "upgrade": 11,
+        "x": 4,
+        "ux": 4,
+        "condition": "debt"
+      }
+    ],
+    "themes": [
+      "透支"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_crush_beta.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_REDLINE",
+    "keywords": [],
+    "description": "造成{V0:diff()}点伤害。若有待偿付的透支，额外造成{X0:diff()}点伤害。"
+  },
+  {
+    "className": "GeopeliaScavenge",
+    "name": "拾音",
+    "rarity": "Common",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Draw",
+        "value": 2,
+        "upgrade": 3
+      },
+      {
+        "kind": "Signal",
+        "value": 1,
+        "upgrade": 1
+      },
+      {
+        "kind": "DrawDebt",
+        "value": 1,
+        "upgrade": 1
+      }
+    ],
+    "themes": [
+      "透支",
+      "信号"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_dance_with_silence.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_SCAVENGE",
+    "keywords": [],
+    "description": "抽{V0:diff()}张牌。\n获得{V1:diff()}点[gold]信号[/gold]。\n[red]透支[/red]：下回合少抽{V2:diff()}张牌。"
+  },
+  {
+    "className": "GeopeliaDelayBeat",
+    "name": "延迟拍点",
+    "rarity": "Common",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Attack",
+    "steps": [
+      {
+        "kind": "Attack",
+        "value": 14,
+        "upgrade": 18
+      },
+      {
+        "kind": "BlockDebt",
+        "value": 50,
+        "upgrade": 50
+      }
+    ],
+    "themes": [
+      "透支"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_defend.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_DELAY_BEAT",
+    "keywords": [],
+    "description": "造成{V0:diff()}点伤害。\n[red]透支[/red]：下回合牌获得的格挡减少{V1:diff()}%。同类透支不叠加。"
+  },
+  {
+    "className": "GeopeliaLowpass",
+    "name": "低通滤波",
+    "rarity": "Common",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Block",
+        "value": 5,
+        "upgrade": 7
+      },
+      {
+        "kind": "Weak",
+        "value": 1,
+        "upgrade": 2
+      }
+    ],
+    "themes": [
+      "基础"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_diamond_eyes.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_LOWPASS",
+    "keywords": [],
+    "description": "获得{V0:diff()}点格挡。\n给予目标{V1:diff()}层虚弱。"
+  },
+  {
+    "className": "GeopeliaScanline",
+    "name": "扫描线",
+    "rarity": "Common",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Attack",
+    "steps": [
+      {
+        "kind": "AllAttack",
+        "value": 4,
+        "upgrade": 6
+      },
+      {
+        "kind": "Draw",
+        "value": 1,
+        "upgrade": 1,
+        "condition": "plays",
+        "threshold": 3
+      }
+    ],
+    "themes": [
+      "多牌"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_distorted_fate.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_SCANLINE",
+    "keywords": [],
+    "description": "对所有敌人造成{V0:diff()}点伤害。\n若本回合此前已打出至少3张牌，抽{V1:diff()}张牌。"
+  },
+  {
+    "className": "GeopeliaDistortedFate",
+    "name": "失真预警",
+    "rarity": "Uncommon",
+    "cost": 2,
+    "upgradeCost": 2,
+    "type": "Attack",
+    "steps": [
+      {
+        "kind": "Attack",
+        "value": 26,
+        "upgrade": 34
+      },
+      {
+        "kind": "DamageDebt",
+        "value": 50,
+        "upgrade": 50
+      }
+    ],
+    "themes": [
+      "透支"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_distorted_fate.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_DISTORTED_FATE",
+    "keywords": [],
+    "description": "造成{V0:diff()}点伤害。\n[red]透支[/red]：下回合牌的伤害减少{V1:diff()}%。同类透支不叠加。"
+  },
+  {
+    "className": "GeopeliaDanceWithSilence",
+    "name": "静默的间奏",
+    "rarity": "Uncommon",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Draw",
+        "value": 3,
+        "upgrade": 4
+      },
+      {
+        "kind": "BlockDebt",
+        "value": 50,
+        "upgrade": 50
+      }
+    ],
+    "themes": [
+      "透支",
+      "多牌"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_dance_with_silence.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_DANCE_WITH_SILENCE",
+    "keywords": [],
+    "description": "抽{V0:diff()}张牌。\n[red]透支[/red]：下回合牌获得的格挡减少{V1:diff()}%。同类透支不叠加。"
+  },
+  {
+    "className": "GeopeliaTerabyteConnection",
+    "name": "万兆接续",
+    "rarity": "Uncommon",
+    "cost": 2,
+    "upgradeCost": 2,
+    "type": "Attack",
+    "steps": [
+      {
+        "kind": "Attack",
+        "value": 8,
+        "upgrade": 10
+      },
+      {
+        "kind": "Signal",
+        "value": 1,
+        "upgrade": 1
+      }
+    ],
+    "themes": [
+      "多牌",
+      "信号"
+    ],
+    "replays": 1,
+    "portrait": "geopelia_terabyte_connection.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_TERABYTE_CONNECTION",
+    "keywords": [],
+    "description": "额外打出1次。\n造成{V0:diff()}点伤害。\n获得{V1:diff()}点[gold]信号[/gold]。"
+  },
+  {
+    "className": "GeopeliaDiamondEyes",
+    "name": "钻石取样",
+    "rarity": "Uncommon",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Signal",
+        "value": 4,
+        "upgrade": 5
+      },
+      {
+        "kind": "Block",
+        "value": 4,
+        "upgrade": 6
+      }
+    ],
+    "themes": [
+      "信号"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_diamond_eyes.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_DIAMOND_EYES",
+    "keywords": [],
+    "description": "获得{V0:diff()}点[gold]信号[/gold]。\n获得{V1:diff()}点格挡。"
+  },
+  {
+    "className": "GeopeliaRetribution",
+    "name": "回环校正",
+    "rarity": "Uncommon",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Attack",
+    "steps": [
+      {
+        "kind": "Attack",
+        "value": 8,
+        "upgrade": 11
+      }
+    ],
+    "themes": [
+      "多牌",
+      "信号"
+    ],
+    "replays": 0,
+    "signalReplayCost": 3,
+    "portrait": "geopelia_retribution.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_RETRIBUTION",
+    "keywords": [],
+    "description": "若有至少3点信号，消耗这些信号并额外打出一次。\n造成{V0:diff()}点伤害。"
+  },
+  {
+    "className": "GeopeliaBelieveLight",
+    "name": "信光成帧",
+    "rarity": "Uncommon",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Power",
+    "steps": [
+      {
+        "kind": "Power",
+        "value": 1,
+        "upgrade": 2,
+        "power": "Aerial"
+      }
+    ],
+    "themes": [
+      "信号"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_believe_light.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_BELIEVE_LIGHT",
+    "keywords": [],
+    "description": "获得[gold]信光成帧[/gold]：每回合开始时，获得{V0:diff()}点信号。"
+  },
+  {
+    "className": "GeopeliaDoubleExposure",
+    "name": "二重曝光",
+    "rarity": "Uncommon",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Power",
+        "value": 1,
+        "upgrade": 2,
+        "power": "NextRepeat"
+      }
+    ],
+    "themes": [
+      "多牌"
+    ],
+    "replays": 0,
+    "keywords": [
+      "Exhaust"
+    ],
+    "portrait": "geopelia_rebirth.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_DOUBLE_EXPOSURE",
+    "description": "获得[gold]二重曝光[/gold]：本回合接下来{V0:diff()}张手动打出的攻击牌额外打出一次。"
+  },
+  {
+    "className": "GeopeliaCounterpoint",
+    "name": "对位声部",
+    "rarity": "Uncommon",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Block",
+        "value": 8,
+        "upgrade": 11
+      },
+      {
+        "kind": "Signal",
+        "value": 2,
+        "upgrade": 2,
+        "condition": "lastAttack"
+      }
+    ],
+    "themes": [
+      "多牌",
+      "信号"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_reimei.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_COUNTERPOINT",
+    "keywords": [],
+    "description": "获得{V0:diff()}点格挡。\n若本回合此前最后打出的是攻击牌，获得{V1:diff()}点[gold]信号[/gold]。"
+  },
+  {
+    "className": "GeopeliaPolyphony",
+    "name": "复调",
+    "rarity": "Uncommon",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Power",
+    "steps": [
+      {
+        "kind": "Power",
+        "value": 3,
+        "upgrade": 4,
+        "power": "PulseGuard"
+      }
+    ],
+    "themes": [
+      "多牌"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_retribution.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_POLYPHONY",
+    "keywords": [],
+    "description": "获得[gold]复调[/gold]：每打出3张牌，获得{V0:diff()}点格挡。每回合最多触发4次。"
+  },
+  {
+    "className": "GeopeliaChannelMux",
+    "name": "信道复用",
+    "rarity": "Uncommon",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Block",
+        "value": 4,
+        "upgrade": 4
+      },
+      {
+        "kind": "Draw",
+        "value": 3,
+        "upgrade": 4,
+        "pay": 3
+      }
+    ],
+    "themes": [
+      "信号",
+      "多牌"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_strike.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_CHANNEL_MUX",
+    "keywords": [],
+    "description": "获得{V0:diff()}点格挡。\n消耗3点信号：抽{V1:diff()}张牌。"
+  },
+  {
+    "className": "GeopeliaSignalBurst",
+    "name": "信号爆破",
+    "rarity": "Uncommon",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Attack",
+    "steps": [
+      {
+        "kind": "SignalAttack",
+        "value": 4,
+        "upgrade": 6,
+        "x": 3,
+        "ux": 4,
+        "cap": 4
+      }
+    ],
+    "themes": [
+      "信号"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_terabyte_connection.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_SIGNAL_BURST",
+    "keywords": [],
+    "description": "消耗至多4点信号。造成{V0:diff()}点伤害，每消耗1点信号，额外造成{X0:diff()}点伤害。"
+  },
+  {
+    "className": "GeopeliaShieldArray",
+    "name": "频域护阵",
+    "rarity": "Uncommon",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "SignalBlock",
+        "value": 5,
+        "upgrade": 7,
+        "x": 3,
+        "ux": 3,
+        "cap": 4
+      }
+    ],
+    "themes": [
+      "信号"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_absolute_disorder.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_SHIELD_ARRAY",
+    "keywords": [],
+    "description": "消耗至多4点信号。获得{V0:diff()}点格挡，每消耗1点信号，额外获得{X0:diff()}点格挡。"
+  },
+  {
+    "className": "GeopeliaBorrowedLight",
+    "name": "借来的光",
+    "rarity": "Uncommon",
+    "cost": 0,
+    "upgradeCost": 0,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Energy",
+        "value": 2,
+        "upgrade": 3
+      },
+      {
+        "kind": "Draw",
+        "value": 1,
+        "upgrade": 1
+      },
+      {
+        "kind": "EnergyDebt",
+        "value": 2,
+        "upgrade": 2
+      }
+    ],
+    "themes": [
+      "透支"
+    ],
+    "replays": 0,
+    "keywords": [
+      "Exhaust"
+    ],
+    "portrait": "geopelia_believe_light.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_BORROWED_LIGHT",
+    "description": "获得{V0:diff()}点能量。\n抽{V1:diff()}张牌。\n[red]透支[/red]：下回合失去{V2:diff()}点能量。"
+  },
+  {
+    "className": "GeopeliaDeadline",
+    "name": "截止时刻",
+    "rarity": "Uncommon",
+    "cost": 2,
+    "upgradeCost": 2,
+    "type": "Attack",
+    "steps": [
+      {
+        "kind": "Attack",
+        "value": 28,
+        "upgrade": 36
+      },
+      {
+        "kind": "DrawDebt",
+        "value": 2,
+        "upgrade": 2
+      }
+    ],
+    "themes": [
+      "透支"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_cereris.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_DEADLINE",
+    "keywords": [],
+    "description": "造成{V0:diff()}点伤害。\n[red]透支[/red]：下回合少抽{V1:diff()}张牌。"
+  },
+  {
+    "className": "GeopeliaRecharge",
+    "name": "静候重连",
+    "rarity": "Uncommon",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Block",
+        "value": 9,
+        "upgrade": 12
+      },
+      {
+        "kind": "RepayEnergy",
+        "value": 1,
+        "upgrade": 1
+      }
+    ],
+    "themes": [
+      "透支"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_christmas_carol.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_RECHARGE",
+    "keywords": [],
+    "description": "获得{V0:diff()}点格挡。\n减少{V1:diff()}点下回合的能量透支。"
+  },
+  {
+    "className": "GeopeliaRefinance",
+    "name": "债务置换",
+    "rarity": "Uncommon",
+    "cost": 0,
+    "upgradeCost": 0,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "RepayEnergy",
+        "value": 2,
+        "upgrade": 3
+      },
+      {
+        "kind": "Draw",
+        "value": 1,
+        "upgrade": 2
+      },
+      {
+        "kind": "DrawDebt",
+        "value": 1,
+        "upgrade": 1
+      }
+    ],
+    "themes": [
+      "透支"
+    ],
+    "replays": 0,
+    "keywords": [
+      "Exhaust"
+    ],
+    "portrait": "geopelia_crush_beta.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_REFINANCE",
+    "description": "减少{V0:diff()}点下回合的能量透支。\n抽{V1:diff()}张牌。\n[red]透支[/red]：下回合少抽{V2:diff()}张牌。"
+  },
+  {
+    "className": "GeopeliaInterest",
+    "name": "借拍利息",
+    "rarity": "Uncommon",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Power",
+    "steps": [
+      {
+        "kind": "Power",
+        "value": 4,
+        "upgrade": 6,
+        "power": "OverdriveGuard"
+      }
+    ],
+    "themes": [
+      "透支"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_dance_with_silence.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_INTEREST",
+    "keywords": [],
+    "description": "获得[gold]借拍利息[/gold]：每次打出一张带透支代价的牌，获得{V0:diff()}点格挡。每次结算最多触发一次。"
+  },
+  {
+    "className": "GeopeliaOverspeed",
+    "name": "超速巡航",
+    "rarity": "Uncommon",
+    "cost": 0,
+    "upgradeCost": 0,
+    "type": "Attack",
+    "steps": [
+      {
+        "kind": "Attack",
+        "value": 10,
+        "upgrade": 14
+      },
+      {
+        "kind": "EnergyDebt",
+        "value": 1,
+        "upgrade": 1
+      },
+      {
+        "kind": "DrawDebt",
+        "value": 1,
+        "upgrade": 1
+      }
+    ],
+    "themes": [
+      "透支"
+    ],
+    "replays": 0,
+    "keywords": [
+      "Exhaust"
+    ],
+    "portrait": "geopelia_defend.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_OVERSPEED",
+    "description": "造成{V0:diff()}点伤害。\n[red]透支[/red]：下回合失去{V1:diff()}点能量。\n[red]透支[/red]：下回合少抽{V2:diff()}张牌。"
+  },
+  {
+    "className": "GeopeliaAfterglow",
+    "name": "余像防线",
+    "rarity": "Uncommon",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Power",
+    "steps": [
+      {
+        "kind": "Power",
+        "value": 2,
+        "upgrade": 3,
+        "power": "EchoGuard"
+      }
+    ],
+    "themes": [
+      "多牌"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_diamond_eyes.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_AFTERGLOW",
+    "keywords": [],
+    "description": "获得[gold]余像防线[/gold]：自动重放或额外打出的牌结算后，获得{V0:diff()}点格挡。每回合最多6次。"
+  },
+  {
+    "className": "GeopeliaTimeSignature",
+    "name": "变拍",
+    "rarity": "Uncommon",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Attack",
+    "steps": [
+      {
+        "kind": "Attack",
+        "value": 7,
+        "upgrade": 10
+      },
+      {
+        "kind": "Draw",
+        "value": 1,
+        "upgrade": 1,
+        "condition": "lastSkill"
+      }
+    ],
+    "themes": [
+      "多牌"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_distorted_fate.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_TIME_SIGNATURE",
+    "keywords": [],
+    "description": "造成{V0:diff()}点伤害。\n若本回合此前最后打出的是技能牌，抽{V1:diff()}张牌。"
+  },
+  {
+    "className": "GeopeliaGraceNote",
+    "name": "装饰音",
+    "rarity": "Uncommon",
+    "cost": 0,
+    "upgradeCost": 0,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Signal",
+        "value": 2,
+        "upgrade": 3
+      },
+      {
+        "kind": "Draw",
+        "value": 1,
+        "upgrade": 1
+      },
+      {
+        "kind": "SignalDebt",
+        "value": 2,
+        "upgrade": 2
+      }
+    ],
+    "themes": [
+      "透支",
+      "信号"
+    ],
+    "replays": 0,
+    "keywords": [
+      "Exhaust"
+    ],
+    "portrait": "geopelia_eltaw.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_GRACE_NOTE",
+    "description": "获得{V0:diff()}点[gold]信号[/gold]。\n抽{V1:diff()}张牌。\n[red]透支[/red]：下回合失去至多{V2:diff()}点信号。"
+  },
+  {
+    "className": "GeopeliaColdStart",
+    "name": "冷启动",
+    "rarity": "Uncommon",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Signal",
+        "value": 6,
+        "upgrade": 8
+      },
+      {
+        "kind": "DrawDebt",
+        "value": 1,
+        "upgrade": 1
+      }
+    ],
+    "themes": [
+      "透支",
+      "信号"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_feast.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_COLD_START",
+    "keywords": [],
+    "description": "获得{V0:diff()}点[gold]信号[/gold]。\n[red]透支[/red]：下回合少抽{V1:diff()}张牌。"
+  },
+  {
+    "className": "GeopeliaHandOff",
+    "name": "接力频段",
+    "rarity": "Uncommon",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Attack",
+    "steps": [
+      {
+        "kind": "Attack",
+        "value": 10,
+        "upgrade": 14
+      },
+      {
+        "kind": "NextEnergy",
+        "value": 1,
+        "upgrade": 1,
+        "pay": 2
+      }
+    ],
+    "themes": [
+      "信号"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_happy_disease.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_HAND_OFF",
+    "keywords": [],
+    "description": "造成{V0:diff()}点伤害。\n消耗2点信号：下回合获得{V1:diff()}点能量。"
+  },
+  {
+    "className": "GeopeliaChorus",
+    "name": "合唱坐标",
+    "rarity": "Uncommon",
+    "cost": 2,
+    "upgradeCost": 2,
+    "type": "Attack",
+    "steps": [
+      {
+        "kind": "AllAttack",
+        "value": 11,
+        "upgrade": 15
+      },
+      {
+        "kind": "AllWeak",
+        "value": 2,
+        "upgrade": 2,
+        "pay": 2
+      }
+    ],
+    "themes": [
+      "信号"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_i_must_say_no.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_CHORUS",
+    "keywords": [],
+    "description": "对所有敌人造成{V0:diff()}点伤害。\n消耗2点信号：给予所有敌人{V1:diff()}层虚弱。"
+  },
+  {
+    "className": "GeopeliaCadence",
+    "name": "收束终止式",
+    "rarity": "Uncommon",
+    "cost": 2,
+    "upgradeCost": 2,
+    "type": "Attack",
+    "steps": [
+      {
+        "kind": "AttackBonus",
+        "value": 4,
+        "upgrade": 5,
+        "x": 3,
+        "ux": 3,
+        "condition": "signal",
+        "threshold": 1,
+        "pay": 1
+      }
+    ],
+    "themes": [
+      "多牌",
+      "信号"
+    ],
+    "replays": 2,
+    "portrait": "geopelia_luminescence.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_CADENCE",
+    "keywords": [],
+    "description": "额外打出2次。\n造成{V0:diff()}点伤害。若有至少1点信号，消耗1点信号并额外造成{X0:diff()}点伤害。"
+  },
+  {
+    "className": "GeopeliaRehearsal",
+    "name": "试演",
+    "rarity": "Uncommon",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Block",
+        "value": 3,
+        "upgrade": 4
+      },
+      {
+        "kind": "EchoSelf",
+        "value": 2,
+        "upgrade": 3
+      }
+    ],
+    "themes": [
+      "多牌"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_opening_beat.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_REHEARSAL",
+    "keywords": [],
+    "description": "获得{V0:diff()}点格挡。\n本回合接下来每手动打出一张其他牌，自动重放此牌，最多{V1:diff()}次。"
+  },
+  {
+    "className": "GeopeliaReplayBuffer",
+    "name": "回放缓存",
+    "rarity": "Uncommon",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Replay",
+        "value": 1,
+        "upgrade": 1
+      },
+      {
+        "kind": "DrawDebt",
+        "value": 1,
+        "upgrade": 0
+      }
+    ],
+    "themes": [
+      "多牌",
+      "透支"
+    ],
+    "replays": 0,
+    "keywords": [
+      "Exhaust"
+    ],
+    "portrait": "geopelia_rebirth.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_REPLAY_BUFFER",
+    "description": "依次重放本回合此前手动打出的最后{V0:diff()}张可重放的非能力牌。复制牌结算后消耗。\n[red]透支[/red]：下回合少抽{V1:diff()}张牌。"
+  },
+  {
+    "className": "GeopeliaCarrierWave",
+    "name": "载波展开",
+    "rarity": "Uncommon",
+    "cost": 2,
+    "upgradeCost": 2,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Signal",
+        "value": 6,
+        "upgrade": 8
+      },
+      {
+        "kind": "Block",
+        "value": 10,
+        "upgrade": 13
+      }
+    ],
+    "themes": [
+      "信号"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_reimei.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_CARRIER_WAVE",
+    "keywords": [],
+    "description": "获得{V0:diff()}点[gold]信号[/gold]。\n获得{V1:diff()}点格挡。"
+  },
+  {
+    "className": "GeopeliaPhaseShift",
+    "name": "相位迁跃",
+    "rarity": "Uncommon",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Draw",
+        "value": 2,
+        "upgrade": 3
+      },
+      {
+        "kind": "Block",
+        "value": 5,
+        "upgrade": 7,
+        "condition": "debt"
+      }
+    ],
+    "themes": [
+      "透支",
+      "多牌"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_retribution.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_PHASE_SHIFT",
+    "keywords": [],
+    "description": "抽{V0:diff()}张牌。\n若有待偿付的透支，获得{V1:diff()}点格挡。"
+  },
+  {
+    "className": "GeopeliaAbsoluteDisorder",
+    "name": "噪声风暴",
+    "rarity": "Rare",
+    "cost": 3,
+    "upgradeCost": 3,
+    "type": "Attack",
+    "steps": [
+      {
+        "kind": "AllAttack",
+        "value": 5,
+        "upgrade": 7
+      }
+    ],
+    "themes": [
+      "多牌"
+    ],
+    "replays": 2,
+    "portrait": "geopelia_absolute_disorder.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_ABSOLUTE_DISORDER",
+    "keywords": [],
+    "description": "额外打出2次。\n对所有敌人造成{V0:diff()}点伤害。"
+  },
+  {
+    "className": "GeopeliaFeast",
+    "name": "全频共鸣",
+    "rarity": "Rare",
+    "cost": 2,
+    "upgradeCost": 2,
+    "type": "Power",
+    "steps": [
+      {
+        "kind": "Power",
+        "value": 2,
+        "upgrade": 1,
+        "power": "SignalEcho"
+      }
+    ],
+    "themes": [
+      "信号",
+      "多牌"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_feast.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_FEAST",
+    "keywords": [],
+    "description": "获得[gold]全频共鸣[/gold]：每回合第一张有足够信号的手动攻击牌，消耗{V0:diff()}点信号，额外打出一次。"
+  },
+  {
+    "className": "GeopeliaChristmasCarol",
+    "name": "圣夜的返场",
+    "rarity": "Rare",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Draw",
+        "value": 2,
+        "upgrade": 3
+      },
+      {
+        "kind": "Replay",
+        "value": 1,
+        "upgrade": 1
+      }
+    ],
+    "themes": [
+      "多牌"
+    ],
+    "replays": 0,
+    "keywords": [
+      "Exhaust"
+    ],
+    "portrait": "geopelia_christmas_carol.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_CHRISTMAS_CAROL",
+    "description": "抽{V0:diff()}张牌。\n依次重放本回合此前手动打出的最后{V1:diff()}张可重放的非能力牌。复制牌结算后消耗。"
+  },
+  {
+    "className": "GeopeliaCrushBeta",
+    "name": "破限一击",
+    "rarity": "Rare",
+    "cost": 2,
+    "upgradeCost": 2,
+    "type": "Attack",
+    "steps": [
+      {
+        "kind": "Attack",
+        "value": 32,
+        "upgrade": 40
+      },
+      {
+        "kind": "DamageDebt",
+        "value": 50,
+        "upgrade": 50
+      }
+    ],
+    "themes": [
+      "透支"
+    ],
+    "replays": 0,
+    "keywords": [
+      "Exhaust"
+    ],
+    "portrait": "geopelia_crush_beta.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_CRUSH_BETA",
+    "description": "造成{V0:diff()}点伤害。\n[red]透支[/red]：下回合牌的伤害减少{V1:diff()}%。同类透支不叠加。"
+  },
+  {
+    "className": "GeopeliaHappyDisease",
+    "name": "欢愉的节拍",
+    "rarity": "Rare",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Power",
+    "steps": [
+      {
+        "kind": "Power",
+        "value": 1,
+        "upgrade": 2,
+        "power": "RhythmDraw"
+      }
+    ],
+    "themes": [
+      "多牌"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_happy_disease.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_HAPPY_DISEASE",
+    "keywords": [],
+    "description": "获得[gold]欢愉的节拍[/gold]：每打出4张牌，抽{V0:diff()}张牌。每回合最多触发2次。"
+  },
+  {
+    "className": "GeopeliaMomentarySunrise",
+    "name": "借日",
+    "rarity": "Rare",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Energy",
+        "value": 3,
+        "upgrade": 4
+      },
+      {
+        "kind": "Draw",
+        "value": 2,
+        "upgrade": 2
+      },
+      {
+        "kind": "EnergyDebt",
+        "value": 3,
+        "upgrade": 3
+      },
+      {
+        "kind": "DrawDebt",
+        "value": 1,
+        "upgrade": 1
+      }
+    ],
+    "themes": [
+      "透支"
+    ],
+    "replays": 0,
+    "keywords": [
+      "Exhaust"
+    ],
+    "portrait": "geopelia_christmas_carol.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_MOMENTARY_SUNRISE",
+    "description": "获得{V0:diff()}点能量。\n抽{V1:diff()}张牌。\n[red]透支[/red]：下回合失去{V2:diff()}点能量。\n[red]透支[/red]：下回合少抽{V3:diff()}张牌。"
+  },
+  {
+    "className": "GeopeliaOverdraftSuite",
+    "name": "透支组曲",
+    "rarity": "Rare",
+    "cost": 2,
+    "upgradeCost": 2,
+    "type": "Attack",
+    "steps": [
+      {
+        "kind": "Attack",
+        "value": 20,
+        "upgrade": 26
+      },
+      {
+        "kind": "Block",
+        "value": 15,
+        "upgrade": 20
+      },
+      {
+        "kind": "EnergyDebt",
+        "value": 2,
+        "upgrade": 2
+      }
+    ],
+    "themes": [
+      "透支"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_crush_beta.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_OVERDRAFT_SUITE",
+    "keywords": [],
+    "description": "造成{V0:diff()}点伤害。\n获得{V1:diff()}点格挡。\n[red]透支[/red]：下回合失去{V2:diff()}点能量。"
+  },
+  {
+    "className": "GeopeliaTimeMortgage",
+    "name": "抵押明天",
+    "rarity": "Rare",
+    "cost": 0,
+    "upgradeCost": 0,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Draw",
+        "value": 4,
+        "upgrade": 5
+      },
+      {
+        "kind": "DamageDebt",
+        "value": 50,
+        "upgrade": 50
+      },
+      {
+        "kind": "BlockDebt",
+        "value": 50,
+        "upgrade": 50
+      }
+    ],
+    "themes": [
+      "透支",
+      "多牌"
+    ],
+    "replays": 0,
+    "keywords": [
+      "Exhaust"
+    ],
+    "portrait": "geopelia_dance_with_silence.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_TIME_MORTGAGE",
+    "description": "抽{V0:diff()}张牌。\n[red]透支[/red]：下回合牌的伤害减少{V1:diff()}%。同类透支不叠加。\n[red]透支[/red]：下回合牌获得的格挡减少{V2:diff()}%。同类透支不叠加。"
+  },
+  {
+    "className": "GeopeliaDebtClearing",
+    "name": "清算时刻",
+    "rarity": "Rare",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Block",
+        "value": 8,
+        "upgrade": 11
+      },
+      {
+        "kind": "Draw",
+        "value": 1,
+        "upgrade": 2,
+        "condition": "debt"
+      },
+      {
+        "kind": "RepayEnergy",
+        "value": 99,
+        "upgrade": 99
+      }
+    ],
+    "themes": [
+      "透支"
+    ],
+    "replays": 0,
+    "keywords": [
+      "Exhaust"
+    ],
+    "portrait": "geopelia_defend.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_DEBT_CLEARING",
+    "description": "获得{V0:diff()}点格挡。\n若有待偿付的透支，抽{V1:diff()}张牌。\n清除下回合全部能量透支。"
+  },
+  {
+    "className": "GeopeliaRainbowSignal",
+    "name": "虹色信标",
+    "rarity": "Rare",
+    "cost": 2,
+    "upgradeCost": 2,
+    "type": "Power",
+    "steps": [
+      {
+        "kind": "Signal",
+        "value": 2,
+        "upgrade": 2
+      },
+      {
+        "kind": "Power",
+        "value": 2,
+        "upgrade": 3,
+        "power": "Beacon"
+      }
+    ],
+    "themes": [
+      "信号"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_diamond_eyes.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_RAINBOW_SIGNAL",
+    "keywords": [],
+    "description": "获得{V0:diff()}点[gold]信号[/gold]。\n获得[gold]虹色信标[/gold]：每回合开始时，获得{V1:diff()}点信号。"
+  },
+  {
+    "className": "GeopeliaPhantomEnsemble",
+    "name": "幻影合奏",
+    "rarity": "Rare",
+    "cost": 2,
+    "upgradeCost": 2,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Replay",
+        "value": 2,
+        "upgrade": 3
+      },
+      {
+        "kind": "EnergyDebt",
+        "value": 1,
+        "upgrade": 1
+      }
+    ],
+    "themes": [
+      "多牌",
+      "透支"
+    ],
+    "replays": 0,
+    "keywords": [
+      "Exhaust"
+    ],
+    "portrait": "geopelia_distorted_fate.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_PHANTOM_ENSEMBLE",
+    "description": "依次重放本回合此前手动打出的最后{V0:diff()}张可重放的非能力牌。复制牌结算后消耗。\n[red]透支[/red]：下回合失去{V1:diff()}点能量。"
+  },
+  {
+    "className": "GeopeliaFullPlayback",
+    "name": "全曲回放",
+    "rarity": "Rare",
+    "cost": 3,
+    "upgradeCost": 3,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Replay",
+        "value": 5,
+        "upgrade": 6
+      }
+    ],
+    "themes": [
+      "多牌"
+    ],
+    "replays": 0,
+    "keywords": [
+      "Exhaust"
+    ],
+    "portrait": "geopelia_eltaw.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_FULL_PLAYBACK",
+    "description": "依次重放本回合此前手动打出的最后{V0:diff()}张可重放的非能力牌。复制牌结算后消耗。"
+  },
+  {
+    "className": "GeopeliaLastTransmission",
+    "name": "最后的广播",
+    "rarity": "Rare",
+    "cost": 2,
+    "upgradeCost": 2,
+    "type": "Attack",
+    "steps": [
+      {
+        "kind": "SignalAttack",
+        "value": 6,
+        "upgrade": 8,
+        "x": 3,
+        "ux": 4,
+        "cap": 6
+      }
+    ],
+    "themes": [
+      "多牌",
+      "信号"
+    ],
+    "replays": 1,
+    "portrait": "geopelia_feast.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_LAST_TRANSMISSION",
+    "keywords": [],
+    "description": "额外打出1次。\n消耗至多6点信号。造成{V0:diff()}点伤害，每消耗1点信号，额外造成{X0:diff()}点伤害。"
+  },
+  {
+    "className": "GeopeliaSignalSingularity",
+    "name": "信号奇点",
+    "rarity": "Rare",
+    "cost": 2,
+    "upgradeCost": 2,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Signal",
+        "value": 12,
+        "upgrade": 12
+      },
+      {
+        "kind": "BlockDebt",
+        "value": 50,
+        "upgrade": 50
+      },
+      {
+        "kind": "DrawDebt",
+        "value": 1,
+        "upgrade": 0
+      }
+    ],
+    "themes": [
+      "信号",
+      "透支"
+    ],
+    "replays": 0,
+    "keywords": [
+      "Exhaust"
+    ],
+    "portrait": "geopelia_happy_disease.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_SIGNAL_SINGULARITY",
+    "description": "获得{V0:diff()}点[gold]信号[/gold]。\n[red]透支[/red]：下回合牌获得的格挡减少{V1:diff()}%。同类透支不叠加。\n[red]透支[/red]：下回合少抽{V2:diff()}张牌。"
+  },
+  {
+    "className": "GeopeliaNoiseGate",
+    "name": "降噪闸门",
+    "rarity": "Rare",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Block",
+        "value": 9,
+        "upgrade": 12
+      },
+      {
+        "kind": "RepayEnergy",
+        "value": 2,
+        "upgrade": 2,
+        "pay": 3
+      }
+    ],
+    "themes": [
+      "信号",
+      "透支"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_i_must_say_no.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_NOISE_GATE",
+    "keywords": [],
+    "description": "获得{V0:diff()}点格挡。\n消耗3点信号：减少{V1:diff()}点下回合的能量透支。"
+  },
+  {
+    "className": "GeopeliaSustainAmplifier",
+    "name": "延音放大",
+    "rarity": "Rare",
+    "cost": 2,
+    "upgradeCost": 1,
+    "type": "Power",
+    "steps": [
+      {
+        "kind": "Power",
+        "value": 1,
+        "upgrade": 1,
+        "power": "SignalDraw"
+      }
+    ],
+    "themes": [
+      "信号",
+      "多牌"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_luminescence.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_SUSTAIN_AMPLIFIER",
+    "keywords": [],
+    "description": "获得[gold]延音放大[/gold]：每消耗3点信号，抽{V0:diff()}张牌。每回合最多触发2次。"
+  },
+  {
+    "className": "GeopeliaTachycardia",
+    "name": "加速心跳",
+    "rarity": "Rare",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Power",
+    "steps": [
+      {
+        "kind": "Power",
+        "value": 1,
+        "upgrade": 2,
+        "power": "DebtDraw"
+      }
+    ],
+    "themes": [
+      "透支",
+      "多牌"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_opening_beat.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_TACHYCARDIA",
+    "keywords": [],
+    "description": "获得[gold]加速心跳[/gold]：每回合首次偿付透支（包括主动减少能量透支）时，抽{V0:diff()}张牌。"
+  },
+  {
+    "className": "GeopeliaOpeningTheme",
+    "name": "开场白",
+    "rarity": "Rare",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Power",
+    "steps": [
+      {
+        "kind": "Power",
+        "value": 2,
+        "upgrade": 3,
+        "power": "OpeningSignal"
+      }
+    ],
+    "themes": [
+      "信号",
+      "多牌"
+    ],
+    "replays": 0,
+    "keywords": [
+      "Innate"
+    ],
+    "portrait": "geopelia_rebirth.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_OPENING_THEME",
+    "description": "获得[gold]开场白[/gold]：每回合前{V0:diff()}张手动打出的牌，各获得1点信号。"
+  },
+  {
+    "className": "GeopeliaSafetyCopy",
+    "name": "安全副本",
+    "rarity": "Rare",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Block",
+        "value": 6,
+        "upgrade": 9
+      },
+      {
+        "kind": "Replay",
+        "value": 1,
+        "upgrade": 1
+      }
+    ],
+    "themes": [
+      "多牌"
+    ],
+    "replays": 0,
+    "keywords": [
+      "Exhaust"
+    ],
+    "portrait": "geopelia_reimei.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_SAFETY_COPY",
+    "description": "获得{V0:diff()}点格挡。\n依次重放本回合此前手动打出的最后{V1:diff()}张可重放的非能力牌。复制牌结算后消耗。"
+  },
+  {
+    "className": "GeopeliaContinuousTake",
+    "name": "一镜到底",
+    "rarity": "Rare",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Attack",
+    "steps": [
+      {
+        "kind": "Attack",
+        "value": 8,
+        "upgrade": 11
+      }
+    ],
+    "themes": [
+      "多牌"
+    ],
+    "replays": 0,
+    "playedReplayThreshold": 4,
+    "portrait": "geopelia_retribution.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_CONTINUOUS_TAKE",
+    "keywords": [],
+    "description": "若本回合此前已打出至少4张牌，额外打出一次。\n造成{V0:diff()}点伤害。"
+  },
+  {
+    "className": "GeopeliaMastering",
+    "name": "母带刻录",
+    "rarity": "Rare",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Power",
+    "steps": [
+      {
+        "kind": "Signal",
+        "value": 2,
+        "upgrade": 2
+      },
+      {
+        "kind": "Power",
+        "value": 3,
+        "upgrade": 4,
+        "power": "EchoSignal"
+      }
+    ],
+    "themes": [
+      "信号",
+      "多牌"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_strike.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_MASTERING",
+    "keywords": [],
+    "description": "获得{V0:diff()}点[gold]信号[/gold]。\n获得[gold]母带刻录[/gold]：自动重放或额外打出的牌结算后，获得1点信号。每回合最多{V1:diff()}次。"
+  },
+  {
+    "className": "GeopeliaArchiveLost",
+    "name": "失落的档案",
+    "rarity": "Rare",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Ancient",
+        "value": 1,
+        "upgrade": 1
+      },
+      {
+        "kind": "Draw",
+        "value": 1,
+        "upgrade": 2
+      }
+    ],
+    "themes": [
+      "信号",
+      "多牌"
+    ],
+    "replays": 0,
+    "keywords": [
+      "Exhaust"
+    ],
+    "portrait": "geopelia_terabyte_connection.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_ARCHIVE_LOST",
+    "description": "将{V0:diff()}张随机的鸠的先古牌加入手牌。\n抽{V1:diff()}张牌。"
+  },
+  {
+    "className": "GeopeliaMonochromeBreak",
+    "name": "单色破晓",
+    "rarity": "Rare",
+    "cost": 2,
+    "upgradeCost": 2,
+    "type": "Attack",
+    "steps": [
+      {
+        "kind": "AllAttack",
+        "value": 20,
+        "upgrade": 26
+      },
+      {
+        "kind": "AllVulnerable",
+        "value": 1,
+        "upgrade": 1,
+        "pay": 3
+      },
+      {
+        "kind": "DrawDebt",
+        "value": 1,
+        "upgrade": 1
+      }
+    ],
+    "themes": [
+      "信号",
+      "透支"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_absolute_disorder.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_MONOCHROME_BREAK",
+    "keywords": [],
+    "description": "对所有敌人造成{V0:diff()}点伤害。\n消耗3点信号：给予所有敌人{V1:diff()}层易伤。\n[red]透支[/red]：下回合少抽{V2:diff()}张牌。"
+  },
+  {
+    "className": "GeopeliaQuietCoda",
+    "name": "寂静的尾声",
+    "rarity": "Rare",
+    "cost": 0,
+    "upgradeCost": 0,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Block",
+        "value": 6,
+        "upgrade": 9
+      },
+      {
+        "kind": "NextEnergy",
+        "value": 2,
+        "upgrade": 2
+      },
+      {
+        "kind": "DrawDebt",
+        "value": 2,
+        "upgrade": 2
+      }
+    ],
+    "themes": [
+      "透支"
+    ],
+    "replays": 0,
+    "keywords": [
+      "Exhaust"
+    ],
+    "portrait": "geopelia_believe_light.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_QUIET_CODA",
+    "description": "获得{V0:diff()}点格挡。\n下回合获得{V1:diff()}点能量。\n[red]透支[/red]：下回合少抽{V2:diff()}张牌。"
+  },
+  {
+    "className": "GeopeliaWorldEcho",
+    "name": "世界的回响",
+    "rarity": "Rare",
+    "cost": 3,
+    "upgradeCost": 3,
+    "type": "Power",
+    "steps": [
+      {
+        "kind": "Power",
+        "value": 2,
+        "upgrade": 3,
+        "power": "WorldEcho"
+      }
+    ],
+    "themes": [
+      "多牌",
+      "信号"
+    ],
+    "replays": 0,
+    "portrait": "geopelia_cereris.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_WORLD_ECHO",
+    "keywords": [],
+    "description": "获得[gold]世界的回响[/gold]：每回合前{V0:diff()}张可重放的手动非能力牌，各消耗2点信号并额外打出一次。信号不足时不触发。"
+  },
+  {
+    "className": "GeopeliaOldRecording",
+    "name": "旧日录音",
+    "rarity": "Ancient",
+    "cost": 0,
+    "upgradeCost": 0,
+    "type": "Skill",
+    "steps": [
+      {
+        "kind": "Signal",
+        "value": 8,
+        "upgrade": 10
+      },
+      {
+        "kind": "Draw",
+        "value": 1,
+        "upgrade": 2
+      }
+    ],
+    "themes": [
+      "信号"
+    ],
+    "replays": 0,
+    "keywords": [
+      "Exhaust"
+    ],
+    "portrait": "geopelia_christmas_carol.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_OLD_RECORDING",
+    "description": "获得{V0:diff()}点[gold]信号[/gold]。\n抽{V1:diff()}张牌。"
+  },
+  {
+    "className": "GeopeliaTowerResonance",
+    "name": "巴别之声",
+    "rarity": "Ancient",
+    "cost": 1,
+    "upgradeCost": 1,
+    "type": "Attack",
+    "steps": [
+      {
+        "kind": "Attack",
+        "value": 8,
+        "upgrade": 10
+      },
+      {
+        "kind": "Signal",
+        "value": 1,
+        "upgrade": 2
+      }
+    ],
+    "themes": [
+      "多牌",
+      "信号"
+    ],
+    "replays": 1,
+    "keywords": [
+      "Exhaust"
+    ],
+    "portrait": "geopelia_crush_beta.png",
+    "entry": "PHIGROS_JIU_GEOPELIA_TOWER_RESONANCE",
+    "description": "额外打出1次。\n造成{V0:diff()}点伤害。\n获得{V1:diff()}点[gold]信号[/gold]。"
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "PHIGROS_JIU_GEOPELIA_JUDGMENT_LINE.title": "随身录音笔",
+  "PHIGROS_JIU_GEOPELIA_JUDGMENT_LINE.description": "战斗开始时，获得{GeopeliaSignalPower:diff()}点信号。每回合每打出3张牌，获得1点信号。",
+  "PHIGROS_JIU_GEOPELIA_JUDGMENT_LINE.flavor": "The line is there. The hand follows on its own.",
+  "PHIGROS_JIU_GEOPELIA_SCORE_FRAGMENT.title": "Chart Fragment",
+  "PHIGROS_JIU_GEOPELIA_SCORE_FRAGMENT.description": "On the first turn of each combat, draw [blue]1[/blue] additional card.",
+  "PHIGROS_JIU_GEOPELIA_SCORE_FRAGMENT.flavor": "A few worn measures, fingering scribbled in the margin.",
+  "PHIGROS_JIU_GEOPELIA_STARDUST_BADGE.title": "Stardust Badge",
+  "PHIGROS_JIU_GEOPELIA_STARDUST_BADGE.description": "回合结束时，若你有至少4点信号，获得{Block:diff()}点格挡。",
+  "PHIGROS_JIU_GEOPELIA_STARDUST_BADGE.flavor": "A small badge that once caught the light of a whole performance.",
+  "PHIGROS_JIU_GEOPELIA_PERFECT_FRAME.title": "Perfect Frame",
+  "PHIGROS_JIU_GEOPELIA_PERFECT_FRAME.description": "Your Attacks deal [blue]{Damage}[/blue] additional damage.",
+  "PHIGROS_JIU_GEOPELIA_PERFECT_FRAME.flavor": "Perfect. A light word that lands heavily."
+}

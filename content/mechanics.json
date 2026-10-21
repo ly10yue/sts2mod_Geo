@@ -1,0 +1,137 @@
+{
+  "powers": [
+    {
+      "className": "GeopeliaSignalPower",
+      "entry": "PHIGROS_JIU_GEOPELIA_SIGNAL_POWER",
+      "icon": "geopelia_signal_power.png"
+    },
+    {
+      "className": "GeopeliaRhythmPower",
+      "entry": "PHIGROS_JIU_GEOPELIA_RHYTHM_POWER",
+      "icon": "geopelia_rhythm_power.png"
+    },
+    {
+      "className": "GeopeliaAerialPower",
+      "entry": "PHIGROS_JIU_GEOPELIA_AERIAL_POWER",
+      "icon": "geopelia_aerial_power.png"
+    },
+    {
+      "className": "GeopeliaBeaconPower",
+      "entry": "PHIGROS_JIU_GEOPELIA_BEACON_POWER",
+      "icon": "geopelia_beacon_power.png"
+    },
+    {
+      "className": "GeopeliaPulseGuardPower",
+      "entry": "PHIGROS_JIU_GEOPELIA_PULSE_GUARD_POWER",
+      "icon": "geopelia_pulse_guard_power.png"
+    },
+    {
+      "className": "GeopeliaRhythmDrawPower",
+      "entry": "PHIGROS_JIU_GEOPELIA_RHYTHM_DRAW_POWER",
+      "icon": "geopelia_rhythm_draw_power.png"
+    },
+    {
+      "className": "GeopeliaEchoGuardPower",
+      "entry": "PHIGROS_JIU_GEOPELIA_ECHO_GUARD_POWER",
+      "icon": "geopelia_echo_guard_power.png"
+    },
+    {
+      "className": "GeopeliaEchoSignalPower",
+      "entry": "PHIGROS_JIU_GEOPELIA_ECHO_SIGNAL_POWER",
+      "icon": "geopelia_echo_signal_power.png"
+    },
+    {
+      "className": "GeopeliaOpeningSignalPower",
+      "entry": "PHIGROS_JIU_GEOPELIA_OPENING_SIGNAL_POWER",
+      "icon": "geopelia_opening_signal_power.png"
+    },
+    {
+      "className": "GeopeliaOverdriveGuardPower",
+      "entry": "PHIGROS_JIU_GEOPELIA_OVERDRIVE_GUARD_POWER",
+      "icon": "geopelia_overdrive_guard_power.png"
+    },
+    {
+      "className": "GeopeliaRichterPower",
+      "entry": "PHIGROS_JIU_GEOPELIA_RICHTER_POWER",
+      "icon": "geopelia_richter_power.png"
+    },
+    {
+      "className": "GeopeliaArchidoxenPower",
+      "entry": "PHIGROS_JIU_GEOPELIA_ARCHIDOXEN_POWER",
+      "icon": "geopelia_archidoxen_power.png"
+    },
+    {
+      "className": "GeopeliaSignalDrawPower",
+      "entry": "PHIGROS_JIU_GEOPELIA_SIGNAL_DRAW_POWER",
+      "icon": "geopelia_signal_draw_power.png"
+    },
+    {
+      "className": "GeopeliaDebtDrawPower",
+      "entry": "PHIGROS_JIU_GEOPELIA_DEBT_DRAW_POWER",
+      "icon": "geopelia_debt_draw_power.png"
+    },
+    {
+      "className": "GeopeliaNextRepeatPower",
+      "entry": "PHIGROS_JIU_GEOPELIA_NEXT_REPEAT_POWER",
+      "icon": "geopelia_next_repeat_power.png"
+    },
+    {
+      "className": "GeopeliaSignalEchoPower",
+      "entry": "PHIGROS_JIU_GEOPELIA_SIGNAL_ECHO_POWER",
+      "icon": "geopelia_signal_echo_power.png"
+    },
+    {
+      "className": "GeopeliaWorldEchoPower",
+      "entry": "PHIGROS_JIU_GEOPELIA_WORLD_ECHO_POWER",
+      "icon": "geopelia_world_echo_power.png"
+    },
+    {
+      "className": "GeopeliaTapeLoopPower",
+      "entry": "PHIGROS_JIU_GEOPELIA_TAPE_LOOP_POWER",
+      "icon": "geopelia_tape_loop_power.png"
+    },
+    {
+      "className": "GeopeliaEnergyDebtPower",
+      "entry": "PHIGROS_JIU_GEOPELIA_ENERGY_DEBT_POWER",
+      "icon": "geopelia_energy_debt_power.png"
+    },
+    {
+      "className": "GeopeliaSignalDebtPower",
+      "entry": "PHIGROS_JIU_GEOPELIA_SIGNAL_DEBT_POWER",
+      "icon": "geopelia_signal_debt_power.png"
+    },
+    {
+      "className": "GeopeliaDrawDebtPower",
+      "entry": "PHIGROS_JIU_GEOPELIA_DRAW_DEBT_POWER",
+      "icon": "geopelia_draw_debt_power.png"
+    },
+    {
+      "className": "GeopeliaDamageDebtPower",
+      "entry": "PHIGROS_JIU_GEOPELIA_DAMAGE_DEBT_POWER",
+      "icon": "geopelia_damage_debt_power.png"
+    },
+    {
+      "className": "GeopeliaBlockDebtPower",
+      "entry": "PHIGROS_JIU_GEOPELIA_BLOCK_DEBT_POWER",
+      "icon": "geopelia_block_debt_power.png"
+    },
+    {
+      "className": "GeopeliaMutedPower",
+      "entry": "PHIGROS_JIU_GEOPELIA_MUTED_POWER",
+      "icon": "geopelia_muted_power.png"
+    },
+    {
+      "className": "GeopeliaFragileGuardPower",
+      "entry": "PHIGROS_JIU_GEOPELIA_FRAGILE_GUARD_POWER",
+      "icon": "geopelia_fragile_guard_power.png"
+    }
+  ],
+  "rarities": {
+    "Basic": 4,
+    "Common": 25,
+    "Uncommon": 29,
+    "Rare": 25,
+    "Ancient": 2
+  },
+  "signalCap": 12
+}

@@ -1,0 +1,18 @@
+{
+  "PHIGROS_JIU_GEOPELIA.title": "Geopelia · Main",
+  "PHIGROS_JIU_GEOPELIA.titleObject": "Geopelia",
+  "PHIGROS_JIU_GEOPELIA.description": "来自《Phigros》的旅人。\n在重复的节拍中采集信号，以明天为代价演奏此刻。\n\n[font_size=20][color=#b6c0ce]多牌重奏 · 透支未来 · 信号共鸣[/color][/font_size]",
+  "PHIGROS_JIU_GEOPELIA.pronounSubject": "she",
+  "PHIGROS_JIU_GEOPELIA.pronounObject": "her",
+  "PHIGROS_JIU_GEOPELIA.pronounPossessive": "hers",
+  "PHIGROS_JIU_GEOPELIA.possessiveAdjective": "her",
+  "PHIGROS_JIU_GEOPELIA.bestiaryQuote": "This creature has never been caught on my judgment line.",
+  "PHIGROS_JIU_GEOPELIA.cardsModifierTitle": "Geopelia Cards",
+  "PHIGROS_JIU_GEOPELIA.cardsModifierDescription": "Geopelia's cards now appear in rewards and shops.",
+  "PHIGROS_JIU_GEOPELIA.eventDeathPrevention": "The song is not over yet.",
+  "PHIGROS_JIU_GEOPELIA.unlockText": "Play a run to unlock this character.",
+  "PHIGROS_JIU_GEOPELIA.banter.alive.endTurnPing": "[sine]Next beat.[/sine]",
+  "PHIGROS_JIU_GEOPELIA.banter.dead.endTurnPing": "...",
+  "PHIGROS_JIU_GEOPELIA.aromaPrinciple": "[sine][green]The melody is still here, so the line is unbroken.[/green][/sine]",
+  "PHIGROS_JIU_GEOPELIA.goldMonologue": "[sine]This should cover a new chart.[/sine]"
+}

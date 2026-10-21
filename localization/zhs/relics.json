@@ -1,0 +1,14 @@
+{
+  "PHIGROS_JIU_GEOPELIA_JUDGMENT_LINE.title": "随身录音笔",
+  "PHIGROS_JIU_GEOPELIA_JUDGMENT_LINE.description": "战斗开始时，获得{GeopeliaSignalPower:diff()}点信号。每回合每打出3张牌，获得1点信号。",
+  "PHIGROS_JIU_GEOPELIA_JUDGMENT_LINE.flavor": "线在那里。手自然会跟上。",
+  "PHIGROS_JIU_GEOPELIA_SCORE_FRAGMENT.title": "谱面残页",
+  "PHIGROS_JIU_GEOPELIA_SCORE_FRAGMENT.description": "每场战斗的第一回合，额外抽[blue]1[/blue]张牌。",
+  "PHIGROS_JIU_GEOPELIA_SCORE_FRAGMENT.flavor": "被人翻旧了的几小节，边角写满了指法。",
+  "PHIGROS_JIU_GEOPELIA_STARDUST_BADGE.title": "星尘徽章",
+  "PHIGROS_JIU_GEOPELIA_STARDUST_BADGE.description": "回合结束时，若你有至少4点信号，获得{Block:diff()}点格挡。",
+  "PHIGROS_JIU_GEOPELIA_STARDUST_BADGE.flavor": "一枚小小的徽章，接住过整场演出的光。",
+  "PHIGROS_JIU_GEOPELIA_PERFECT_FRAME.title": "无瑕判定",
+  "PHIGROS_JIU_GEOPELIA_PERFECT_FRAME.description": "你的攻击牌造成的伤害增加[blue]{Damage}[/blue]点。",
+  "PHIGROS_JIU_GEOPELIA_PERFECT_FRAME.flavor": "Perfect。这两个字很轻，落下时却很重。"
+}

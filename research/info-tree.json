@@ -1,0 +1,79 @@
+{
+  "sha": "0489bca39dc26dc1723f323f3cd777f349f9a8de",
+  "url": "https://api.github.com/repos/7aGiven/Phigros_Resource/git/trees/0489bca39dc26dc1723f323f3cd777f349f9a8de",
+  "tree": [
+    {
+      "path": "avatar.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a62a7e858dde97384e7634ad924ad758b66c4630",
+      "size": 1755,
+      "url": "https://api.github.com/repos/7aGiven/Phigros_Resource/git/blobs/a62a7e858dde97384e7634ad924ad758b66c4630"
+    },
+    {
+      "path": "collection.tsv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0039353afe851d0259034ed423eeb8697b91022f",
+      "size": 10696,
+      "url": "https://api.github.com/repos/7aGiven/Phigros_Resource/git/blobs/0039353afe851d0259034ed423eeb8697b91022f"
+    },
+    {
+      "path": "difficulty.tsv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3a50c698a1967f098e5cdbe3fe2b7c6aa8f4dab3",
+      "size": 13125,
+      "url": "https://api.github.com/repos/7aGiven/Phigros_Resource/git/blobs/3a50c698a1967f098e5cdbe3fe2b7c6aa8f4dab3"
+    },
+    {
+      "path": "illustration.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fe9d25e9c580c6fc0998dab31778c67217ba83fd",
+      "size": 2899,
+      "url": "https://api.github.com/repos/7aGiven/Phigros_Resource/git/blobs/fe9d25e9c580c6fc0998dab31778c67217ba83fd"
+    },
+    {
+      "path": "info.tsv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f42ed8f8236af1a4b0c1aa615c74e87c96ed8231",
+      "size": 39260,
+      "url": "https://api.github.com/repos/7aGiven/Phigros_Resource/git/blobs/f42ed8f8236af1a4b0c1aa615c74e87c96ed8231"
+    },
+    {
+      "path": "single.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "339f337869c020914a4d6f730cb071469a665417",
+      "size": 2151,
+      "url": "https://api.github.com/repos/7aGiven/Phigros_Resource/git/blobs/339f337869c020914a4d6f730cb071469a665417"
+    },
+    {
+      "path": "tips.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3c69d94d59dff8f7f9510b832c151a2098c85daa",
+      "size": 10317,
+      "url": "https://api.github.com/repos/7aGiven/Phigros_Resource/git/blobs/3c69d94d59dff8f7f9510b832c151a2098c85daa"
+    },
+    {
+      "path": "tmp.tsv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dca33ab371020c45c4907b1a86f0121846659f5b",
+      "size": 3055,
+      "url": "https://api.github.com/repos/7aGiven/Phigros_Resource/git/blobs/dca33ab371020c45c4907b1a86f0121846659f5b"
+    },
+    {
+      "path": "version.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1454f6ed4b751b190ba93ad2c721979cc0977fbc",
+      "size": 6,
+      "url": "https://api.github.com/repos/7aGiven/Phigros_Resource/git/blobs/1454f6ed4b751b190ba93ad2c721979cc0977fbc"
+    }
+  ],
+  "truncated": false
+}

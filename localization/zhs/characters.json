@@ -1,0 +1,18 @@
+{
+  "PHIGROS_JIU_GEOPELIA.title": "鸠 · 主版",
+  "PHIGROS_JIU_GEOPELIA.titleObject": "鸠",
+  "PHIGROS_JIU_GEOPELIA.description": "来自《Phigros》的旅人。\n在重复的节拍中采集信号，以明天为代价演奏此刻。\n\n[font_size=20][color=#b6c0ce]多牌重奏 · 透支未来 · 信号共鸣[/color][/font_size]",
+  "PHIGROS_JIU_GEOPELIA.pronounSubject": "她",
+  "PHIGROS_JIU_GEOPELIA.pronounObject": "她",
+  "PHIGROS_JIU_GEOPELIA.pronounPossessive": "她的",
+  "PHIGROS_JIU_GEOPELIA.possessiveAdjective": "她的",
+  "PHIGROS_JIU_GEOPELIA.bestiaryQuote": "这个生物，我还没能在判定线上看清它。",
+  "PHIGROS_JIU_GEOPELIA.cardsModifierTitle": "鸠的卡牌",
+  "PHIGROS_JIU_GEOPELIA.cardsModifierDescription": "鸠的卡牌现在会出现在奖励和商店中。",
+  "PHIGROS_JIU_GEOPELIA.eventDeathPrevention": "这首曲子还没有结束。",
+  "PHIGROS_JIU_GEOPELIA.unlockText": "进行一局游戏来解锁这个角色。",
+  "PHIGROS_JIU_GEOPELIA.banter.alive.endTurnPing": "[sine]下一拍。[/sine]",
+  "PHIGROS_JIU_GEOPELIA.banter.dead.endTurnPing": "……",
+  "PHIGROS_JIU_GEOPELIA.aromaPrinciple": "[sine][green]旋律还在，判定线就没有断。[/green][/sine]",
+  "PHIGROS_JIU_GEOPELIA.goldMonologue": "[sine]这些金币……够买一张新谱面了。[/sine]"
+}

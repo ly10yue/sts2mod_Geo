@@ -1,0 +1,1763 @@
+{
+  "result": "PASS",
+  "checks": 2204,
+  "cases": 170,
+  "rows": [
+    {
+      "card": "\u51FB\u5F26",
+      "model": "PHIGROS_JIU_GEOPELIA_STRIKE",
+      "upgraded": false,
+      "damage": 6,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u51FB\u5F26",
+      "model": "PHIGROS_JIU_GEOPELIA_STRIKE",
+      "upgraded": true,
+      "damage": 9,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u6321\u62CD",
+      "model": "PHIGROS_JIU_GEOPELIA_DEFEND",
+      "upgraded": false,
+      "damage": 0,
+      "block": 5,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u6321\u62CD",
+      "model": "PHIGROS_JIU_GEOPELIA_DEFEND",
+      "upgraded": true,
+      "damage": 0,
+      "block": 8,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u8D77\u62CD\u91C7\u6837",
+      "model": "PHIGROS_JIU_GEOPELIA_OPENING_BEAT",
+      "upgraded": false,
+      "damage": 0,
+      "block": 4,
+      "signal": 8,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u8D77\u62CD\u91C7\u6837",
+      "model": "PHIGROS_JIU_GEOPELIA_OPENING_BEAT",
+      "upgraded": true,
+      "damage": 0,
+      "block": 6,
+      "signal": 9,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u56DE\u58F0\u8BD5\u97F3",
+      "model": "PHIGROS_JIU_GEOPELIA_COUNTERBEAT",
+      "upgraded": false,
+      "damage": 12,
+      "block": 0,
+      "signal": 4,
+      "debt": 0,
+      "executions": 2
+    },
+    {
+      "card": "\u56DE\u58F0\u8BD5\u97F3",
+      "model": "PHIGROS_JIU_GEOPELIA_COUNTERBEAT",
+      "upgraded": true,
+      "damage": 16,
+      "block": 0,
+      "signal": 4,
+      "debt": 0,
+      "executions": 2
+    },
+    {
+      "card": "\u56DE\u73AF\u8E0F\u6B65",
+      "model": "PHIGROS_JIU_GEOPELIA_ELTAW",
+      "upgraded": false,
+      "damage": 8,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 2
+    },
+    {
+      "card": "\u56DE\u73AF\u8E0F\u6B65",
+      "model": "PHIGROS_JIU_GEOPELIA_ELTAW",
+      "upgraded": true,
+      "damage": 10,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 2
+    },
+    {
+      "card": "\u9759\u97F3\u62D2\u7EDD",
+      "model": "PHIGROS_JIU_GEOPELIA_I_MUST_SAY_NO",
+      "upgraded": false,
+      "damage": 0,
+      "block": 6,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u9759\u97F3\u62D2\u7EDD",
+      "model": "PHIGROS_JIU_GEOPELIA_I_MUST_SAY_NO",
+      "upgraded": true,
+      "damage": 0,
+      "block": 9,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u53CC\u661F\u5F15\u822A",
+      "model": "PHIGROS_JIU_GEOPELIA_CERERIS",
+      "upgraded": false,
+      "damage": 6,
+      "block": 0,
+      "signal": 7,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u53CC\u661F\u5F15\u822A",
+      "model": "PHIGROS_JIU_GEOPELIA_CERERIS",
+      "upgraded": true,
+      "damage": 8,
+      "block": 0,
+      "signal": 7,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u6668\u5149\u91C7\u6837",
+      "model": "PHIGROS_JIU_GEOPELIA_REIMEI",
+      "upgraded": false,
+      "damage": 3,
+      "block": 0,
+      "signal": 7,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u6668\u5149\u91C7\u6837",
+      "model": "PHIGROS_JIU_GEOPELIA_REIMEI",
+      "upgraded": true,
+      "damage": 5,
+      "block": 0,
+      "signal": 7,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u91CD\u542F\u8109\u51B2",
+      "model": "PHIGROS_JIU_GEOPELIA_REBIRTH",
+      "upgraded": false,
+      "damage": 0,
+      "block": 11,
+      "signal": 6,
+      "debt": 1,
+      "executions": 1
+    },
+    {
+      "card": "\u91CD\u542F\u8109\u51B2",
+      "model": "PHIGROS_JIU_GEOPELIA_REBIRTH",
+      "upgraded": true,
+      "damage": 0,
+      "block": 15,
+      "signal": 6,
+      "debt": 1,
+      "executions": 1
+    },
+    {
+      "card": "\u4F59\u8F89\u4E8C\u91CD\u594F",
+      "model": "PHIGROS_JIU_GEOPELIA_LUMINESCENCE",
+      "upgraded": false,
+      "damage": 6,
+      "block": 0,
+      "signal": 8,
+      "debt": 0,
+      "executions": 2
+    },
+    {
+      "card": "\u4F59\u8F89\u4E8C\u91CD\u594F",
+      "model": "PHIGROS_JIU_GEOPELIA_LUMINESCENCE",
+      "upgraded": true,
+      "damage": 8,
+      "block": 0,
+      "signal": 8,
+      "debt": 0,
+      "executions": 2
+    },
+    {
+      "card": "\u70B9\u6309",
+      "model": "PHIGROS_JIU_GEOPELIA_TAP",
+      "upgraded": false,
+      "damage": 7,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u70B9\u6309",
+      "model": "PHIGROS_JIU_GEOPELIA_TAP",
+      "upgraded": true,
+      "damage": 10,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u957F\u6309",
+      "model": "PHIGROS_JIU_GEOPELIA_HOLD",
+      "upgraded": false,
+      "damage": 0,
+      "block": 8,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u957F\u6309",
+      "model": "PHIGROS_JIU_GEOPELIA_HOLD",
+      "upgraded": true,
+      "damage": 0,
+      "block": 11,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u8F7B\u62C2",
+      "model": "PHIGROS_JIU_GEOPELIA_FLICK",
+      "upgraded": false,
+      "damage": 0,
+      "block": 3,
+      "signal": 8,
+      "debt": 1,
+      "executions": 1
+    },
+    {
+      "card": "\u8F7B\u62C2",
+      "model": "PHIGROS_JIU_GEOPELIA_FLICK",
+      "upgraded": true,
+      "damage": 0,
+      "block": 5,
+      "signal": 8,
+      "debt": 1,
+      "executions": 1
+    },
+    {
+      "card": "\u6ED1\u884C",
+      "model": "PHIGROS_JIU_GEOPELIA_DRAG",
+      "upgraded": false,
+      "damage": 6,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u6ED1\u884C",
+      "model": "PHIGROS_JIU_GEOPELIA_DRAG",
+      "upgraded": true,
+      "damage": 9,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u540C\u6B65",
+      "model": "PHIGROS_JIU_GEOPELIA_SYNC",
+      "upgraded": false,
+      "damage": 0,
+      "block": 0,
+      "signal": 9,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u540C\u6B65",
+      "model": "PHIGROS_JIU_GEOPELIA_SYNC",
+      "upgraded": true,
+      "damage": 0,
+      "block": 0,
+      "signal": 10,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u5BFB\u9891",
+      "model": "PHIGROS_JIU_GEOPELIA_PROBE",
+      "upgraded": false,
+      "damage": 0,
+      "block": 0,
+      "signal": 9,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u5BFB\u9891",
+      "model": "PHIGROS_JIU_GEOPELIA_PROBE",
+      "upgraded": true,
+      "damage": 0,
+      "block": 0,
+      "signal": 10,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u8F7D\u6CE2",
+      "model": "PHIGROS_JIU_GEOPELIA_CARRIER",
+      "upgraded": false,
+      "damage": 12,
+      "block": 0,
+      "signal": 4,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u8F7D\u6CE2",
+      "model": "PHIGROS_JIU_GEOPELIA_CARRIER",
+      "upgraded": true,
+      "damage": 16,
+      "block": 0,
+      "signal": 4,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u5305\u7EDC\u62A4\u5E55",
+      "model": "PHIGROS_JIU_GEOPELIA_ENVELOPE",
+      "upgraded": false,
+      "damage": 0,
+      "block": 12,
+      "signal": 4,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u5305\u7EDC\u62A4\u5E55",
+      "model": "PHIGROS_JIU_GEOPELIA_ENVELOPE",
+      "upgraded": true,
+      "damage": 0,
+      "block": 16,
+      "signal": 4,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u63D0\u524D\u5165\u62CD",
+      "model": "PHIGROS_JIU_GEOPELIA_ADVANCE",
+      "upgraded": false,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 2,
+      "executions": 1
+    },
+    {
+      "card": "\u63D0\u524D\u5165\u62CD",
+      "model": "PHIGROS_JIU_GEOPELIA_ADVANCE",
+      "upgraded": true,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 1,
+      "executions": 1
+    },
+    {
+      "card": "\u62A2\u62CD",
+      "model": "PHIGROS_JIU_GEOPELIA_RUSH",
+      "upgraded": false,
+      "damage": 15,
+      "block": 0,
+      "signal": 6,
+      "debt": 1,
+      "executions": 1
+    },
+    {
+      "card": "\u62A2\u62CD",
+      "model": "PHIGROS_JIU_GEOPELIA_RUSH",
+      "upgraded": true,
+      "damage": 20,
+      "block": 0,
+      "signal": 6,
+      "debt": 1,
+      "executions": 1
+    },
+    {
+      "card": "\u9884\u652F\u62A4\u5E55",
+      "model": "PHIGROS_JIU_GEOPELIA_BORROW_SHIELD",
+      "upgraded": false,
+      "damage": 0,
+      "block": 13,
+      "signal": 6,
+      "debt": 1,
+      "executions": 1
+    },
+    {
+      "card": "\u9884\u652F\u62A4\u5E55",
+      "model": "PHIGROS_JIU_GEOPELIA_BORROW_SHIELD",
+      "upgraded": true,
+      "damage": 0,
+      "block": 17,
+      "signal": 6,
+      "debt": 1,
+      "executions": 1
+    },
+    {
+      "card": "\u56DE\u97F3\u9488",
+      "model": "PHIGROS_JIU_GEOPELIA_ECHO_NEEDLE",
+      "upgraded": false,
+      "damage": 6,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 3
+    },
+    {
+      "card": "\u56DE\u97F3\u9488",
+      "model": "PHIGROS_JIU_GEOPELIA_ECHO_NEEDLE",
+      "upgraded": true,
+      "damage": 9,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 3
+    },
+    {
+      "card": "\u91CD\u594F\u811A\u6CE8",
+      "model": "PHIGROS_JIU_GEOPELIA_REPLAY_FOOTNOTE",
+      "upgraded": false,
+      "damage": 0,
+      "block": 6,
+      "signal": 7,
+      "debt": 0,
+      "executions": 2
+    },
+    {
+      "card": "\u91CD\u594F\u811A\u6CE8",
+      "model": "PHIGROS_JIU_GEOPELIA_REPLAY_FOOTNOTE",
+      "upgraded": true,
+      "damage": 0,
+      "block": 8,
+      "signal": 7,
+      "debt": 0,
+      "executions": 2
+    },
+    {
+      "card": "\u4F11\u6B62\u7B26",
+      "model": "PHIGROS_JIU_GEOPELIA_REST",
+      "upgraded": false,
+      "damage": 0,
+      "block": 7,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u4F11\u6B62\u7B26",
+      "model": "PHIGROS_JIU_GEOPELIA_REST",
+      "upgraded": true,
+      "damage": 0,
+      "block": 10,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u7EA2\u7EBF\u622A\u505C",
+      "model": "PHIGROS_JIU_GEOPELIA_REDLINE",
+      "upgraded": false,
+      "damage": 8,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u7EA2\u7EBF\u622A\u505C",
+      "model": "PHIGROS_JIU_GEOPELIA_REDLINE",
+      "upgraded": true,
+      "damage": 11,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u62FE\u97F3",
+      "model": "PHIGROS_JIU_GEOPELIA_SCAVENGE",
+      "upgraded": false,
+      "damage": 0,
+      "block": 0,
+      "signal": 7,
+      "debt": 1,
+      "executions": 1
+    },
+    {
+      "card": "\u62FE\u97F3",
+      "model": "PHIGROS_JIU_GEOPELIA_SCAVENGE",
+      "upgraded": true,
+      "damage": 0,
+      "block": 0,
+      "signal": 7,
+      "debt": 1,
+      "executions": 1
+    },
+    {
+      "card": "\u5EF6\u8FDF\u62CD\u70B9",
+      "model": "PHIGROS_JIU_GEOPELIA_DELAY_BEAT",
+      "upgraded": false,
+      "damage": 14,
+      "block": 0,
+      "signal": 6,
+      "debt": 50,
+      "executions": 1
+    },
+    {
+      "card": "\u5EF6\u8FDF\u62CD\u70B9",
+      "model": "PHIGROS_JIU_GEOPELIA_DELAY_BEAT",
+      "upgraded": true,
+      "damage": 18,
+      "block": 0,
+      "signal": 6,
+      "debt": 50,
+      "executions": 1
+    },
+    {
+      "card": "\u4F4E\u901A\u6EE4\u6CE2",
+      "model": "PHIGROS_JIU_GEOPELIA_LOWPASS",
+      "upgraded": false,
+      "damage": 0,
+      "block": 5,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u4F4E\u901A\u6EE4\u6CE2",
+      "model": "PHIGROS_JIU_GEOPELIA_LOWPASS",
+      "upgraded": true,
+      "damage": 0,
+      "block": 7,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u626B\u63CF\u7EBF",
+      "model": "PHIGROS_JIU_GEOPELIA_SCANLINE",
+      "upgraded": false,
+      "damage": 4,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u626B\u63CF\u7EBF",
+      "model": "PHIGROS_JIU_GEOPELIA_SCANLINE",
+      "upgraded": true,
+      "damage": 6,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u5931\u771F\u9884\u8B66",
+      "model": "PHIGROS_JIU_GEOPELIA_DISTORTED_FATE",
+      "upgraded": false,
+      "damage": 26,
+      "block": 0,
+      "signal": 6,
+      "debt": 50,
+      "executions": 1
+    },
+    {
+      "card": "\u5931\u771F\u9884\u8B66",
+      "model": "PHIGROS_JIU_GEOPELIA_DISTORTED_FATE",
+      "upgraded": true,
+      "damage": 34,
+      "block": 0,
+      "signal": 6,
+      "debt": 50,
+      "executions": 1
+    },
+    {
+      "card": "\u9759\u9ED8\u7684\u95F4\u594F",
+      "model": "PHIGROS_JIU_GEOPELIA_DANCE_WITH_SILENCE",
+      "upgraded": false,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 50,
+      "executions": 1
+    },
+    {
+      "card": "\u9759\u9ED8\u7684\u95F4\u594F",
+      "model": "PHIGROS_JIU_GEOPELIA_DANCE_WITH_SILENCE",
+      "upgraded": true,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 50,
+      "executions": 1
+    },
+    {
+      "card": "\u4E07\u5146\u63A5\u7EED",
+      "model": "PHIGROS_JIU_GEOPELIA_TERABYTE_CONNECTION",
+      "upgraded": false,
+      "damage": 16,
+      "block": 0,
+      "signal": 8,
+      "debt": 0,
+      "executions": 2
+    },
+    {
+      "card": "\u4E07\u5146\u63A5\u7EED",
+      "model": "PHIGROS_JIU_GEOPELIA_TERABYTE_CONNECTION",
+      "upgraded": true,
+      "damage": 20,
+      "block": 0,
+      "signal": 8,
+      "debt": 0,
+      "executions": 2
+    },
+    {
+      "card": "\u94BB\u77F3\u53D6\u6837",
+      "model": "PHIGROS_JIU_GEOPELIA_DIAMOND_EYES",
+      "upgraded": false,
+      "damage": 0,
+      "block": 4,
+      "signal": 10,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u94BB\u77F3\u53D6\u6837",
+      "model": "PHIGROS_JIU_GEOPELIA_DIAMOND_EYES",
+      "upgraded": true,
+      "damage": 0,
+      "block": 6,
+      "signal": 11,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u56DE\u73AF\u6821\u6B63",
+      "model": "PHIGROS_JIU_GEOPELIA_RETRIBUTION",
+      "upgraded": false,
+      "damage": 16,
+      "block": 0,
+      "signal": 3,
+      "debt": 0,
+      "executions": 2
+    },
+    {
+      "card": "\u56DE\u73AF\u6821\u6B63",
+      "model": "PHIGROS_JIU_GEOPELIA_RETRIBUTION",
+      "upgraded": true,
+      "damage": 22,
+      "block": 0,
+      "signal": 3,
+      "debt": 0,
+      "executions": 2
+    },
+    {
+      "card": "\u4FE1\u5149\u6210\u5E27",
+      "model": "PHIGROS_JIU_GEOPELIA_BELIEVE_LIGHT",
+      "upgraded": false,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u4FE1\u5149\u6210\u5E27",
+      "model": "PHIGROS_JIU_GEOPELIA_BELIEVE_LIGHT",
+      "upgraded": true,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u4E8C\u91CD\u66DD\u5149",
+      "model": "PHIGROS_JIU_GEOPELIA_DOUBLE_EXPOSURE",
+      "upgraded": false,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u4E8C\u91CD\u66DD\u5149",
+      "model": "PHIGROS_JIU_GEOPELIA_DOUBLE_EXPOSURE",
+      "upgraded": true,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u5BF9\u4F4D\u58F0\u90E8",
+      "model": "PHIGROS_JIU_GEOPELIA_COUNTERPOINT",
+      "upgraded": false,
+      "damage": 0,
+      "block": 8,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u5BF9\u4F4D\u58F0\u90E8",
+      "model": "PHIGROS_JIU_GEOPELIA_COUNTERPOINT",
+      "upgraded": true,
+      "damage": 0,
+      "block": 11,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u590D\u8C03",
+      "model": "PHIGROS_JIU_GEOPELIA_POLYPHONY",
+      "upgraded": false,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u590D\u8C03",
+      "model": "PHIGROS_JIU_GEOPELIA_POLYPHONY",
+      "upgraded": true,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u4FE1\u9053\u590D\u7528",
+      "model": "PHIGROS_JIU_GEOPELIA_CHANNEL_MUX",
+      "upgraded": false,
+      "damage": 0,
+      "block": 4,
+      "signal": 3,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u4FE1\u9053\u590D\u7528",
+      "model": "PHIGROS_JIU_GEOPELIA_CHANNEL_MUX",
+      "upgraded": true,
+      "damage": 0,
+      "block": 4,
+      "signal": 3,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u4FE1\u53F7\u7206\u7834",
+      "model": "PHIGROS_JIU_GEOPELIA_SIGNAL_BURST",
+      "upgraded": false,
+      "damage": 16,
+      "block": 0,
+      "signal": 2,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u4FE1\u53F7\u7206\u7834",
+      "model": "PHIGROS_JIU_GEOPELIA_SIGNAL_BURST",
+      "upgraded": true,
+      "damage": 22,
+      "block": 0,
+      "signal": 2,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u9891\u57DF\u62A4\u9635",
+      "model": "PHIGROS_JIU_GEOPELIA_SHIELD_ARRAY",
+      "upgraded": false,
+      "damage": 0,
+      "block": 17,
+      "signal": 2,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u9891\u57DF\u62A4\u9635",
+      "model": "PHIGROS_JIU_GEOPELIA_SHIELD_ARRAY",
+      "upgraded": true,
+      "damage": 0,
+      "block": 19,
+      "signal": 2,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u501F\u6765\u7684\u5149",
+      "model": "PHIGROS_JIU_GEOPELIA_BORROWED_LIGHT",
+      "upgraded": false,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 2,
+      "executions": 1
+    },
+    {
+      "card": "\u501F\u6765\u7684\u5149",
+      "model": "PHIGROS_JIU_GEOPELIA_BORROWED_LIGHT",
+      "upgraded": true,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 2,
+      "executions": 1
+    },
+    {
+      "card": "\u622A\u6B62\u65F6\u523B",
+      "model": "PHIGROS_JIU_GEOPELIA_DEADLINE",
+      "upgraded": false,
+      "damage": 28,
+      "block": 0,
+      "signal": 6,
+      "debt": 2,
+      "executions": 1
+    },
+    {
+      "card": "\u622A\u6B62\u65F6\u523B",
+      "model": "PHIGROS_JIU_GEOPELIA_DEADLINE",
+      "upgraded": true,
+      "damage": 36,
+      "block": 0,
+      "signal": 6,
+      "debt": 2,
+      "executions": 1
+    },
+    {
+      "card": "\u9759\u5019\u91CD\u8FDE",
+      "model": "PHIGROS_JIU_GEOPELIA_RECHARGE",
+      "upgraded": false,
+      "damage": 0,
+      "block": 9,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u9759\u5019\u91CD\u8FDE",
+      "model": "PHIGROS_JIU_GEOPELIA_RECHARGE",
+      "upgraded": true,
+      "damage": 0,
+      "block": 12,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u503A\u52A1\u7F6E\u6362",
+      "model": "PHIGROS_JIU_GEOPELIA_REFINANCE",
+      "upgraded": false,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 1,
+      "executions": 1
+    },
+    {
+      "card": "\u503A\u52A1\u7F6E\u6362",
+      "model": "PHIGROS_JIU_GEOPELIA_REFINANCE",
+      "upgraded": true,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 1,
+      "executions": 1
+    },
+    {
+      "card": "\u501F\u62CD\u5229\u606F",
+      "model": "PHIGROS_JIU_GEOPELIA_INTEREST",
+      "upgraded": false,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u501F\u62CD\u5229\u606F",
+      "model": "PHIGROS_JIU_GEOPELIA_INTEREST",
+      "upgraded": true,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u8D85\u901F\u5DE1\u822A",
+      "model": "PHIGROS_JIU_GEOPELIA_OVERSPEED",
+      "upgraded": false,
+      "damage": 10,
+      "block": 0,
+      "signal": 6,
+      "debt": 2,
+      "executions": 1
+    },
+    {
+      "card": "\u8D85\u901F\u5DE1\u822A",
+      "model": "PHIGROS_JIU_GEOPELIA_OVERSPEED",
+      "upgraded": true,
+      "damage": 14,
+      "block": 0,
+      "signal": 6,
+      "debt": 2,
+      "executions": 1
+    },
+    {
+      "card": "\u4F59\u50CF\u9632\u7EBF",
+      "model": "PHIGROS_JIU_GEOPELIA_AFTERGLOW",
+      "upgraded": false,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u4F59\u50CF\u9632\u7EBF",
+      "model": "PHIGROS_JIU_GEOPELIA_AFTERGLOW",
+      "upgraded": true,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u53D8\u62CD",
+      "model": "PHIGROS_JIU_GEOPELIA_TIME_SIGNATURE",
+      "upgraded": false,
+      "damage": 7,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u53D8\u62CD",
+      "model": "PHIGROS_JIU_GEOPELIA_TIME_SIGNATURE",
+      "upgraded": true,
+      "damage": 10,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u88C5\u9970\u97F3",
+      "model": "PHIGROS_JIU_GEOPELIA_GRACE_NOTE",
+      "upgraded": false,
+      "damage": 0,
+      "block": 0,
+      "signal": 8,
+      "debt": 2,
+      "executions": 1
+    },
+    {
+      "card": "\u88C5\u9970\u97F3",
+      "model": "PHIGROS_JIU_GEOPELIA_GRACE_NOTE",
+      "upgraded": true,
+      "damage": 0,
+      "block": 0,
+      "signal": 9,
+      "debt": 2,
+      "executions": 1
+    },
+    {
+      "card": "\u51B7\u542F\u52A8",
+      "model": "PHIGROS_JIU_GEOPELIA_COLD_START",
+      "upgraded": false,
+      "damage": 0,
+      "block": 0,
+      "signal": 12,
+      "debt": 1,
+      "executions": 1
+    },
+    {
+      "card": "\u51B7\u542F\u52A8",
+      "model": "PHIGROS_JIU_GEOPELIA_COLD_START",
+      "upgraded": true,
+      "damage": 0,
+      "block": 0,
+      "signal": 12,
+      "debt": 1,
+      "executions": 1
+    },
+    {
+      "card": "\u63A5\u529B\u9891\u6BB5",
+      "model": "PHIGROS_JIU_GEOPELIA_HAND_OFF",
+      "upgraded": false,
+      "damage": 10,
+      "block": 0,
+      "signal": 4,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u63A5\u529B\u9891\u6BB5",
+      "model": "PHIGROS_JIU_GEOPELIA_HAND_OFF",
+      "upgraded": true,
+      "damage": 14,
+      "block": 0,
+      "signal": 4,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u5408\u5531\u5750\u6807",
+      "model": "PHIGROS_JIU_GEOPELIA_CHORUS",
+      "upgraded": false,
+      "damage": 11,
+      "block": 0,
+      "signal": 4,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u5408\u5531\u5750\u6807",
+      "model": "PHIGROS_JIU_GEOPELIA_CHORUS",
+      "upgraded": true,
+      "damage": 15,
+      "block": 0,
+      "signal": 4,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u6536\u675F\u7EC8\u6B62\u5F0F",
+      "model": "PHIGROS_JIU_GEOPELIA_CADENCE",
+      "upgraded": false,
+      "damage": 21,
+      "block": 0,
+      "signal": 3,
+      "debt": 0,
+      "executions": 3
+    },
+    {
+      "card": "\u6536\u675F\u7EC8\u6B62\u5F0F",
+      "model": "PHIGROS_JIU_GEOPELIA_CADENCE",
+      "upgraded": true,
+      "damage": 24,
+      "block": 0,
+      "signal": 3,
+      "debt": 0,
+      "executions": 3
+    },
+    {
+      "card": "\u8BD5\u6F14",
+      "model": "PHIGROS_JIU_GEOPELIA_REHEARSAL",
+      "upgraded": false,
+      "damage": 0,
+      "block": 3,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u8BD5\u6F14",
+      "model": "PHIGROS_JIU_GEOPELIA_REHEARSAL",
+      "upgraded": true,
+      "damage": 0,
+      "block": 4,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u56DE\u653E\u7F13\u5B58",
+      "model": "PHIGROS_JIU_GEOPELIA_REPLAY_BUFFER",
+      "upgraded": false,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 1,
+      "executions": 1
+    },
+    {
+      "card": "\u56DE\u653E\u7F13\u5B58",
+      "model": "PHIGROS_JIU_GEOPELIA_REPLAY_BUFFER",
+      "upgraded": true,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u8F7D\u6CE2\u5C55\u5F00",
+      "model": "PHIGROS_JIU_GEOPELIA_CARRIER_WAVE",
+      "upgraded": false,
+      "damage": 0,
+      "block": 10,
+      "signal": 12,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u8F7D\u6CE2\u5C55\u5F00",
+      "model": "PHIGROS_JIU_GEOPELIA_CARRIER_WAVE",
+      "upgraded": true,
+      "damage": 0,
+      "block": 13,
+      "signal": 12,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u76F8\u4F4D\u8FC1\u8DC3",
+      "model": "PHIGROS_JIU_GEOPELIA_PHASE_SHIFT",
+      "upgraded": false,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u76F8\u4F4D\u8FC1\u8DC3",
+      "model": "PHIGROS_JIU_GEOPELIA_PHASE_SHIFT",
+      "upgraded": true,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u566A\u58F0\u98CE\u66B4",
+      "model": "PHIGROS_JIU_GEOPELIA_ABSOLUTE_DISORDER",
+      "upgraded": false,
+      "damage": 15,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 3
+    },
+    {
+      "card": "\u566A\u58F0\u98CE\u66B4",
+      "model": "PHIGROS_JIU_GEOPELIA_ABSOLUTE_DISORDER",
+      "upgraded": true,
+      "damage": 21,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 3
+    },
+    {
+      "card": "\u5168\u9891\u5171\u9E23",
+      "model": "PHIGROS_JIU_GEOPELIA_FEAST",
+      "upgraded": false,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u5168\u9891\u5171\u9E23",
+      "model": "PHIGROS_JIU_GEOPELIA_FEAST",
+      "upgraded": true,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u5723\u591C\u7684\u8FD4\u573A",
+      "model": "PHIGROS_JIU_GEOPELIA_CHRISTMAS_CAROL",
+      "upgraded": false,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u5723\u591C\u7684\u8FD4\u573A",
+      "model": "PHIGROS_JIU_GEOPELIA_CHRISTMAS_CAROL",
+      "upgraded": true,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u7834\u9650\u4E00\u51FB",
+      "model": "PHIGROS_JIU_GEOPELIA_CRUSH_BETA",
+      "upgraded": false,
+      "damage": 32,
+      "block": 0,
+      "signal": 6,
+      "debt": 50,
+      "executions": 1
+    },
+    {
+      "card": "\u7834\u9650\u4E00\u51FB",
+      "model": "PHIGROS_JIU_GEOPELIA_CRUSH_BETA",
+      "upgraded": true,
+      "damage": 40,
+      "block": 0,
+      "signal": 6,
+      "debt": 50,
+      "executions": 1
+    },
+    {
+      "card": "\u6B22\u6109\u7684\u8282\u62CD",
+      "model": "PHIGROS_JIU_GEOPELIA_HAPPY_DISEASE",
+      "upgraded": false,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u6B22\u6109\u7684\u8282\u62CD",
+      "model": "PHIGROS_JIU_GEOPELIA_HAPPY_DISEASE",
+      "upgraded": true,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u501F\u65E5",
+      "model": "PHIGROS_JIU_GEOPELIA_MOMENTARY_SUNRISE",
+      "upgraded": false,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 4,
+      "executions": 1
+    },
+    {
+      "card": "\u501F\u65E5",
+      "model": "PHIGROS_JIU_GEOPELIA_MOMENTARY_SUNRISE",
+      "upgraded": true,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 4,
+      "executions": 1
+    },
+    {
+      "card": "\u900F\u652F\u7EC4\u66F2",
+      "model": "PHIGROS_JIU_GEOPELIA_OVERDRAFT_SUITE",
+      "upgraded": false,
+      "damage": 20,
+      "block": 15,
+      "signal": 6,
+      "debt": 2,
+      "executions": 1
+    },
+    {
+      "card": "\u900F\u652F\u7EC4\u66F2",
+      "model": "PHIGROS_JIU_GEOPELIA_OVERDRAFT_SUITE",
+      "upgraded": true,
+      "damage": 26,
+      "block": 20,
+      "signal": 6,
+      "debt": 2,
+      "executions": 1
+    },
+    {
+      "card": "\u62B5\u62BC\u660E\u5929",
+      "model": "PHIGROS_JIU_GEOPELIA_TIME_MORTGAGE",
+      "upgraded": false,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 100,
+      "executions": 1
+    },
+    {
+      "card": "\u62B5\u62BC\u660E\u5929",
+      "model": "PHIGROS_JIU_GEOPELIA_TIME_MORTGAGE",
+      "upgraded": true,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 100,
+      "executions": 1
+    },
+    {
+      "card": "\u6E05\u7B97\u65F6\u523B",
+      "model": "PHIGROS_JIU_GEOPELIA_DEBT_CLEARING",
+      "upgraded": false,
+      "damage": 0,
+      "block": 8,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u6E05\u7B97\u65F6\u523B",
+      "model": "PHIGROS_JIU_GEOPELIA_DEBT_CLEARING",
+      "upgraded": true,
+      "damage": 0,
+      "block": 11,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u8679\u8272\u4FE1\u6807",
+      "model": "PHIGROS_JIU_GEOPELIA_RAINBOW_SIGNAL",
+      "upgraded": false,
+      "damage": 0,
+      "block": 0,
+      "signal": 8,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u8679\u8272\u4FE1\u6807",
+      "model": "PHIGROS_JIU_GEOPELIA_RAINBOW_SIGNAL",
+      "upgraded": true,
+      "damage": 0,
+      "block": 0,
+      "signal": 8,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u5E7B\u5F71\u5408\u594F",
+      "model": "PHIGROS_JIU_GEOPELIA_PHANTOM_ENSEMBLE",
+      "upgraded": false,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 1,
+      "executions": 1
+    },
+    {
+      "card": "\u5E7B\u5F71\u5408\u594F",
+      "model": "PHIGROS_JIU_GEOPELIA_PHANTOM_ENSEMBLE",
+      "upgraded": true,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 1,
+      "executions": 1
+    },
+    {
+      "card": "\u5168\u66F2\u56DE\u653E",
+      "model": "PHIGROS_JIU_GEOPELIA_FULL_PLAYBACK",
+      "upgraded": false,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u5168\u66F2\u56DE\u653E",
+      "model": "PHIGROS_JIU_GEOPELIA_FULL_PLAYBACK",
+      "upgraded": true,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u6700\u540E\u7684\u5E7F\u64AD",
+      "model": "PHIGROS_JIU_GEOPELIA_LAST_TRANSMISSION",
+      "upgraded": false,
+      "damage": 30,
+      "block": 0,
+      "signal": 0,
+      "debt": 0,
+      "executions": 2
+    },
+    {
+      "card": "\u6700\u540E\u7684\u5E7F\u64AD",
+      "model": "PHIGROS_JIU_GEOPELIA_LAST_TRANSMISSION",
+      "upgraded": true,
+      "damage": 40,
+      "block": 0,
+      "signal": 0,
+      "debt": 0,
+      "executions": 2
+    },
+    {
+      "card": "\u4FE1\u53F7\u5947\u70B9",
+      "model": "PHIGROS_JIU_GEOPELIA_SIGNAL_SINGULARITY",
+      "upgraded": false,
+      "damage": 0,
+      "block": 0,
+      "signal": 12,
+      "debt": 51,
+      "executions": 1
+    },
+    {
+      "card": "\u4FE1\u53F7\u5947\u70B9",
+      "model": "PHIGROS_JIU_GEOPELIA_SIGNAL_SINGULARITY",
+      "upgraded": true,
+      "damage": 0,
+      "block": 0,
+      "signal": 12,
+      "debt": 50,
+      "executions": 1
+    },
+    {
+      "card": "\u964D\u566A\u95F8\u95E8",
+      "model": "PHIGROS_JIU_GEOPELIA_NOISE_GATE",
+      "upgraded": false,
+      "damage": 0,
+      "block": 9,
+      "signal": 3,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u964D\u566A\u95F8\u95E8",
+      "model": "PHIGROS_JIU_GEOPELIA_NOISE_GATE",
+      "upgraded": true,
+      "damage": 0,
+      "block": 12,
+      "signal": 3,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u5EF6\u97F3\u653E\u5927",
+      "model": "PHIGROS_JIU_GEOPELIA_SUSTAIN_AMPLIFIER",
+      "upgraded": false,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u5EF6\u97F3\u653E\u5927",
+      "model": "PHIGROS_JIU_GEOPELIA_SUSTAIN_AMPLIFIER",
+      "upgraded": true,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u52A0\u901F\u5FC3\u8DF3",
+      "model": "PHIGROS_JIU_GEOPELIA_TACHYCARDIA",
+      "upgraded": false,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u52A0\u901F\u5FC3\u8DF3",
+      "model": "PHIGROS_JIU_GEOPELIA_TACHYCARDIA",
+      "upgraded": true,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u5F00\u573A\u767D",
+      "model": "PHIGROS_JIU_GEOPELIA_OPENING_THEME",
+      "upgraded": false,
+      "damage": 0,
+      "block": 0,
+      "signal": 7,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u5F00\u573A\u767D",
+      "model": "PHIGROS_JIU_GEOPELIA_OPENING_THEME",
+      "upgraded": true,
+      "damage": 0,
+      "block": 0,
+      "signal": 7,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u5B89\u5168\u526F\u672C",
+      "model": "PHIGROS_JIU_GEOPELIA_SAFETY_COPY",
+      "upgraded": false,
+      "damage": 0,
+      "block": 6,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u5B89\u5168\u526F\u672C",
+      "model": "PHIGROS_JIU_GEOPELIA_SAFETY_COPY",
+      "upgraded": true,
+      "damage": 0,
+      "block": 9,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u4E00\u955C\u5230\u5E95",
+      "model": "PHIGROS_JIU_GEOPELIA_CONTINUOUS_TAKE",
+      "upgraded": false,
+      "damage": 8,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u4E00\u955C\u5230\u5E95",
+      "model": "PHIGROS_JIU_GEOPELIA_CONTINUOUS_TAKE",
+      "upgraded": true,
+      "damage": 11,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u6BCD\u5E26\u523B\u5F55",
+      "model": "PHIGROS_JIU_GEOPELIA_MASTERING",
+      "upgraded": false,
+      "damage": 0,
+      "block": 0,
+      "signal": 8,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u6BCD\u5E26\u523B\u5F55",
+      "model": "PHIGROS_JIU_GEOPELIA_MASTERING",
+      "upgraded": true,
+      "damage": 0,
+      "block": 0,
+      "signal": 8,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u5931\u843D\u7684\u6863\u6848",
+      "model": "PHIGROS_JIU_GEOPELIA_ARCHIVE_LOST",
+      "upgraded": false,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u5931\u843D\u7684\u6863\u6848",
+      "model": "PHIGROS_JIU_GEOPELIA_ARCHIVE_LOST",
+      "upgraded": true,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u5355\u8272\u7834\u6653",
+      "model": "PHIGROS_JIU_GEOPELIA_MONOCHROME_BREAK",
+      "upgraded": false,
+      "damage": 20,
+      "block": 0,
+      "signal": 3,
+      "debt": 1,
+      "executions": 1
+    },
+    {
+      "card": "\u5355\u8272\u7834\u6653",
+      "model": "PHIGROS_JIU_GEOPELIA_MONOCHROME_BREAK",
+      "upgraded": true,
+      "damage": 26,
+      "block": 0,
+      "signal": 3,
+      "debt": 1,
+      "executions": 1
+    },
+    {
+      "card": "\u5BC2\u9759\u7684\u5C3E\u58F0",
+      "model": "PHIGROS_JIU_GEOPELIA_QUIET_CODA",
+      "upgraded": false,
+      "damage": 0,
+      "block": 6,
+      "signal": 6,
+      "debt": 2,
+      "executions": 1
+    },
+    {
+      "card": "\u5BC2\u9759\u7684\u5C3E\u58F0",
+      "model": "PHIGROS_JIU_GEOPELIA_QUIET_CODA",
+      "upgraded": true,
+      "damage": 0,
+      "block": 9,
+      "signal": 6,
+      "debt": 2,
+      "executions": 1
+    },
+    {
+      "card": "\u4E16\u754C\u7684\u56DE\u54CD",
+      "model": "PHIGROS_JIU_GEOPELIA_WORLD_ECHO",
+      "upgraded": false,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u4E16\u754C\u7684\u56DE\u54CD",
+      "model": "PHIGROS_JIU_GEOPELIA_WORLD_ECHO",
+      "upgraded": true,
+      "damage": 0,
+      "block": 0,
+      "signal": 6,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u65E7\u65E5\u5F55\u97F3",
+      "model": "PHIGROS_JIU_GEOPELIA_OLD_RECORDING",
+      "upgraded": false,
+      "damage": 0,
+      "block": 0,
+      "signal": 12,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u65E7\u65E5\u5F55\u97F3",
+      "model": "PHIGROS_JIU_GEOPELIA_OLD_RECORDING",
+      "upgraded": true,
+      "damage": 0,
+      "block": 0,
+      "signal": 12,
+      "debt": 0,
+      "executions": 1
+    },
+    {
+      "card": "\u5DF4\u522B\u4E4B\u58F0",
+      "model": "PHIGROS_JIU_GEOPELIA_TOWER_RESONANCE",
+      "upgraded": false,
+      "damage": 16,
+      "block": 0,
+      "signal": 8,
+      "debt": 0,
+      "executions": 2
+    },
+    {
+      "card": "\u5DF4\u522B\u4E4B\u58F0",
+      "model": "PHIGROS_JIU_GEOPELIA_TOWER_RESONANCE",
+      "upgraded": true,
+      "damage": 20,
+      "block": 0,
+      "signal": 10,
+      "debt": 0,
+      "executions": 2
+    }
+  ],
+  "benchmarks": [
+    {
+      "deck": "Ironclad starter",
+      "seeds": 16,
+      "turns": 96,
+      "damagePerTurn": 14.93,
+      "blockPerTurn": 3.40,
+      "unblockedPerTurn": 6.60,
+      "playsPerTurn": 2.53
+    },
+    {
+      "deck": "Jiu starter",
+      "seeds": 16,
+      "turns": 96,
+      "damagePerTurn": 13.48,
+      "blockPerTurn": 5.07,
+      "unblockedPerTurn": 4.93,
+      "playsPerTurn": 3.47
+    },
+    {
+      "deck": "Jiu repeats",
+      "seeds": 16,
+      "turns": 96,
+      "damagePerTurn": 12.81,
+      "blockPerTurn": 6.08,
+      "unblockedPerTurn": 3.92,
+      "playsPerTurn": 3.62
+    },
+    {
+      "deck": "Jiu signal",
+      "seeds": 16,
+      "turns": 96,
+      "damagePerTurn": 15.70,
+      "blockPerTurn": 5.12,
+      "unblockedPerTurn": 4.88,
+      "playsPerTurn": 3.39
+    },
+    {
+      "deck": "Jiu overdraft",
+      "seeds": 16,
+      "turns": 96,
+      "damagePerTurn": 13.82,
+      "blockPerTurn": 5.34,
+      "unblockedPerTurn": 4.66,
+      "playsPerTurn": 3.10
+    },
+    {
+      "deck": "Vanilla additions",
+      "seeds": 16,
+      "turns": 96,
+      "damagePerTurn": 15.12,
+      "blockPerTurn": 4.84,
+      "unblockedPerTurn": 5.16,
+      "playsPerTurn": 2.54
+    }
+  ]
+}

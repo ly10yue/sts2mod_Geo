@@ -1,0 +1,12 @@
+{
+  "id": "PhigrosJiu",
+  "name": "鸠 · PhigrosJiu 主版",
+  "author": "Local character mod",
+  "description": "鸠：85首歌曲与85张原曲绘逐一对应，高稀有度优先高定数，仅3张保留消耗；使用jiu_2同款立绘并缩至85%。可与jiu_2同时加载。",
+  "version": "0.6.0",
+  "min_game_version": "0.111.0",
+  "has_pck": true,
+  "has_dll": true,
+  "affects_gameplay": true,
+  "dependencies": []
+}

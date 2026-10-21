@@ -1,0 +1,33 @@
+# Generated build trees include game DLLs and isolated validation saves.
+/build/
+**/bin/
+**/obj/
+**/.godot/
+*.import
+*.uid
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+*.local.json
+*.local.ps1
+*.log
+*.pid
+*.tmp
+*.user
+.DS_Store
+Thumbs.db
+
+# Local inspection data and superseded art are not project sources.
+/research/game/
+/research/peer-before-*.json
+/assets/illustrations/
+*.decompiled.cs
+
+# Only this mod's distributable binaries belong in Git.
+*.dll
+*.exe
+*.pck
+!dist/PhigrosJiu/PhigrosJiu.dll
+!dist/PhigrosJiu/PhigrosJiu.pck
