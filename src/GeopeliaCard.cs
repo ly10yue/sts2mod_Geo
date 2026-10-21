@@ -32,7 +32,7 @@ public abstract class GeopeliaCard : CardModel
             for (int i = 0; i < Definition.Steps.Length; i++)
             {
                 var s = Definition.Steps[i];
-                yield return s.Kind is "Attack" or "AttackBonus" or "AllAttack" or "SignalAttack"
+                yield return s.Kind is "Attack" or "AttackBonus" or "AllAttack" or "SignalAttack" or "DebtAttack"
                     ? new DamageVar("V" + i, s.Value, ValueProp.Move)
                     : s.Kind is "Block" or "BlockBonus" or "SignalBlock" ? new BlockVar("V" + i, s.Value, ValueProp.Move)
                     : new DynamicVar("V" + i, s.Value);
@@ -99,6 +99,12 @@ public abstract class GeopeliaCard : CardModel
             {
                 case "Attack": case "AttackBonus": await Attack(context, play, n); break;
                 case "AllAttack": await Attack(context, play, n, true); break;
+                case "DebtAttack":
+                    int hits = Runtime.DebtCardsPlayed(Owner);
+                    if (hits > 0 && play.Target is { IsAlive: true } debtTarget)
+                        await DamageCmd.Attack(n).WithHitCount(hits).FromCard(this, play).Targeting(debtTarget)
+                            .WithHitFx("vfx/vfx_attack_slash").Execute(context);
+                    break;
                 case "Block": case "BlockBonus": await Block(play, n); break;
                 case "Draw": await CardPileCmd.Draw(context, n, Owner); break;
                 case "Energy": await PlayerCmd.GainEnergy(n, Owner); break;
@@ -109,6 +115,17 @@ public abstract class GeopeliaCard : CardModel
                     int allSignal = Runtime.Signal(Owner);
                     if (allSignal > 0 && await Runtime.SpendSignal(context,Owner,allSignal,this))
                         await PowerCmd.Apply<MegaCrit.Sts2.Core.Models.Powers.StrengthPower>(context,Owner.Creature,allSignal,Owner.Creature,this);
+                    break;
+                case "SignalRare":
+                    int spent = Math.Min(step.Cap, Runtime.Signal(Owner));
+                    if (spent > 0) await Runtime.SpendSignal(context, Owner, spent, this);
+                    var rares = Pool.AllCards.Where(c => c.Rarity == CardRarity.Rare).ToArray();
+                    for (int j = 0; j < spent / n && !CombatManager.Instance.IsOverOrEnding; j++)
+                    {
+                        var chosen = Owner.RunState.Rng.CombatCardGeneration.NextItem(rares);
+                        var generated = CombatState!.CreateCard(chosen!, Owner);
+                        await CardPileCmd.Add(generated, PileType.Hand, CardPilePosition.Bottom, this);
+                    }
                     break;
                 case "SignalAttack": case "SignalBlock":
                     int consumed = x > 0 ? Math.Min(step.Cap, Runtime.Signal(Owner)) : 0;

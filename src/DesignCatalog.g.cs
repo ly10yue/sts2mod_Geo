@@ -196,13 +196,13 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "AllAttack",
-        "value": 7,
-        "upgrade": 9
+        "value": 8,
+        "upgrade": 10
       },
       {
         "kind": "Signal",
         "value": 1,
-        "upgrade": 1
+        "upgrade": 2
       }
     ],
     "themes": [
@@ -330,8 +330,8 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "Attack",
-        "value": 8,
-        "upgrade": 11
+        "value": 10,
+        "upgrade": 14
       },
       {
         "kind": "Draw",
@@ -396,11 +396,6 @@ internal static class DesignJson { public const string Value = """
     "type": "Skill",
     "steps": [
       {
-        "kind": "Block",
-        "value": 5,
-        "upgrade": 8
-      },
-      {
         "kind": "Signal",
         "value": 2,
         "upgrade": 3
@@ -427,7 +422,7 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 14.5,
     "artSourceSha256": "c9f485a8273a83ff4f34b97f8f7673f03deaa964b88bc3ce218f86c12b0eb733",
     "keywords": [],
-    "description": "获得{V0:diff()}点格挡。\n获得{V1:diff()}点[gold]信号[/gold]。\n抽{V2:diff()}张牌。\n[red]透支[/red]：下回合少抽{V3:diff()}张牌。"
+    "description": "获得{V0:diff()}点[gold]信号[/gold]。\n抽{V1:diff()}张牌。\n[red]透支[/red]：下回合少抽{V2:diff()}张牌。"
   },
   {
     "className": "GeopeliaDrag",
@@ -470,13 +465,13 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "Signal",
-        "value": 3,
-        "upgrade": 4
+        "value": 4,
+        "upgrade": 6
       },
       {
         "kind": "Draw",
-        "value": 3,
-        "upgrade": 4
+        "value": 2,
+        "upgrade": 3
       }
     ],
     "themes": [
@@ -1147,11 +1142,6 @@ internal static class DesignJson { public const string Value = """
     "type": "Power",
     "steps": [
       {
-        "kind": "Signal",
-        "value": 3,
-        "upgrade": 4
-      },
-      {
         "kind": "Power",
         "value": 1,
         "upgrade": 2,
@@ -1168,7 +1158,7 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 15.7,
     "artSourceSha256": "ca13fa65d2c5b4c66f7f3b9f6129bd1ff8aac580b5b813a61aa0e9f2d4217dfb",
     "keywords": [],
-    "description": "获得{V0:diff()}点[gold]信号[/gold]。\n获得[gold]Horizon Blue[/gold]：每回合前3张手动打出的技能牌结算后，各获得{V1:diff()}点信号。"
+    "description": "每回合前3张手动打出的技能牌结算后，各获得{V0:diff()}点信号。"
   },
   {
     "className": "GeopeliaDoubleExposure",
@@ -1253,7 +1243,7 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 16.1,
     "artSourceSha256": "369a5743f781b3fe9602576392485bf620dca9847aaaba2d4dcdc5358c7eebd9",
     "keywords": [],
-    "description": "获得[gold]Non-Melodic Ragez (MUG Edit)[/gold]：每打出3张牌，获得{V0:diff()}点格挡。"
+    "description": "每打出3张牌，获得{V0:diff()}点格挡。"
   },
   {
     "className": "GeopeliaChannelMux",
@@ -1326,12 +1316,10 @@ internal static class DesignJson { public const string Value = """
     "type": "Skill",
     "steps": [
       {
-        "kind": "SignalBlock",
-        "value": 5,
-        "upgrade": 8,
-        "x": 3,
-        "ux": 3,
-        "cap": 4
+        "kind": "SignalRare",
+        "value": 4,
+        "upgrade": 3,
+        "cap": 12
       }
     ],
     "themes": [
@@ -1344,7 +1332,7 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 15.6,
     "artSourceSha256": "0cd0da5229fdabb219621c0d590ed5d90d87d39724dde21e017696f456b13bbf",
     "keywords": [],
-    "description": "消耗至多4点信号。获得{V0:diff()}点格挡。每消耗1点信号，额外获得{X0:diff()}点格挡。"
+    "description": "消耗至多12点[gold]信号[/gold]。每消耗{V0:diff()}点，将一张随机的鸠的稀有牌加入手牌。"
   },
   {
     "className": "GeopeliaBorrowedLight",
@@ -1382,19 +1370,14 @@ internal static class DesignJson { public const string Value = """
     "className": "GeopeliaDeadline",
     "name": "El Condor Pasa (Phigros Edit)",
     "rarity": "Uncommon",
-    "cost": 2,
-    "upgradeCost": 2,
+    "cost": 1,
+    "upgradeCost": 1,
     "type": "Attack",
     "steps": [
       {
-        "kind": "Attack",
-        "value": 32,
-        "upgrade": 40
-      },
-      {
-        "kind": "DrawDebt",
-        "value": 1,
-        "upgrade": 1
+        "kind": "DebtAttack",
+        "value": 9,
+        "upgrade": 11
       }
     ],
     "themes": [
@@ -1408,7 +1391,7 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 15.6,
     "artSourceSha256": "2efdeb1d22b89b6b21270239c38b4fe058a7158030157ab851518225b021cd7b",
     "keywords": [],
-    "description": "造成{V0:diff()}点伤害。\n[red]透支[/red]：下回合少抽{V1:diff()}张牌。"
+    "description": "本场战斗中，你每打出过一张带[red]透支[/red]的牌，造成{V0:diff()}点伤害。"
   },
   {
     "className": "GeopeliaRecharge",
@@ -1509,7 +1492,7 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 15.6,
     "artSourceSha256": "2b6cb9b734cd63a7745696a565125dc1e10716452b15550ce6e250261d5cc1e1",
     "keywords": [],
-    "description": "获得[gold]Labyrinth in Kowloon: Walled World[/gold]：每次打出一张带透支代价的牌，获得{V0:diff()}点格挡。每次结算最多触发一次。"
+    "description": "每次打出一张带透支代价的牌，获得{V0:diff()}点格挡。每次结算最多触发一次。"
   },
   {
     "className": "GeopeliaOverspeed",
@@ -1553,13 +1536,13 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "Power",
-        "value": 2,
-        "upgrade": 3,
-        "power": "EchoGuard"
+        "value": 12,
+        "upgrade": 18,
+        "power": "SignalCapacity"
       }
     ],
     "themes": [
-      "多牌"
+      "信号"
     ],
     "replays": 0,
     "portrait": "geopeliaafterglow.tres",
@@ -1568,7 +1551,7 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 15.7,
     "artSourceSha256": "5a518bcbf96069bb28d08bc5fd4368fd1cf8a9ffc10410eb69be9a5818954b6a",
     "keywords": [],
-    "description": "获得[gold]Evanescent[/gold]：重放的牌结算后，获得{V0:diff()}点格挡。"
+    "description": "信号上限增加{V0:diff()}点。"
   },
   {
     "className": "GeopeliaTimeSignature",
@@ -1855,7 +1838,7 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 15.5,
     "artSourceSha256": "fb0450af855aa7d8a4e48f6d2295af5bd525f75d8d0ad629711cd83a65f5eba7",
     "keywords": [],
-    "description": "依次重放本回合此前手动打出的最后{V0:diff()}张可重放的非能力牌。复制牌结算后消耗。\n抽{V1:diff()}张牌。\n[red]透支[/red]：下回合少抽{V2:diff()}张牌。"
+    "description": "依次免费重放本回合此前手动打出的最后{V0:diff()}张可重放的非能力牌。\n抽{V1:diff()}张牌。\n[red]透支[/red]：下回合少抽{V2:diff()}张牌。"
   },
   {
     "className": "GeopeliaCarrierWave",
@@ -1986,7 +1969,7 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 17.6,
     "artSourceSha256": "7cfd30cda3a491b8c4ba2eb7ce959877953bf43d745e412b804bcc92320ceaeb",
     "keywords": [],
-    "description": "获得[gold]Rrhar'il[/gold]：每回合第一张有足够信号的手动攻击牌，消耗{V0:diff()}点信号，重放1。"
+    "description": "每回合第一张有足够信号的手动攻击牌，消耗{V0:diff()}点信号，重放1。"
   },
   {
     "className": "GeopeliaChristmasCarol",
@@ -2017,7 +2000,7 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 17.6,
     "artSourceSha256": "bac016e69d35c95efe64d1cb8661fee74523920d1b744c633e0d8283c2f3c82b",
     "keywords": [],
-    "description": "抽{V0:diff()}张牌。\n依次重放本回合此前手动打出的最后{V1:diff()}张可重放的非能力牌。复制牌结算后消耗。"
+    "description": "抽{V0:diff()}张牌。\n依次免费重放本回合此前手动打出的最后{V1:diff()}张可重放的非能力牌。"
   },
   {
     "className": "GeopeliaCrushBeta",
@@ -2083,7 +2066,7 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 17.5,
     "artSourceSha256": "8fda5310aa0c9f2d99fb6895c45eeb53005982db53d8d7b5a0c32293942a4f6d",
     "keywords": [],
-    "description": "获得[gold]Der Schneid[/gold]：每打出3张牌，抽{V0:diff()}张牌。\n抽{V1:diff()}张牌。"
+    "description": "每打出3张牌，抽{V0:diff()}张牌。\n抽{V1:diff()}张牌。"
   },
   {
     "className": "GeopeliaMomentarySunrise",
@@ -2260,7 +2243,7 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 17.3,
     "artSourceSha256": "b894e467a5d1d7ebbfb4fb4f061fa6985e54f52071556d90a1bbc63f0aae59a6",
     "keywords": [],
-    "description": "获得[gold]祈 -我ら神祖と共に歩む者なり-[/gold]：每回合首次主动消耗信号后，立即获得{V0:diff()}点能量。"
+    "description": "每回合首次主动消耗信号后，立即获得{V0:diff()}点能量。"
   },
   {
     "className": "GeopeliaPhantomEnsemble",
@@ -2292,7 +2275,7 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 17.2,
     "artSourceSha256": "ffa416399fd9a20c69047d6505542ee124aa39480aca4c27c5dfca332ce0c576",
     "keywords": [],
-    "description": "依次重放本回合此前手动打出的最后{V0:diff()}张可重放的非能力牌。复制牌结算后消耗。\n[red]透支[/red]：下回合失去{V1:diff()}点能量。"
+    "description": "依次免费重放本回合此前手动打出的最后{V0:diff()}张可重放的非能力牌。\n[red]透支[/red]：下回合失去{V1:diff()}点能量。"
   },
   {
     "className": "GeopeliaFullPlayback",
@@ -2318,7 +2301,7 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 16.9,
     "artSourceSha256": "f91ba6363a7e50ac1f74aff19ed3530104a100a7afbd8a34da013ffce0e4e5cc",
     "keywords": [],
-    "description": "依次重放本回合此前手动打出的最后{V0:diff()}张可重放的非能力牌。复制牌结算后消耗。"
+    "description": "依次免费重放本回合此前手动打出的最后{V0:diff()}张可重放的非能力牌。"
   },
   {
     "className": "GeopeliaLastTransmission",
@@ -2450,7 +2433,7 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 16.9,
     "artSourceSha256": "b134d547479df4c31572f9716270a802a14e64be6d02459d1b8891274ee64f88",
     "keywords": [],
-    "description": "获得[gold]Archidoxen[/gold]：记录你打出的上一张牌。打出牌时，与其费用相同：获得{V0:diff()}点能量；稀有度相同：抽{V0:diff()}张牌；类型相同：下一次加费或抽牌翻倍。每个效果每回合最多触发一次。"
+    "description": "记录你打出的上一张牌。打出牌时，与其费用相同：获得{V0:diff()}点能量；稀有度相同：抽{V0:diff()}张牌；类型相同：下一次加费或抽牌翻倍。每个效果每回合最多触发一次。"
   },
   {
     "className": "GeopeliaTachycardia",
@@ -2478,7 +2461,7 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 16.9,
     "artSourceSha256": "bff7ccc335322810aea16e3d0188784eee5293de03bb4940950f6cfbfdbf0b4f",
     "keywords": [],
-    "description": "获得[gold]INFiNiTE ENERZY -Overdoze-[/gold]：带透支代价的牌结算后，立即抽{V0:diff()}张牌。"
+    "description": "带透支代价的牌结算后，立即抽{V0:diff()}张牌。"
   },
   {
     "className": "GeopeliaOpeningTheme",
@@ -2515,7 +2498,7 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 16.9,
     "artSourceSha256": "83cdc31d1b68b9d744e973e2f29cdeee8050e9630168e224793a287563d1c0a6",
     "keywords": [],
-    "description": "获得{V0:diff()}点[gold]力量[/gold]。\n获得{V1:diff()}点[gold]敏捷[/gold]。\n获得[gold]Der Richter[/gold]：回合开始时，失去{V2:diff()}点能量。"
+    "description": "获得{V0:diff()}点[gold]力量[/gold]。\n获得{V1:diff()}点[gold]敏捷[/gold]。\n回合开始时，失去{V2:diff()}点能量。"
   },
   {
     "className": "GeopeliaSafetyCopy",
@@ -2546,7 +2529,7 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 16.8,
     "artSourceSha256": "0be4413fbb6fd8624619234b10ade2c1a5e3b93712f669251c59616b9dcdb7af",
     "keywords": [],
-    "description": "获得{V0:diff()}点格挡。\n依次重放本回合此前手动打出的最后{V1:diff()}张可重放的非能力牌。复制牌结算后消耗。"
+    "description": "获得{V0:diff()}点格挡。\n依次免费重放本回合此前手动打出的最后{V1:diff()}张可重放的非能力牌。"
   },
   {
     "className": "GeopeliaContinuousTake",
@@ -2607,7 +2590,7 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 16.6,
     "artSourceSha256": "3048b5d3bd9b00ed4ae6b9aadf80d28a7663de4cb0c2e55dc9affd0829b06860",
     "keywords": [],
-    "description": "获得[gold]PRAGMATISM -RESURRECTION-[/gold]：重放的牌结算后，获得1点信号。"
+    "description": "重放的牌结算后，获得1点信号。"
   },
   {
     "className": "GeopeliaArchiveLost",
@@ -2741,7 +2724,7 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 16.7,
     "artSourceSha256": "8084aa3bd1703f030aff422aa5b95cb22ebbb266e128f7d04ba28fb8db88ce98",
     "keywords": [],
-    "description": "获得[gold]Cuvism³[/gold]：每回合前{V0:diff()}张可重放的手动非能力牌，各消耗2点信号并重放1。信号不足时不触发。"
+    "description": "每回合前{V0:diff()}张可重放的手动非能力牌，各消耗2点信号并重放1。信号不足时不触发。"
   },
   {
     "className": "GeopeliaOldRecording",

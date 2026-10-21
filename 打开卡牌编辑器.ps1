@@ -1,4 +1,4 @@
-﻿param([switch]$NoBrowser, [ValidateRange(1024,65535)][int]$Port = 18769)
+﻿param([switch]$NoBrowser, [ValidateRange(1024,65535)][int]$Port = 18770)
 $ErrorActionPreference = 'Stop'
 $jiuEditorRoot = $PSScriptRoot
 $jiuEditorUrl = "http://127.0.0.1:$Port/"

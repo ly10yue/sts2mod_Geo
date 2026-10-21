@@ -6,6 +6,11 @@
       "icon": "geopelia_signal_power.png"
     },
     {
+      "className": "GeopeliaSignalCapacityPower",
+      "entry": "PHIGROS_JIU_GEOPELIA_SIGNAL_CAPACITY_POWER",
+      "icon": "geopelia_signal_capacity_power.png"
+    },
+    {
       "className": "GeopeliaRhythmPower",
       "entry": "PHIGROS_JIU_GEOPELIA_RHYTHM_POWER",
       "icon": "geopelia_rhythm_power.png"
@@ -133,5 +138,5 @@
     "Rare": 25,
     "Ancient": 2
   },
-  "signalCap": 12
+  "signalCap": 24
 }

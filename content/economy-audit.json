@@ -350,11 +350,11 @@
       "upgraded": false,
       "cost": 1,
       "Energy": 0,
-      "Draw": 3,
+      "Draw": 2,
       "EnergyDebt": 0,
       "DrawDebt": 0,
       "netEnergy": -1,
-      "netDraw": 2
+      "netDraw": 1
     },
     {
       "model": "GeopeliaSync",
@@ -362,11 +362,11 @@
       "upgraded": true,
       "cost": 1,
       "Energy": 0,
-      "Draw": 4,
+      "Draw": 3,
       "EnergyDebt": 0,
       "DrawDebt": 0,
       "netEnergy": -1,
-      "netDraw": 3
+      "netDraw": 2
     },
     {
       "model": "GeopeliaProbe",
@@ -1020,25 +1020,25 @@
       "model": "GeopeliaDeadline",
       "name": "El Condor Pasa (Phigros Edit)",
       "upgraded": false,
-      "cost": 2,
+      "cost": 1,
       "Energy": 0,
       "Draw": 0,
       "EnergyDebt": 0,
-      "DrawDebt": 1,
-      "netEnergy": -2,
-      "netDraw": -2
+      "DrawDebt": 0,
+      "netEnergy": -1,
+      "netDraw": -1
     },
     {
       "model": "GeopeliaDeadline",
       "name": "El Condor Pasa (Phigros Edit)",
       "upgraded": true,
-      "cost": 2,
+      "cost": 1,
       "Energy": 0,
       "Draw": 0,
       "EnergyDebt": 0,
-      "DrawDebt": 1,
-      "netEnergy": -2,
-      "netDraw": -2
+      "DrawDebt": 0,
+      "netEnergy": -1,
+      "netDraw": -1
     },
     {
       "model": "GeopeliaRecharge",
@@ -2051,7 +2051,7 @@
   ],
   "nativeComparisons": [],
   "nativeMeasurementsCurrent": false,
-  "designSha256": "4f971d825deea873f665cf5df083ffba94a1b106d145f56e704e9739346d674f",
+  "designSha256": "2796c7228a23602737363ddc2c2a11a9394e6e9a6f4d06d0b5d205bafbb0c926",
   "balanceWarnings": [
     "Speed Up!: net energy below original design target",
     "Speed Up!+: net energy below original design target",

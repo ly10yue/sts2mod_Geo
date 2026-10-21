@@ -21,10 +21,12 @@ public sealed class GeopeliaSignalPower : GeopeliaPower
 {
     public override Task AfterPowerAmountChanged(PlayerChoiceContext context, PowerModel power, decimal amount, Creature? applier, CardModel? source)
     {
-        if (power == this && Amount > Runtime.SignalCap) SetAmount(Runtime.SignalCap);
+        if (power == this && Amount > Runtime.SignalLimit(Owner.Player!)) SetAmount(Runtime.SignalLimit(Owner.Player!));
         return Task.CompletedTask;
     }
 }
+
+public sealed class GeopeliaSignalCapacityPower : GeopeliaPower { }
 
 /// <summary>All per-turn counters are saved, owner-scoped and reset before that owner's turn.</summary>
 public abstract class GeopeliaMechanicPower : GeopeliaPower

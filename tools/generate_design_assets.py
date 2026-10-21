@@ -19,13 +19,13 @@ def main():
         p=pack/'icons/powers'/f'{slug(name)}.png'
         if not p.exists():shutil.copyfile(old_icon,p)
     registry={'powers':[{'className':p,'entry':'PHIGROS_JIU_'+slug(p).upper(),'icon':slug(p)+'.png'} for p in powers],
-              'rarities':card_design.EXPECTED,'signalCap':12}
+              'rarities':card_design.EXPECTED,'signalCap':24}
     (root/'content/mechanics.json').write_text(json.dumps(registry,ensure_ascii=False,indent=2),encoding='utf-8')
     (pack/'mechanics.json').write_text(json.dumps(registry,ensure_ascii=False,indent=2),encoding='utf-8')
     text={}
     for key,(title,body) in card_design.POWER_TEXT.items():text['Geopelia'+key+'Power']=(title,body)
     text.update({
-      'GeopeliaSignalPower':('信号','可储存的正面资源，上限12点，不自动衰减。卡牌会主动消耗信号以获得收益；透支导致的信号流失不算主动消耗。'),
+      'GeopeliaSignalPower':('信号','可储存的正面资源，初始上限24点，可由卡牌提高，不自动衰减。卡牌会主动消耗信号以获得收益；透支导致的信号流失不算主动消耗。'),
       'GeopeliaRhythmPower':('随身录音','每回合每打出3张牌，获得1点信号。额外打出与自动重放也计数。'),
       'GeopeliaEnergyDebtPower':('能量透支','下回合能量重置后，失去{Amount}点能量，最低降至0；随后清除此透支。'),
       'GeopeliaDrawDebtPower':('抽牌透支','下回合起始抽牌减少{Amount}张，最低降至0；随后清除此透支。'),
@@ -53,8 +53,8 @@ def main():
     # Fully specified reference table: one row per real card and both upgrade states.
     labels={'Basic':'基础','Common':'普通','Uncommon':'罕见','Rare':'稀有','Ancient':'先古'}
     lines=['# 鸠 · 卡牌设计','', '主卡池85张：基础4、普通25、罕见29、稀有25、先古2，与沙耶1.8.5 API1110标注主卡池的卡牌数量一致。','',
-      '信号是正面储存资源，上限12，不自然衰减；主动消耗由牌面规定。起始遗物在战斗开始时给予1点信号，每回合每3次出牌再给予1点。', '',
-      '重复打出使用原生重复结算，额外打出也计入出牌数。历史回放只选此前手动打出的非能力、非X费、非回放引擎牌；临时复制牌结算后消耗。'+rehearsal_name+' 只由其他手动牌触发。', '',
+      '信号是正面储存资源，初始上限24，可由 Evanescent 提高，不自然衰减；主动消耗由牌面规定。起始遗物在战斗开始时给予1点信号，每回合每3次出牌再给予1点。', '',
+      '重复打出使用原生重复结算，额外打出也计入出牌数。历史回放只选本回合此前手动打出的非能力、非X费、非回放引擎牌，使用原牌免费自动打出，保留升级、附魔和原生重放次数，不额外添加消耗。'+rehearsal_name+' 只由其他手动牌触发。', '',
       '透支在下回合结算。能量与抽牌透支可累计且最低降至0；伤害、格挡减半的同类透支不叠加。跨战斗不保留透支或信号。','',
       '0.5.0：85首歌曲与85张不同原曲绘逐一对应。最高谱面定数分档：基础12.4–13.4、普通13.6–14.9、罕见15.1–16.2、稀有16.6–17.6、先古17.9–18.0；对应关系见 ARTWORK.md。类名和模型ID保留。','',
       '消耗由30张减为3张，仅先古牌2张及先古牌生成牌1张保留。其余27张恢复可重复打出，不为防止无限另加消耗或调整费用。临时回放复制牌仍在结算后清理，不进入原始牌组。','',

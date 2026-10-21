@@ -59,8 +59,8 @@
 | DataErr0r | 是 | 0 | 0 | 3 | 0 | 1 | 0 | 1 |
 | Luminescent | 否 | 1 | 0 | 2 | 0 | 0 | -1 | 1 |
 | Luminescent | 是 | 1 | 0 | 2 | 0 | 0 | -1 | 1 |
-| ENERGY SYNERGY MATRIX | 否 | 1 | 0 | 3 | 0 | 0 | -1 | 2 |
-| ENERGY SYNERGY MATRIX | 是 | 1 | 0 | 4 | 0 | 0 | -1 | 3 |
+| ENERGY SYNERGY MATRIX | 否 | 1 | 0 | 2 | 0 | 0 | -1 | 1 |
+| ENERGY SYNERGY MATRIX | 是 | 1 | 0 | 3 | 0 | 0 | -1 | 2 |
 | Find_Me | 否 | 0 | 0 | 1 | 0 | 0 | 0 | 0 |
 | Find_Me | 是 | 0 | 0 | 1 | 0 | 0 | 0 | 0 |
 | GOODTEK | 否 | 1 | 0 | 1 | 0 | 0 | -1 | 0 |
@@ -115,8 +115,8 @@
 | opia | 是 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
 | energy trixxx | 否 | 0 | 2 | 0 | 1 | 0 | 1 | -1 |
 | energy trixxx | 是 | 0 | 3 | 0 | 1 | 0 | 2 | -1 |
-| El Condor Pasa (Phigros Edit) | 否 | 2 | 0 | 0 | 0 | 1 | -2 | -2 |
-| El Condor Pasa (Phigros Edit) | 是 | 2 | 0 | 0 | 0 | 1 | -2 | -2 |
+| El Condor Pasa (Phigros Edit) | 否 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
+| El Condor Pasa (Phigros Edit) | 是 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
 | Re：birth | 否 | 1 | 0 | 2 | 0 | 0 | -1 | 1 |
 | Re：birth | 是 | 1 | 0 | 2 | 0 | 0 | -1 | 1 |
 | Feast远东之宴 | 否 | 0 | 0 | 3 | 0 | 1 | 0 | 1 |

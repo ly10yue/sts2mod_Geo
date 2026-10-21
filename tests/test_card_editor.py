@@ -85,6 +85,25 @@ class CardEditorTests(unittest.TestCase):
         text=ce.card_design.step_text(dict(kind='AttackBonus',value=1,upgrade=1,x=2,ux=2,condition='signal',threshold=0,pay=0),0,upgraded=False)
         self.assertNotIn('0点',text)
 
+    def test_signal_capacity_generation_debt_attack_and_power_text(self):
+        state=self.editor.state()
+        cards={c['className']:c for c in state['cards']}
+        self.assertEqual(['SignalRare','DebtAttack'],[k for k in ('SignalRare','DebtAttack') if k in state['effectKinds']])
+        self.assertIn('SignalCapacity',state['powerOptions'])
+        self.assertIn('每消耗4点',cards['GeopeliaShieldArray']['descriptions'][0])
+        self.assertIn('每消耗3点',cards['GeopeliaShieldArray']['descriptions'][1])
+        self.assertEqual(['信号上限增加12点。','信号上限增加18点。'],cards['GeopeliaAfterglow']['descriptions'])
+        self.assertIn('造成11点伤害',cards['GeopeliaDeadline']['descriptions'][1])
+        self.assertNotIn('下回合',cards['GeopeliaDeadline']['descriptions'][0])
+        for card in state['cards']:
+            if card['type']=='Power':
+                self.assertNotIn('获得'+card['name'],card['descriptions'][0])
+            if any(s['kind']=='Replay' for s in card['steps']):
+                self.assertNotIn('复制牌结算后消耗',card['descriptions'][0])
+        steps=[dict(kind='SignalRare',value=4,upgrade=3,cap=12),dict(kind='DebtAttack',value=9,upgrade=11)]
+        after,_=ce.read_cards(ce.patch_source(self.original,self.payload('steps',steps)['patches']))
+        self.assertEqual(steps,after[0]['steps'])
+
     def test_draw_debt_repayment_roundtrip_preview_and_zero(self):
         steps=[dict(kind='RepayDraw',value=2,upgrade=99)]
         payload=self.payload('steps',steps)

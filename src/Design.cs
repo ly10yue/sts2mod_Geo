@@ -39,7 +39,7 @@ public sealed class CardDefinition
     public string[] Themes { get; set; } = Array.Empty<string>();
     public string Description { get; set; } = "";
     public bool HasReplayAction => Steps.Any(s => s.Kind is "Replay" or "EchoSelf");
-    public TargetType Target => Steps.Any(s => s.Kind is "Attack" or "AttackBonus" or "SignalAttack" or "Weak")
+    public TargetType Target => Steps.Any(s => s.Kind is "Attack" or "AttackBonus" or "SignalAttack" or "DebtAttack" or "Weak")
         ? TargetType.AnyEnemy : Steps.Any(s => s.Kind is "AllAttack" or "AllWeak" or "AllVulnerable") ? TargetType.AllEnemies : TargetType.Self;
 }
 

@@ -80,6 +80,7 @@ internal static partial class GameValidation
             {
                 await EditorFeatureCases();
                 await SongReworkCases();
+                await SignalReplayReworkCases();
             }
             else
             {
@@ -100,7 +101,7 @@ internal static partial class GameValidation
                 Check(!string.IsNullOrWhiteSpace(description) && !description.Contains("{V") && !description.Contains("{X"), "native localized dynamic description");
                 Check(card.Title.Contains(definition.Name), "native localized title");
                 await f.Play(card);
-                Check(Runtime.Signal(f.Player) is >= 0 and <= 12, "signal cap");
+                Check(Runtime.Signal(f.Player) >= 0 && Runtime.Signal(f.Player) <= Runtime.SignalLimit(f.Player), "signal cap");
                 Check(f.Player.Creature.CurrentHp == 70, "self-targeting or unexpected health loss");
                 int executions = Runtime.History(f.Player).Count(e => e.CardPlay.Card == card);
                 int expected = 1 + definition.Replays + (definition.SignalReplayCost > 0 ? 1 : 0);

@@ -13,12 +13,18 @@ namespace PhigrosJiu;
 
 public static class Runtime
 {
-    public const int SignalCap = 12;
+    public const int SignalCap = 24;
+    public static int SignalLimit(Player player) => SignalCap + player.Creature.GetPowerAmount<GeopeliaSignalCapacityPower>();
     public static int Signal(Player player) => player.Creature.GetPowerAmount<GeopeliaSignalPower>();
     public static bool IsRepeat(CardPlay play) => play.IsAutoPlay || !play.IsFirstInSeries;
     public static CardPlayFinishedEntry[] History(Player player) => CombatManager.Instance.History.CardPlaysFinished
         .Where(e => e.CardPlay.Player == player && e.HappenedThisTurn(player.Creature.CombatState)).ToArray();
     public static int Played(Player player) => History(player).Length;
+    // Like PullFromBelow, count each completed resolution across the whole combat, including replays.
+    public static int DebtCardsPlayed(Player player) => CombatManager.Instance.History.CardPlaysFinished.Count(e =>
+        e.CardPlay.Player == player && e.CardPlay.Card is GeopeliaCard card && card.Definition.Steps
+            .Select((s, i) => (s, i)).Any(p => p.s.Kind is "EnergyDebt" or "DrawDebt" or "SignalDebt" or "DamageDebt" or "BlockDebt"
+                && card.DynamicVars["V" + p.i].IntValue > 0));
     public static int Debt(Player player) => player.Creature.Powers
         .Where(p => p is GeopeliaDebtPower && p is not GeopeliaTurnPenaltyPower).Sum(p => p.Amount);
     public static bool Condition(EffectStep step, Player player, CardPlay play) => step.Condition switch
@@ -33,7 +39,7 @@ public static class Runtime
     };
     public static async Task AddSignal(PlayerChoiceContext context, Player player, int n, CardModel? source = null)
     {
-        int amount = Math.Min(Math.Max(0, n), SignalCap - Signal(player));
+        int amount = Math.Min(Math.Max(0, n), SignalLimit(player) - Signal(player));
         if (amount > 0) await PowerCmd.Apply<GeopeliaSignalPower>(context, player.Creature, amount, player.Creature, source);
     }
     public static async Task<bool> SpendSignal(PlayerChoiceContext context, Player player, int n, CardModel? source)
@@ -68,7 +74,7 @@ public static class Runtime
         "SignalDraw" => typeof(GeopeliaSignalDrawPower), "DebtDraw" => typeof(GeopeliaDebtDrawPower),
         "OpeningSignal" => typeof(GeopeliaOpeningSignalPower), "EchoSignal" => typeof(GeopeliaEchoSignalPower),
         "WorldEcho" => typeof(GeopeliaWorldEchoPower), "Archidoxen" => typeof(GeopeliaArchidoxenPower),
-        "Richter" => typeof(GeopeliaRichterPower), _ => throw new ArgumentException(kind)
+        "Richter" => typeof(GeopeliaRichterPower), "SignalCapacity" => typeof(GeopeliaSignalCapacityPower), _ => throw new ArgumentException(kind)
     };
     public static bool Replayable(CardModel card) => card.Type is CardType.Attack or CardType.Skill
         && !card.EnergyCost.CostsX && !card.HasStarCostX && (card is not GeopeliaCard own || !own.Definition.HasReplayAction);
@@ -78,12 +84,11 @@ public static class Runtime
     public static async Task Replay(PlayerChoiceContext context, CardModel source, Creature? target)
     {
         if (!Replayable(source) || CombatManager.Instance.IsOverOrEnding) return;
-        var clone = source.Owner.Creature.CombatState!.CloneCard(source);
-        clone.AddKeyword(CardKeyword.Exhaust);
-        // A replay skill normally targets its caster. Never reuse that target for an attack.
+        // Use the original mutable card and native play-count/result-pile hooks, just as native autoplay does.
+        // No clone or synthetic Exhaust: upgrades, enchantments and original keywords remain intact.
         Creature? replayTarget = source.TargetType == TargetType.AnyEnemy && target is { IsAlive: true }
             && target.Side != source.Owner.Creature.Side ? target : null;
-        await CardCmd.AutoPlay(context, clone, replayTarget);
+        await CardCmd.AutoPlay(context, source, replayTarget);
     }
     public static int CardSignalReservation(CardModel card) => card is GeopeliaCard own
         && own.Definition.SignalReplayCost > 0 && Signal(card.Owner) >= own.Definition.SignalReplayCost ? own.Definition.SignalReplayCost : 0;

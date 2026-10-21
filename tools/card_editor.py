@@ -24,7 +24,7 @@ KINDS = dict(Attack='单体伤害', AllAttack='全体伤害', AttackBonus='伤�
     Draw='抽牌', Energy='获得能量', Signal='获得信号', EnergyDebt='能量透支', DrawDebt='抽牌透支', SignalDebt='信号透支',
     DamageDebt='伤害透支（%）', BlockDebt='格挡透支（%）', Weak='虚弱', AllWeak='全体虚弱', AllVulnerable='全体易伤',
     SignalAttack='消耗信号造成伤害', SignalBlock='消耗信号获得格挡', RepayEnergy='减少能量透支（99 为全部）', RepayDraw='减少抽牌透支（99 为全部）',
-    Power='能力层数', Strength='获得力量', Dexterity='获得敏捷', SignalStrength='全部信号转为力量', Replay='重放此前卡牌', EchoSelf='试演次数', Ancient='生成先古牌')
+    Power='能力层数', Strength='获得力量', Dexterity='获得敏捷', SignalStrength='全部信号转为力量', SignalRare='消耗信号生成稀有牌（数值为每张耗量）', DebtAttack='按本场透支出牌次数攻击', Replay='重放此前卡牌', EchoSelf='试演次数', Ancient='生成先古牌')
 KEYWORDS = dict(Exhaust=('消耗','打出后在本场战斗中移除。'), Ethereal=('虚无','回合结束时仍在手牌中则消耗。'),
     Innate=('固有','战斗开始时出现在起始手牌中。'), Retain=('保留','回合结束时不会自动弃掉。'),
     Unplayable=('不能被打出','无法手动打出。'), Sly=('奇巧','在回合结束前被弃掉时，免费打出。'),
@@ -311,7 +311,7 @@ class Editor:
             return self.job_state()
 
 
-def make_server(editor, port=18769, token=None):
+def make_server(editor, port=18770, token=None):
     token = token or secrets.token_urlsafe(32)
     class Handler(BaseHTTPRequestHandler):
         def log_message(self, *args):
@@ -391,7 +391,7 @@ def make_server(editor, port=18769, token=None):
 def main():
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument('--port', type=int, default=18769)
+    parser.add_argument('--port', type=int, default=18770)
     parser.add_argument('--no-browser', action='store_true')
     args = parser.parse_args()
     server = make_server(Editor(), args.port, os.environ.get('JIU_EDITOR_TOKEN'))
