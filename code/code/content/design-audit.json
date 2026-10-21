@@ -1,0 +1,23 @@
+{
+  "sample": "figure_Saya 1.8.5 API1110",
+  "expected": {
+    "Basic": 4,
+    "Common": 25,
+    "Uncommon": 30,
+    "Rare": 28,
+    "Ancient": 2
+  },
+  "actual": {
+    "Basic": 4,
+    "Common": 25,
+    "Uncommon": 30,
+    "Rare": 28,
+    "Ancient": 2
+  },
+  "themes": {
+    "基础": 4,
+    "信号": 41,
+    "多牌": 59,
+    "透支": 33
+  }
+}

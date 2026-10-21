@@ -1,0 +1,1294 @@
+diff --git a/DESIGN.md b/DESIGN.md
+index cf41837..d551527 100644
+--- a/DESIGN.md
++++ b/DESIGN.md
+@@ -1,6 +1,6 @@
+ # 鸠 · 卡牌设计
+ 
+-主卡池85张：基础4、普通25、罕见29、稀有25、先古2，与沙耶1.8.5 API1110标注主卡池的卡牌数量一致。
++主卡池89张：基础4、普通25、罕见30、稀有28、先古2。包含4张原创卡牌。
+ 
+ 信号是正面储存资源，初始上限24，可由 Evanescent 提高，不自然衰减；主动消耗由牌面规定。起始遗物在战斗开始时给予1点信号，每回合每3次出牌再给予1点。
+ 
+@@ -55,7 +55,7 @@
+ | 罕见 | Reimei | 0→0 | Skill | 信号 / 多牌 | 获得3点信号。；获得4点格挡。；抽1张牌。 / 升级：获得3点信号。；获得6点格挡。；抽1张牌。  |
+ | 罕见 | Retribution ~ Cycle of Redemption ~ | 1→1 | Attack | 多牌 / 信号 | 若有至少3点信号，消耗这些信号并重放1。；造成9点伤害。；若此次为重放，抽1张牌。 / 升级：若有至少3点信号，消耗这些信号并重放1。；造成12点伤害。；若此次为重放，抽1张牌。  |
+ | 罕见 | Horizon Blue | 1→1 | Power | 信号 | 每回合前3张手动打出的技能牌结算后，各获得1点信号。 / 升级：每回合前3张手动打出的技能牌结算后，各获得2点信号。  |
+-| 罕见 | Doppelganger | 0→0 | Skill | 多牌 | 获得Doppelganger：本回合接下来1张手动打出的攻击牌重放1。 / 升级：获得Doppelganger：本回合接下来2张手动打出的攻击牌重放1。  |
++| 罕见 | Doppelganger | 0→0 | Skill | 多牌 | 获得二重曝光：本回合接下来1张手动打出的攻击牌重放1。 / 升级：获得二重曝光：本回合接下来2张手动打出的攻击牌重放1。  |
+ | 罕见 | Nhelv | 1→1 | Skill | 信号 | 消耗所有信号，获得等量力量。 消耗（升级新增：保留） |
+ | 罕见 | Non-Melodic Ragez (MUG Edit) | 1→1 | Power | 多牌 | 每打出3张牌，获得3点格挡。 / 升级：每打出3张牌，获得4点格挡。  |
+ | 罕见 | Concvssion | 1→1 | Skill | 信号 / 多牌 | 获得5点格挡。；消耗2点信号：抽3张牌。 / 升级：获得8点格挡。；消耗2点信号：抽3张牌。  |
+@@ -104,4 +104,8 @@
+ | 稀有 | Stasis | 0→0 | Skill | 透支 / 多牌 | 获得11点格挡。；透支：下回合少抽1张牌。 / 升级：获得15点格挡。；透支：下回合少抽1张牌。 消耗 |
+ | 稀有 | Cuvism³ | 2→2 | Power | 多牌 / 信号 | 每回合前2张可重放的手动非能力牌，各消耗2点信号并重放1。信号不足时不触发。 / 升级：每回合前3张可重放的手动非能力牌，各消耗2点信号并重放1。信号不足时不触发。  |
+ | 先古 | Desultory Signals | 2→2 | Skill | 信号 | 不息的信号 固有、保留、永恒、消耗、奇巧 |
+-| 先古 | Exoplanetary Mirage | 1→1 | Attack | 多牌 / 信号 | 重放4。；造成9点伤害。；获得1点信号。 / 升级：重放4。；造成14点伤害。；获得1点信号。 虚无 |
+\ No newline at end of file
++| 先古 | Exoplanetary Mirage | 1→1 | Attack | 多牌 / 信号 | 重放4。；造成9点伤害。；获得1点信号。 / 升级：重放4。；造成14点伤害。；获得1点信号。 虚无 |
++| 稀有 | 遗志 | 0→0 | Attack | 信号 / 透支 | 消耗所有能量、信号和待偿还的能量／抽牌／信号透支。对所有敌人造成三者消耗量乘积的伤害。进入你自己的下一个回合时死亡。 （升级新增：保留） |
++| 稀有 | 一线生机 | 0→0 | Skill | 信号 / 多牌 | 仅当能量与信号均为0时可打出。；获得1点能量。；获得1点信号。；抽2张牌。 消耗（升级新增：保留） |
++| 稀有 | 重启未来 | 1→0 | Power | 多牌 | 每打出12张牌，强制结束当前回合，跳过敌方行动并开始你的新回合。计数跨回合累计。同名能力不叠加。  |
++| 罕见 | 割舍 | 0→0 | Skill | 透支 | 随机减少一种待偿还的能量／抽牌／信号透支1层。选择1张手牌消耗。没有透支或其他手牌时仍可打出。 （升级新增：保留） |
+\ No newline at end of file
+diff --git a/ECONOMY.md b/ECONOMY.md
+index a0e9f06..0852186 100644
+--- a/ECONOMY.md
++++ b/ECONOMY.md
+@@ -6,7 +6,7 @@
+ 
+ 净值不折算伤害、格挡、信号、下回合伤害/格挡减半等其他效果与代价。0.5.0按用户要求移除27张牌的消耗，允许重复运转；不因无限构筑额外添加消耗。条件未满足的收益不纳入保证收益；历史回放、能力和他牌触发的收益需看实际场景。
+ 
+-相对0.3.0：当回合直接加费牌 3 → 10；明确带抽牌步骤的牌 19 → 39。另有 祈 -我ら神祖と共に歩む者なり- 在每回合首次主动消耗信号时立即加费。
++相对0.3.0：当回合直接加费牌 3 → 11；明确带抽牌步骤的牌 19 → 40。另有 祈 -我ら神祖と共に歩む者なり- 在每回合首次主动消耗信号时立即加费。
+ 
+ 没有下回合加费、抽牌、信号的正面设计；能力在当前出牌、主动消耗信号或产生透支时触发，偿债时不发奖励。
+ 
+@@ -201,3 +201,11 @@
+ | Desultory Signals | 是 | 2 | 2 | 2 | 0 | 0 | 0 | 1 |
+ | Exoplanetary Mirage | 否 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
+ | Exoplanetary Mirage | 是 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
++| 遗志 | 否 | 0 | 0 | 0 | 0 | 0 | 0 | -1 |
++| 遗志 | 是 | 0 | 0 | 0 | 0 | 0 | 0 | -1 |
++| 一线生机 | 否 | 0 | 1 | 2 | 0 | 0 | 1 | 1 |
++| 一线生机 | 是 | 0 | 1 | 2 | 0 | 0 | 1 | 1 |
++| 重启未来 | 否 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
++| 重启未来 | 是 | 0 | 0 | 0 | 0 | 0 | 0 | -1 |
++| 割舍 | 否 | 0 | 0 | 0 | 0 | 0 | 0 | -1 |
++| 割舍 | 是 | 0 | 0 | 0 | 0 | 0 | 0 | -1 |
+diff --git a/content/artwork-map.json b/content/artwork-map.json
+index 3fcf979..d51f6e4 100644
+--- a/content/artwork-map.json
++++ b/content/artwork-map.json
+@@ -1925,6 +1925,90 @@
+       "width": 2048,
+       "height": 1080,
+       "portrait": "geopeliatowerresonance.tres"
++    },
++    {
++      "songId": "custom_lastwill",
++      "name": "遗志",
++      "composer": "Dew Pleiades",
++      "artist": "Rutumn feat. 汉堡",
++      "constant": 0,
++      "charts": [],
++      "className": "GeopeliaLastWill",
++      "rarity": "Rare",
++      "oldName": "遗志",
++      "sourceUrl": "https://raw.githubusercontent.com/7aGiven/Phigros_Resource/illustration/BANGINGSTRIKE.DewPleiades.png",
++      "sourceFile": "assets/song_illustrations/BANGINGSTRIKE.DewPleiades.png",
++      "sha256": "38e62336e54f15228c63f23a06bed210ca55222d3100bf661cc562656e6dd3b8",
++      "gitBlobSha": "df7f5f11415baa53fedb610f13391af8ffa706d1",
++      "width": 2048,
++      "height": 1080,
++      "portrait": "geopelialastwill.tres",
++      "custom": true,
++      "placeholder": true,
++      "placeholderFor": "GeopeliaArchiveLost"
++    },
++    {
++      "songId": "custom_fightingchance",
++      "name": "一线生机",
++      "composer": "Maozon",
++      "artist": "Lanota © Noxy Games Inc. ",
++      "constant": 0,
++      "charts": [],
++      "className": "GeopeliaFightingChance",
++      "rarity": "Rare",
++      "oldName": "一线生机",
++      "sourceUrl": "https://raw.githubusercontent.com/7aGiven/Phigros_Resource/illustration/Stasis.Maozon.png",
++      "sourceFile": "assets/song_illustrations/Stasis.Maozon.png",
++      "sha256": "36dee2b4dffd00633674d892267040aba5e825c9edd903481b0aa11e102fe2fa",
++      "gitBlobSha": "0615f24147be12028e0e81c15d014f64ec45d589",
++      "width": 2048,
++      "height": 1080,
++      "portrait": "geopeliafightingchance.tres",
++      "custom": true,
++      "placeholder": true,
++      "placeholderFor": "GeopeliaQuietCoda"
++    },
++    {
++      "songId": "custom_restartfuture",
++      "name": "重启未来",
++      "composer": "Fl00t vs Halv",
++      "artist": "sikkari",
++      "constant": 0,
++      "charts": [],
++      "className": "GeopeliaRestartFuture",
++      "rarity": "Rare",
++      "oldName": "重启未来",
++      "sourceUrl": "https://raw.githubusercontent.com/7aGiven/Phigros_Resource/illustration/Cuvism.Fl00tvsHalv.png",
++      "sourceFile": "assets/song_illustrations/Cuvism.Fl00tvsHalv.png",
++      "sha256": "8084aa3bd1703f030aff422aa5b95cb22ebbb266e128f7d04ba28fb8db88ce98",
++      "gitBlobSha": "acf318c28970b33903ff37ca3a5b5286e81ec173",
++      "width": 2048,
++      "height": 1080,
++      "portrait": "geopeliarestartfuture.tres",
++      "custom": true,
++      "placeholder": true,
++      "placeholderFor": "GeopeliaWorldEcho"
++    },
++    {
++      "songId": "custom_letgo",
++      "name": "割舍",
++      "composer": "KAH",
++      "artist": "手鞠鈴 & 自動車 原付",
++      "constant": 0,
++      "charts": [],
++      "className": "GeopeliaLetGo",
++      "rarity": "Uncommon",
++      "oldName": "割舍",
++      "sourceUrl": "https://raw.githubusercontent.com/7aGiven/Phigros_Resource/illustration/energytrixxx.KAH.png",
++      "sourceFile": "assets/song_illustrations/energytrixxx.KAH.png",
++      "sha256": "09e3b6d95257b986c7e657f0ac295ed8c73f91aa8569573d9bcc597410846261",
++      "gitBlobSha": "098e1c17f4b8c2333c9a5e8e258c5ac257db843d",
++      "width": 2048,
++      "height": 1080,
++      "portrait": "geopelialetgo.tres",
++      "custom": true,
++      "placeholder": true,
++      "placeholderFor": "GeopeliaBorrowedLight"
+     }
+   ]
+-}
+\ No newline at end of file
++}
+diff --git a/content/cards.json b/content/cards.json
+index c917ad3..c8fd6a2 100644
+--- a/content/cards.json
++++ b/content/cards.json
+@@ -2845,5 +2845,143 @@
+     "chartConstant": 17.9,
+     "artSourceSha256": "02e0e6c98242ab4ba34d631f84d4ad8d1c39d4efa14561bc6d2bd97cc4bdc692",
+     "description": "造成{V0:diff()}点伤害。\n获得{V1:diff()}点[gold]信号[/gold]。"
++  },
++  {
++    "className": "GeopeliaLastWill",
++    "name": "遗志",
++    "rarity": "Rare",
++    "cost": 0,
++    "upgradeCost": 0,
++    "type": "Attack",
++    "steps": [
++      {
++        "kind": "LastWill",
++        "value": 1,
++        "upgrade": 1
++      }
++    ],
++    "themes": [
++      "信号",
++      "透支"
++    ],
++    "replays": 0,
++    "costsX": true,
++    "custom": true,
++    "upgradeKeywords": [
++      "Retain"
++    ],
++    "portrait": "geopelialastwill.tres",
++    "entry": "PHIGROS_JIU_GEOPELIA_LAST_WILL",
++    "songId": "custom_lastwill",
++    "chartConstant": 0,
++    "artSourceSha256": "38e62336e54f15228c63f23a06bed210ca55222d3100bf661cc562656e6dd3b8",
++    "keywords": [],
++    "description": "消耗所有能量、信号和待偿还的能量／抽牌／信号透支。对所有敌人造成三者消耗量乘积的伤害。进入你自己的下一个回合时死亡。"
++  },
++  {
++    "className": "GeopeliaFightingChance",
++    "name": "一线生机",
++    "rarity": "Rare",
++    "cost": 0,
++    "upgradeCost": 0,
++    "type": "Skill",
++    "steps": [
++      {
++        "kind": "FightingChance",
++        "value": 1,
++        "upgrade": 1
++      },
++      {
++        "kind": "Energy",
++        "value": 1,
++        "upgrade": 1
++      },
++      {
++        "kind": "Signal",
++        "value": 1,
++        "upgrade": 1
++      },
++      {
++        "kind": "Draw",
++        "value": 2,
++        "upgrade": 2
++      }
++    ],
++    "themes": [
++      "信号",
++      "多牌"
++    ],
++    "replays": 0,
++    "custom": true,
++    "keywords": [
++      "Exhaust"
++    ],
++    "upgradeKeywords": [
++      "Retain"
++    ],
++    "portrait": "geopeliafightingchance.tres",
++    "entry": "PHIGROS_JIU_GEOPELIA_FIGHTING_CHANCE",
++    "songId": "custom_fightingchance",
++    "chartConstant": 0,
++    "artSourceSha256": "36dee2b4dffd00633674d892267040aba5e825c9edd903481b0aa11e102fe2fa",
++    "description": "仅当能量与信号均为0时可打出。\n获得{V1:diff()}点能量。\n获得{V2:diff()}点[gold]信号[/gold]。\n抽{V3:diff()}张牌。"
++  },
++  {
++    "className": "GeopeliaRestartFuture",
++    "name": "重启未来",
++    "rarity": "Rare",
++    "cost": 1,
++    "upgradeCost": 0,
++    "type": "Power",
++    "steps": [
++      {
++        "kind": "Power",
++        "value": 1,
++        "upgrade": 1,
++        "power": "RestartFuture"
++      }
++    ],
++    "themes": [
++      "多牌"
++    ],
++    "replays": 0,
++    "custom": true,
++    "portrait": "geopeliarestartfuture.tres",
++    "entry": "PHIGROS_JIU_GEOPELIA_RESTART_FUTURE",
++    "songId": "custom_restartfuture",
++    "chartConstant": 0,
++    "artSourceSha256": "8084aa3bd1703f030aff422aa5b95cb22ebbb266e128f7d04ba28fb8db88ce98",
++    "keywords": [],
++    "description": "每打出12张牌，强制结束当前回合，跳过敌方行动并开始你的新回合。计数跨回合累计。同名能力不叠加。"
++  },
++  {
++    "className": "GeopeliaLetGo",
++    "name": "割舍",
++    "rarity": "Uncommon",
++    "cost": 0,
++    "upgradeCost": 0,
++    "type": "Skill",
++    "steps": [
++      {
++        "kind": "LetGo",
++        "value": 1,
++        "upgrade": 1
++      }
++    ],
++    "themes": [
++      "透支"
++    ],
++    "replays": 0,
++    "custom": true,
++    "upgradeKeywords": [
++      "Retain"
++    ],
++    "portrait": "geopelialetgo.tres",
++    "entry": "PHIGROS_JIU_GEOPELIA_LET_GO",
++    "songId": "custom_letgo",
++    "chartConstant": 0,
++    "artSourceSha256": "09e3b6d95257b986c7e657f0ac295ed8c73f91aa8569573d9bcc597410846261",
++    "keywords": [],
++    "description": "随机减少一种待偿还的能量／抽牌／信号透支1层。选择1张手牌消耗。没有透支或其他手牌时仍可打出。"
+   }
+ ]
+\ No newline at end of file
+diff --git a/content/design-audit.json b/content/design-audit.json
+index e5774c7..e529598 100644
+--- a/content/design-audit.json
++++ b/content/design-audit.json
+@@ -3,21 +3,21 @@
+   "expected": {
+     "Basic": 4,
+     "Common": 25,
+-    "Uncommon": 29,
+-    "Rare": 25,
++    "Uncommon": 30,
++    "Rare": 28,
+     "Ancient": 2
+   },
+   "actual": {
+     "Basic": 4,
+     "Common": 25,
+-    "Uncommon": 29,
+-    "Rare": 25,
++    "Uncommon": 30,
++    "Rare": 28,
+     "Ancient": 2
+   },
+   "themes": {
+     "基础": 4,
+-    "信号": 39,
+-    "多牌": 57,
+-    "透支": 31
++    "信号": 41,
++    "多牌": 59,
++    "透支": 33
+   }
+ }
+\ No newline at end of file
+diff --git a/content/economy-audit.json b/content/economy-audit.json
+index 0ba44e6..4a335ec 100644
+--- a/content/economy-audit.json
++++ b/content/economy-audit.json
+@@ -1,11 +1,11 @@
+ {
+   "result": "PASS",
+-  "checks": 343,
++  "checks": 359,
+   "counts": {
+     "energyCardsBefore": 3,
+-    "energyCardsAfter": 10,
++    "energyCardsAfter": 11,
+     "drawCardsBefore": 19,
+-    "drawCardsAfter": 39
++    "drawCardsAfter": 40
+   },
+   "rows": [
+     {
+@@ -2047,11 +2047,107 @@
+       "DrawDebt": 0,
+       "netEnergy": -1,
+       "netDraw": -1
++    },
++    {
++      "model": "GeopeliaLastWill",
++      "name": "遗志",
++      "upgraded": false,
++      "cost": 0,
++      "Energy": 0,
++      "Draw": 0,
++      "EnergyDebt": 0,
++      "DrawDebt": 0,
++      "netEnergy": 0,
++      "netDraw": -1
++    },
++    {
++      "model": "GeopeliaLastWill",
++      "name": "遗志",
++      "upgraded": true,
++      "cost": 0,
++      "Energy": 0,
++      "Draw": 0,
++      "EnergyDebt": 0,
++      "DrawDebt": 0,
++      "netEnergy": 0,
++      "netDraw": -1
++    },
++    {
++      "model": "GeopeliaFightingChance",
++      "name": "一线生机",
++      "upgraded": false,
++      "cost": 0,
++      "Energy": 1,
++      "Draw": 2,
++      "EnergyDebt": 0,
++      "DrawDebt": 0,
++      "netEnergy": 1,
++      "netDraw": 1
++    },
++    {
++      "model": "GeopeliaFightingChance",
++      "name": "一线生机",
++      "upgraded": true,
++      "cost": 0,
++      "Energy": 1,
++      "Draw": 2,
++      "EnergyDebt": 0,
++      "DrawDebt": 0,
++      "netEnergy": 1,
++      "netDraw": 1
++    },
++    {
++      "model": "GeopeliaRestartFuture",
++      "name": "重启未来",
++      "upgraded": false,
++      "cost": 1,
++      "Energy": 0,
++      "Draw": 0,
++      "EnergyDebt": 0,
++      "DrawDebt": 0,
++      "netEnergy": -1,
++      "netDraw": -1
++    },
++    {
++      "model": "GeopeliaRestartFuture",
++      "name": "重启未来",
++      "upgraded": true,
++      "cost": 0,
++      "Energy": 0,
++      "Draw": 0,
++      "EnergyDebt": 0,
++      "DrawDebt": 0,
++      "netEnergy": 0,
++      "netDraw": -1
++    },
++    {
++      "model": "GeopeliaLetGo",
++      "name": "割舍",
++      "upgraded": false,
++      "cost": 0,
++      "Energy": 0,
++      "Draw": 0,
++      "EnergyDebt": 0,
++      "DrawDebt": 0,
++      "netEnergy": 0,
++      "netDraw": -1
++    },
++    {
++      "model": "GeopeliaLetGo",
++      "name": "割舍",
++      "upgraded": true,
++      "cost": 0,
++      "Energy": 0,
++      "Draw": 0,
++      "EnergyDebt": 0,
++      "DrawDebt": 0,
++      "netEnergy": 0,
++      "netDraw": -1
+     }
+   ],
+   "nativeComparisons": [],
+   "nativeMeasurementsCurrent": false,
+-  "designSha256": "2796c7228a23602737363ddc2c2a11a9394e6e9a6f4d06d0b5d205bafbb0c926",
++  "designSha256": "e6d16454aad16d3c4facde0960c0d212d86e156f88b664ed39545712f2b89ef8",
+   "balanceWarnings": [
+     "Speed Up!: net energy below original design target",
+     "Speed Up!+: net energy below original design target",
+diff --git a/content/mechanics.json b/content/mechanics.json
+index 81b6540..0cdf515 100644
+--- a/content/mechanics.json
++++ b/content/mechanics.json
+@@ -10,6 +10,16 @@
+       "entry": "PHIGROS_JIU_GEOPELIA_SIGNAL_CAPACITY_POWER",
+       "icon": "geopelia_signal_capacity_power.png"
+     },
++    {
++      "className": "GeopeliaLastWillPower",
++      "entry": "PHIGROS_JIU_GEOPELIA_LAST_WILL_POWER",
++      "icon": "geopelia_last_will_power.png"
++    },
++    {
++      "className": "GeopeliaRestartFuturePower",
++      "entry": "PHIGROS_JIU_GEOPELIA_RESTART_FUTURE_POWER",
++      "icon": "geopelia_restart_future_power.png"
++    },
+     {
+       "className": "GeopeliaRhythmPower",
+       "entry": "PHIGROS_JIU_GEOPELIA_RHYTHM_POWER",
+@@ -134,8 +144,8 @@
+   "rarities": {
+     "Basic": 4,
+     "Common": 25,
+-    "Uncommon": 29,
+-    "Rare": 25,
++    "Uncommon": 30,
++    "Rare": 28,
+     "Ancient": 2
+   },
+   "signalCap": 24
+diff --git a/content/song-name-map.json b/content/song-name-map.json
+index db3c269..95b85d4 100644
+--- a/content/song-name-map.json
++++ b/content/song-name-map.json
+@@ -510,6 +510,30 @@
+       "name": "Exoplanetary Mirage",
+       "songId": "ExoplanetaryMirage.かめりあ",
+       "composer": "Camellia"
++    },
++    {
++      "className": "GeopeliaLastWill",
++      "name": "遗志",
++      "songId": "custom_lastwill",
++      "composer": ""
++    },
++    {
++      "className": "GeopeliaFightingChance",
++      "name": "一线生机",
++      "songId": "custom_fightingchance",
++      "composer": ""
++    },
++    {
++      "className": "GeopeliaRestartFuture",
++      "name": "重启未来",
++      "songId": "custom_restartfuture",
++      "composer": ""
++    },
++    {
++      "className": "GeopeliaLetGo",
++      "name": "割舍",
++      "songId": "custom_letgo",
++      "composer": ""
+     }
+   ]
+ }
+\ No newline at end of file
+diff --git a/localization/eng/cards.json b/localization/eng/cards.json
+index 530a44d..618bb09 100644
+--- a/localization/eng/cards.json
++++ b/localization/eng/cards.json
+@@ -168,5 +168,13 @@
+   "PHIGROS_JIU_GEOPELIA_OLD_RECORDING.title": "Desultory Signals",
+   "PHIGROS_JIU_GEOPELIA_OLD_RECORDING.description": "不息的信号",
+   "PHIGROS_JIU_GEOPELIA_TOWER_RESONANCE.title": "Exoplanetary Mirage",
+-  "PHIGROS_JIU_GEOPELIA_TOWER_RESONANCE.description": "造成{V0:diff()}点伤害。\n获得{V1:diff()}点[gold]信号[/gold]。"
++  "PHIGROS_JIU_GEOPELIA_TOWER_RESONANCE.description": "造成{V0:diff()}点伤害。\n获得{V1:diff()}点[gold]信号[/gold]。",
++  "PHIGROS_JIU_GEOPELIA_LAST_WILL.title": "遗志",
++  "PHIGROS_JIU_GEOPELIA_LAST_WILL.description": "消耗所有能量、信号和待偿还的能量／抽牌／信号透支。对所有敌人造成三者消耗量乘积的伤害。进入你自己的下一个回合时死亡。",
++  "PHIGROS_JIU_GEOPELIA_FIGHTING_CHANCE.title": "一线生机",
++  "PHIGROS_JIU_GEOPELIA_FIGHTING_CHANCE.description": "仅当能量与信号均为0时可打出。\n获得{V1:diff()}点能量。\n获得{V2:diff()}点[gold]信号[/gold]。\n抽{V3:diff()}张牌。",
++  "PHIGROS_JIU_GEOPELIA_RESTART_FUTURE.title": "重启未来",
++  "PHIGROS_JIU_GEOPELIA_RESTART_FUTURE.description": "每打出12张牌，强制结束当前回合，跳过敌方行动并开始你的新回合。计数跨回合累计。同名能力不叠加。",
++  "PHIGROS_JIU_GEOPELIA_LET_GO.title": "割舍",
++  "PHIGROS_JIU_GEOPELIA_LET_GO.description": "随机减少一种待偿还的能量／抽牌／信号透支1层。选择1张手牌消耗。没有透支或其他手牌时仍可打出。"
+ }
+\ No newline at end of file
+diff --git a/localization/eng/powers.json b/localization/eng/powers.json
+index 4d3ebd7..aff1689 100644
+--- a/localization/eng/powers.json
++++ b/localization/eng/powers.json
+@@ -5,31 +5,37 @@
+   "PHIGROS_JIU_GEOPELIA_SIGNAL_CAPACITY_POWER.title": "Evanescent",
+   "PHIGROS_JIU_GEOPELIA_SIGNAL_CAPACITY_POWER.description": "信号上限增加{Amount}点。",
+   "PHIGROS_JIU_GEOPELIA_SIGNAL_CAPACITY_POWER.smartDescription": "信号上限增加{Amount}点。",
++  "PHIGROS_JIU_GEOPELIA_LAST_WILL_POWER.title": "遗志",
++  "PHIGROS_JIU_GEOPELIA_LAST_WILL_POWER.description": "进入你自己的下一个回合时死亡。",
++  "PHIGROS_JIU_GEOPELIA_LAST_WILL_POWER.smartDescription": "进入你自己的下一个回合时死亡。",
++  "PHIGROS_JIU_GEOPELIA_RESTART_FUTURE_POWER.title": "重启未来",
++  "PHIGROS_JIU_GEOPELIA_RESTART_FUTURE_POWER.description": "每打出12张牌，强制结束当前回合，跳过敌方行动并开始你的新回合。计数跨回合累计。同名能力不叠加。",
++  "PHIGROS_JIU_GEOPELIA_RESTART_FUTURE_POWER.smartDescription": "每打出12张牌，强制结束当前回合，跳过敌方行动并开始你的新回合。计数跨回合累计。同名能力不叠加。",
+   "PHIGROS_JIU_GEOPELIA_RHYTHM_POWER.title": "随身录音",
+   "PHIGROS_JIU_GEOPELIA_RHYTHM_POWER.description": "每回合每打出3张牌，获得1点信号。额外打出与自动重放也计数。",
+   "PHIGROS_JIU_GEOPELIA_RHYTHM_POWER.smartDescription": "每回合每打出3张牌，获得1点信号。额外打出与自动重放也计数。",
+-  "PHIGROS_JIU_GEOPELIA_AERIAL_POWER.title": "Horizon Blue",
++  "PHIGROS_JIU_GEOPELIA_AERIAL_POWER.title": "Believe Light",
+   "PHIGROS_JIU_GEOPELIA_AERIAL_POWER.description": "每回合前3张手动打出的技能牌结算后，各获得{Amount}点信号。",
+   "PHIGROS_JIU_GEOPELIA_AERIAL_POWER.smartDescription": "每回合前3张手动打出的技能牌结算后，各获得{Amount}点信号。",
+-  "PHIGROS_JIU_GEOPELIA_BEACON_POWER.title": "祈 -我ら神祖と共に歩む者なり-",
++  "PHIGROS_JIU_GEOPELIA_BEACON_POWER.title": "Colorful Days♪",
+   "PHIGROS_JIU_GEOPELIA_BEACON_POWER.description": "每回合首次主动消耗信号后，立即获得{Amount}点能量。",
+   "PHIGROS_JIU_GEOPELIA_BEACON_POWER.smartDescription": "每回合首次主动消耗信号后，立即获得{Amount}点能量。",
+-  "PHIGROS_JIU_GEOPELIA_PULSE_GUARD_POWER.title": "Non-Melodic Ragez (MUG Edit)",
++  "PHIGROS_JIU_GEOPELIA_PULSE_GUARD_POWER.title": "复调",
+   "PHIGROS_JIU_GEOPELIA_PULSE_GUARD_POWER.description": "每打出3张牌，获得{Amount}点格挡。",
+   "PHIGROS_JIU_GEOPELIA_PULSE_GUARD_POWER.smartDescription": "每打出3张牌，获得{Amount}点格挡。",
+-  "PHIGROS_JIU_GEOPELIA_RHYTHM_DRAW_POWER.title": "Der Schneid",
++  "PHIGROS_JIU_GEOPELIA_RHYTHM_DRAW_POWER.title": "开心病",
+   "PHIGROS_JIU_GEOPELIA_RHYTHM_DRAW_POWER.description": "每打出3张牌，抽{Amount}张牌。",
+   "PHIGROS_JIU_GEOPELIA_RHYTHM_DRAW_POWER.smartDescription": "每打出3张牌，抽{Amount}张牌。",
+   "PHIGROS_JIU_GEOPELIA_ECHO_GUARD_POWER.title": "余像防线",
+   "PHIGROS_JIU_GEOPELIA_ECHO_GUARD_POWER.description": "重放的牌结算后，获得{Amount}点格挡。",
+   "PHIGROS_JIU_GEOPELIA_ECHO_GUARD_POWER.smartDescription": "重放的牌结算后，获得{Amount}点格挡。",
+-  "PHIGROS_JIU_GEOPELIA_ECHO_SIGNAL_POWER.title": "PRAGMATISM -RESURRECTION-",
++  "PHIGROS_JIU_GEOPELIA_ECHO_SIGNAL_POWER.title": "母带刻录",
+   "PHIGROS_JIU_GEOPELIA_ECHO_SIGNAL_POWER.description": "重放的牌结算后，获得1点信号。",
+   "PHIGROS_JIU_GEOPELIA_ECHO_SIGNAL_POWER.smartDescription": "重放的牌结算后，获得1点信号。",
+   "PHIGROS_JIU_GEOPELIA_OPENING_SIGNAL_POWER.title": "开场白",
+   "PHIGROS_JIU_GEOPELIA_OPENING_SIGNAL_POWER.description": "每回合前{Amount}张手动打出的牌，各获得1点信号。",
+   "PHIGROS_JIU_GEOPELIA_OPENING_SIGNAL_POWER.smartDescription": "每回合前{Amount}张手动打出的牌，各获得1点信号。",
+-  "PHIGROS_JIU_GEOPELIA_OVERDRIVE_GUARD_POWER.title": "Labyrinth in Kowloon: Walled World",
++  "PHIGROS_JIU_GEOPELIA_OVERDRIVE_GUARD_POWER.title": "借拍利息",
+   "PHIGROS_JIU_GEOPELIA_OVERDRIVE_GUARD_POWER.description": "每次打出一张带透支代价的牌，获得{Amount}点格挡。每次结算最多触发一次。",
+   "PHIGROS_JIU_GEOPELIA_OVERDRIVE_GUARD_POWER.smartDescription": "每次打出一张带透支代价的牌，获得{Amount}点格挡。每次结算最多触发一次。",
+   "PHIGROS_JIU_GEOPELIA_RICHTER_POWER.title": "Der Richter",
+@@ -41,16 +47,16 @@
+   "PHIGROS_JIU_GEOPELIA_SIGNAL_DRAW_POWER.title": "Infinity Heaven",
+   "PHIGROS_JIU_GEOPELIA_SIGNAL_DRAW_POWER.description": "每消耗3点信号，抽{Amount}张牌。",
+   "PHIGROS_JIU_GEOPELIA_SIGNAL_DRAW_POWER.smartDescription": "每消耗3点信号，抽{Amount}张牌。",
+-  "PHIGROS_JIU_GEOPELIA_DEBT_DRAW_POWER.title": "INFiNiTE ENERZY -Overdoze-",
++  "PHIGROS_JIU_GEOPELIA_DEBT_DRAW_POWER.title": "HumaN",
+   "PHIGROS_JIU_GEOPELIA_DEBT_DRAW_POWER.description": "带透支代价的牌结算后，立即抽{Amount}张牌。",
+   "PHIGROS_JIU_GEOPELIA_DEBT_DRAW_POWER.smartDescription": "带透支代价的牌结算后，立即抽{Amount}张牌。",
+-  "PHIGROS_JIU_GEOPELIA_NEXT_REPEAT_POWER.title": "Doppelganger",
++  "PHIGROS_JIU_GEOPELIA_NEXT_REPEAT_POWER.title": "二重曝光",
+   "PHIGROS_JIU_GEOPELIA_NEXT_REPEAT_POWER.description": "本回合接下来{Amount}张手动打出的攻击牌重放1。",
+   "PHIGROS_JIU_GEOPELIA_NEXT_REPEAT_POWER.smartDescription": "本回合接下来{Amount}张手动打出的攻击牌重放1。",
+-  "PHIGROS_JIU_GEOPELIA_SIGNAL_ECHO_POWER.title": "Rrhar'il",
++  "PHIGROS_JIU_GEOPELIA_SIGNAL_ECHO_POWER.title": "全频共鸣",
+   "PHIGROS_JIU_GEOPELIA_SIGNAL_ECHO_POWER.description": "每回合第一张有足够信号的手动攻击牌，消耗{Amount}点信号，重放1。",
+   "PHIGROS_JIU_GEOPELIA_SIGNAL_ECHO_POWER.smartDescription": "每回合第一张有足够信号的手动攻击牌，消耗{Amount}点信号，重放1。",
+-  "PHIGROS_JIU_GEOPELIA_WORLD_ECHO_POWER.title": "Cuvism³",
++  "PHIGROS_JIU_GEOPELIA_WORLD_ECHO_POWER.title": "世界的回响",
+   "PHIGROS_JIU_GEOPELIA_WORLD_ECHO_POWER.description": "每回合前{Amount}张可重放的手动非能力牌，各消耗2点信号并重放1。信号不足时不触发。",
+   "PHIGROS_JIU_GEOPELIA_WORLD_ECHO_POWER.smartDescription": "每回合前{Amount}张可重放的手动非能力牌，各消耗2点信号并重放1。信号不足时不触发。",
+   "PHIGROS_JIU_GEOPELIA_TAPE_LOOP_POWER.title": "Better Graphic Animation 回环",
+diff --git a/localization/zhs/cards.json b/localization/zhs/cards.json
+index 530a44d..618bb09 100644
+--- a/localization/zhs/cards.json
++++ b/localization/zhs/cards.json
+@@ -168,5 +168,13 @@
+   "PHIGROS_JIU_GEOPELIA_OLD_RECORDING.title": "Desultory Signals",
+   "PHIGROS_JIU_GEOPELIA_OLD_RECORDING.description": "不息的信号",
+   "PHIGROS_JIU_GEOPELIA_TOWER_RESONANCE.title": "Exoplanetary Mirage",
+-  "PHIGROS_JIU_GEOPELIA_TOWER_RESONANCE.description": "造成{V0:diff()}点伤害。\n获得{V1:diff()}点[gold]信号[/gold]。"
++  "PHIGROS_JIU_GEOPELIA_TOWER_RESONANCE.description": "造成{V0:diff()}点伤害。\n获得{V1:diff()}点[gold]信号[/gold]。",
++  "PHIGROS_JIU_GEOPELIA_LAST_WILL.title": "遗志",
++  "PHIGROS_JIU_GEOPELIA_LAST_WILL.description": "消耗所有能量、信号和待偿还的能量／抽牌／信号透支。对所有敌人造成三者消耗量乘积的伤害。进入你自己的下一个回合时死亡。",
++  "PHIGROS_JIU_GEOPELIA_FIGHTING_CHANCE.title": "一线生机",
++  "PHIGROS_JIU_GEOPELIA_FIGHTING_CHANCE.description": "仅当能量与信号均为0时可打出。\n获得{V1:diff()}点能量。\n获得{V2:diff()}点[gold]信号[/gold]。\n抽{V3:diff()}张牌。",
++  "PHIGROS_JIU_GEOPELIA_RESTART_FUTURE.title": "重启未来",
++  "PHIGROS_JIU_GEOPELIA_RESTART_FUTURE.description": "每打出12张牌，强制结束当前回合，跳过敌方行动并开始你的新回合。计数跨回合累计。同名能力不叠加。",
++  "PHIGROS_JIU_GEOPELIA_LET_GO.title": "割舍",
++  "PHIGROS_JIU_GEOPELIA_LET_GO.description": "随机减少一种待偿还的能量／抽牌／信号透支1层。选择1张手牌消耗。没有透支或其他手牌时仍可打出。"
+ }
+\ No newline at end of file
+diff --git a/localization/zhs/powers.json b/localization/zhs/powers.json
+index 4d3ebd7..aff1689 100644
+--- a/localization/zhs/powers.json
++++ b/localization/zhs/powers.json
+@@ -5,31 +5,37 @@
+   "PHIGROS_JIU_GEOPELIA_SIGNAL_CAPACITY_POWER.title": "Evanescent",
+   "PHIGROS_JIU_GEOPELIA_SIGNAL_CAPACITY_POWER.description": "信号上限增加{Amount}点。",
+   "PHIGROS_JIU_GEOPELIA_SIGNAL_CAPACITY_POWER.smartDescription": "信号上限增加{Amount}点。",
++  "PHIGROS_JIU_GEOPELIA_LAST_WILL_POWER.title": "遗志",
++  "PHIGROS_JIU_GEOPELIA_LAST_WILL_POWER.description": "进入你自己的下一个回合时死亡。",
++  "PHIGROS_JIU_GEOPELIA_LAST_WILL_POWER.smartDescription": "进入你自己的下一个回合时死亡。",
++  "PHIGROS_JIU_GEOPELIA_RESTART_FUTURE_POWER.title": "重启未来",
++  "PHIGROS_JIU_GEOPELIA_RESTART_FUTURE_POWER.description": "每打出12张牌，强制结束当前回合，跳过敌方行动并开始你的新回合。计数跨回合累计。同名能力不叠加。",
++  "PHIGROS_JIU_GEOPELIA_RESTART_FUTURE_POWER.smartDescription": "每打出12张牌，强制结束当前回合，跳过敌方行动并开始你的新回合。计数跨回合累计。同名能力不叠加。",
+   "PHIGROS_JIU_GEOPELIA_RHYTHM_POWER.title": "随身录音",
+   "PHIGROS_JIU_GEOPELIA_RHYTHM_POWER.description": "每回合每打出3张牌，获得1点信号。额外打出与自动重放也计数。",
+   "PHIGROS_JIU_GEOPELIA_RHYTHM_POWER.smartDescription": "每回合每打出3张牌，获得1点信号。额外打出与自动重放也计数。",
+-  "PHIGROS_JIU_GEOPELIA_AERIAL_POWER.title": "Horizon Blue",
++  "PHIGROS_JIU_GEOPELIA_AERIAL_POWER.title": "Believe Light",
+   "PHIGROS_JIU_GEOPELIA_AERIAL_POWER.description": "每回合前3张手动打出的技能牌结算后，各获得{Amount}点信号。",
+   "PHIGROS_JIU_GEOPELIA_AERIAL_POWER.smartDescription": "每回合前3张手动打出的技能牌结算后，各获得{Amount}点信号。",
+-  "PHIGROS_JIU_GEOPELIA_BEACON_POWER.title": "祈 -我ら神祖と共に歩む者なり-",
++  "PHIGROS_JIU_GEOPELIA_BEACON_POWER.title": "Colorful Days♪",
+   "PHIGROS_JIU_GEOPELIA_BEACON_POWER.description": "每回合首次主动消耗信号后，立即获得{Amount}点能量。",
+   "PHIGROS_JIU_GEOPELIA_BEACON_POWER.smartDescription": "每回合首次主动消耗信号后，立即获得{Amount}点能量。",
+-  "PHIGROS_JIU_GEOPELIA_PULSE_GUARD_POWER.title": "Non-Melodic Ragez (MUG Edit)",
++  "PHIGROS_JIU_GEOPELIA_PULSE_GUARD_POWER.title": "复调",
+   "PHIGROS_JIU_GEOPELIA_PULSE_GUARD_POWER.description": "每打出3张牌，获得{Amount}点格挡。",
+   "PHIGROS_JIU_GEOPELIA_PULSE_GUARD_POWER.smartDescription": "每打出3张牌，获得{Amount}点格挡。",
+-  "PHIGROS_JIU_GEOPELIA_RHYTHM_DRAW_POWER.title": "Der Schneid",
++  "PHIGROS_JIU_GEOPELIA_RHYTHM_DRAW_POWER.title": "开心病",
+   "PHIGROS_JIU_GEOPELIA_RHYTHM_DRAW_POWER.description": "每打出3张牌，抽{Amount}张牌。",
+   "PHIGROS_JIU_GEOPELIA_RHYTHM_DRAW_POWER.smartDescription": "每打出3张牌，抽{Amount}张牌。",
+   "PHIGROS_JIU_GEOPELIA_ECHO_GUARD_POWER.title": "余像防线",
+   "PHIGROS_JIU_GEOPELIA_ECHO_GUARD_POWER.description": "重放的牌结算后，获得{Amount}点格挡。",
+   "PHIGROS_JIU_GEOPELIA_ECHO_GUARD_POWER.smartDescription": "重放的牌结算后，获得{Amount}点格挡。",
+-  "PHIGROS_JIU_GEOPELIA_ECHO_SIGNAL_POWER.title": "PRAGMATISM -RESURRECTION-",
++  "PHIGROS_JIU_GEOPELIA_ECHO_SIGNAL_POWER.title": "母带刻录",
+   "PHIGROS_JIU_GEOPELIA_ECHO_SIGNAL_POWER.description": "重放的牌结算后，获得1点信号。",
+   "PHIGROS_JIU_GEOPELIA_ECHO_SIGNAL_POWER.smartDescription": "重放的牌结算后，获得1点信号。",
+   "PHIGROS_JIU_GEOPELIA_OPENING_SIGNAL_POWER.title": "开场白",
+   "PHIGROS_JIU_GEOPELIA_OPENING_SIGNAL_POWER.description": "每回合前{Amount}张手动打出的牌，各获得1点信号。",
+   "PHIGROS_JIU_GEOPELIA_OPENING_SIGNAL_POWER.smartDescription": "每回合前{Amount}张手动打出的牌，各获得1点信号。",
+-  "PHIGROS_JIU_GEOPELIA_OVERDRIVE_GUARD_POWER.title": "Labyrinth in Kowloon: Walled World",
++  "PHIGROS_JIU_GEOPELIA_OVERDRIVE_GUARD_POWER.title": "借拍利息",
+   "PHIGROS_JIU_GEOPELIA_OVERDRIVE_GUARD_POWER.description": "每次打出一张带透支代价的牌，获得{Amount}点格挡。每次结算最多触发一次。",
+   "PHIGROS_JIU_GEOPELIA_OVERDRIVE_GUARD_POWER.smartDescription": "每次打出一张带透支代价的牌，获得{Amount}点格挡。每次结算最多触发一次。",
+   "PHIGROS_JIU_GEOPELIA_RICHTER_POWER.title": "Der Richter",
+@@ -41,16 +47,16 @@
+   "PHIGROS_JIU_GEOPELIA_SIGNAL_DRAW_POWER.title": "Infinity Heaven",
+   "PHIGROS_JIU_GEOPELIA_SIGNAL_DRAW_POWER.description": "每消耗3点信号，抽{Amount}张牌。",
+   "PHIGROS_JIU_GEOPELIA_SIGNAL_DRAW_POWER.smartDescription": "每消耗3点信号，抽{Amount}张牌。",
+-  "PHIGROS_JIU_GEOPELIA_DEBT_DRAW_POWER.title": "INFiNiTE ENERZY -Overdoze-",
++  "PHIGROS_JIU_GEOPELIA_DEBT_DRAW_POWER.title": "HumaN",
+   "PHIGROS_JIU_GEOPELIA_DEBT_DRAW_POWER.description": "带透支代价的牌结算后，立即抽{Amount}张牌。",
+   "PHIGROS_JIU_GEOPELIA_DEBT_DRAW_POWER.smartDescription": "带透支代价的牌结算后，立即抽{Amount}张牌。",
+-  "PHIGROS_JIU_GEOPELIA_NEXT_REPEAT_POWER.title": "Doppelganger",
++  "PHIGROS_JIU_GEOPELIA_NEXT_REPEAT_POWER.title": "二重曝光",
+   "PHIGROS_JIU_GEOPELIA_NEXT_REPEAT_POWER.description": "本回合接下来{Amount}张手动打出的攻击牌重放1。",
+   "PHIGROS_JIU_GEOPELIA_NEXT_REPEAT_POWER.smartDescription": "本回合接下来{Amount}张手动打出的攻击牌重放1。",
+-  "PHIGROS_JIU_GEOPELIA_SIGNAL_ECHO_POWER.title": "Rrhar'il",
++  "PHIGROS_JIU_GEOPELIA_SIGNAL_ECHO_POWER.title": "全频共鸣",
+   "PHIGROS_JIU_GEOPELIA_SIGNAL_ECHO_POWER.description": "每回合第一张有足够信号的手动攻击牌，消耗{Amount}点信号，重放1。",
+   "PHIGROS_JIU_GEOPELIA_SIGNAL_ECHO_POWER.smartDescription": "每回合第一张有足够信号的手动攻击牌，消耗{Amount}点信号，重放1。",
+-  "PHIGROS_JIU_GEOPELIA_WORLD_ECHO_POWER.title": "Cuvism³",
++  "PHIGROS_JIU_GEOPELIA_WORLD_ECHO_POWER.title": "世界的回响",
+   "PHIGROS_JIU_GEOPELIA_WORLD_ECHO_POWER.description": "每回合前{Amount}张可重放的手动非能力牌，各消耗2点信号并重放1。信号不足时不触发。",
+   "PHIGROS_JIU_GEOPELIA_WORLD_ECHO_POWER.smartDescription": "每回合前{Amount}张可重放的手动非能力牌，各消耗2点信号并重放1。信号不足时不触发。",
+   "PHIGROS_JIU_GEOPELIA_TAPE_LOOP_POWER.title": "Better Graphic Animation 回环",
+diff --git a/src/CardLibraryValidation.cs b/src/CardLibraryValidation.cs
+index eb66a7d..a92934e 100644
+--- a/src/CardLibraryValidation.cs
++++ b/src/CardLibraryValidation.cs
+@@ -31,7 +31,7 @@ internal static partial class GameValidation
+         filter.EmitSignal(NCardPoolFilter.SignalName.Toggled, filter);
+         await Frames();
+         var grid = (NCardLibraryGrid)AccessTools.Field(typeof(NCardLibrary), "_grid").GetValue(screen)!;
+-        Check(grid.VisibleCards.Count() == 85 && grid.VisibleCards.All(c => c is GeopeliaCard), "Jiu filter displays all 85 cards without peer cards");
++        Check(grid.VisibleCards.Count() == Design.Cards.Count && grid.VisibleCards.All(c => c is GeopeliaCard), "Jiu filter displays all main-pool cards without peer cards");
+         var seen = (HashSet<ModelId>)AccessTools.Field(typeof(NCardLibraryGrid), "_seenCards").GetValue(grid)!;
+         var unlocked = (HashSet<CardModel>)AccessTools.Field(typeof(NCardLibraryGrid), "_unlockedCards").GetValue(grid)!;
+         Check(grid.VisibleCards.All(c => seen.Contains(c.Id) && unlocked.Contains(c)), "all Jiu cards show their full artwork");
+@@ -58,7 +58,7 @@ internal static partial class GameValidation
+         await Frames();
+         Check(grid.VisibleCards.Count() == 25, "rarity filter includes all 25 common cards");
+         Check(discovered.SetEquals(SaveManager.Instance.Progress.DiscoveredCards), "browsing never changes persistent discovery progress");
+-        Benchmarks.Add(new { test = "card-library", totalCards = 85, commonCards = 25, search = "PASS", inspect = "PASS", upgrade = "PASS", discoveryUnchanged = true });
++        Benchmarks.Add(new { test = "card-library", totalCards = Design.Cards.Count, commonCards = 25, search = "PASS", inspect = "PASS", upgrade = "PASS", discoveryUnchanged = true });
+         screen.OnSubmenuClosed();
+         // Keep the test node alive until process shutdown; native grid animations can still be pending.
+         screen.Visible=false;
+diff --git a/src/Cards/DesignedCards.g.cs b/src/Cards/DesignedCards.g.cs
+index 98b50d1..1c63984 100644
+--- a/src/Cards/DesignedCards.g.cs
++++ b/src/Cards/DesignedCards.g.cs
+@@ -84,4 +84,8 @@ public sealed class GeopeliaMonochromeBreak : GeopeliaCard { public GeopeliaMono
+ public sealed class GeopeliaQuietCoda : GeopeliaCard { public GeopeliaQuietCoda() : base(Design.Get(nameof(GeopeliaQuietCoda))) { } }
+ public sealed class GeopeliaWorldEcho : GeopeliaCard { public GeopeliaWorldEcho() : base(Design.Get(nameof(GeopeliaWorldEcho))) { } }
+ public sealed class GeopeliaOldRecording : GeopeliaCard { public GeopeliaOldRecording() : base(Design.Get(nameof(GeopeliaOldRecording))) { } }
+-public sealed class GeopeliaTowerResonance : GeopeliaCard { public GeopeliaTowerResonance() : base(Design.Get(nameof(GeopeliaTowerResonance))) { } }
+\ No newline at end of file
++public sealed class GeopeliaTowerResonance : GeopeliaCard { public GeopeliaTowerResonance() : base(Design.Get(nameof(GeopeliaTowerResonance))) { } }
++public sealed class GeopeliaLastWill : GeopeliaCard { public GeopeliaLastWill() : base(Design.Get(nameof(GeopeliaLastWill))) { } }
++public sealed class GeopeliaFightingChance : GeopeliaCard { public GeopeliaFightingChance() : base(Design.Get(nameof(GeopeliaFightingChance))) { } }
++public sealed class GeopeliaRestartFuture : GeopeliaCard { public GeopeliaRestartFuture() : base(Design.Get(nameof(GeopeliaRestartFuture))) { } }
++public sealed class GeopeliaLetGo : GeopeliaCard { public GeopeliaLetGo() : base(Design.Get(nameof(GeopeliaLetGo))) { } }
+\ No newline at end of file
+diff --git a/src/CustomCardEffects.cs b/src/CustomCardEffects.cs
+new file mode 100644
+index 0000000..94e750c
+--- /dev/null
++++ b/src/CustomCardEffects.cs
+@@ -0,0 +1,47 @@
++using MegaCrit.Sts2.Core.CardSelection;
++using MegaCrit.Sts2.Core.Commands;
++using MegaCrit.Sts2.Core.Entities.Cards;
++using MegaCrit.Sts2.Core.Entities.Players;
++using MegaCrit.Sts2.Core.GameActions.Multiplayer;
++using MegaCrit.Sts2.Core.Models;
++
++namespace PhigrosJiu;
++
++internal static class CustomCardEffects
++{
++    // Percentage penalties store percentage points, not units of resource debt.
++    internal static PowerModel[] ResourceDebts(Player player) => player.Creature.Powers
++        .Where(p => p.Amount > 0 && (p is GeopeliaEnergyDebtPower or GeopeliaDrawDebtPower or GeopeliaSignalDebtPower))
++        .ToArray();
++
++    internal static async Task LastWill(PlayerChoiceContext context, CardModel card, CardPlay play, int energy)
++    {
++        var player = card.Owner;
++        int signal = Runtime.Signal(player);
++        var debts = ResourceDebts(player);
++        decimal damage = (decimal)energy * signal * debts.Sum(p => p.Amount);
++        // Register the consequence even at zero damage. Removal is consumption, not repayment.
++        await PowerCmd.Apply<GeopeliaLastWillPower>(context, player.Creature, 1, player.Creature, card);
++        foreach (var debt in debts) await PowerCmd.Remove(debt);
++        if (signal > 0) await Runtime.SpendSignal(context, player, signal, card);
++        // Spending signal can generate energy through other powers; the X payment has already happened.
++        if (damage > 0)
++            await DamageCmd.Attack(damage).FromCard(card, play).TargetingAllOpponents(card.CombatState!)
++                .WithHitFx("vfx/vfx_attack_slash").Execute(context);
++    }
++
++    internal static async Task LetGo(PlayerChoiceContext context, CardModel card)
++    {
++        var player = card.Owner;
++        var debts = ResourceDebts(player);
++        if (debts.Length > 0)
++        {
++            var chosen = player.RunState.Rng.CombatCardSelection.NextItem(debts)!;
++            if (chosen.Amount == 1) await PowerCmd.Remove(chosen);
++            else await PowerCmd.ModifyAmount(context, chosen, -1, player.Creature, card);
++        }
++        var selected = (await CardSelectCmd.FromHand(context, player,
++            new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, 1), c => c != card, card)).FirstOrDefault();
++        if (selected is not null) await CardCmd.Exhaust(context, selected);
++    }
++}
+diff --git a/src/Design.cs b/src/Design.cs
+index a46af8d..1d9a604 100644
+--- a/src/Design.cs
++++ b/src/Design.cs
+@@ -26,6 +26,8 @@ public sealed class CardDefinition
+     public CardRarity Rarity { get; set; }
+     public CardType Type { get; set; }
+     public int Cost { get; set; }
++    public bool CostsX { get; set; }
++    public bool Custom { get; set; }
+     public int UpgradeCost { get; set; }
+     public int Replays { get; set; }
+     public int SignalReplayCost { get; set; }
+@@ -40,7 +42,7 @@ public sealed class CardDefinition
+     public string Description { get; set; } = "";
+     public bool HasReplayAction => Steps.Any(s => s.Kind is "Replay" or "EchoSelf");
+     public TargetType Target => Steps.Any(s => s.Kind is "Attack" or "AttackBonus" or "SignalAttack" or "DebtAttack" or "Weak")
+-        ? TargetType.AnyEnemy : Steps.Any(s => s.Kind is "AllAttack" or "AllWeak" or "AllVulnerable") ? TargetType.AllEnemies : TargetType.Self;
++        ? TargetType.AnyEnemy : Steps.Any(s => s.Kind is "LastWill" or "AllAttack" or "AllWeak" or "AllVulnerable") ? TargetType.AllEnemies : TargetType.Self;
+ }
+ 
+ public static class Design
+diff --git a/src/DesignCatalog.g.cs b/src/DesignCatalog.g.cs
+index d85e00e..af421fa 100644
+--- a/src/DesignCatalog.g.cs
++++ b/src/DesignCatalog.g.cs
+@@ -2848,6 +2848,144 @@ internal static class DesignJson { public const string Value = """
+     "chartConstant": 17.9,
+     "artSourceSha256": "02e0e6c98242ab4ba34d631f84d4ad8d1c39d4efa14561bc6d2bd97cc4bdc692",
+     "description": "造成{V0:diff()}点伤害。\n获得{V1:diff()}点[gold]信号[/gold]。"
++  },
++  {
++    "className": "GeopeliaLastWill",
++    "name": "遗志",
++    "rarity": "Rare",
++    "cost": 0,
++    "upgradeCost": 0,
++    "type": "Attack",
++    "steps": [
++      {
++        "kind": "LastWill",
++        "value": 1,
++        "upgrade": 1
++      }
++    ],
++    "themes": [
++      "信号",
++      "透支"
++    ],
++    "replays": 0,
++    "costsX": true,
++    "custom": true,
++    "upgradeKeywords": [
++      "Retain"
++    ],
++    "portrait": "geopelialastwill.tres",
++    "entry": "PHIGROS_JIU_GEOPELIA_LAST_WILL",
++    "songId": "custom_lastwill",
++    "chartConstant": 0,
++    "artSourceSha256": "38e62336e54f15228c63f23a06bed210ca55222d3100bf661cc562656e6dd3b8",
++    "keywords": [],
++    "description": "消耗所有能量、信号和待偿还的能量／抽牌／信号透支。对所有敌人造成三者消耗量乘积的伤害。进入你自己的下一个回合时死亡。"
++  },
++  {
++    "className": "GeopeliaFightingChance",
++    "name": "一线生机",
++    "rarity": "Rare",
++    "cost": 0,
++    "upgradeCost": 0,
++    "type": "Skill",
++    "steps": [
++      {
++        "kind": "FightingChance",
++        "value": 1,
++        "upgrade": 1
++      },
++      {
++        "kind": "Energy",
++        "value": 1,
++        "upgrade": 1
++      },
++      {
++        "kind": "Signal",
++        "value": 1,
++        "upgrade": 1
++      },
++      {
++        "kind": "Draw",
++        "value": 2,
++        "upgrade": 2
++      }
++    ],
++    "themes": [
++      "信号",
++      "多牌"
++    ],
++    "replays": 0,
++    "custom": true,
++    "keywords": [
++      "Exhaust"
++    ],
++    "upgradeKeywords": [
++      "Retain"
++    ],
++    "portrait": "geopeliafightingchance.tres",
++    "entry": "PHIGROS_JIU_GEOPELIA_FIGHTING_CHANCE",
++    "songId": "custom_fightingchance",
++    "chartConstant": 0,
++    "artSourceSha256": "36dee2b4dffd00633674d892267040aba5e825c9edd903481b0aa11e102fe2fa",
++    "description": "仅当能量与信号均为0时可打出。\n获得{V1:diff()}点能量。\n获得{V2:diff()}点[gold]信号[/gold]。\n抽{V3:diff()}张牌。"
++  },
++  {
++    "className": "GeopeliaRestartFuture",
++    "name": "重启未来",
++    "rarity": "Rare",
++    "cost": 1,
++    "upgradeCost": 0,
++    "type": "Power",
++    "steps": [
++      {
++        "kind": "Power",
++        "value": 1,
++        "upgrade": 1,
++        "power": "RestartFuture"
++      }
++    ],
++    "themes": [
++      "多牌"
++    ],
++    "replays": 0,
++    "custom": true,
++    "portrait": "geopeliarestartfuture.tres",
++    "entry": "PHIGROS_JIU_GEOPELIA_RESTART_FUTURE",
++    "songId": "custom_restartfuture",
++    "chartConstant": 0,
++    "artSourceSha256": "8084aa3bd1703f030aff422aa5b95cb22ebbb266e128f7d04ba28fb8db88ce98",
++    "keywords": [],
++    "description": "每打出12张牌，强制结束当前回合，跳过敌方行动并开始你的新回合。计数跨回合累计。同名能力不叠加。"
++  },
++  {
++    "className": "GeopeliaLetGo",
++    "name": "割舍",
++    "rarity": "Uncommon",
++    "cost": 0,
++    "upgradeCost": 0,
++    "type": "Skill",
++    "steps": [
++      {
++        "kind": "LetGo",
++        "value": 1,
++        "upgrade": 1
++      }
++    ],
++    "themes": [
++      "透支"
++    ],
++    "replays": 0,
++    "custom": true,
++    "upgradeKeywords": [
++      "Retain"
++    ],
++    "portrait": "geopelialetgo.tres",
++    "entry": "PHIGROS_JIU_GEOPELIA_LET_GO",
++    "songId": "custom_letgo",
++    "chartConstant": 0,
++    "artSourceSha256": "09e3b6d95257b986c7e657f0ac295ed8c73f91aa8569573d9bcc597410846261",
++    "keywords": [],
++    "description": "随机减少一种待偿还的能量／抽牌／信号透支1层。选择1张手牌消耗。没有透支或其他手牌时仍可打出。"
+   }
+ ]
+ """; }
+diff --git a/src/Entry.cs b/src/Entry.cs
+index 3b5de80..cd9c12b 100644
+--- a/src/Entry.cs
++++ b/src/Entry.cs
+@@ -21,6 +21,6 @@ public static class Entry
+         if (_initialized) return;
+         new Harmony(HarmonyId).PatchAll(typeof(Entry).Assembly);
+         _initialized = true;
+-        Log.Info("[PhigrosJiu] 鸠 loaded: 85 cards, 4 relics; repeats, overdraft and signal.");
++        Log.Info("[PhigrosJiu] 鸠 loaded: 89 cards, 4 relics; repeats, overdraft and signal.");
+     }
+ }
+diff --git a/src/GeopeliaCard.cs b/src/GeopeliaCard.cs
+index 676c171..368cfc0 100644
+--- a/src/GeopeliaCard.cs
++++ b/src/GeopeliaCard.cs
+@@ -15,6 +15,9 @@ public abstract class GeopeliaCard : CardModel
+     public CardDefinition Definition { get; }
+     protected GeopeliaCard(CardDefinition definition) : base(definition.Cost, definition.Type, definition.Rarity, definition.Target)
+         => Definition = definition;
++    protected override bool HasEnergyCostX => Definition.CostsX;
++    protected override bool IsPlayable => !Definition.Steps.Any(s => s.Kind == "FightingChance")
++        || Owner.PlayerCombatState?.Energy == 0 && Runtime.Signal(Owner) == 0;
+     public string ArtFile => Definition.Portrait;
+     public override string PortraitPath => Content.CardArt(ArtFile);
+     protected override string PortraitPngPath => PortraitPath;
+@@ -97,6 +100,9 @@ public abstract class GeopeliaCard : CardModel
+             if (n <= 0 && !signalBonus) continue;
+             switch (step.Kind)
+             {
++                case "LastWill": await CustomCardEffects.LastWill(context, this, play, ResolveEnergyXValue()); break;
++                case "FightingChance": break; // Playability condition; benefits use the normal editable operations.
++                case "LetGo": await CustomCardEffects.LetGo(context, this); break;
+                 case "Attack": case "AttackBonus": await Attack(context, play, n); break;
+                 case "AllAttack": await Attack(context, play, n, true); break;
+                 case "DebtAttack":
+diff --git a/src/Powers.cs b/src/Powers.cs
+index fdee85b..ad83eac 100644
+--- a/src/Powers.cs
++++ b/src/Powers.cs
+@@ -28,6 +28,54 @@ public sealed class GeopeliaSignalPower : GeopeliaPower
+ 
+ public sealed class GeopeliaSignalCapacityPower : GeopeliaPower { }
+ 
++public sealed class GeopeliaLastWillPower : GeopeliaPower
++{
++    public override PowerType Type => PowerType.Debuff;
++    public override PowerStackType StackType => PowerStackType.Single;
++    public override async Task BeforeSideTurnStart(PlayerChoiceContext context, CombatSide side,
++        IReadOnlyList<Creature> participants, ICombatState combatState)
++    {
++        if (side == CombatSide.Player && participants.Contains(Owner))
++            await CreatureCmd.Kill(Owner, force: true);
++    }
++}
++
++public sealed class GeopeliaRestartFuturePower : GeopeliaPower
++{
++    [SavedProperty] public int Plays { get; set; }
++    [SavedProperty] public bool ExtraTurnPending { get; set; }
++    private CardModel? _activationSource;
++    public override PowerStackType StackType => PowerStackType.Single;
++    public override Task AfterApplied(Creature? applier, CardModel? cardSource)
++    {
++        _activationSource = cardSource;
++        return Task.CompletedTask;
++    }
++    public override Task AfterCardPlayed(PlayerChoiceContext context, CardPlay play)
++    {
++        if (play.Player != Owner.Player) return Task.CompletedTask;
++        if (ReferenceEquals(play.Card, _activationSource))
++        {
++            _activationSource = null;
++            return Task.CompletedTask;
++        }
++        Plays++;
++        if (Plays >= 12 && !ExtraTurnPending && !CombatManager.Instance.IsOverOrEnding)
++        {
++            Plays -= 12;
++            ExtraTurnPending = true;
++            PlayerCmd.EndTurn(play.Player, canBackOut: false);
++        }
++        return Task.CompletedTask;
++    }
++    public override bool ShouldTakeExtraTurn(Player player) => player == Owner.Player && ExtraTurnPending;
++    public override Task AfterTakingExtraTurn(Player player)
++    {
++        if (player == Owner.Player) ExtraTurnPending = false;
++        return Task.CompletedTask;
++    }
++}
++
+ /// <summary>All per-turn counters are saved, owner-scoped and reset before that owner's turn.</summary>
+ public abstract class GeopeliaMechanicPower : GeopeliaPower
+ {
+diff --git a/src/Runtime.cs b/src/Runtime.cs
+index f490ba7..1e9107c 100644
+--- a/src/Runtime.cs
++++ b/src/Runtime.cs
+@@ -53,6 +53,7 @@ public static class Runtime
+     }
+     public static Task ApplyPower(PlayerChoiceContext context, Player player, Type type, int amount, CardModel? source)
+     {
++        if (type == typeof(GeopeliaRestartFuturePower) && player.Creature.GetPower<GeopeliaRestartFuturePower>() is not null) return Task.CompletedTask;
+         if (type == typeof(GeopeliaSignalEchoPower) && player.Creature.GetPower<GeopeliaSignalEchoPower>() is { } old)
+         { old.SetAmount(Math.Min(old.Amount, amount)); return Task.CompletedTask; }
+         if ((typeof(GeopeliaPercentageDebtPower).IsAssignableFrom(type) || typeof(GeopeliaTurnPenaltyPower).IsAssignableFrom(type))
+@@ -74,6 +75,7 @@ public static class Runtime
+         "SignalDraw" => typeof(GeopeliaSignalDrawPower), "DebtDraw" => typeof(GeopeliaDebtDrawPower),
+         "OpeningSignal" => typeof(GeopeliaOpeningSignalPower), "EchoSignal" => typeof(GeopeliaEchoSignalPower),
+         "WorldEcho" => typeof(GeopeliaWorldEchoPower), "Archidoxen" => typeof(GeopeliaArchidoxenPower),
++        "RestartFuture" => typeof(GeopeliaRestartFuturePower),
+         "Richter" => typeof(GeopeliaRichterPower), "SignalCapacity" => typeof(GeopeliaSignalCapacityPower), _ => throw new ArgumentException(kind)
+     };
+     public static bool Replayable(CardModel card) => card.Type is CardType.Attack or CardType.Skill
+diff --git a/tools/audit_artwork.py b/tools/audit_artwork.py
+index 5604db7..2baa4a2 100644
+--- a/tools/audit_artwork.py
++++ b/tools/audit_artwork.py
+@@ -10,13 +10,14 @@ def check(test,message):
+     global checks
+     checks+=1
+     assert test,message
++originals=[c for c in m['cards'] if not c.get('custom')]
+ for key in ['songId','name','sha256','portrait']:
+-    check(len({c[key] for c in m['cards']})==85,'Duplicate artwork '+key)
++    check(len({c[key] for c in originals})==85,'Duplicate artwork '+key)
+ for c in cards:
+     a=art[c['className']]
+     check(c['name']==a['name'] and c['songId']==a['songId'],'Card/song mismatch')
+     lo,hi=m['bands'][c['rarity']]
+-    check(lo<=a['constant']<=hi,'Song constant outside rarity band')
++    check(a.get('custom') or lo<=a['constant']<=hi,'Song constant outside rarity band')
+     source=(root/a['sourceFile']).read_bytes()
+     packed=(root/'build/godot/PhigrosJiu/cards/originals'/(a['songId']+'.png')).read_bytes()
+     check(hashlib.sha256(source).hexdigest()==a['sha256'],'Original image changed')
+@@ -30,7 +31,7 @@ check(hashlib.sha256((root/'build/godot/PhigrosJiu/character/geopelia_model.png'
+ scene=(root/'build/godot/PhigrosJiu/character/geopelia_visuals.tscn').read_text(encoding='utf-8')
+ check('res://jiu_2/' not in scene,'Runtime dependency on peer resource root')
+ check('scale = Vector2(0.85, 0.85)' in scene,'Visual scale')
+-report=dict(result='PASS',checks=checks,cards=85,uniqueSongs=85,uniqueImages=85,exhaustCards=sum('Exhaust' in c['keywords'] for c in cards),visualScale=0.85,
++report=dict(result='PASS',checks=checks,cards=len(cards),uniqueSongs=len(originals),uniqueImages=len(originals),customPlaceholders=sum(bool(c.get('custom')) for c in cards),exhaustCards=sum('Exhaust' in c['keywords'] for c in cards),visualScale=0.85,
+     bands={r:dict(count=len(values:=[a['constant'] for a in m['cards'] if a['rarity']==r]),minimum=min(values),maximum=max(values)) for r in m['bands']})
+ (root/'content/artwork-audit.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
+ print(json.dumps(report))
+diff --git a/tools/audit_economy.py b/tools/audit_economy.py
+index 1400372..01c3177 100644
+--- a/tools/audit_economy.py
++++ b/tools/audit_economy.py
+@@ -17,10 +17,10 @@ def check(test, message):
+     checks += 1
+     assert test, message
+ 
+-check(len(cards)==85 and len({c['name'] for c in cards})==85, '85 distinct cards and titles')
++check(len(cards)==89 and len({c['name'] for c in cards})==89, '89 distinct cards and titles')
+ for c in cards:
+-    check(c['name'] in song_titles, 'Not a Phigros title: '+c['name'])
+-    check(c['entry']==previous[c['className']]['entry'], 'Model ID changed: '+c['className'])
++    check(c.get('custom') or c['name'] in song_titles, 'Not a Phigros title: '+c['name'])
++    check(c['className'] not in previous or c['entry']==previous[c['className']]['entry'], 'Model ID changed: '+c['className'])
+     check(c['portrait']==artwork[c['className']]['portrait'] and c['songId']==artwork[c['className']]['songId'], 'Portrait and song mismatch')
+     check(not any(s['kind']=='NextEnergy' for s in c['steps']), 'Delayed energy reward')
+ check('AfterPlayerTurnStart' not in (ROOT/'src/Powers.cs').read_text(encoding='utf-8'), 'Turn-start resource reward')
+diff --git a/tools/card_design.py b/tools/card_design.py
+index affa782..d8957e6 100644
+--- a/tools/card_design.py
++++ b/tools/card_design.py
+@@ -109,12 +109,20 @@ card('WorldEcho', 'Cuvism³', 'Rare', 2, 'Power', [op('Power', 2, 3, power='Worl
+ card('OldRecording', 'Desultory Signals', 'Ancient', 2, 'Skill', [op('Signal', 2, 2), op('Draw', 2, 2), op('AllAttack', 2, 2), op('Block', 2, 2), op('AllVulnerable', 2, 2), op('AllWeak', 2, 2), op('RepayEnergy', 2, 2), op('RepayDraw', 2, 2), op('Energy', 1, 2), op('Strength', 2, 2), op('Dexterity', 2, 2), op('Replay', 0, 1)], '信号', keywords=['Innate', 'Retain', 'Eternal', 'Exhaust', 'Sly'], upgradeCost=2, signalReplayCost=12, descriptionOverride='不息的信号')
+ card('TowerResonance', 'Exoplanetary Mirage', 'Ancient', 1, 'Attack', [op('Attack', 9, 14), op('Signal', 1, 1)], '多牌/信号', replays=4, keywords=['Ethereal'])
+ 
+-EXPECTED = {'Basic':4,'Common':25,'Uncommon':29,'Rare':25,'Ancient':2}
++# Original cards requested by the mod author; artwork is explicitly a placeholder.
++card('LastWill', '遗志', 'Rare', 0, 'Attack', [op('LastWill', 1)], '信号/透支', costsX=True, custom=True, upgradeKeywords=['Retain'])
++card('FightingChance', '一线生机', 'Rare', 0, 'Skill', [op('FightingChance', 1), op('Energy', 1), op('Signal', 1), op('Draw', 2)], '信号/多牌', custom=True, keywords=['Exhaust'], upgradeKeywords=['Retain'])
++card('RestartFuture', '重启未来', 'Rare', 1, 'Power', [op('Power', 1, power='RestartFuture')], '多牌', custom=True, upgradeCost=0)
++card('LetGo', '割舍', 'Uncommon', 0, 'Skill', [op('LetGo', 1)], '透支', custom=True, upgradeKeywords=['Retain'])
++
++EXPECTED = {'Basic':4,'Common':25,'Uncommon':30,'Rare':28,'Ancient':2}
+ assert dict(collections.Counter(c['rarity'] for c in CARDS)) == EXPECTED
+-assert len({c['className'] for c in CARDS}) == 85
+-assert len({c['name'] for c in CARDS}) == 85
++assert len({c['className'] for c in CARDS}) == 89
++assert len({c['name'] for c in CARDS}) == 89
+ 
+ POWER_TEXT = {
++ 'RestartFuture':('重启未来','每打出12张牌，强制结束当前回合，跳过敌方行动并开始你的新回合。计数跨回合累计。同名能力不叠加。'),
++ 'LastWill':('遗志','进入你自己的下一个回合时死亡。'),
+  'Aerial':('Believe Light','每回合前3张手动打出的技能牌结算后，各获得{Amount}点信号。'),
+  'NextRepeat':('二重曝光','本回合接下来{Amount}张手动打出的攻击牌重放1。'),
+  'PulseGuard':('复调','每打出3张牌，获得{Amount}点格挡。'),
+@@ -178,6 +186,9 @@ def step_text(s, index, chinese=True, upgraded=None, power_card=False):
+       'Replay':f'依次免费重放本回合此前手动打出的最后{v}张可重放的非能力牌。',
+       'EchoSelf':f'本回合接下来每手动打出一张其他牌，自动重放此牌，最多{v}次。',
+       'Ancient':f'将{v}张随机的鸠的先古牌加入手牌。',
++      'LastWill':'消耗所有能量、信号和待偿还的能量／抽牌／信号透支。对所有敌人造成三者消耗量乘积的伤害。进入你自己的下一个回合时死亡。',
++      'FightingChance':'仅当能量与信号均为0时可打出。',
++      'LetGo':'随机减少一种待偿还的能量／抽牌／信号透支1层。选择1张手牌消耗。没有透支或其他手牌时仍可打出。',
+     }
+     if s['kind']=='Power':
+         name, text = POWER_TEXT[s['power']]
+@@ -216,7 +227,7 @@ def main():
+     song_rows=[row.split('\t') for row in (ROOT/'research/info.tsv').read_text(encoding='utf-8-sig').splitlines() if '\t' in row]
+     songs={}
+     for row in song_rows:songs.setdefault(row[1].strip(),row)
+-    assert all(c['name'] in songs for c in CARDS), 'A card title is not an exact Phigros song title'
++    assert all(c.get('custom') or c['name'] in songs for c in CARDS), 'A card title is not an exact Phigros song title'
+     assert not any(s['kind']=='NextEnergy' for c in CARDS for s in c['steps']), 'Delayed positive effects are forbidden'
+     assert not any('回合开始' in body and ('获得' in body or '抽' in body) for _,body in POWER_TEXT.values()), 'Turn-start benefits are forbidden'
+     for i,c in enumerate(CARDS):
+@@ -232,7 +243,7 @@ def main():
+         c['description']=card_text(c)
+     text=json.dumps(CARDS,ensure_ascii=False,indent=2)
+     (ROOT/'content/cards.json').write_text(text,encoding='utf-8')
+-    song_map=[dict(className=c['className'],name=c['name'],songId=c['songId'],composer=songs[c['name']][2]) for c in CARDS]
++    song_map=[dict(className=c['className'],name=c['name'],songId=c['songId'],composer=songs[c['name']][2] if not c.get('custom') else '') for c in CARDS]
+     (ROOT/'content/song-name-map.json').write_text(json.dumps({'source':'https://raw.githubusercontent.com/7aGiven/Phigros_Resource/info/info.tsv','cards':song_map},ensure_ascii=False,indent=2),encoding='utf-8')
+     json_cs='''// Generated by tools/card_design.py. Edit the design source, not this file.
+ namespace PhigrosJiu;
+diff --git a/tools/card_editor.py b/tools/card_editor.py
+index 4eb79ba..2238f08 100644
+--- a/tools/card_editor.py
++++ b/tools/card_editor.py
+@@ -24,7 +24,7 @@ KINDS = dict(Attack='单体伤害', AllAttack='全体伤害', AttackBonus='伤
+     Draw='抽牌', Energy='获得能量', Signal='获得信号', EnergyDebt='能量透支', DrawDebt='抽牌透支', SignalDebt='信号透支',
+     DamageDebt='伤害透支（%）', BlockDebt='格挡透支（%）', Weak='虚弱', AllWeak='全体虚弱', AllVulnerable='全体易伤',
+     SignalAttack='消耗信号造成伤害', SignalBlock='消耗信号获得格挡', RepayEnergy='减少能量透支（99 为全部）', RepayDraw='减少抽牌透支（99 为全部）',
+-    Power='能力层数', Strength='获得力量', Dexterity='获得敏捷', SignalStrength='全部信号转为力量', SignalRare='消耗信号生成稀有牌（数值为每张耗量）', DebtAttack='按本场透支出牌次数攻击', Replay='重放此前卡牌', EchoSelf='试演次数', Ancient='生成先古牌')
++    Power='能力层数', Strength='获得力量', Dexterity='获得敏捷', SignalStrength='全部信号转为力量', SignalRare='消耗信号生成稀有牌（数值为每张耗量）', DebtAttack='按本场透支出牌次数攻击', Replay='重放此前卡牌', EchoSelf='试演次数', Ancient='生成先古牌', LastWill='遗志：全部资源乘积与延迟死亡', FightingChance='一线生机：零能量零信号限制与补充', LetGo='割舍：随机偿还与自选消耗')
+ KEYWORDS = dict(Exhaust=('消耗','打出后在本场战斗中移除。'), Ethereal=('虚无','回合结束时仍在手牌中则消耗。'),
+     Innate=('固有','战斗开始时出现在起始手牌中。'), Retain=('保留','回合结束时不会自动弃掉。'),
+     Unplayable=('不能被打出','无法手动打出。'), Sly=('奇巧','在回合结束前被弃掉时，免费打出。'),
+@@ -107,7 +107,7 @@ def read_cards(source):
+             replays=arg(call, 'replays', default=0), signalReplayCost=arg(call, 'signalReplayCost', default=0),
+             playedReplayThreshold=arg(call, 'playedReplayThreshold', default=0), keywords=arg(call, 'keywords', default=[]),
+             themes=arg(call, 'theme', 6).split('/'))
+-        for optional in ('upgradeKeywords','descriptionOverride'):
++        for optional in ('upgradeKeywords','descriptionOverride','costsX','custom'):
+             value=arg(call,optional,default=None)
+             if value is not None:card[optional]=value
+         for step in call.args[5].elts:
+@@ -121,8 +121,8 @@ def read_cards(source):
+             raise ValueError('重复卡牌标识')
+         nodes[key] = call
+         cards.append(card)
+-    if len(cards) != 85:
+-        raise ValueError('设计应包含 85 张卡牌')
++    if len(cards) != sum(card_design.EXPECTED.values()):
++        raise ValueError('卡牌数量与设计清单不符')
+     return cards, nodes
+ 
+ 
+@@ -225,7 +225,7 @@ class Editor:
+         self.backup_dir = Path(backup_dir or ROOT.parents[1] / '.modding-backups/PhigrosJiu-card-edits')
+         self.lock = threading.RLock()
+         self.job = None
+-        self.art = {c['className']: ROOT / 'assets/song_illustrations' / (c['songId'] + '.png')
++        self.art = {c['className']: ROOT / c['sourceFile']
+                     for c in json.loads((ROOT / 'content/artwork-map.json').read_text(encoding='utf-8'))['cards']}
+ 
+     def text(self):
+diff --git a/tools/generate_design_assets.py b/tools/generate_design_assets.py
+index 6a04cf4..448a65c 100644
+--- a/tools/generate_design_assets.py
++++ b/tools/generate_design_assets.py
+@@ -52,7 +52,7 @@ def main():
+         cp.write_text(json.dumps(ch,ensure_ascii=False,indent=2),encoding='utf-8')
+     # Fully specified reference table: one row per real card and both upgrade states.
+     labels={'Basic':'基础','Common':'普通','Uncommon':'罕见','Rare':'稀有','Ancient':'先古'}
+-    lines=['# 鸠 · 卡牌设计','', '主卡池85张：基础4、普通25、罕见29、稀有25、先古2，与沙耶1.8.5 API1110标注主卡池的卡牌数量一致。','',
++    lines=['# 鸠 · 卡牌设计','', '主卡池89张：基础4、普通25、罕见30、稀有28、先古2。包含4张原创卡牌。','',
+       '信号是正面储存资源，初始上限24，可由 Evanescent 提高，不自然衰减；主动消耗由牌面规定。起始遗物在战斗开始时给予1点信号，每回合每3次出牌再给予1点。', '',
+       '重复打出使用原生重复结算，额外打出也计入出牌数。历史回放只选本回合此前手动打出的非能力、非X费、非回放引擎牌，使用原牌免费自动打出，保留升级、附魔和原生重放次数，不额外添加消耗。'+rehearsal_name+' 只由其他手动牌触发。', '',
+       '透支在下回合结算。能量与抽牌透支可累计且最低降至0；伤害、格挡减半的同类透支不叠加。跨战斗不保留透支或信号。','',
+diff --git a/tools/prepare_artwork.py b/tools/prepare_artwork.py
+index 1226cef..5565da8 100644
+--- a/tools/prepare_artwork.py
++++ b/tools/prepare_artwork.py
+@@ -61,7 +61,7 @@ filter_clip = true
+         assert hashlib.sha256(model).hexdigest()==visual['peerModelSha256'], 'Run git lfs pull to restore character art'
+     labels={'Basic':'基础','Common':'普通','Uncommon':'罕见','Rare':'稀有','Ancient':'先古'}
+     lines=['# 0.5.0 曲名、曲绘与定数对应','',
+-        '85张牌使用85首不同歌曲及85张不同原曲绘。原图字节保留，游戏通过 AtlasTexture 居中4:3取景，不生成重绘图片。定数使用该曲EZ/HD/IN/AT的最高值；高稀有度优先高定数。','',
++        '原有85张牌使用85首不同歌曲及85张不同原曲绘；另有4张原创牌，暂复用已有曲绘作为占位。原图字节保留，游戏通过 AtlasTexture 居中4:3取景，不生成重绘图片。定数使用该曲EZ/HD/IN/AT的最高值；高稀有度优先高定数。','',
+         '[曲目信息](https://raw.githubusercontent.com/7aGiven/Phigros_Resource/info/info.tsv) / [定数来源](https://raw.githubusercontent.com/7aGiven/Phigros_Resource/info/difficulty.tsv) / [曲绘资源](https://github.com/7aGiven/Phigros_Resource/tree/illustration)','',
+         '| 稀有度 | 牌名/曲名 | 最高定数 | 画师 | 原曲绘 |','| --- | --- | ---: | --- | --- |']
+     tiles=[]
+@@ -69,8 +69,8 @@ filter_clip = true
+         lines.append(f"| {labels[c['rarity']]} | {c['name']} | {c['constant']} | {c['artist']} | [原图]({c['sourceUrl']}) |")
+         tiles.append(f'<article><img loading="lazy" src="{html.escape(c["sourceFile"],quote=True)}"><b>{html.escape(c["name"])}</b><small>{labels[c["rarity"]]} · {c["constant"]} · {html.escape(c["artist"])}</small></article>')
+     (ROOT/'ARTWORK.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
+-    gallery='<!doctype html><meta charset="utf-8"><title>鸠 · 曲绘核对</title><style>body{background:#121720;color:#eee;font:16px system-ui;margin:24px}main{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}article{background:#202939;padding:12px;border-radius:12px}img{width:100%;aspect-ratio:4/3;object-fit:cover}b,small{display:block;margin-top:8px}small{color:#b8c5d9}</style><h1>85张卡牌 · 曲名/曲绘/最高谱面定数</h1><main>'+''.join(tiles)+'</main>'
++    gallery='<!doctype html><meta charset="utf-8"><title>鸠 · 曲绘核对</title><style>body{background:#121720;color:#eee;font:16px system-ui;margin:24px}main{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}article{background:#202939;padding:12px;border-radius:12px}img{width:100%;aspect-ratio:4/3;object-fit:cover}b,small{display:block;margin-top:8px}small{color:#b8c5d9}</style><h1>89张卡牌 · 曲绘（含4张原创牌占位图）</h1><main>'+''.join(tiles)+'</main>'
+     (ROOT/'ART_GALLERY.html').write_text(gallery,encoding='utf-8')
+-    print('ARTWORK_PREPARED=85 UNIQUE=85 VISUAL_SCALE=0.85')
++    print(f'ARTWORK_PREPARED={len(manifest["cards"])} ORIGINAL_UNIQUE=85 CUSTOM_PLACEHOLDERS=4 VISUAL_SCALE=0.85')
+ 
+ if __name__=='__main__':main()
+diff --git a/tools/validate_design_resources.gd b/tools/validate_design_resources.gd
+index ce6dcbe..d3320f3 100644
+--- a/tools/validate_design_resources.gd
++++ b/tools/validate_design_resources.gd
+@@ -26,7 +26,7 @@ func _initialize():
+     check(ProjectSettings.load_resource_pack(args[1], false), "mount mod")
+     var cards = parse("res://PhigrosJiu/cards.json")
+     var mechanics = parse("res://PhigrosJiu/mechanics.json")
+-    check(cards.size() == 85, "85 main-pool cards")
++    check(cards.size() == 89, "89 main-pool cards")
+     var rarities = {}
+     for card in cards:
+         rarities[card.rarity] = rarities.get(card.rarity, 0) + 1
+@@ -60,7 +60,7 @@ func _initialize():
+         check(node is Control, "background root")
+         node.free()
+     if failures.is_empty():
+-        print("JIU_DESIGN_RESOURCES=PASS checks=%d cards=85 powers=%d" % [checks, mechanics.powers.size()])
++        print("JIU_DESIGN_RESOURCES=PASS checks=%d cards=89 powers=%d" % [checks, mechanics.powers.size()])
+         quit(0)
+     else:
+         for failure in failures:
