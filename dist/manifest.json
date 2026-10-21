@@ -1,0 +1,20 @@
+{
+  "version": "0.6.0",
+  "text_hash_format": "UTF-8 with LF line endings",
+  "design_sha256": "c9509807d3a9d2cda3b49fb1280d0a694c80275a74edaf267d1eda9b0f418d71",
+  "source_design_sha256": "89b38320d72b61fddc695eec0605126ada1ab5ae9c62179b560a7fa0ed742fbb",
+  "files": {
+    "PhigrosJiu.dll": {
+      "bytes": 381440,
+      "sha256": "4da44c03df00b842b4879cf257a109006dd01782be8d34bf50dc05e60eaa3f2a"
+    },
+    "PhigrosJiu.pck": {
+      "bytes": 352208008,
+      "sha256": "8f79c9b9c23fc4e1d2ad8d6f6711465bf487d6cbaa16c6aeee248da407dd9ae6"
+    },
+    "PhigrosJiu.json": {
+      "bytes": 427,
+      "sha256": "c2566369e37443582a99f616f09f94ef7bca96049f5e1aaca6ab98354b13ff9a"
+    }
+  }
+}

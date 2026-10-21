@@ -40,6 +40,8 @@ python tools/package_mod.py
 
 `build.ps1` 不带 `-NoInstall` 时将安装到本机游戏；“构建并安装”按钮也调用该脚本。`godot/` 提供可复原的资源模板，构建缓存在 `build/` 中生成。仓库自带独立人物资源，没有 `jiu_2` 也能构建；本机安装了 `jiu_2` 时会额外验证双向同载。
 
+卡牌仍在持续手动调整，当前数值与关键词以 `tools/card_design.py` 为准；历史版本说明中的数量不代表最新设计。
+
 ## Git 维护
 
 代码和可编辑设计与当前本机源码使用同一个 Git 工作目录。保存编辑器修改后可直接查看差异、提交、推送：
@@ -55,7 +57,7 @@ git push origin main
 更新可安装版本时，先构建候选、运行检查，再运行 `python tools/package_mod.py`；将变化的源码、生成数据、文档及 `dist/` 一起提交。Git LFS 会随正常 `git push` 上传大文件。
 
 - [Git维护说明](GIT_MAINTENANCE.md)：目录用途、发布步骤与恢复方法。
-- [完整设计](DESIGN.md) / [相似牌对照](SIMILAR_CARDS.md) / [曲绘对应](ARTWORK.md) / [验证记录](VALIDATION.md)。
+- [完整设计](DESIGN.md) / [相似牌对照（2026-10-20快照）](SIMILAR_CARDS.md) / [曲绘对应](ARTWORK.md) / [验证记录](VALIDATION.md)。
 - 曲绘、角色及第三方资源来源见 [CREDITS.md](CREDITS.md)，保留原作与画师来源记录。
 
 ---
