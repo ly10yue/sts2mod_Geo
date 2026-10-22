@@ -1,20 +1,20 @@
 {
-  "version": "0.7.0",
+  "version": "0.7.3",
   "text_hash_format": "UTF-8 with LF line endings",
-  "design_sha256": "72cc39fec2b6ff073d7774eca7e0d5be53a9ffe1302778e9898d18e100eaf75a",
-  "source_design_sha256": "4d0c4775ebc26152da1e5e548a416967e14160fd6f1af43836aef306c059dd24",
+  "design_sha256": "1688b2708c3c3bb4fcbf95d3bfcb3592e2023b0ac0c4ac654376fdb641d07f0b",
+  "source_design_sha256": "3508ce33e80a27badb9d980c4d2e0a4ab85d8f481182fab53a1e8dbf388368ad",
   "files": {
     "PhigrosJiu.dll": {
-      "bytes": 380928,
-      "sha256": "cf758f0bb2656b92840c1155fa81ffd2d44fc8272c2ab300f7880b087f06c013"
+      "bytes": 393216,
+      "sha256": "550fa8710e780dc1bbcbe37618ade8520bc45e5aef97568fd3cacd1fe43b20f7"
     },
     "PhigrosJiu.pck": {
-      "bytes": 352272088,
-      "sha256": "c2a661f9bb7687bd7f1c90174794a82977046287687a7b2f0b77039817bbcc0c"
+      "bytes": 352405632,
+      "sha256": "bc2877dbc57749b8cd9671726e1770c6283eb9253b5216a09e7a40b2365fb101"
     },
     "PhigrosJiu.json": {
       "bytes": 427,
-      "sha256": "531dd33b5149026646debae744932598234a6664880783eed2e2d2e2ffcd8c51"
+      "sha256": "c1ded1662dd453068e12351badcb46f648cd5ecd16011f0b215942d3a3b37ad4"
     }
   }
 }

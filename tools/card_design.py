@@ -17,7 +17,7 @@ def card(suffix, name, rarity, cost, type, steps, theme, **kw):
 # Basic
 card('Strike','dB doll','Basic',1,'Attack',[op('Attack',7,10)],'基础')
 card('Defend','Glaciaxion','Basic',1,'Skill',[op('Block',6,9)],'基础')
-card('OpeningBeat','光','Basic',1,'Skill',[op('Block',5,8),op('Signal',2,3),op('Draw',1,1)],'信号/多牌')
+card('OpeningBeat', '光', 'Basic', 1, 'Skill', [op('Block', 6, 9), op('Signal', 2, 3), op('Draw', 1, 1)], '信号/多牌')
 card('Counterbeat','HumaN','Basic',1,'Attack',[op('AttackBonus',4,6,x=2,ux=2,condition='signal',threshold=1,pay=1),op('Draw',1,1,condition='replay')],'多牌/信号',replays=1)
 
 # Common
@@ -32,15 +32,15 @@ card('Hold','Chronologika','Common',1,'Skill',[op('Block',8,11),op('Signal',1,1,
 card('Flick', 'DataErr0r', 'Common', 0, 'Skill', [op('Signal', 2, 3), op('Draw', 2, 3), op('DrawDebt', 1, 1)], '透支/信号')
 card('Drag','Luminescent','Common',1,'Attack',[op('Attack',7,10),op('Draw',2,2)],'多牌')
 card('Sync', 'ENERGY SYNERGY MATRIX', 'Common', 1, 'Skill', [op('Signal', 4, 6), op('Draw', 2, 3)], '信号/多牌')
-card('Probe','Find_Me','Common',0,'Skill',[op('Signal',3,4),op('Draw',1,1)],'信号')
+card('Probe', 'Find_Me', 'Common', 0, 'Skill', [op('Signal', 2, 3), op('Draw', 1, 1)], '信号')
 card('Carrier','GOODTEK','Common',1,'Attack',[op('AttackBonus',7,10,x=6,ux=8,condition='signal',threshold=2,pay=2),op('Draw',1,1)],'信号/多牌')
 card('Envelope','Magenta Potion','Common',1,'Skill',[op('BlockBonus',6,9,x=6,ux=8,condition='signal',threshold=2,pay=2)],'信号')
 card('Advance', 'Speed Up!', 'Common', 0, 'Skill', [op('Energy', 1, 1), op('EnergyDebt', 1, 1), op('Signal', 3, 4)], '透支/多牌', keywords=['Retain', 'Exhaust'])
-card('Rush','FULi AUTO SHOOTER','Common',1,'Attack',[op('Attack',18,24),op('Draw',1,1),op('EnergyDebt',1,1)],'透支')
+card('Rush', 'FULi AUTO SHOOTER', 'Common', 1, 'Attack', [op('Attack', 18, 20), op('Draw', 1, 2), op('EnergyDebt', 1, 1)], '透支')
 card('BorrowShield','Parallel Retrogression(Game Ver.)','Common',1,'Skill',[op('Block',15,20),op('Draw',2,3),op('DrawDebt',1,1)],'透支/多牌')
 card('EchoNeedle','Wavetapper','Common',1,'Attack',[op('Attack',2,3),op('Draw',1,1,condition='replay')],'多牌',replays=2)
 card('ReplayFootnote','Flutter Echo','Common',1,'Skill',[op('Block',3,4),op('Signal',1,1,condition='replay'),op('Draw',1,1,condition='replay')],'多牌/信号',replays=1)
-card('Rest','The Whole Rest','Common',1,'Skill',[op('Block',8,11),op('Energy',1,1),op('Draw',2,2)],'多牌')
+card('Rest','The Whole Rest','Common',1,'Skill',[op('RareNonPower',1,1)],'多牌',upgradeCost=0)
 card('Redline','Break Over','Common',1,'Attack',[op('AttackBonus',9,12,x=4,ux=4,condition='debt')],'透支')
 card('Scavenge','Get Back','Common',0,'Skill',[op('Draw',3,4),op('Signal',1,1),op('DrawDebt',1,1)],'透支/信号')
 card('DelayBeat','End Me','Common',1,'Attack',[op('Attack',17,22),op('BlockDebt',50,50)],'透支')
@@ -51,7 +51,7 @@ card('Scanline','Träne','Common',1,'Attack',[op('AllAttack',6,8),op('Draw',2,2,
 card('DistortedFate','Bounded Quietude','Uncommon',2,'Attack',[op('Attack',32,42),op('DamageDebt',50,50)],'透支')
 card('DanceWithSilence','Dance with Silence','Uncommon',0,'Skill',[op('Draw',4,5),op('BlockDebt',50,50)],'透支/多牌')
 card('TerabyteConnection','Retribution','Uncommon',2,'Attack',[op('Attack',8,10),op('Signal',1,1)],'多牌/信号',replays=1)
-card('DiamondEyes', 'Reimei', 'Uncommon', 0, 'Skill', [op('Signal', 3, 3), op('Block', 4, 6), op('Draw', 1, 1)], '信号/多牌')
+card('DiamondEyes', 'Reimei', 'Uncommon', 0, 'Skill', [op('Signal', 3, 3), op('Block', 4, 6)], '信号/多牌')
 card('Retribution','Retribution ~ Cycle of Redemption ~','Uncommon',1,'Attack',[op('Attack',9,12),op('Draw',1,1,condition='replay')],'多牌/信号',signalReplayCost=3)
 card('BelieveLight', 'Horizon Blue', 'Uncommon', 1, 'Power', [op('Power', 1, 2, power='Aerial')], '信号')
 card('DoubleExposure', 'Doppelganger', 'Uncommon', 0, 'Skill', [op('Power', 1, 2, power='NextRepeat')], '多牌')
@@ -68,45 +68,45 @@ card('Interest','Labyrinth in Kowloon: Walled World','Uncommon',1,'Power',[op('P
 card('Overspeed', 'Upshift', 'Uncommon', 0, 'Attack', [op('Attack', 12, 16), op('EnergyDebt', 1, 1)], '透支/多牌')
 card('Afterglow','Evanescent','Uncommon',1,'Power',[op('Power',12,18,power='SignalCapacity')],'信号')
 card('TimeSignature','Chronomia','Uncommon',1,'Attack',[op('Attack',9,12),op('Draw',2,3,condition='lastSkill'),op('Energy',1,1,condition='replay')],'多牌')
-card('GraceNote','Radiance','Uncommon',0,'Skill',[op('Signal',3,4),op('Draw',3,4),op('SignalDebt',2,2)],'透支/信号')
+card('GraceNote','Radiance','Uncommon',1,'Skill',[op('ExhaustDrawReplay',1,2)],'多牌/消耗')
 card('ColdStart','[NWAD]','Uncommon',1,'Skill',[op('Energy',2,3),op('Signal',3,4),op('Draw',2,3),op('EnergyDebt',1,1)],'透支/信号')
-card('HandOff','NO ONE YES MAN','Uncommon',1,'Attack',[op('Attack',10,14),op('Energy',1,1,pay=2),op('Draw',1,1)],'信号/多牌')
+card('HandOff', 'NO ONE YES MAN', 'Uncommon', 1, 'Attack', [op('Attack', 10, 14), op('Energy', 1, 1, pay=2)], '信号/多牌')
 card('Chorus','GOODFORTUNE','Uncommon',2,'Attack',[op('AllAttack',12,16),op('AllWeak',2,2,pay=2)],'信号')
 card('Cadence',"Don't Never Around",'Uncommon',2,'Attack',[op('AttackBonus',5,6,x=3,ux=3,condition='signal',threshold=1,pay=1)],'多牌/信号',replays=2)
-card('Rehearsal','Better Graphic Animation','Uncommon',1,'Skill',[op('Block',4,5),op('EchoSelf',2,3)],'多牌')
+card('Rehearsal', 'Better Graphic Animation', 'Uncommon', 1, 'Skill', [op('Block', 3, 4), op('EchoSelf', 6, 6)], '多牌')
 card('ReplayBuffer','青丘','Uncommon',0,'Skill',[op('Replay',1,1),op('Draw',2,3),op('DrawDebt',1,1)],'多牌/透支')
-card('CarrierWave','インフェルノシティ','Uncommon',2,'Skill',[op('Signal',6,8),op('Block',10,13),op('Energy',1,2),op('Draw',2,3)],'信号/多牌')
+card('CarrierWave', 'インフェルノシティ', 'Uncommon', 2, 'Skill', [op('Signal', 6, 8), op('Block', 12, 15), op('Draw', 2, 3)], '信号/多牌')
 card('PhaseShift', 'Temporal Shifting', 'Uncommon', 0, 'Skill', [op('Energy', 1, 1, condition='debt'), op('Block', 5, 8)], '透支/多牌')
 
 # Rare
-card('AbsoluteDisorder', 'AbsoluTe disoRdeR', 'Rare', 3, 'Attack', [op('AllAttack', 12, 15)], '多牌', replays=2, upgradeCost=2, keywords=['Retain'])
+card('AbsoluteDisorder','AbsoluTe disoRdeR','Rare',2,'Attack',[op('FatalRewardAttack',10,14)],'斩杀',keywords=['Exhaust'])
 card('Feast', "Rrhar'il", 'Rare', 2, 'Power', [op('Power', 2, 1, power='SignalEcho')], '信号/多牌', upgradeCost=1)
 card('ChristmasCarol','Entrance to the Chaos','Rare',0,'Skill',[op('Draw',2,3),op('Replay',1,1)],'多牌')
 card('CrushBeta', 'Petrichor', 'Rare', 2, 'Attack', [op('Attack', 40, 50), op('DamageDebt', 50, 50)], '透支/多牌', keywords=['Eternal'])
-card('HappyDisease','Der Schneid','Rare',1,'Power',[op('Power',1,2,power='RhythmDraw'),op('Draw',2,3)],'多牌')
+card('HappyDisease','Der Schneid','Rare',1,'Skill',[op('EndlessSignal',1,1)],'多牌',keywords=['Exhaust'],upgradeCost=0)
 card('MomentarySunrise', 'Distorted Fate', 'Rare', 0, 'Skill', [op('Energy', 2, 3), op('Draw', 3, 3), op('EnergyDebt', 1, 1)], '透支/多牌', keywords=['Exhaust'])
-card('OverdraftSuite', 'QZKago Requiem', 'Rare', 2, 'Attack', [op('Attack', 24, 30), op('Block', 15, 20), op('EnergyDebt', 1, 1)], '透支')
+card('OverdraftSuite','QZKago Requiem','Rare',1,'Attack',[op('SignalExecute',3,4)],'信号/斩杀')
 card('TimeMortgage', 'DESTRUCTION 3,2,1', 'Rare', 0, 'Skill', [op('Draw', 3, 5), op('DamageDebt', 30, 30), op('BlockDebt', 30, 30)], '透支/多牌')
-card('DebtClearing','+ERABY+E CONNEC+10N','Rare',0,'Skill',[op('Block',8,11),op('Draw',3,4),op('RepayEnergy',99,99)],'透支/多牌')
-card('RainbowSignal', '祈 -我ら神祖と共に歩む者なり-', 'Rare', 1, 'Power', [op('Signal', 0, 0), op('Power', 1, 1, power='Beacon'), op('Draw', 0, 0)], '信号/多牌', upgradeCost=0)
+card('DebtClearing', '+ERABY+E CONNEC+10N', 'Rare', 1, 'Skill', [op('RepayEnergy', 99, 99), op('RepayDraw', 99, 99)], '透支/多牌', keywords=['Exhaust'], upgradeKeywords=['Retain'], upgradeCost=1)
+card('RainbowSignal', '祈 -我ら神祖と共に歩む者なり-', 'Rare', 1, 'Power', [op('Power', 1, 1, power='Beacon')], '信号/多牌', upgradeCost=0)
 card('PhantomEnsemble','Stardust:RAY','Rare',1,'Skill',[op('Replay',2,3),op('EnergyDebt',1,1)],'多牌/透支')
-card('FullPlayback','Re：End of a Dream','Rare',2,'Skill',[op('Replay',4,5)],'多牌')
-card('LastTransmission','Hydra','Rare',2,'Attack',[op('SignalAttack',6,8,x=3,ux=4,cap=6)],'多牌/信号',replays=1)
-card('SignalSingularity', '幻影鬼魅 (PLEASE)', 'Rare', 0, 'Skill', [op('Signal', 9, 12), op('Draw', 1, 1), op('BlockDebt', 25, 25)], '信号/透支')
+card('FullPlayback', 'Re：End of a Dream', 'Rare', 2, 'Skill', [op('Replay', 3, 4)], '多牌')
+card('LastTransmission', 'Hydra', 'Rare', 2, 'Attack', [op('SignalAttack', 6, 6, x=3, ux=4, cap=10)], '多牌/信号', replays=1)
+card('SignalSingularity', '幻影鬼魅 (PLEASE)', 'Rare', 1, 'Skill', [op('Power', 1, 1, power='FutureRestart')], '回合', keywords=['Exhaust'])
 card('NoiseGate','玩具狂奏曲 -終焉-','Rare',1,'Skill',[op('Block',9,12),op('Draw',1,2),op('RepayEnergy',2,2,pay=2)],'信号/透支')
 card('SustainAmplifier','Archidoxen','Rare',2,'Power',[op('Power',1,1,power='Archidoxen')],'多牌',upgradeCost=1)
 card('Tachycardia', 'INFiNiTE ENERZY -Overdoze-', 'Rare', 2, 'Power', [op('Power', 1, 1, power='DebtDraw')], '透支/多牌', upgradeCost=1)
 card('OpeningTheme','Der Richter','Rare',2,'Power',[op('Strength',3,5),op('Dexterity',3,5),op('Power',1,1,power='Richter')],'多牌')
 card('SafetyCopy', 'sølips', 'Rare', 1, 'Skill', [op('Block', 6, 6), op('Replay', 1, 1)], '多牌', upgradeCost=0)
-card('ContinuousTake', 'Spasmodic', 'Rare', 1, 'Attack', [op('Attack', 12, 16), op('Draw', 1, 1, condition='replay')], '多牌', playedReplayThreshold=3)
+card('ContinuousTake', 'Spasmodic', 'Rare', 0, 'Attack', [op('HandSignalAttack', 1, 1), op('DamageDebt', 100, 50), op('BlockDebt', 100, 50)], '信号/消耗', costsX=True)
 card('Mastering', 'PRAGMATISM -RESURRECTION-', 'Rare', 1, 'Power', [op('Power', 3, 4, power='EchoSignal')], '信号/多牌')
 card('ArchiveLost', 'BANGING STRIKE', 'Rare', 1, 'Skill', [op('Ancient', 1, 1)], '信号/多牌', keywords=['Exhaust'], upgradeCost=0)
 card('MonochromeBreak', 'Igallta', 'Rare', 2, 'Attack', [op('AllAttack', 23, 30), op('AllVulnerable', 2, 3, pay=2), op('Draw', 1, 1), op('DrawDebt', 1, 1)], '信号/透支')
 card('QuietCoda', 'Stasis', 'Rare', 0, 'Skill', [op('Block', 11, 15), op('DrawDebt', 1, 1)], '透支/多牌', keywords=['Exhaust'])
-card('WorldEcho', 'Cuvism³', 'Rare', 2, 'Power', [op('Power', 2, 3, power='WorldEcho')], '多牌/信号')
+card('WorldEcho', 'Cuvism³', 'Rare', 3, 'Power', [op('Power', 2, 3, power='WorldEcho')], '多牌/信号', upgradeCost=3)
 
 # Ancient
-card('OldRecording', 'Desultory Signals', 'Ancient', 2, 'Skill', [op('Signal', 2, 2), op('Draw', 2, 2), op('AllAttack', 2, 2), op('Block', 2, 2), op('AllVulnerable', 2, 2), op('AllWeak', 2, 2), op('RepayEnergy', 2, 2), op('RepayDraw', 2, 2), op('Energy', 1, 2), op('Strength', 2, 2), op('Dexterity', 2, 2), op('Replay', 0, 1)], '信号', keywords=['Innate', 'Retain', 'Eternal', 'Exhaust', 'Sly'], upgradeCost=2, signalReplayCost=12, descriptionOverride='不息的信号')
+card('OldRecording', 'Desultory Signals', 'Ancient', 2, 'Skill', [op('Signal', 2, 2), op('Draw', 2, 2), op('AllAttack', 2, 2), op('Block', 2, 2), op('AllVulnerable', 2, 2), op('AllWeak', 2, 2), op('RepayEnergy', 2, 2), op('RepayDraw', 2, 2), op('Energy', 1, 2), op('Strength', 2, 2), op('Dexterity', 2, 2), op('Replay', 0, 1)], '信号', keywords=['Innate', 'Retain', 'Eternal', 'Exhaust', 'Sly'], upgradeCost=2, signalReplayCost=12, descriptionOverride='反击的决意')
 card('TowerResonance', 'Exoplanetary Mirage', 'Ancient', 1, 'Attack', [op('Attack', 9, 14), op('Signal', 1, 1)], '多牌/信号', replays=4, keywords=['Ethereal'])
 
 EXPECTED = {'Basic':4,'Common':25,'Uncommon':29,'Rare':25,'Ancient':2}
@@ -115,6 +115,7 @@ assert len({c['className'] for c in CARDS}) == 85
 assert len({c['name'] for c in CARDS}) == 85
 
 POWER_TEXT = {
+ 'FutureRestart':('幻影鬼魅 (PLEASE)','下个回合开始时，强制结束你的回合，并跳过紧接着的敌方回合。'),
  'Aerial':('Believe Light','每回合前3张手动打出的技能牌结算后，各获得{Amount}点信号。'),
  'NextRepeat':('二重曝光','本回合接下来{Amount}张手动打出的攻击牌重放1。'),
  'PulseGuard':('复调','每打出3张牌，获得{Amount}点格挡。'),
@@ -173,7 +174,13 @@ def step_text(s, index, chinese=True, upgraded=None, power_card=False):
       'RepayDraw':('清除下回合全部抽牌透支。' if amount==99 else f'减少{v}张下回合的抽牌透支。'),
       'SignalStrength':'消耗所有[gold]信号[/gold]，获得等量[gold]力量[/gold]。',
       'SignalRare':f'消耗至多{s.get("cap",0)}点[gold]信号[/gold]。每消耗{v}点，将一张随机的鸠的稀有牌加入手牌。',
+      'RareNonPower':f'将{v}张随机的稀有非能力牌加入手牌。',
+      'EndlessSignal':f'[gold]不息的信号[/gold]：下个回合开始时，将{v}张随机技能牌加入手牌，其可免费打出，并获得[gold]消耗[/gold]与[gold]不息的信号[/gold]。',
       'DebtAttack':f'本场战斗中，你每打出过一张带[red]透支[/red]的牌，造成{v}点伤害。',
+      'ExhaustDrawReplay':f'消耗一张手牌，抽{v}张牌。若消耗的是状态牌或诅咒牌，免费重放此牌。',
+      'SignalExecute':f'若目标生命低于[gold]信号[/gold]×{v}，消耗所有信号，将其斩杀。',
+      'FatalRewardAttack':f'造成{v}点伤害。[gold]斩杀[/gold]：本场战斗结算中的卡牌奖励稀有度提高一级（稀有牌不变）。',
+      'HandSignalAttack':'消耗所有能量、[gold]信号[/gold]和所有手牌。对所有敌人造成三者消耗量乘积的伤害。',
       'Strength':f'获得{v}点[gold]力量[/gold]。','Dexterity':f'获得{v}点[gold]敏捷[/gold]。',
       'Replay':f'依次免费重放本回合此前手动打出的最后{v}张可重放的非能力牌。',
       'EchoSelf':f'本回合接下来每手动打出一张其他牌，自动重放此牌，最多{v}次。',
@@ -181,7 +188,7 @@ def step_text(s, index, chinese=True, upgraded=None, power_card=False):
     }
     if s['kind']=='Power':
         name, text = POWER_TEXT[s['power']]
-        return ('' if power_card else f'获得[gold]{name}[/gold]：')+text.replace('{Amount}',v)
+        return ('' if power_card or s['power']=='FutureRestart' else f'获得[gold]{name}[/gold]：')+text.replace('{Amount}',v)
     if s['kind'] in ['AttackBonus','BlockBonus']:
         verb='造成' if s['kind']=='AttackBonus' else '获得'; noun='伤害' if s['kind']=='AttackBonus' else '格挡'
         text=f'{verb}{v}点{noun}。' if amount>0 else ''

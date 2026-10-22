@@ -113,15 +113,17 @@ internal static partial class GameValidation
             }
             var engine=f.State.CreateCard(ModelDb.Card<GeopeliaFullPlayback>(),f.Player);
             if(upgraded){engine.UpgradeInternal();engine.FinalizeUpgradeInternal();}
+            var replayStep=((GeopeliaCard)engine).Definition.Steps.Single(s=>s.Kind=="Replay");
+            int replayCount=upgraded?replayStep.Upgrade:replayStep.Value;
             await f.Play(engine);
             var actual=Runtime.History(f.Player).Where(e=>e.CardPlay.IsAutoPlay).Select(e=>e.CardPlay.Card).ToArray();
-            Check(actual.SequenceEqual(previous.TakeLast(upgraded?5:4)),"Re:End replays the last four or five manual cards in chronological order");
+            Check(actual.SequenceEqual(previous.TakeLast(replayCount)),"Re:End replays the authored number of previous manual cards in chronological order");
             Check(PileType.Exhaust.GetPile(f.Player).Cards.Count==0,"history playback creates no synthetic exhausted cards");
             await BeginTurn(f,false);
             Check(!Runtime.ReplayableHistory(f.Player,engine).Any(),"history replay remains restricted to the current turn");
             RunManager.Instance.CleanUp(false);
         }
-        Rows.Add(new{test="re-end-four-five-order-and-turn-scope"});
+        Rows.Add(new{test="re-end-authored-count-order-and-turn-scope"});
 
         _current="power-card-description-prefix";
         foreach(var power in ModelDb.CardPool<GeopeliaCardPool>().AllCards.Cast<GeopeliaCard>().Where(c=>c.Type==CardType.Power))

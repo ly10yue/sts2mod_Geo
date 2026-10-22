@@ -38,6 +38,24 @@ class CardEditorTests(unittest.TestCase):
         self.assertEqual(expected, after_cards)
         self.assertIn("card('Defend','Glaciaxion'", after)
 
+    def test_two_replacement_cards_and_x_cost_survive_editor_save(self):
+        cards = {c['className']: c for c in self.editor.state()['cards']}
+        please = cards['GeopeliaSignalSingularity']
+        self.assertEqual(('幻影鬼魅 (PLEASE)', 'Skill', 1, 1),
+            (please['name'], please['type'], please['cost'], please['upgradeCost']))
+        self.assertEqual(['Exhaust'], please['keywords'])
+        self.assertIn('下个回合开始', please['descriptions'][0])
+        spasmodic = cards['GeopeliaContinuousTake']
+        self.assertTrue(spasmodic['costsX'])
+        self.assertEqual(0, spasmodic['playedReplayThreshold'])
+        self.assertIn('所有手牌', spasmodic['descriptions'][0])
+        self.assertNotIn('死亡', spasmodic['descriptions'][0])
+        changed = ce.patch_source(self.original, [dict(card='GeopeliaContinuousTake', field='keywords.Retain', value=True)])
+        saved, _ = ce.read_cards(changed)
+        self.assertTrue(next(c for c in saved if c['className']=='GeopeliaContinuousTake')['costsX'])
+        with self.assertRaises(ValueError):
+            ce.patch_source(self.original, [dict(card='GeopeliaContinuousTake', field='cost', value=2)])
+
     def test_inherited_upgrade_stays_independent(self):
         after = ce.patch_source(self.original, [dict(card='GeopeliaStrike', field='cost', value=2)])
         cards, _ = ce.read_cards(after)
@@ -124,7 +142,7 @@ class CardEditorTests(unittest.TestCase):
         cards,_=ce.read_cards(self.original)
         by_id={c['className']:c for c in cards}
         old=by_id['GeopeliaOldRecording']
-        self.assertEqual('不息的信号',ce.card_design.card_text(old,include_replay=True))
+        self.assertEqual('反击的决意',ce.card_design.card_text(old,include_replay=True))
         changed=ce.patch_source(self.original,[dict(card='GeopeliaOldRecording',field='cost',value=1)])
         preserved=next(c for c in ce.read_cards(changed)[0] if c['className']=='GeopeliaOldRecording')
         self.assertEqual(old['steps'],preserved['steps'])
@@ -141,6 +159,38 @@ class CardEditorTests(unittest.TestCase):
         self.assertEqual((2,2),(by_id['GeopeliaOpeningTheme']['cost'],by_id['GeopeliaOpeningTheme']['upgradeCost']))
         for name,(_,body) in ce.card_design.POWER_TEXT.items():
             if name!='Archidoxen':self.assertNotIn('每回合最多',body)
+
+    def test_recursive_signal_reworks_preview_and_save(self):
+        state=self.editor.state();cards={c['className']:c for c in state['cards']}
+        rest=cards['GeopeliaRest'];schneid=cards['GeopeliaHappyDisease'];clearing=cards['GeopeliaDebtClearing']
+        self.assertEqual((1,0),(rest['cost'],rest['upgradeCost']))
+        self.assertEqual('RareNonPower',rest['steps'][0]['kind'])
+        self.assertIn('稀有非能力牌',rest['descriptions'][0])
+        self.assertEqual((1,0,'Skill','Rare'),(schneid['cost'],schneid['upgradeCost'],schneid['type'],schneid['rarity']))
+        self.assertEqual(['Exhaust'],schneid['keywords'])
+        self.assertIn('不息的信号',schneid['descriptions'][0]);self.assertIn('下个回合开始',schneid['descriptions'][0])
+        self.assertEqual(['Retain'],clearing['upgradeKeywords'])
+        self.assertEqual('反击的决意',cards['GeopeliaOldRecording']['descriptions'][0])
+        steps=[dict(kind='RareNonPower',value=1,upgrade=1),dict(kind='EndlessSignal',value=1,upgrade=1)]
+        self.editor.save(self.payload('steps',steps))
+        restored=self.editor.state()['cards'][0]
+        self.assertEqual(steps,[{k:v for k,v in s.items() if k!='label'} for s in restored['steps']])
+        self.assertIn('稀有非能力牌',restored['descriptions'][0]);self.assertIn('不息的信号',restored['descriptions'][0])
+
+    def test_fatal_reworks_preview_and_editing(self):
+        cards={c['className']:c for c in self.editor.state()['cards']}
+        radiance=cards['GeopeliaGraceNote'];qzkago=cards['GeopeliaOverdraftSuite'];absolute=cards['GeopeliaAbsoluteDisorder']
+        self.assertEqual((1,1,'Skill'),(radiance['cost'],radiance['upgradeCost'],radiance['type']))
+        self.assertIn('抽1张',radiance['descriptions'][0]);self.assertIn('抽2张',radiance['descriptions'][1])
+        self.assertIn('状态牌或诅咒牌',radiance['descriptions'][0])
+        self.assertEqual((1,1,'Attack'),(qzkago['cost'],qzkago['upgradeCost'],qzkago['type']))
+        self.assertIn('低于信号×3',qzkago['descriptions'][0]);self.assertIn('低于信号×4',qzkago['descriptions'][1])
+        self.assertEqual((2,2,['Exhaust'],0),(absolute['cost'],absolute['upgradeCost'],absolute['keywords'],absolute['replays']))
+        self.assertIn('10点伤害',absolute['descriptions'][0]);self.assertIn('14点伤害',absolute['descriptions'][1])
+        self.assertIn('稀有度提高一级',absolute['descriptions'][0])
+        steps=[dict(kind='ExhaustDrawReplay',value=1,upgrade=2),dict(kind='SignalExecute',value=3,upgrade=4),dict(kind='FatalRewardAttack',value=10,upgrade=14)]
+        self.editor.save(self.payload('steps',steps))
+        self.assertEqual(steps,[{k:v for k,v in s.items() if k!='label'} for s in self.editor.state()['cards'][0]['steps']])
 
     def test_preview_and_backup_save(self):
         payload = self.payload()

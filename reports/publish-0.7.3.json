@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-22",
+  "version": "0.7.3",
+  "result": "PASS",
+  "native_checks": 1914,
+  "native_cases": 28,
+  "editor_tests": 16,
+  "resource_checks": 648,
+  "coexistence_checks_per_order": 1248,
+  "latest_saved_re_end_replay": [
+    3,
+    4
+  ],
+  "package_verified": true,
+  "manifest": {
+    "version": "0.7.3",
+    "text_hash_format": "UTF-8 with LF line endings",
+    "design_sha256": "1688b2708c3c3bb4fcbf95d3bfcb3592e2023b0ac0c4ac654376fdb641d07f0b",
+    "source_design_sha256": "3508ce33e80a27badb9d980c4d2e0a4ab85d8f481182fab53a1e8dbf388368ad",
+    "files": {
+      "PhigrosJiu.dll": {
+        "bytes": 393216,
+        "sha256": "550fa8710e780dc1bbcbe37618ade8520bc45e5aef97568fd3cacd1fe43b20f7"
+      },
+      "PhigrosJiu.pck": {
+        "bytes": 352405632,
+        "sha256": "bc2877dbc57749b8cd9671726e1770c6283eb9253b5216a09e7a40b2365fb101"
+      },
+      "PhigrosJiu.json": {
+        "bytes": 427,
+        "sha256": "c1ded1662dd453068e12351badcb46f648cd5ecd16011f0b215942d3a3b37ad4"
+      }
+    }
+  },
+  "native_proof": {
+    "result": "PASS",
+    "validation_mode": "editor-features",
+    "checks": 1914,
+    "peer_tested_pack_sha256": "70347B90384EE98CA4DA207E037CEC50937984DD50DB479FAECB344CCDD56F88",
+    "timestamp_utc": "2026-10-22T13:49:07.6603141Z",
+    "installed_dll_sha256": "04A87676797A4EA3538F0AC143EB9FBA0212EC24D65692C60106E38910424C35",
+    "staged": true,
+    "tested_pack_sha256": "BC2877DBC57749B8CD9671726E1770C6283EB9253B5216A09E7A40B2365FB101",
+    "peer_tested_dll_sha256": "964DEB35218D94CC94080992C5B879B6C87FA7706F54BEEAF859DE7B01556AD8",
+    "installed_pack_sha256": "469DEACC428DEBAC81530C953727281400B2512ED60C9D66B3019717EE84AA5E",
+    "design_sha256": "CC23F8833070DD9EA42D4E28DCE36387FCE6398F7B3F5B851429944373C77B9C",
+    "cases": 28
+  }
+}

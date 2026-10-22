@@ -76,11 +76,14 @@ internal static partial class GameValidation
             TestMode.IsOn = true;
             await ProgressionCases();
             await VisualCases();
+            await TwoCardReplacementCases();
             if (CommandLineHelper.HasArg("jiu-editor-validation"))
             {
                 await EditorFeatureCases();
                 await SongReworkCases();
                 await SignalReplayReworkCases();
+                await RecursiveSignalCases();
+                await FatalReworkCases();
             }
             else
             {

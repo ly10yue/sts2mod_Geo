@@ -23,6 +23,8 @@
 
 ## 日常修改
 
+小更新默认只更新本地源码、编辑器与游戏Mod；仅在用户明确要求提交或推送时同步GitHub。
+
 ```powershell
 git status --short
 git diff -- tools/card_design.py

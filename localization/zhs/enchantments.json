@@ -1,0 +1,5 @@
+{
+  "PHIGROS_JIU_GEOPELIA_ENDLESS_SIGNAL.title": "不息的信号",
+  "PHIGROS_JIU_GEOPELIA_ENDLESS_SIGNAL.description": "消耗。下个己方回合开始时，将一张随机技能牌加入手牌，其可免费打出，并获得消耗与不息的信号。保留该牌原本效果。",
+  "PHIGROS_JIU_GEOPELIA_ENDLESS_SIGNAL.extraCardText": "[gold]不息的信号[/gold]。"
+}

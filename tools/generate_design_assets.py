@@ -25,6 +25,7 @@ def main():
     text={}
     for key,(title,body) in card_design.POWER_TEXT.items():text['Geopelia'+key+'Power']=(title,body)
     text.update({
+      'GeopeliaEndlessSignalPower':('不息的信号','下个己方回合开始时，将{Amount}张随机技能牌加入手牌。这些牌可免费打出，获得消耗和不息的信号；打出后可在再下个回合继续传递此效果。'),
       'GeopeliaSignalPower':('信号','可储存的正面资源，初始上限24点，可由卡牌提高，不自动衰减。卡牌会主动消耗信号以获得收益；透支导致的信号流失不算主动消耗。'),
       'GeopeliaRhythmPower':('随身录音','每回合每打出3张牌，获得1点信号。额外打出与自动重放也计数。'),
       'GeopeliaEnergyDebtPower':('能量透支','下回合能量重置后，失去{Amount}点能量，最低降至0；随后清除此透支。'),
@@ -37,6 +38,12 @@ def main():
       'GeopeliaTapeLoopPower':(rehearsal_name+' 回环','本回合接下来手动打出其他牌时，重放 '+rehearsal_name+'。还可触发{Amount}次；回合结束时清除。'),
     })
     for lang in ['zhs','eng']:
+        enchantment={
+            'PHIGROS_JIU_GEOPELIA_ENDLESS_SIGNAL.title':'不息的信号',
+            'PHIGROS_JIU_GEOPELIA_ENDLESS_SIGNAL.description':'消耗。下个己方回合开始时，将一张随机技能牌加入手牌，其可免费打出，并获得消耗与不息的信号。保留该牌原本效果。',
+            'PHIGROS_JIU_GEOPELIA_ENDLESS_SIGNAL.extraCardText':'[gold]不息的信号[/gold]。',
+        }
+        (root/f'localization/{lang}/enchantments.json').write_text(json.dumps(enchantment,ensure_ascii=False,indent=2),encoding='utf-8')
         loc={}
         for name in powers:
             title,body=text[name];entry='PHIGROS_JIU_'+slug(name).upper()
@@ -59,7 +66,7 @@ def main():
       '0.5.0：85首歌曲与85张不同原曲绘逐一对应。最高谱面定数分档：基础12.4–13.4、普通13.6–14.9、罕见15.1–16.2、稀有16.6–17.6、先古17.9–18.0；对应关系见 ARTWORK.md。类名和模型ID保留。','',
       '消耗由30张减为3张，仅先古牌2张及先古牌生成牌1张保留。其余27张恢复可重复打出，不为防止无限另加消耗或调整费用。临时回放复制牌仍在结算后清理，不进入原始牌组。','',
       '能量净收益=当回合加费−牌费−下回合能量透支；抽牌净收益=当回合抽牌−打出本牌的1张−下回合抽牌透支。透支按完整负值记账，不把延期本身算作奖励。详见 ECONOMY.md。','',
-      '不再有下回合获得能量/抽牌/信号的正面设计；常驻能力改为在当前回合的出牌、主动消耗信号或产生透支时立即触发。自然偿付透支不产生收益。','',
+      '除明确指定的延迟效果外，常驻能力在出牌、主动消耗信号或产生透支时立即触发。Der Schneid 的不息的信号按设计在下个己方回合开始时生成免费技能并传递；自然偿付透支不产生收益。','',
       '先古牌不进入普通奖励，由稀有牌「'+archive_name+'」生成。建议新开局测试。','',
       '| 稀有度 | 名称 | 费用→升级 | 类型 | 路线 | 效果（基础 / 升级） |','| --- | --- | --- | --- | --- | --- |']
     for c in cards:

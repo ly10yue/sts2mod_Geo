@@ -24,7 +24,7 @@ internal static partial class GameValidation
         {
             string text=original.GetDescriptionForPile(PileType.None);
             if(original is GeopeliaOldRecording)
-                Check(text.Contains("不息的信号")&&!text.Contains("下回合")&&!text.Contains("给予"),"Desultory has the short description");
+                Check(text.Contains("反击的决意")&&!text.Contains("下回合")&&!text.Contains("给予"),"Desultory has the short description");
             if(original.Type==CardType.Power && original is not GeopeliaSustainAmplifier)
                 Check(!text.Contains("每回合最多"),"old power cards hide per-turn cap clauses");
         }

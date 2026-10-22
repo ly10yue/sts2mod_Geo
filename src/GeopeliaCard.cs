@@ -1,4 +1,5 @@
 using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -15,6 +16,7 @@ public abstract class GeopeliaCard : CardModel
     public CardDefinition Definition { get; }
     protected GeopeliaCard(CardDefinition definition) : base(definition.Cost, definition.Type, definition.Rarity, definition.Target)
         => Definition = definition;
+    protected override bool HasEnergyCostX => Definition.CostsX;
     public string ArtFile => Definition.Portrait;
     public override string PortraitPath => Content.CardArt(ArtFile);
     protected override string PortraitPngPath => PortraitPath;
@@ -32,7 +34,7 @@ public abstract class GeopeliaCard : CardModel
             for (int i = 0; i < Definition.Steps.Length; i++)
             {
                 var s = Definition.Steps[i];
-                yield return s.Kind is "Attack" or "AttackBonus" or "AllAttack" or "SignalAttack" or "DebtAttack"
+                yield return s.Kind is "Attack" or "AttackBonus" or "AllAttack" or "SignalAttack" or "DebtAttack" or "FatalRewardAttack"
                     ? new DamageVar("V" + i, s.Value, ValueProp.Move)
                     : s.Kind is "Block" or "BlockBonus" or "SignalBlock" ? new BlockVar("V" + i, s.Value, ValueProp.Move)
                     : new DynamicVar("V" + i, s.Value);
@@ -50,6 +52,13 @@ public abstract class GeopeliaCard : CardModel
             if (Definition.Themes.Contains("透支")) yield return HoverTipFactory.FromPower<GeopeliaEnergyDebtPower>();
             if (Definition.Steps.Any(s => s.Kind is "Strength" or "SignalStrength")) yield return HoverTipFactory.FromPower<MegaCrit.Sts2.Core.Models.Powers.StrengthPower>();
             if (Definition.Steps.Any(s => s.Kind == "Dexterity")) yield return HoverTipFactory.FromPower<MegaCrit.Sts2.Core.Models.Powers.DexterityPower>();
+            if (Definition.Steps.Any(s => s.Kind == "EndlessSignal")) yield return ModelDb.Enchantment<GeopeliaEndlessSignal>().HoverTip;
+            if (Definition.Steps.Any(s => s.Kind == "FatalRewardAttack")) yield return HoverTipFactory.Static(StaticHoverTip.Fatal);
+            if (Definition.Steps.Any(s => s.Kind == "ExhaustDrawReplay"))
+            {
+                yield return HoverTipFactory.FromKeyword(CardKeyword.Exhaust);
+                yield return HoverTipFactory.Static(StaticHoverTip.ReplayDynamic, new DynamicVar("Times", 1));
+            }
         }
     }
     public override int ModifyCardPlayCount(CardModel card, Creature? target, int playCount)
@@ -73,8 +82,8 @@ public abstract class GeopeliaCard : CardModel
         for (int i = 0; i < Definition.Steps.Length; i++)
         {
             var step = Definition.Steps[i];
-            DynamicVars["V" + i].UpgradeValueBy(step.Upgrade - step.Value);
-            DynamicVars["X" + i].UpgradeValueBy((step.Ux ?? step.X) - step.X);
+            if (step.Upgrade != step.Value) DynamicVars["V" + i].UpgradeValueBy(step.Upgrade - step.Value);
+            if ((step.Ux ?? step.X) != step.X) DynamicVars["X" + i].UpgradeValueBy((step.Ux ?? step.X) - step.X);
         }
     }
     protected override async Task OnPlay(PlayerChoiceContext context, CardPlay play)
@@ -97,8 +106,41 @@ public abstract class GeopeliaCard : CardModel
             if (n <= 0 && !signalBonus) continue;
             switch (step.Kind)
             {
+                case "HandSignalAttack":
+                    await ConsumeHandAttack(context, play, ResolveEnergyXValue()); break;
                 case "Attack": case "AttackBonus": await Attack(context, play, n); break;
                 case "AllAttack": await Attack(context, play, n, true); break;
+                case "ExhaustDrawReplay":
+                    var selected = (await CardSelectCmd.FromHand(context, Owner,
+                        new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, 1), c => c != this, this)).FirstOrDefault();
+                    bool replay = false;
+                    if (selected is not null)
+                    {
+                        bool eligible = selected.Type is CardType.Status or CardType.Curse;
+                        var result = await CardCmd.Exhaust(context, selected);
+                        replay = eligible && result is { success: true };
+                    }
+                    await CardPileCmd.Draw(context, n, Owner);
+                    if (replay && !CombatManager.Instance.IsOverOrEnding)
+                        await CardCmd.AutoPlay(context, this, null, skipCardPileVisuals: true);
+                    break;
+                case "SignalExecute":
+                    int signals = Runtime.Signal(Owner);
+                    if (play.Target is { IsAlive: true } victim && victim.CurrentHp < (long)signals * n
+                        && await Runtime.SpendSignal(context, Owner, signals, this) && victim.IsAlive)
+                        await CreatureCmd.Kill(victim);
+                    break;
+                case "FatalRewardAttack":
+                    if (play.Target is { IsAlive: true } fatalTarget)
+                    {
+                        var battle = CombatState!;
+                        bool fatalAllowed = fatalTarget.Powers.All(p => p.ShouldOwnerDeathTriggerFatal());
+                        var result = await DamageCmd.Attack(n).FromCard(this, play).Targeting(fatalTarget)
+                            .WithHitFx("vfx/vfx_attack_slash").Execute(context);
+                        if (fatalAllowed && result.Results.SelectMany(r => r).Any(r => r.WasTargetKilled))
+                            FatalCardRewards.Record(battle, Owner);
+                    }
+                    break;
                 case "DebtAttack":
                     int hits = Runtime.DebtCardsPlayed(Owner);
                     if (hits > 0 && play.Target is { IsAlive: true } debtTarget)
@@ -107,6 +149,15 @@ public abstract class GeopeliaCard : CardModel
                     break;
                 case "Block": case "BlockBonus": await Block(play, n); break;
                 case "Draw": await CardPileCmd.Draw(context, n, Owner); break;
+                case "RareNonPower":
+                    var rarePool = Pool.GetUnlockedCards(Owner.UnlockState, Owner.RunState.CardMultiplayerConstraint)
+                        .Where(c => c.Rarity == CardRarity.Rare && c.Type != CardType.Power);
+                    var rareCards = MegaCrit.Sts2.Core.Factories.CardFactory.GetDistinctForCombat(Owner, rarePool, n, Owner.RunState.Rng.CombatCardGeneration);
+                    await CardPileCmd.AddGeneratedCardsToCombat(rareCards, PileType.Hand, Owner);
+                    break;
+                case "EndlessSignal":
+                    await Runtime.ApplyPower(context, Owner, typeof(GeopeliaEndlessSignalPower), n, this);
+                    break;
                 case "Energy": await PlayerCmd.GainEnergy(n, Owner); break;
                 case "Signal": await Runtime.AddSignal(context, Owner, n, this); break;
                 case "Strength": await PowerCmd.Apply<MegaCrit.Sts2.Core.Models.Powers.StrengthPower>(context,Owner.Creature,n,Owner.Creature,this); break;
@@ -183,6 +234,22 @@ public abstract class GeopeliaCard : CardModel
             await draw.IncurredDebt(context);
     }
     private Task Block(CardPlay play, int value) => CreatureCmd.GainBlock(Owner.Creature, value, ValueProp.Move, play);
+    private async Task ConsumeHandAttack(PlayerChoiceContext context, CardPlay play, int energy)
+    {
+        // Snapshot just as Fiend Fire does: cards created by exhaust/signal hooks are not recursively consumed.
+        var hand = PileType.Hand.GetPile(Owner).Cards.Where(c => c != this).ToArray();
+        int signal = Runtime.Signal(Owner), exhausted = 0;
+        if (signal > 0) await Runtime.SpendSignal(context, Owner, signal, this);
+        foreach (var card in hand)
+        {
+            if (CombatManager.Instance.IsOverOrEnding) return;
+            if (card.Pile?.Type == PileType.Hand && await CardCmd.Exhaust(context, card) is { success: true }) exhausted++;
+        }
+        decimal damage = (decimal)energy * signal * exhausted;
+        if (damage > 0 && !CombatManager.Instance.IsOverOrEnding)
+            await DamageCmd.Attack(damage).FromCard(this, play).TargetingAllOpponents(CombatState!)
+                .WithHitFx("vfx/vfx_attack_slash").Execute(context);
+    }
     private async Task Attack(PlayerChoiceContext context, CardPlay play, int value, bool all = false)
     {
         var attack = DamageCmd.Attack(value).FromCard(this, play).WithHitFx("vfx/vfx_attack_slash");

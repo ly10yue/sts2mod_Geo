@@ -28,6 +28,58 @@ public sealed class GeopeliaSignalPower : GeopeliaPower
 
 public sealed class GeopeliaSignalCapacityPower : GeopeliaPower { }
 
+public sealed class GeopeliaEndlessSignalPower : GeopeliaPower
+{
+    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext context, ICombatState combatState)
+    {
+        if (player != Owner.Player || AmountOnTurnStart <= 0 || CombatManager.Instance.IsOverOrEnding) return;
+        int count = Math.Min(Amount, AmountOnTurnStart);
+        // Consume only charges present at turn start, before any newly generated card can add a charge.
+        await PowerCmd.ModifyAmount(context, this, -count, Owner, null);
+        var pool = ModelDb.CardPool<GeopeliaCardPool>().GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint)
+            .Where(c => c.Type == CardType.Skill);
+        for (int i = 0; i < count && !CombatManager.Instance.IsOverOrEnding; i++)
+        {
+            var card = MegaCrit.Sts2.Core.Factories.CardFactory.GetDistinctForCombat(player, pool, 1, player.RunState.Rng.CombatCardGeneration).FirstOrDefault();
+            if (card is null) continue;
+            CardCmd.Enchant<GeopeliaEndlessSignal>(card, 1);
+            await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Hand, player);
+        }
+    }
+}
+
+public sealed class GeopeliaFutureRestartPower : GeopeliaPower
+{
+    [SavedProperty] public int AppliedOnTurn { get; set; }
+    [SavedProperty] public bool ExtraTurnPending { get; set; }
+
+    public override Task AfterApplied(Creature? applier, CardModel? cardSource)
+    {
+        AppliedOnTurn = Owner.Player!.PlayerCombatState!.TurnNumber;
+        return Task.CompletedTask;
+    }
+    public override Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
+    {
+        var player = Owner.Player!;
+        if (side == CombatSide.Player && participants.Contains(Owner) && !ExtraTurnPending
+            && player.PlayerCombatState!.TurnNumber > AppliedOnTurn && !CombatManager.Instance.IsOverOrEnding)
+        {
+            // End through the native turn queue; the native extra-turn hook then skips the enemy side.
+            ExtraTurnPending = true;
+            PlayerCmd.EndTurn(player, canBackOut: false);
+        }
+        return Task.CompletedTask;
+    }
+    public override bool ShouldTakeExtraTurn(Player player) => player == Owner.Player && ExtraTurnPending;
+    public override async Task AfterTakingExtraTurn(Player player)
+    {
+        if (player != Owner.Player || !ExtraTurnPending) return;
+        ExtraTurnPending = false;
+        if (Amount <= 1) await PowerCmd.Remove(this);
+        else await PowerCmd.ModifyAmount(new ThrowingPlayerChoiceContext(), this, -1, Owner, null);
+    }
+}
+
 /// <summary>All per-turn counters are saved, owner-scoped and reset before that owner's turn.</summary>
 public abstract class GeopeliaMechanicPower : GeopeliaPower
 {

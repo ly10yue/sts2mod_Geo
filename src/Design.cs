@@ -27,6 +27,7 @@ public sealed class CardDefinition
     public CardType Type { get; set; }
     public int Cost { get; set; }
     public int UpgradeCost { get; set; }
+    public bool CostsX { get; set; }
     public int Replays { get; set; }
     public int SignalReplayCost { get; set; }
     public int PlayedReplayThreshold { get; set; }
@@ -39,8 +40,8 @@ public sealed class CardDefinition
     public string[] Themes { get; set; } = Array.Empty<string>();
     public string Description { get; set; } = "";
     public bool HasReplayAction => Steps.Any(s => s.Kind is "Replay" or "EchoSelf");
-    public TargetType Target => Steps.Any(s => s.Kind is "Attack" or "AttackBonus" or "SignalAttack" or "DebtAttack" or "Weak")
-        ? TargetType.AnyEnemy : Steps.Any(s => s.Kind is "AllAttack" or "AllWeak" or "AllVulnerable") ? TargetType.AllEnemies : TargetType.Self;
+    public TargetType Target => Steps.Any(s => s.Kind is "Attack" or "AttackBonus" or "SignalAttack" or "DebtAttack" or "SignalExecute" or "FatalRewardAttack" or "Weak")
+        ? TargetType.AnyEnemy : Steps.Any(s => s.Kind is "AllAttack" or "AllWeak" or "AllVulnerable" or "HandSignalAttack") ? TargetType.AllEnemies : TargetType.Self;
 }
 
 public static class Design

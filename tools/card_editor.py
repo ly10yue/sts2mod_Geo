@@ -21,10 +21,10 @@ import card_design
 ROOT = Path(__file__).resolve().parents[1]
 RARITIES = dict(Basic='基础', Common='普通', Uncommon='罕见', Rare='稀有', Ancient='先古')
 KINDS = dict(Attack='单体伤害', AllAttack='全体伤害', AttackBonus='伤害与条件加成', Block='格挡', BlockBonus='格挡与条件加成',
-    Draw='抽牌', Energy='获得能量', Signal='获得信号', EnergyDebt='能量透支', DrawDebt='抽牌透支', SignalDebt='信号透支',
+    ExhaustDrawReplay='消耗选牌并抽牌，消耗状态或诅咒时重放', SignalExecute='按信号倍数斩杀（数值为倍数）', FatalRewardAttack='伤害与斩杀奖励稀有度提升', Draw='抽牌', Energy='获得能量', Signal='获得信号', EnergyDebt='能量透支', DrawDebt='抽牌透支', SignalDebt='信号透支',
     DamageDebt='伤害透支（%）', BlockDebt='格挡透支（%）', Weak='虚弱', AllWeak='全体虚弱', AllVulnerable='全体易伤',
     SignalAttack='消耗信号造成伤害', SignalBlock='消耗信号获得格挡', RepayEnergy='减少能量透支（99 为全部）', RepayDraw='减少抽牌透支（99 为全部）',
-    Power='能力层数', Strength='获得力量', Dexterity='获得敏捷', SignalStrength='全部信号转为力量', SignalRare='消耗信号生成稀有牌（数值为每张耗量）', DebtAttack='按本场透支出牌次数攻击', Replay='重放此前卡牌', EchoSelf='试演次数', Ancient='生成先古牌')
+    RareNonPower='生成随机稀有非能力牌', EndlessSignal='不息的信号（下回合生成免费技能并传递）', Power='能力层数', Strength='获得力量', Dexterity='获得敏捷', SignalStrength='全部信号转为力量', SignalRare='消耗信号生成稀有牌（数值为每张耗量）', DebtAttack='按本场透支出牌次数攻击', HandSignalAttack='全部能量 × 信号 × 消耗手牌数（1启用，0移除）', Replay='重放此前卡牌', EchoSelf='试演次数', Ancient='生成先古牌')
 KEYWORDS = dict(Exhaust=('消耗','打出后在本场战斗中移除。'), Ethereal=('虚无','回合结束时仍在手牌中则消耗。'),
     Innate=('固有','战斗开始时出现在起始手牌中。'), Retain=('保留','回合结束时不会自动弃掉。'),
     Unplayable=('不能被打出','无法手动打出。'), Sly=('奇巧','在回合结束前被弃掉时，免费打出。'),
@@ -107,7 +107,7 @@ def read_cards(source):
             replays=arg(call, 'replays', default=0), signalReplayCost=arg(call, 'signalReplayCost', default=0),
             playedReplayThreshold=arg(call, 'playedReplayThreshold', default=0), keywords=arg(call, 'keywords', default=[]),
             themes=arg(call, 'theme', 6).split('/'))
-        for optional in ('upgradeKeywords','descriptionOverride'):
+        for optional in ('upgradeKeywords','descriptionOverride','costsX'):
             value=arg(call,optional,default=None)
             if value is not None:card[optional]=value
         for step in call.args[5].elts:
@@ -128,6 +128,8 @@ def read_cards(source):
 
 def numeric_fields(card):
     fields = {k: (0, 99) for k in ('cost', 'upgradeCost', 'playedReplayThreshold')}
+    if card.get('costsX'):
+        fields.pop('cost'); fields.pop('upgradeCost')
     fields.update(replays=(0, 99), signalReplayCost=(0, 99))
     for i, step in enumerate(card['steps']):
         for key in ('value', 'upgrade'):
@@ -311,7 +313,7 @@ class Editor:
             return self.job_state()
 
 
-def make_server(editor, port=18770, token=None):
+def make_server(editor, port=18772, token=None):
     token = token or secrets.token_urlsafe(32)
     class Handler(BaseHTTPRequestHandler):
         def log_message(self, *args):
@@ -391,7 +393,7 @@ def make_server(editor, port=18770, token=None):
 def main():
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument('--port', type=int, default=18770)
+    parser.add_argument('--port', type=int, default=18772)
     parser.add_argument('--no-browser', action='store_true')
     args = parser.parse_args()
     server = make_server(Editor(), args.port, os.environ.get('JIU_EDITOR_TOKEN'))

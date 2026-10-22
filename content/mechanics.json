@@ -11,6 +11,16 @@
       "icon": "geopelia_signal_capacity_power.png"
     },
     {
+      "className": "GeopeliaEndlessSignalPower",
+      "entry": "PHIGROS_JIU_GEOPELIA_ENDLESS_SIGNAL_POWER",
+      "icon": "geopelia_endless_signal_power.png"
+    },
+    {
+      "className": "GeopeliaFutureRestartPower",
+      "entry": "PHIGROS_JIU_GEOPELIA_FUTURE_RESTART_POWER",
+      "icon": "geopelia_future_restart_power.png"
+    },
+    {
       "className": "GeopeliaRhythmPower",
       "entry": "PHIGROS_JIU_GEOPELIA_RHYTHM_POWER",
       "icon": "geopelia_rhythm_power.png"

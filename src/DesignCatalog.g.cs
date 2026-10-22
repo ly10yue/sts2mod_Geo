@@ -64,8 +64,8 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "Block",
-        "value": 5,
-        "upgrade": 8
+        "value": 6,
+        "upgrade": 9
       },
       {
         "kind": "Signal",
@@ -497,8 +497,8 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "Signal",
-        "value": 3,
-        "upgrade": 4
+        "value": 2,
+        "upgrade": 3
       },
       {
         "kind": "Draw",
@@ -637,12 +637,12 @@ internal static class DesignJson { public const string Value = """
       {
         "kind": "Attack",
         "value": 18,
-        "upgrade": 24
+        "upgrade": 20
       },
       {
         "kind": "Draw",
         "value": 1,
-        "upgrade": 1
+        "upgrade": 2
       },
       {
         "kind": "EnergyDebt",
@@ -775,23 +775,13 @@ internal static class DesignJson { public const string Value = """
     "name": "The Whole Rest",
     "rarity": "Common",
     "cost": 1,
-    "upgradeCost": 1,
+    "upgradeCost": 0,
     "type": "Skill",
     "steps": [
       {
-        "kind": "Block",
-        "value": 8,
-        "upgrade": 11
-      },
-      {
-        "kind": "Energy",
+        "kind": "RareNonPower",
         "value": 1,
         "upgrade": 1
-      },
-      {
-        "kind": "Draw",
-        "value": 2,
-        "upgrade": 2
       }
     ],
     "themes": [
@@ -804,7 +794,7 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 13.6,
     "artSourceSha256": "26576ca6a36251bc3a0991296e305063a63f53a6c03a141528cc57af6665f17e",
     "keywords": [],
-    "description": "获得{V0:diff()}点格挡。\n获得{V1:diff()}点能量。\n抽{V2:diff()}张牌。"
+    "description": "将{V0:diff()}张随机的稀有非能力牌加入手牌。"
   },
   {
     "className": "GeopeliaRedline",
@@ -1079,11 +1069,6 @@ internal static class DesignJson { public const string Value = """
         "kind": "Block",
         "value": 4,
         "upgrade": 6
-      },
-      {
-        "kind": "Draw",
-        "value": 1,
-        "upgrade": 1
       }
     ],
     "themes": [
@@ -1097,7 +1082,7 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 15.1,
     "artSourceSha256": "c77bb27caeb3ac9eb9ccfa4b5d376c05f0d59f9eb0e4c47eebedb0ba73d1b89d",
     "keywords": [],
-    "description": "获得{V0:diff()}点[gold]信号[/gold]。\n获得{V1:diff()}点格挡。\n抽{V2:diff()}张牌。"
+    "description": "获得{V0:diff()}点[gold]信号[/gold]。\n获得{V1:diff()}点格挡。"
   },
   {
     "className": "GeopeliaRetribution",
@@ -1595,29 +1580,19 @@ internal static class DesignJson { public const string Value = """
     "className": "GeopeliaGraceNote",
     "name": "Radiance",
     "rarity": "Uncommon",
-    "cost": 0,
-    "upgradeCost": 0,
+    "cost": 1,
+    "upgradeCost": 1,
     "type": "Skill",
     "steps": [
       {
-        "kind": "Signal",
-        "value": 3,
-        "upgrade": 4
-      },
-      {
-        "kind": "Draw",
-        "value": 3,
-        "upgrade": 4
-      },
-      {
-        "kind": "SignalDebt",
-        "value": 2,
+        "kind": "ExhaustDrawReplay",
+        "value": 1,
         "upgrade": 2
       }
     ],
     "themes": [
-      "透支",
-      "信号"
+      "多牌",
+      "消耗"
     ],
     "replays": 0,
     "portrait": "geopeliagracenote.tres",
@@ -1626,7 +1601,7 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 15.6,
     "artSourceSha256": "a3c7a5716dbe34de468a69e182e8995f1fd30073d285a6b5632ec246423a78bf",
     "keywords": [],
-    "description": "获得{V0:diff()}点[gold]信号[/gold]。\n抽{V1:diff()}张牌。\n[red]透支[/red]：下回合失去至多{V2:diff()}点信号。"
+    "description": "消耗一张手牌，抽{V0:diff()}张牌。若消耗的是状态牌或诅咒牌，免费重放此牌。"
   },
   {
     "className": "GeopeliaColdStart",
@@ -1688,11 +1663,6 @@ internal static class DesignJson { public const string Value = """
         "value": 1,
         "upgrade": 1,
         "pay": 2
-      },
-      {
-        "kind": "Draw",
-        "value": 1,
-        "upgrade": 1
       }
     ],
     "themes": [
@@ -1706,7 +1676,7 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 15.5,
     "artSourceSha256": "e6056376b0768100da22442973ebe2a23b0cc19b4b13fe5be42087624f354736",
     "keywords": [],
-    "description": "造成{V0:diff()}点伤害。\n消耗2点信号：获得{V1:diff()}点能量。\n抽{V2:diff()}张牌。"
+    "description": "造成{V0:diff()}点伤害。\n消耗2点信号：获得{V1:diff()}点能量。"
   },
   {
     "className": "GeopeliaChorus",
@@ -1782,13 +1752,13 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "Block",
-        "value": 4,
-        "upgrade": 5
+        "value": 3,
+        "upgrade": 4
       },
       {
         "kind": "EchoSelf",
-        "value": 2,
-        "upgrade": 3
+        "value": 6,
+        "upgrade": 6
       }
     ],
     "themes": [
@@ -1855,13 +1825,8 @@ internal static class DesignJson { public const string Value = """
       },
       {
         "kind": "Block",
-        "value": 10,
-        "upgrade": 13
-      },
-      {
-        "kind": "Energy",
-        "value": 1,
-        "upgrade": 2
+        "value": 12,
+        "upgrade": 15
       },
       {
         "kind": "Draw",
@@ -1880,7 +1845,7 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 15.7,
     "artSourceSha256": "6e600127a00182e8c3ea63b33ce22bf4867133e8dbe5203042b140e45254fa80",
     "keywords": [],
-    "description": "获得{V0:diff()}点[gold]信号[/gold]。\n获得{V1:diff()}点格挡。\n获得{V2:diff()}点能量。\n抽{V3:diff()}张牌。"
+    "description": "获得{V0:diff()}点[gold]信号[/gold]。\n获得{V1:diff()}点格挡。\n抽{V2:diff()}张牌。"
   },
   {
     "className": "GeopeliaPhaseShift",
@@ -1919,29 +1884,29 @@ internal static class DesignJson { public const string Value = """
     "className": "GeopeliaAbsoluteDisorder",
     "name": "AbsoluTe disoRdeR",
     "rarity": "Rare",
-    "cost": 3,
+    "cost": 2,
     "upgradeCost": 2,
     "type": "Attack",
     "steps": [
       {
-        "kind": "AllAttack",
-        "value": 12,
-        "upgrade": 15
+        "kind": "FatalRewardAttack",
+        "value": 10,
+        "upgrade": 14
       }
     ],
     "themes": [
-      "多牌"
+      "斩杀"
     ],
-    "replays": 2,
+    "replays": 0,
     "keywords": [
-      "Retain"
+      "Exhaust"
     ],
     "portrait": "geopeliaabsolutedisorder.tres",
     "entry": "PHIGROS_JIU_GEOPELIA_ABSOLUTE_DISORDER",
     "songId": "AbsoluTedisoRdeR.AcuteDisarray",
     "chartConstant": 17.2,
     "artSourceSha256": "a1a3b3032b6e73c633db1310e9e06968f719100cdfc236a72ff64f1c28ffbfa9",
-    "description": "对所有敌人造成{V0:diff()}点伤害。"
+    "description": "造成{V0:diff()}点伤害。[gold]斩杀[/gold]：本场战斗结算中的卡牌奖励稀有度提高一级（稀有牌不变）。"
   },
   {
     "className": "GeopeliaFeast",
@@ -2041,32 +2006,28 @@ internal static class DesignJson { public const string Value = """
     "name": "Der Schneid",
     "rarity": "Rare",
     "cost": 1,
-    "upgradeCost": 1,
-    "type": "Power",
+    "upgradeCost": 0,
+    "type": "Skill",
     "steps": [
       {
-        "kind": "Power",
+        "kind": "EndlessSignal",
         "value": 1,
-        "upgrade": 2,
-        "power": "RhythmDraw"
-      },
-      {
-        "kind": "Draw",
-        "value": 2,
-        "upgrade": 3
+        "upgrade": 1
       }
     ],
     "themes": [
       "多牌"
     ],
     "replays": 0,
+    "keywords": [
+      "Exhaust"
+    ],
     "portrait": "geopeliahappydisease.tres",
     "entry": "PHIGROS_JIU_GEOPELIA_HAPPY_DISEASE",
     "songId": "DerSchneid.Ωμεγα",
     "chartConstant": 17.5,
     "artSourceSha256": "8fda5310aa0c9f2d99fb6895c45eeb53005982db53d8d7b5a0c32293942a4f6d",
-    "keywords": [],
-    "description": "每打出3张牌，抽{V0:diff()}张牌。\n抽{V1:diff()}张牌。"
+    "description": "[gold]不息的信号[/gold]：下个回合开始时，将{V0:diff()}张随机技能牌加入手牌，其可免费打出，并获得[gold]消耗[/gold]与[gold]不息的信号[/gold]。"
   },
   {
     "className": "GeopeliaMomentarySunrise",
@@ -2111,28 +2072,19 @@ internal static class DesignJson { public const string Value = """
     "className": "GeopeliaOverdraftSuite",
     "name": "QZKago Requiem",
     "rarity": "Rare",
-    "cost": 2,
-    "upgradeCost": 2,
+    "cost": 1,
+    "upgradeCost": 1,
     "type": "Attack",
     "steps": [
       {
-        "kind": "Attack",
-        "value": 24,
-        "upgrade": 30
-      },
-      {
-        "kind": "Block",
-        "value": 15,
-        "upgrade": 20
-      },
-      {
-        "kind": "EnergyDebt",
-        "value": 1,
-        "upgrade": 1
+        "kind": "SignalExecute",
+        "value": 3,
+        "upgrade": 4
       }
     ],
     "themes": [
-      "透支"
+      "信号",
+      "斩杀"
     ],
     "replays": 0,
     "portrait": "geopeliaoverdraftsuite.tres",
@@ -2141,7 +2093,7 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 17.4,
     "artSourceSha256": "375198d8a3a3d61320ffab0dec34871206e25e01ef513652791c6b39561d2648",
     "keywords": [],
-    "description": "造成{V0:diff()}点伤害。\n获得{V1:diff()}点格挡。\n[red]透支[/red]：下回合失去{V2:diff()}点能量。"
+    "description": "若目标生命低于[gold]信号[/gold]×{V0:diff()}，消耗所有信号，将其斩杀。"
   },
   {
     "className": "GeopeliaTimeMortgage",
@@ -2184,22 +2136,17 @@ internal static class DesignJson { public const string Value = """
     "className": "GeopeliaDebtClearing",
     "name": "+ERABY+E CONNEC+10N",
     "rarity": "Rare",
-    "cost": 0,
-    "upgradeCost": 0,
+    "cost": 1,
+    "upgradeCost": 1,
     "type": "Skill",
     "steps": [
       {
-        "kind": "Block",
-        "value": 8,
-        "upgrade": 11
-      },
-      {
-        "kind": "Draw",
-        "value": 3,
-        "upgrade": 4
-      },
-      {
         "kind": "RepayEnergy",
+        "value": 99,
+        "upgrade": 99
+      },
+      {
+        "kind": "RepayDraw",
         "value": 99,
         "upgrade": 99
       }
@@ -2209,13 +2156,18 @@ internal static class DesignJson { public const string Value = """
       "多牌"
     ],
     "replays": 0,
+    "keywords": [
+      "Exhaust"
+    ],
+    "upgradeKeywords": [
+      "Retain"
+    ],
     "portrait": "geopeliadebtclearing.tres",
     "entry": "PHIGROS_JIU_GEOPELIA_DEBT_CLEARING",
     "songId": "ERABYECONNEC10N.かめりあ",
     "chartConstant": 17.3,
     "artSourceSha256": "59be6fb52667608d8cffaf97876a2e3fbf9ef71ec1b2746cbb81d5037be5ba4e",
-    "keywords": [],
-    "description": "获得{V0:diff()}点格挡。\n抽{V1:diff()}张牌。\n清除下回合全部能量透支。"
+    "description": "清除下回合全部能量透支。\n清除下回合全部抽牌透支。"
   },
   {
     "className": "GeopeliaRainbowSignal",
@@ -2287,8 +2239,8 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "Replay",
-        "value": 4,
-        "upgrade": 5
+        "value": 3,
+        "upgrade": 4
       }
     ],
     "themes": [
@@ -2314,10 +2266,10 @@ internal static class DesignJson { public const string Value = """
       {
         "kind": "SignalAttack",
         "value": 6,
-        "upgrade": 8,
+        "upgrade": 6,
         "x": 3,
         "ux": 4,
-        "cap": 6
+        "cap": 10
       }
     ],
     "themes": [
@@ -2331,44 +2283,36 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 17.1,
     "artSourceSha256": "abd3d10633f8163fcda527f64e46623079926c155450bbfc1dfd96518cd80e52",
     "keywords": [],
-    "description": "消耗至多6点信号。造成{V0:diff()}点伤害。每消耗1点信号，额外造成{X0:diff()}点伤害。"
+    "description": "消耗至多10点信号。造成{V0:diff()}点伤害。每消耗1点信号，额外造成{X0:diff()}点伤害。"
   },
   {
     "className": "GeopeliaSignalSingularity",
     "name": "幻影鬼魅 (PLEASE)",
     "rarity": "Rare",
-    "cost": 0,
-    "upgradeCost": 0,
+    "cost": 1,
+    "upgradeCost": 1,
     "type": "Skill",
     "steps": [
       {
-        "kind": "Signal",
-        "value": 9,
-        "upgrade": 12
-      },
-      {
-        "kind": "Draw",
+        "kind": "Power",
         "value": 1,
-        "upgrade": 1
-      },
-      {
-        "kind": "BlockDebt",
-        "value": 25,
-        "upgrade": 25
+        "upgrade": 1,
+        "power": "FutureRestart"
       }
     ],
     "themes": [
-      "信号",
-      "透支"
+      "回合"
     ],
     "replays": 0,
+    "keywords": [
+      "Exhaust"
+    ],
     "portrait": "geopeliasignalsingularity.tres",
     "entry": "PHIGROS_JIU_GEOPELIA_SIGNAL_SINGULARITY",
     "songId": "幻影鬼魅PLEASE.R300K",
     "chartConstant": 17.0,
     "artSourceSha256": "7c371712d49e4daadddd901579ca25c88a59306dafbeaa490e7943b3f5071d28",
-    "keywords": [],
-    "description": "获得{V0:diff()}点[gold]信号[/gold]。\n抽{V1:diff()}张牌。\n[red]透支[/red]：下回合牌获得的格挡减少{V2:diff()}%。同类透支不叠加。"
+    "description": "下个回合开始时，强制结束你的回合，并跳过紧接着的敌方回合。"
   },
   {
     "className": "GeopeliaNoiseGate",
@@ -2535,34 +2479,39 @@ internal static class DesignJson { public const string Value = """
     "className": "GeopeliaContinuousTake",
     "name": "Spasmodic",
     "rarity": "Rare",
-    "cost": 1,
-    "upgradeCost": 1,
+    "cost": 0,
+    "upgradeCost": 0,
     "type": "Attack",
     "steps": [
       {
-        "kind": "Attack",
-        "value": 12,
-        "upgrade": 16
+        "kind": "HandSignalAttack",
+        "value": 1,
+        "upgrade": 1
       },
       {
-        "kind": "Draw",
-        "value": 1,
-        "upgrade": 1,
-        "condition": "replay"
+        "kind": "DamageDebt",
+        "value": 100,
+        "upgrade": 50
+      },
+      {
+        "kind": "BlockDebt",
+        "value": 100,
+        "upgrade": 50
       }
     ],
     "themes": [
-      "多牌"
+      "信号",
+      "消耗"
     ],
     "replays": 0,
-    "playedReplayThreshold": 3,
+    "costsX": true,
     "portrait": "geopeliacontinuoustake.tres",
     "entry": "PHIGROS_JIU_GEOPELIA_CONTINUOUS_TAKE",
     "songId": "Spasmodic.姜米條颶風元力上人",
     "chartConstant": 16.7,
     "artSourceSha256": "f1e967b7a8ccc51be281769da7b55f288ce5c62313291648bf1f23d53a0446b6",
     "keywords": [],
-    "description": "若本回合此前已打出至少3张牌，[gold]重放1[/gold]。\n造成{V0:diff()}点伤害。\n若此次为重放，抽{V1:diff()}张牌。"
+    "description": "消耗所有能量、[gold]信号[/gold]和所有手牌。对所有敌人造成三者消耗量乘积的伤害。\n[red]透支[/red]：下回合牌的伤害减少{V1:diff()}%。同类透支不叠加。\n[red]透支[/red]：下回合牌获得的格挡减少{V2:diff()}%。同类透支不叠加。"
   },
   {
     "className": "GeopeliaMastering",
@@ -2702,8 +2651,8 @@ internal static class DesignJson { public const string Value = """
     "className": "GeopeliaWorldEcho",
     "name": "Cuvism³",
     "rarity": "Rare",
-    "cost": 2,
-    "upgradeCost": 2,
+    "cost": 3,
+    "upgradeCost": 3,
     "type": "Power",
     "steps": [
       {
@@ -2807,13 +2756,13 @@ internal static class DesignJson { public const string Value = """
       "Sly"
     ],
     "signalReplayCost": 12,
-    "descriptionOverride": "不息的信号",
+    "descriptionOverride": "反击的决意",
     "portrait": "geopeliaoldrecording.tres",
     "entry": "PHIGROS_JIU_GEOPELIA_OLD_RECORDING",
     "songId": "DesultorySignals.technoplanet",
     "chartConstant": 18.0,
     "artSourceSha256": "1122e5c2f7223e60a887cb3f498ad9e129764b95a247a032c49bbb4a997792a0",
-    "description": "不息的信号"
+    "description": "反击的决意"
   },
   {
     "className": "GeopeliaTowerResonance",
