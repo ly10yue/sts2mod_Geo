@@ -7,3 +7,8 @@
 歌曲、定数与曲绘元数据镜像来自 https://github.com/7aGiven/Phigros_Resource 的 info / illustration 分支。原PNG按下载字节保存，没有抹除签名或曲名；游戏通过AtlasTexture取景。来源记录不表示取得公开再分发授权。
 
 角色战斗立绘与呼吸动画来自本机已安装的jiu_2包，图像字节保持一致；仅主版场景的尺寸、位置与锚点按85%适配。原始场景及图像SHA-256见 content/visuals-source.json。
+
+
+0.8.0新增曲目「ハテ / HATE」：rN || Frums；曲绘署名宙風みけ || rN。原图与核验记录见 content/artwork-map.json 和 research/hate-source-20261029.json。
+
+0.8.1图标为原曲绘局部裁切，38个图标的逐项来源、画师和源图链接见content/icon-artwork-map.json；原图保留不变。

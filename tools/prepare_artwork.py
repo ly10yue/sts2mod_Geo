@@ -61,7 +61,7 @@ filter_clip = true
         assert hashlib.sha256(model).hexdigest()==visual['peerModelSha256'], 'Run git lfs pull to restore character art'
     labels={'Basic':'基础','Common':'普通','Uncommon':'罕见','Rare':'稀有','Ancient':'先古'}
     lines=['# 0.5.0 曲名、曲绘与定数对应','',
-        '85张牌使用85首不同歌曲及85张不同原曲绘。原图字节保留，游戏通过 AtlasTexture 居中4:3取景，不生成重绘图片。定数使用该曲EZ/HD/IN/AT的最高值；高稀有度优先高定数。','',
+        '86张牌使用86首不同歌曲及86张不同原曲绘。HATE按用户要求作为稀有牌，真实最高定数17.9保留，不受旧分档限制。原图字节保留，游戏通过 AtlasTexture 居中4:3取景，不生成重绘图片。定数使用该曲EZ/HD/IN/AT的最高值；高稀有度优先高定数。','',
         '[曲目信息](https://raw.githubusercontent.com/7aGiven/Phigros_Resource/info/info.tsv) / [定数来源](https://raw.githubusercontent.com/7aGiven/Phigros_Resource/info/difficulty.tsv) / [曲绘资源](https://github.com/7aGiven/Phigros_Resource/tree/illustration)','',
         '| 稀有度 | 牌名/曲名 | 最高定数 | 画师 | 原曲绘 |','| --- | --- | ---: | --- | --- |']
     tiles=[]
@@ -69,8 +69,8 @@ filter_clip = true
         lines.append(f"| {labels[c['rarity']]} | {c['name']} | {c['constant']} | {c['artist']} | [原图]({c['sourceUrl']}) |")
         tiles.append(f'<article><img loading="lazy" src="{html.escape(c["sourceFile"],quote=True)}"><b>{html.escape(c["name"])}</b><small>{labels[c["rarity"]]} · {c["constant"]} · {html.escape(c["artist"])}</small></article>')
     (ROOT/'ARTWORK.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
-    gallery='<!doctype html><meta charset="utf-8"><title>鸠 · 曲绘核对</title><style>body{background:#121720;color:#eee;font:16px system-ui;margin:24px}main{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}article{background:#202939;padding:12px;border-radius:12px}img{width:100%;aspect-ratio:4/3;object-fit:cover}b,small{display:block;margin-top:8px}small{color:#b8c5d9}</style><h1>85张卡牌 · 曲名/曲绘/最高谱面定数</h1><main>'+''.join(tiles)+'</main>'
+    gallery='<!doctype html><meta charset="utf-8"><title>鸠 · 曲绘核对</title><style>body{background:#121720;color:#eee;font:16px system-ui;margin:24px}main{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}article{background:#202939;padding:12px;border-radius:12px}img{width:100%;aspect-ratio:4/3;object-fit:cover}b,small{display:block;margin-top:8px}small{color:#b8c5d9}</style><h1>86张卡牌 · 曲名/曲绘/最高谱面定数</h1><main>'+''.join(tiles)+'</main>'
     (ROOT/'ART_GALLERY.html').write_text(gallery,encoding='utf-8')
-    print('ARTWORK_PREPARED=85 UNIQUE=85 VISUAL_SCALE=0.85')
+    print(f'ARTWORK_PREPARED={len(manifest["cards"])} UNIQUE={len(manifest["cards"])} VISUAL_SCALE=0.85')
 
 if __name__=='__main__':main()

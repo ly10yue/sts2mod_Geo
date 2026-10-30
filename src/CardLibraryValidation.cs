@@ -2,6 +2,8 @@
 using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Localization;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Nodes;
 using MegaCrit.Sts2.Core.Nodes.Cards.Holders;
 using MegaCrit.Sts2.Core.Nodes.CommonUi;
@@ -16,6 +18,19 @@ internal static partial class GameValidation
     private static async Task CardLibraryCases()
     {
         _current = "card-library-native-ui";
+        LocManager.Instance.SetLanguage("zhs");
+        foreach (var original in ModelDb.CardPool<GeopeliaCardPool>().AllCards.Cast<GeopeliaCard>())
+        foreach (bool upgraded in new[] { false, true })
+        {
+            var card=(GeopeliaCard)original.ToMutable();
+            if(upgraded){card.UpgradeInternal();card.FinalizeUpgradeInternal();}
+            Check(card.Title==card.Definition.DisplayName+(upgraded?"+":""),"Chinese title for base and upgraded card");
+            var restored=(GeopeliaCard)CardModel.FromSerializable(card.ToSerializable());
+            Check(restored.Id==card.Id && restored.Title==card.Title,"renaming preserves native save ID and upgraded title");
+            LocManager.Instance.SetLanguage("eng");
+            Check(card.Title==card.Definition.Name+(upgraded?"+":""),"English locale retains the original song title");
+            LocManager.Instance.SetLanguage("zhs");
+        }
         var discovered = SaveManager.Instance.Progress.DiscoveredCards.ToHashSet();
         var screen = ResourceLoader.Load<PackedScene>("res://scenes/screens/card_library/card_library.tscn").Instantiate<NCardLibrary>();
         NGame.Instance!.AddChild(screen);
@@ -31,11 +46,19 @@ internal static partial class GameValidation
         filter.EmitSignal(NCardPoolFilter.SignalName.Toggled, filter);
         await Frames();
         var grid = (NCardLibraryGrid)AccessTools.Field(typeof(NCardLibrary), "_grid").GetValue(screen)!;
-        Check(grid.VisibleCards.Count() == 85 && grid.VisibleCards.All(c => c is GeopeliaCard), "Jiu filter displays all 85 cards without peer cards");
+        Check(grid.VisibleCards.Count() == Design.Cards.Count && grid.VisibleCards.All(c => c is GeopeliaCard), "Jiu filter displays all cards without peer cards");
         var seen = (HashSet<ModelId>)AccessTools.Field(typeof(NCardLibraryGrid), "_seenCards").GetValue(grid)!;
         var unlocked = (HashSet<CardModel>)AccessTools.Field(typeof(NCardLibraryGrid), "_unlockedCards").GetValue(grid)!;
         Check(grid.VisibleCards.All(c => seen.Contains(c.Id) && unlocked.Contains(c)), "all Jiu cards show their full artwork");
         var search = (NSearchBar)AccessTools.Field(typeof(NCardLibrary), "_searchBar").GetValue(screen)!;
+        search.TextArea.Text = Design.Get(nameof(GeopeliaStrike)).DisplayName;
+        AccessTools.Method(typeof(NCardLibrary), "UpdateFilter").Invoke(screen, new object[] { false });
+        await Frames();
+        Check(grid.VisibleCards.Any(c=>c is GeopeliaStrike),"card can be searched by its user-edited display name, including shared names");
+        search.TextArea.Text=Design.Get(nameof(GeopeliaHate)).DisplayName;
+        AccessTools.Method(typeof(NCardLibrary), "UpdateFilter").Invoke(screen, new object[] { false });
+        await Frames();
+        Check(grid.VisibleCards.Count()==1 && grid.VisibleCards.Single() is GeopeliaHate,"new HATE card appears under the main character filter and search");
         search.TextArea.Text = "dB doll";
         AccessTools.Method(typeof(NCardLibrary), "UpdateFilter").Invoke(screen, new object[] { false });
         await Frames();
@@ -58,7 +81,7 @@ internal static partial class GameValidation
         await Frames();
         Check(grid.VisibleCards.Count() == 25, "rarity filter includes all 25 common cards");
         Check(discovered.SetEquals(SaveManager.Instance.Progress.DiscoveredCards), "browsing never changes persistent discovery progress");
-        Benchmarks.Add(new { test = "card-library", totalCards = 85, commonCards = 25, search = "PASS", inspect = "PASS", upgrade = "PASS", discoveryUnchanged = true });
+        Benchmarks.Add(new { test = "card-library", totalCards = Design.Cards.Count, commonCards = 25, chineseNames = Design.Cards.Count, bothLocalesAndSaveRoundtrip = "PASS", search = "PASS", inspect = "PASS", upgrade = "PASS", discoveryUnchanged = true });
         screen.OnSubmenuClosed();
         // Keep the test node alive until process shutdown; native grid animations can still be pending.
         screen.Visible=false;

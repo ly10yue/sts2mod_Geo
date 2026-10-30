@@ -77,7 +77,7 @@ foreach (var assembly in new[] { main, peer })
     }
     if (assembly == main)
     {
-        var expected = new Dictionary<string,int> { ["Basic"] = 4, ["Common"] = 25, ["Uncommon"] = 29, ["Rare"] = 25, ["Ancient"] = 2 };
+        var expected = new Dictionary<string,int> { ["Basic"] = 4, ["Common"] = 25, ["Uncommon"] = 29, ["Rare"] = 26, ["Ancient"] = 2 };
         foreach (var (rarity, count) in expected) Check(cards.Count(c => c.Rarity.ToString() == rarity) == count, "sample rarity count " + rarity);
         foreach (var copy in mutable)
         {

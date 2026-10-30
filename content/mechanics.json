@@ -31,6 +31,11 @@
       "icon": "geopelia_aerial_power.png"
     },
     {
+      "className": "GeopeliaHatePower",
+      "entry": "PHIGROS_JIU_GEOPELIA_HATE_POWER",
+      "icon": "geopelia_hate_power.png"
+    },
+    {
       "className": "GeopeliaBeaconPower",
       "entry": "PHIGROS_JIU_GEOPELIA_BEACON_POWER",
       "icon": "geopelia_beacon_power.png"
@@ -145,7 +150,7 @@
     "Basic": 4,
     "Common": 25,
     "Uncommon": 29,
-    "Rare": 25,
+    "Rare": 26,
     "Ancient": 2
   },
   "signalCap": 24

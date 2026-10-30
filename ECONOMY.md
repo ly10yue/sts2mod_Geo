@@ -6,7 +6,7 @@
 
 净值不折算伤害、格挡、信号、下回合伤害/格挡减半等其他效果与代价。0.5.0按用户要求移除27张牌的消耗，允许重复运转；不因无限构筑额外添加消耗。条件未满足的收益不纳入保证收益；历史回放、能力和他牌触发的收益需看实际场景。
 
-相对0.3.0：当回合直接加费牌 3 → 8；明确带抽牌步骤的牌 19 → 31。另有 祈 -我ら神祖と共に歩む者なり- 在每回合首次主动消耗信号时立即加费。
+相对0.3.0：当回合直接加费牌 3 → 8；明确带抽牌步骤的牌 19 → 25。另有 祈 -我ら神祖と共に歩む者なり- 在每回合首次主动消耗信号时立即加费。
 
 常驻运转能力在出牌、主动消耗信号或产生透支时触发，偿债时不发奖励。Der Schneid按明确设计在下个己方回合开始生成免费技能并传递不息的信号；此延迟生成不计入当回合抽牌净值。
 
@@ -59,8 +59,8 @@
 | DataErr0r | 是 | 0 | 0 | 3 | 0 | 1 | 0 | 1 |
 | Luminescent | 否 | 1 | 0 | 2 | 0 | 0 | -1 | 1 |
 | Luminescent | 是 | 1 | 0 | 2 | 0 | 0 | -1 | 1 |
-| ENERGY SYNERGY MATRIX | 否 | 1 | 0 | 2 | 0 | 0 | -1 | 1 |
-| ENERGY SYNERGY MATRIX | 是 | 1 | 0 | 3 | 0 | 0 | -1 | 2 |
+| ENERGY SYNERGY MATRIX | 否 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
+| ENERGY SYNERGY MATRIX | 是 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
 | Find_Me | 否 | 0 | 0 | 1 | 0 | 0 | 0 | 0 |
 | Find_Me | 是 | 0 | 0 | 1 | 0 | 0 | 0 | 0 |
 | GOODTEK | 否 | 1 | 0 | 1 | 0 | 0 | -1 | 0 |
@@ -71,18 +71,18 @@
 | Speed Up! | 是 | 0 | 1 | 0 | 1 | 0 | 0 | -1 |
 | FULi AUTO SHOOTER | 否 | 1 | 0 | 1 | 1 | 0 | -2 | 0 |
 | FULi AUTO SHOOTER | 是 | 1 | 0 | 2 | 1 | 0 | -2 | 1 |
-| Parallel Retrogression(Game Ver.) | 否 | 1 | 0 | 2 | 0 | 1 | -1 | 0 |
-| Parallel Retrogression(Game Ver.) | 是 | 1 | 0 | 3 | 0 | 1 | -1 | 1 |
+| Parallel Retrogression(Game Ver.) | 否 | 1 | 0 | 0 | 0 | 1 | -1 | -2 |
+| Parallel Retrogression(Game Ver.) | 是 | 1 | 0 | 0 | 0 | 1 | -1 | -2 |
 | Wavetapper | 否 | 1 | 0 | 2 | 0 | 0 | -1 | 1 |
 | Wavetapper | 是 | 1 | 0 | 2 | 0 | 0 | -1 | 1 |
-| Flutter Echo | 否 | 1 | 0 | 1 | 0 | 0 | -1 | 0 |
-| Flutter Echo | 是 | 1 | 0 | 1 | 0 | 0 | -1 | 0 |
+| Flutter Echo | 否 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
+| Flutter Echo | 是 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
 | The Whole Rest | 否 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
 | The Whole Rest | 是 | 0 | 0 | 0 | 0 | 0 | 0 | -1 |
 | Break Over | 否 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
 | Break Over | 是 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
-| Get Back | 否 | 0 | 0 | 3 | 0 | 1 | 0 | 1 |
-| Get Back | 是 | 0 | 0 | 4 | 0 | 1 | 0 | 2 |
+| Get Back | 否 | 0 | 0 | 0 | 0 | 0 | 0 | -1 |
+| Get Back | 是 | 0 | 0 | 0 | 0 | 0 | 0 | -1 |
 | End Me | 否 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
 | End Me | 是 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
 | Unorthodox Thoughts | 否 | 0 | 0 | 0 | 0 | 0 | 0 | -1 |
@@ -91,17 +91,17 @@
 | Träne | 是 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
 | Bounded Quietude | 否 | 2 | 0 | 0 | 0 | 0 | -2 | -1 |
 | Bounded Quietude | 是 | 2 | 0 | 0 | 0 | 0 | -2 | -1 |
-| Dance with Silence | 否 | 0 | 0 | 4 | 0 | 0 | 0 | 3 |
-| Dance with Silence | 是 | 0 | 0 | 5 | 0 | 0 | 0 | 4 |
+| Dance with Silence | 否 | 0 | 0 | 0 | 0 | 0 | 0 | -1 |
+| Dance with Silence | 是 | 0 | 0 | 0 | 0 | 0 | 0 | -1 |
 | Retribution | 否 | 2 | 0 | 0 | 0 | 0 | -2 | -1 |
 | Retribution | 是 | 2 | 0 | 0 | 0 | 0 | -2 | -1 |
 | Reimei | 否 | 0 | 0 | 0 | 0 | 0 | 0 | -1 |
 | Reimei | 是 | 0 | 0 | 0 | 0 | 0 | 0 | -1 |
 | Retribution ~ Cycle of Redemption ~ | 否 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
 | Retribution ~ Cycle of Redemption ~ | 是 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
-| Horizon Blue | 否 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
-| Horizon Blue | 是 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
-| Doppelganger | 否 | 0 | 0 | 0 | 0 | 0 | 0 | -1 |
+| Horizon Blue | 否 | 2 | 0 | 0 | 0 | 0 | -2 | -1 |
+| Horizon Blue | 是 | 2 | 0 | 0 | 0 | 0 | -2 | -1 |
+| Doppelganger | 否 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
 | Doppelganger | 是 | 0 | 0 | 0 | 0 | 0 | 0 | -1 |
 | Nhelv | 否 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
 | Nhelv | 是 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
@@ -113,11 +113,11 @@
 | Another Me | 是 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
 | opia | 否 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
 | opia | 是 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
-| energy trixxx | 否 | 0 | 2 | 0 | 1 | 0 | 1 | -1 |
-| energy trixxx | 是 | 0 | 3 | 0 | 1 | 0 | 2 | -1 |
+| energy trixxx | 否 | 0 | 3 | 0 | 1 | 0 | 2 | -1 |
+| energy trixxx | 是 | 0 | 4 | 0 | 1 | 0 | 3 | -1 |
 | El Condor Pasa (Phigros Edit) | 否 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
 | El Condor Pasa (Phigros Edit) | 是 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
-| Re：birth | 否 | 1 | 0 | 2 | 0 | 0 | -1 | 1 |
+| Re：birth | 否 | 1 | 0 | 1 | 0 | 0 | -1 | 0 |
 | Re：birth | 是 | 1 | 0 | 2 | 0 | 0 | -1 | 1 |
 | Feast远东之宴 | 否 | 0 | 0 | 3 | 0 | 1 | 0 | 1 |
 | Feast远东之宴 | 是 | 0 | 0 | 4 | 0 | 1 | 0 | 2 |
@@ -131,8 +131,8 @@
 | Chronomia | 是 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
 | Radiance | 否 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
 | Radiance | 是 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
-| [NWAD] | 否 | 1 | 2 | 2 | 1 | 0 | 0 | 1 |
-| [NWAD] | 是 | 1 | 3 | 3 | 1 | 0 | 1 | 2 |
+| [NWAD] | 否 | 1 | 2 | 2 | 2 | 0 | -1 | 1 |
+| [NWAD] | 是 | 1 | 3 | 3 | 2 | 0 | 0 | 2 |
 | NO ONE YES MAN | 否 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
 | NO ONE YES MAN | 是 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
 | GOODFORTUNE | 否 | 2 | 0 | 0 | 0 | 0 | -2 | -1 |
@@ -151,8 +151,8 @@
 | AbsoluTe disoRdeR | 是 | 2 | 0 | 0 | 0 | 0 | -2 | -1 |
 | Rrhar'il | 否 | 2 | 0 | 0 | 0 | 0 | -2 | -1 |
 | Rrhar'il | 是 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
-| Entrance to the Chaos | 否 | 0 | 0 | 2 | 0 | 0 | 0 | 1 |
-| Entrance to the Chaos | 是 | 0 | 0 | 3 | 0 | 0 | 0 | 2 |
+| Entrance to the Chaos | 否 | 1 | 0 | 2 | 0 | 0 | -1 | 1 |
+| Entrance to the Chaos | 是 | 1 | 0 | 3 | 0 | 0 | -1 | 2 |
 | Petrichor | 否 | 2 | 0 | 0 | 0 | 0 | -2 | -1 |
 | Petrichor | 是 | 2 | 0 | 0 | 0 | 0 | -2 | -1 |
 | Der Schneid | 否 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
@@ -163,8 +163,8 @@
 | QZKago Requiem | 是 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
 | DESTRUCTION 3,2,1 | 否 | 0 | 0 | 3 | 0 | 0 | 0 | 2 |
 | DESTRUCTION 3,2,1 | 是 | 0 | 0 | 5 | 0 | 0 | 0 | 4 |
-| +ERABY+E CONNEC+10N | 否 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
-| +ERABY+E CONNEC+10N | 是 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
+| +ERABY+E CONNEC+10N | 否 | 0 | 0 | 0 | 0 | 0 | 0 | -1 |
+| +ERABY+E CONNEC+10N | 是 | 0 | 0 | 0 | 0 | 0 | 0 | -1 |
 | 祈 -我ら神祖と共に歩む者なり- | 否 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
 | 祈 -我ら神祖と共に歩む者なり- | 是 | 0 | 0 | 0 | 0 | 0 | 0 | -1 |
 | Stardust:RAY | 否 | 1 | 0 | 0 | 1 | 0 | -2 | -1 |
@@ -175,8 +175,8 @@
 | Hydra | 是 | 2 | 0 | 0 | 0 | 0 | -2 | -1 |
 | 幻影鬼魅 (PLEASE) | 否 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
 | 幻影鬼魅 (PLEASE) | 是 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
-| 玩具狂奏曲 -終焉- | 否 | 1 | 0 | 1 | 0 | 0 | -1 | 0 |
-| 玩具狂奏曲 -終焉- | 是 | 1 | 0 | 2 | 0 | 0 | -1 | 1 |
+| 玩具狂奏曲 -終焉- | 否 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
+| 玩具狂奏曲 -終焉- | 是 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
 | Archidoxen | 否 | 2 | 0 | 0 | 0 | 0 | -2 | -1 |
 | Archidoxen | 是 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
 | INFiNiTE ENERZY -Overdoze- | 否 | 2 | 0 | 0 | 0 | 0 | -2 | -1 |
@@ -190,13 +190,15 @@
 | PRAGMATISM -RESURRECTION- | 否 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
 | PRAGMATISM -RESURRECTION- | 是 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
 | BANGING STRIKE | 否 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
-| BANGING STRIKE | 是 | 0 | 0 | 0 | 0 | 0 | 0 | -1 |
+| BANGING STRIKE | 是 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
 | Igallta | 否 | 2 | 0 | 1 | 0 | 1 | -2 | -1 |
 | Igallta | 是 | 2 | 0 | 1 | 0 | 1 | -2 | -1 |
-| Stasis | 否 | 0 | 0 | 0 | 0 | 1 | 0 | -2 |
-| Stasis | 是 | 0 | 0 | 0 | 0 | 1 | 0 | -2 |
-| Cuvism³ | 否 | 3 | 0 | 0 | 0 | 0 | -3 | -1 |
-| Cuvism³ | 是 | 3 | 0 | 0 | 0 | 0 | -3 | -1 |
+| Stasis | 否 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
+| Stasis | 是 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |
+| Cuvism³ | 否 | 4 | 0 | 0 | 0 | 0 | -4 | -1 |
+| Cuvism³ | 是 | 2 | 0 | 0 | 0 | 0 | -2 | -1 |
+| ハテ | 否 | 3 | 0 | 0 | 0 | 0 | -3 | -1 |
+| ハテ | 是 | 2 | 0 | 0 | 0 | 0 | -2 | -1 |
 | Desultory Signals | 否 | 2 | 1 | 2 | 0 | 0 | -1 | 1 |
 | Desultory Signals | 是 | 2 | 2 | 2 | 0 | 0 | 0 | 1 |
 | Exoplanetary Mirage | 否 | 1 | 0 | 0 | 0 | 0 | -1 | -1 |

@@ -4,11 +4,38 @@
     [switch]$NoInstall
 )
 $ErrorActionPreference = 'Stop'
+[Console]::OutputEncoding = New-Object System.Text.UTF8Encoding($false)
+$OutputEncoding = [Console]::OutputEncoding
+$env:PYTHONIOENCODING = 'utf-8'
+. (Join-Path $PSScriptRoot 'tools\process_arguments.ps1')
 $jiuProject = $PSScriptRoot
 $jiuGame = [System.IO.Path]::GetFullPath((Join-Path $jiuProject '..\..'))
 $jiuOutput = Join-Path $jiuGame 'mods\PhigrosJiu'
+if (-not (Test-Path -LiteralPath $Godot)) { $Godot = Join-Path $jiuProject 'build\toolchain\godot\Godot_v4.5.1-stable_win64.exe' }
+if (-not (Test-Path -LiteralPath $DotNetHost)) { $DotNetHost = Join-Path $jiuProject 'build\toolchain\dotnet9\dotnet.exe' }
 $jiuGodotProject = Join-Path $jiuProject 'build\godot'
 if (-not (Test-Path -LiteralPath $Godot)) { throw 'Pass -Godot with the path to Godot 4.5.1.' }
+
+# GUI Godot executables can return control early through PowerShell's invocation operator.
+# Wait on the actual process, drain both streams and check its own exit code before using the PCK.
+function Invoke-JiuGodot([string[]]$JiuArguments, [string]$JiuLog) {
+    $jiuInfo = [Diagnostics.ProcessStartInfo]::new($Godot)
+    $jiuInfo.UseShellExecute = $false
+    $jiuInfo.CreateNoWindow = $true
+    $jiuInfo.WindowStyle = [Diagnostics.ProcessWindowStyle]::Hidden
+    $jiuInfo.RedirectStandardOutput = $true
+    $jiuInfo.RedirectStandardError = $true
+    $jiuInfo.Arguments = ($JiuArguments | ForEach-Object { ConvertTo-JiuNativeArgument $_ }) -join ' '
+    $jiuInfo.StandardOutputEncoding = [Text.Encoding]::UTF8
+    $jiuInfo.StandardErrorEncoding = [Text.Encoding]::UTF8
+    $jiuChild = [Diagnostics.Process]::Start($jiuInfo)
+    $jiuStdout = $jiuChild.StandardOutput.ReadToEndAsync()
+    $jiuStderr = $jiuChild.StandardError.ReadToEndAsync()
+    $jiuChild.WaitForExit()
+    [IO.File]::WriteAllText($JiuLog, $jiuStdout.Result + $jiuStderr.Result)
+    if ($jiuChild.ExitCode -ne 0) { throw "Godot failed ($($jiuChild.ExitCode)); see $JiuLog" }
+}
+
 python (Join-Path $jiuProject 'tools\prepare_content.py')
 if ($LASTEXITCODE -ne 0) { throw 'Content preparation failed.' }
 python (Join-Path $jiuProject 'tools\audit_economy.py')
@@ -17,15 +44,13 @@ python (Join-Path $jiuProject 'tools\audit_artwork.py')
 if ($LASTEXITCODE -ne 0) { throw 'Artwork identity/rarity/visual audit failed.' }
 dotnet build (Join-Path $jiuProject 'src\PhigrosJiu.csproj') -c Release --nologo -v quiet
 if ($LASTEXITCODE -ne 0) { throw 'C# build failed.' }
-& $Godot --headless --path $jiuGodotProject --editor --import --log-file (Join-Path $jiuProject 'build\import.log') *> (Join-Path $jiuProject 'build\import-stdout.log')
-if ($LASTEXITCODE -ne 0) { throw 'Texture import failed.' }
+Invoke-JiuGodot @('--headless', '--path', $jiuGodotProject, '--editor', '--import', '--log-file', (Join-Path $jiuProject 'build\import.log')) (Join-Path $jiuProject 'build\import-stdout.log')
 $jiuStaging = Join-Path $jiuProject 'build\staging'
 New-Item -ItemType Directory -Force -Path $jiuStaging | Out-Null
 $jiuPack = Join-Path $jiuStaging 'PhigrosJiu.pck'
-& $Godot --headless --path $jiuGodotProject --script 'res://pack.gd' -- $jiuPack
-if ($LASTEXITCODE -ne 0) { throw 'Resource packaging failed.' }
-& $Godot --headless --path $jiuGodotProject --script (Join-Path $jiuProject 'tools\validate_design_resources.gd') -- (Join-Path $jiuGame 'SlayTheSpire2.pck') $jiuPack
-if ($LASTEXITCODE -ne 0) { throw 'Resource validation failed.' }
+Invoke-JiuGodot @('--headless', '--path', $jiuGodotProject, '--script', 'res://pack.gd', '--', $jiuPack) (Join-Path $jiuProject 'build\pack.log')
+Invoke-JiuGodot @('--headless', '--path', $jiuGodotProject, '--script', (Join-Path $jiuProject 'tools\validate_design_resources.gd'), '--log-file', (Join-Path $jiuProject 'build\resource-validation.log'), '--', (Join-Path $jiuGame 'SlayTheSpire2.pck'), $jiuPack) (Join-Path $jiuProject 'build\resource-validation-stdout.log')
+Get-Content -LiteralPath (Join-Path $jiuProject 'build\resource-validation-stdout.log')
 if (Test-Path -LiteralPath (Join-Path $jiuGame 'mods\jiu_2\jiu_2.dll')) {
     & (Join-Path $jiuProject 'check-coexistence.ps1') -DotNetHost $DotNetHost -MainDll (Join-Path $jiuProject 'src\bin\Release\net9.0\PhigrosJiu.dll') -MainPack $jiuPack
 }

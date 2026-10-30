@@ -46,7 +46,7 @@ internal static partial class GameValidation
         await f.Play(repeat);
         Check(Runtime.History(f.Player).Count(e=>e.CardPlay.Card==repeat)==expected+1,"native replay executes the exact total count");
         RunManager.Instance.CleanUp(false);
-        Rows.Add(new{test="native-replay-and-zero-text",cards=85});
+        Rows.Add(new{test="native-replay-and-zero-text",cards=Design.Cards.Count});
 
         _current="editor-native-keywords";
         f=NewFixture("EDITOR-KEYWORDS");

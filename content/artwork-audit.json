@@ -1,10 +1,10 @@
 {
   "result": "PASS",
-  "checks": 433,
-  "cards": 85,
-  "uniqueSongs": 85,
-  "uniqueImages": 85,
-  "exhaustCards": 11,
+  "checks": 438,
+  "cards": 86,
+  "uniqueSongs": 86,
+  "uniqueImages": 86,
+  "exhaustCards": 10,
   "visualScale": 0.85,
   "bands": {
     "Basic": {
@@ -23,9 +23,9 @@
       "maximum": 16.2
     },
     "Rare": {
-      "count": 25,
+      "count": 26,
       "minimum": 16.6,
-      "maximum": 17.6
+      "maximum": 17.9
     },
     "Ancient": {
       "count": 2,

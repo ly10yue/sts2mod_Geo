@@ -2,6 +2,7 @@ import copy
 import http.client
 import importlib.util
 import json
+import re
 from pathlib import Path
 import sys
 import tempfile
@@ -26,6 +27,52 @@ class CardEditorTests(unittest.TestCase):
     def payload(self, field='steps.0.value', value=9, card='GeopeliaStrike'):
         return dict(revision=self.editor.state()['revision'], patches=[dict(card=card, field=field, value=value)])
 
+    def test_chinese_names_preview_save_and_export_import_preserve_song_and_mechanics(self):
+        cards,_=ce.read_cards(self.original)
+        self.assertEqual(len(ce.card_design.CARDS),len({c['displayName'] for c in cards}))
+        self.assertTrue(all(any('\u4e00'<=ch<='\u9fff' for ch in c['displayName']) for c in cards if c['className']!='GeopeliaHate'))
+        payload=self.payload('displayName','分贝人偶·改')
+        payload=json.loads(json.dumps(payload,ensure_ascii=False))  # export/import uses this same patch format
+        preview=self.editor.state(self.editor.candidate(payload))
+        self.assertEqual('分贝人偶·改',preview['cards'][0]['displayName'])
+        self.assertEqual(self.original,self.source.read_text(encoding='utf-8'))
+        result=self.editor.save(payload)
+        saved,_=ce.read_cards(self.editor.text())
+        expected=copy.deepcopy(cards);expected[0]['displayName']='分贝人偶·改'
+        self.assertEqual(expected,saved)
+        self.assertEqual('dB doll',result['cards'][0]['name'])
+        self.assertEqual(self.original,(Path(result['backup'])/'card_design.py').read_text(encoding='utf-8'))
+        self.editor.save(self.payload('steps.0.value',9))
+        self.assertEqual('分贝人偶·改',self.editor.state()['cards'][0]['displayName'])
+
+    def test_chinese_name_validation_and_power_references(self):
+        for value in ['', '   ', '字'*25, '换\n行', '[gold]标题', '{Amount}', '<b>标题', '标题\x00', True, 24]:
+            with self.subTest(value=repr(value)),self.assertRaises(ValueError):
+                ce.patch_source(self.original,self.payload('displayName',value)['patches'])
+        payload=self.payload('displayName','新的审判','GeopeliaOpeningTheme')
+        result=self.editor.state(self.editor.candidate(payload))
+        self.assertEqual('新的审判',result['powerOptions']['Richter'])
+        renamed=next(c for c in result['cards'] if c['className']=='GeopeliaOpeningTheme')
+        self.assertEqual('Der Richter',renamed['name'])
+        self.assertNotIn('获得新的审判',renamed['descriptions'][0])
+
+    def test_hate_horizon_and_per_play_growth_editor_roundtrip(self):
+        cards={c['className']:c for c in self.editor.state()['cards']}
+        self.assertEqual(86,len(cards))
+        hate=cards['GeopeliaHate'];horizon=cards['GeopeliaBelieveLight']
+        self.assertEqual(('ハテ',hate['displayName'],'Rare','Power',3,2),(hate['name'],hate['displayName'],hate['rarity'],hate['type'],hate['cost'],hate['upgradeCost']))
+        self.assertIn('翻倍',hate['descriptions'][0]);self.assertIn('增加1',hate['descriptions'][0])
+        self.assertEqual((2,2),(horizon['cost'],horizon['upgradeCost']))
+        self.assertIn(str(horizon['steps'][0]['value'])+'张牌',horizon['descriptions'][0]);self.assertIn(str(horizon['steps'][0]['upgrade'])+'张牌',horizon['descriptions'][1])
+        self.assertIn('重放的牌也计入',horizon['descriptions'][0])
+        for key,base,bonus in [('GeopeliaRedline',9,6),('GeopeliaScavenge',8,5)]:
+            card=cards[key];self.assertEqual('perPlay',card['steps'][0]['condition'])
+            self.assertEqual(base,card['steps'][0]['upgrade']);self.assertEqual(bonus,card['steps'][0]['ux'])
+            self.assertIn('每打出一张牌',card['descriptions'][1])
+        steps=[dict(kind='BlockBonus',value=8,upgrade=8,x=3,ux=5,condition='perPlay')]
+        self.editor.save(self.payload('steps',steps,'GeopeliaScavenge'))
+        self.assertEqual('perPlay',next(c for c in self.editor.state()['cards'] if c['className']=='GeopeliaScavenge')['steps'][0]['condition'])
+
     def test_source_roundtrip_and_upgrade_order(self):
         payload = self.payload()
         payload['patches'] = [dict(card='GeopeliaStrike', field='steps.0.upgrade', value=14),
@@ -36,7 +83,7 @@ class CardEditorTests(unittest.TestCase):
         expected = copy.deepcopy(before_cards)
         expected[0]['steps'][0].update(value=9, upgrade=14)
         self.assertEqual(expected, after_cards)
-        self.assertIn("card('Defend','Glaciaxion'", after)
+        self.assertIn(next(line for line in self.original.splitlines() if line.startswith("card('Defend'")), after)
 
     def test_two_replacement_cards_and_x_cost_survive_editor_save(self):
         cards = {c['className']: c for c in self.editor.state()['cards']}
@@ -60,7 +107,7 @@ class CardEditorTests(unittest.TestCase):
         after = ce.patch_source(self.original, [dict(card='GeopeliaStrike', field='cost', value=2)])
         cards, _ = ce.read_cards(after)
         self.assertEqual((2, 1), (cards[0]['cost'], cards[0]['upgradeCost']))
-        source = self.original.replace("op('Attack',7,10)", "op('Attack',7)", 1)
+        source = re.sub(r"op\('Attack',\s*7,\s*10\)", "op('Attack',7)", self.original, count=1)
         cards, _ = ce.read_cards(ce.patch_source(source, self.payload(value=11)['patches']))
         self.assertEqual((11, 7), (cards[0]['steps'][0]['value'], cards[0]['steps'][0]['upgrade']))
 
@@ -191,6 +238,16 @@ class CardEditorTests(unittest.TestCase):
         steps=[dict(kind='ExhaustDrawReplay',value=1,upgrade=2),dict(kind='SignalExecute',value=3,upgrade=4),dict(kind='FatalRewardAttack',value=10,upgrade=14)]
         self.editor.save(self.payload('steps',steps))
         self.assertEqual(steps,[{k:v for k,v in s.items() if k!='label'} for s in self.editor.state()['cards'][0]['steps']])
+
+    def test_stasis_additive_replay_preview_and_save(self):
+        card=next(c for c in self.editor.state()['cards'] if c['className']=='GeopeliaQuietCoda')
+        self.assertEqual((1,1,'Skill',[]),(card['cost'],card['upgradeCost'],card['type'],card['keywords']))
+        self.assertEqual('AddReplay',card['steps'][0]['kind'])
+        self.assertIn('次数增加2',card['descriptions'][0]);self.assertIn('次数增加3',card['descriptions'][1])
+        self.assertIn('已有重放',card['descriptions'][0]);self.assertNotIn('透支',card['descriptions'][0])
+        payload=self.payload('steps.0.value',4,'GeopeliaQuietCoda');self.editor.save(payload)
+        changed=next(c for c in self.editor.state()['cards'] if c['className']=='GeopeliaQuietCoda')
+        self.assertIn('次数增加4',changed['descriptions'][0]);self.assertIn('次数增加3',changed['descriptions'][1])
 
     def test_preview_and_backup_save(self):
         payload = self.payload()

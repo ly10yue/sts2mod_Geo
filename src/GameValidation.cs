@@ -79,11 +79,15 @@ internal static partial class GameValidation
             await TwoCardReplacementCases();
             if (CommandLineHelper.HasArg("jiu-editor-validation"))
             {
+                await IconCounterCases();
+                await HateHorizonGrowthCases();
+                await EndlessSignalAssetCases();
                 await EditorFeatureCases();
                 await SongReworkCases();
                 await SignalReplayReworkCases();
                 await RecursiveSignalCases();
                 await FatalReworkCases();
+                await StasisCases();
             }
             else
             {
@@ -102,7 +106,7 @@ internal static partial class GameValidation
                 Check(portrait.Atlas.ResourcePath == Content.Root + "cards/originals/" + definition.SongId + ".png", "native portrait matches exact song");
                 string description = card.GetDescriptionForPile(PileType.Hand);
                 Check(!string.IsNullOrWhiteSpace(description) && !description.Contains("{V") && !description.Contains("{X"), "native localized dynamic description");
-                Check(card.Title.Contains(definition.Name), "native localized title");
+                Check(card.Title.Contains(definition.DisplayName), "native localized title");
                 await f.Play(card);
                 Check(Runtime.Signal(f.Player) >= 0 && Runtime.Signal(f.Player) <= Runtime.SignalLimit(f.Player), "signal cap");
                 Check(f.Player.Creature.CurrentHp == 70, "self-targeting or unexpected health loss");

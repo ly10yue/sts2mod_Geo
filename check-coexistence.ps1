@@ -1,4 +1,4 @@
-﻿param(
+param(
     [string]$DotNetHost = (Join-Path $env:LOCALAPPDATA 'Temp\sts2-mod-inspect-tools\dotnet9\dotnet.exe'),
     [string]$MainDll,
     [string]$MainPack
@@ -6,6 +6,7 @@
 $ErrorActionPreference = 'Stop'
 $jiuCheckRoot = $PSScriptRoot
 $jiuCheckGame = [System.IO.Path]::GetFullPath((Join-Path $jiuCheckRoot '..\..'))
+if (-not (Test-Path -LiteralPath $DotNetHost)) { $DotNetHost = Join-Path $jiuCheckRoot 'build\toolchain\dotnet9\dotnet.exe' }
 if (-not (Test-Path -LiteralPath $DotNetHost)) { throw 'Pass -DotNetHost pointing to a dotnet host with the .NET 9 runtime. Game Harmony does not support .NET 10.' }
 dotnet build (Join-Path $jiuCheckRoot 'tests\Coexistence.csproj') --nologo -v quiet
 if ($LASTEXITCODE -ne 0) { throw 'Compatibility test compilation failed.' }

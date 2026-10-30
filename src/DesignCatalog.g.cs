@@ -5,6 +5,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaStrike",
     "name": "dB doll",
+    "displayName": "打击",
     "rarity": "Basic",
     "cost": 1,
     "upgradeCost": 1,
@@ -31,6 +32,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaDefend",
     "name": "Glaciaxion",
+    "displayName": "防御",
     "rarity": "Basic",
     "cost": 1,
     "upgradeCost": 1,
@@ -57,6 +59,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaOpeningBeat",
     "name": "光",
+    "displayName": "光",
     "rarity": "Basic",
     "cost": 1,
     "upgradeCost": 1,
@@ -94,6 +97,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaCounterbeat",
     "name": "HumaN",
+    "displayName": "人",
     "rarity": "Basic",
     "cost": 1,
     "upgradeCost": 1,
@@ -101,10 +105,10 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "AttackBonus",
-        "value": 4,
+        "value": 5,
         "upgrade": 6,
         "x": 2,
-        "ux": 2,
+        "ux": 3,
         "condition": "signal",
         "threshold": 1,
         "pay": 1
@@ -132,6 +136,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaEltaw",
     "name": "Eltaw",
+    "displayName": "回声",
     "rarity": "Common",
     "cost": 1,
     "upgradeCost": 1,
@@ -139,8 +144,8 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "Attack",
-        "value": 4,
-        "upgrade": 6
+        "value": 7,
+        "upgrade": 9
       }
     ],
     "themes": [
@@ -158,6 +163,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaIMustSayNo",
     "name": "Disorder",
+    "displayName": "失序",
     "rarity": "Common",
     "cost": 1,
     "upgradeCost": 1,
@@ -165,8 +171,8 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "Block",
-        "value": 7,
-        "upgrade": 10
+        "value": 10,
+        "upgrade": 13
       },
       {
         "kind": "Weak",
@@ -189,6 +195,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaCereris",
     "name": "Cereris",
+    "displayName": "远星",
     "rarity": "Common",
     "cost": 1,
     "upgradeCost": 1,
@@ -196,8 +203,8 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "AllAttack",
-        "value": 8,
-        "upgrade": 10
+        "value": 11,
+        "upgrade": 14
       },
       {
         "kind": "Signal",
@@ -220,6 +227,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaReimei",
     "name": "Drop It",
+    "displayName": "碟",
     "rarity": "Common",
     "cost": 0,
     "upgradeCost": 0,
@@ -227,8 +235,8 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "Attack",
-        "value": 4,
-        "upgrade": 7
+        "value": 7,
+        "upgrade": 11
       },
       {
         "kind": "Signal",
@@ -251,6 +259,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaRebirth",
     "name": "重生",
+    "displayName": "重生",
     "rarity": "Common",
     "cost": 0,
     "upgradeCost": 0,
@@ -285,6 +294,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaLuminescence",
     "name": "Luminescence",
+    "displayName": "冷光",
     "rarity": "Common",
     "cost": 1,
     "upgradeCost": 1,
@@ -292,8 +302,8 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "Attack",
-        "value": 3,
-        "upgrade": 5
+        "value": 7,
+        "upgrade": 9
       },
       {
         "kind": "Signal",
@@ -323,6 +333,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaTap",
     "name": "Bonus Time",
+    "displayName": "奖励时间！",
     "rarity": "Common",
     "cost": 1,
     "upgradeCost": 1,
@@ -330,13 +341,13 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "Attack",
-        "value": 10,
-        "upgrade": 14
+        "value": 12,
+        "upgrade": 16
       },
       {
         "kind": "Draw",
-        "value": 2,
-        "upgrade": 2,
+        "value": 3,
+        "upgrade": 3,
         "condition": "plays",
         "threshold": 2
       }
@@ -356,6 +367,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaHold",
     "name": "Chronologika",
+    "displayName": "时序逻辑",
     "rarity": "Common",
     "cost": 1,
     "upgradeCost": 1,
@@ -363,8 +375,8 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "Block",
-        "value": 8,
-        "upgrade": 11
+        "value": 10,
+        "upgrade": 13
       },
       {
         "kind": "Signal",
@@ -390,6 +402,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaFlick",
     "name": "DataErr0r",
+    "displayName": "病毒",
     "rarity": "Common",
     "cost": 0,
     "upgradeCost": 0,
@@ -427,6 +440,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaDrag",
     "name": "Luminescent",
+    "displayName": "流光",
     "rarity": "Common",
     "cost": 1,
     "upgradeCost": 1,
@@ -434,8 +448,8 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "Attack",
-        "value": 7,
-        "upgrade": 10
+        "value": 8,
+        "upgrade": 11
       },
       {
         "kind": "Draw",
@@ -458,6 +472,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaSync",
     "name": "ENERGY SYNERGY MATRIX",
+    "displayName": "能量矩阵",
     "rarity": "Common",
     "cost": 1,
     "upgradeCost": 1,
@@ -465,13 +480,8 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "Signal",
-        "value": 4,
-        "upgrade": 6
-      },
-      {
-        "kind": "Draw",
-        "value": 2,
-        "upgrade": 3
+        "value": 8,
+        "upgrade": 12
       }
     ],
     "themes": [
@@ -485,11 +495,12 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 14.4,
     "artSourceSha256": "316d6dc3dabb57c919a2f3ecbdf83461ceba07f24749fa0c809ed4089f0f428e",
     "keywords": [],
-    "description": "获得{V0:diff()}点[gold]信号[/gold]。\n抽{V1:diff()}张牌。"
+    "description": "获得{V0:diff()}点[gold]信号[/gold]。"
   },
   {
     "className": "GeopeliaProbe",
     "name": "Find_Me",
+    "displayName": "自我",
     "rarity": "Common",
     "cost": 0,
     "upgradeCost": 0,
@@ -521,6 +532,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaCarrier",
     "name": "GOODTEK",
+    "displayName": "良锤",
     "rarity": "Common",
     "cost": 1,
     "upgradeCost": 1,
@@ -528,7 +540,7 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "AttackBonus",
-        "value": 7,
+        "value": 8,
         "upgrade": 10,
         "x": 6,
         "ux": 8,
@@ -558,6 +570,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaEnvelope",
     "name": "Magenta Potion",
+    "displayName": "洋红药水",
     "rarity": "Common",
     "cost": 1,
     "upgradeCost": 1,
@@ -565,10 +578,10 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "BlockBonus",
-        "value": 6,
-        "upgrade": 9,
-        "x": 6,
-        "ux": 8,
+        "value": 8,
+        "upgrade": 11,
+        "x": 8,
+        "ux": 11,
         "condition": "signal",
         "threshold": 2,
         "pay": 2
@@ -589,6 +602,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaAdvance",
     "name": "Speed Up!",
+    "displayName": "加速",
     "rarity": "Common",
     "cost": 0,
     "upgradeCost": 0,
@@ -629,6 +643,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaRush",
     "name": "FULi AUTO SHOOTER",
+    "displayName": "自动射击",
     "rarity": "Common",
     "cost": 1,
     "upgradeCost": 1,
@@ -665,6 +680,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaBorrowShield",
     "name": "Parallel Retrogression(Game Ver.)",
+    "displayName": "平行；逆行",
     "rarity": "Common",
     "cost": 1,
     "upgradeCost": 1,
@@ -672,13 +688,8 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "Block",
-        "value": 15,
-        "upgrade": 20
-      },
-      {
-        "kind": "Draw",
-        "value": 2,
-        "upgrade": 3
+        "value": 14,
+        "upgrade": 18
       },
       {
         "kind": "DrawDebt",
@@ -697,11 +708,12 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 14.2,
     "artSourceSha256": "0e786cd565ddcea42334b2c9e330f4a222ee948789c9aa5d0ae750c82feac7a9",
     "keywords": [],
-    "description": "获得{V0:diff()}点格挡。\n抽{V1:diff()}张牌。\n[red]透支[/red]：下回合少抽{V2:diff()}张牌。"
+    "description": "获得{V0:diff()}点格挡。\n[red]透支[/red]：下回合少抽{V1:diff()}张牌。"
   },
   {
     "className": "GeopeliaEchoNeedle",
     "name": "Wavetapper",
+    "displayName": "编织波纹",
     "rarity": "Common",
     "cost": 1,
     "upgradeCost": 1,
@@ -709,8 +721,8 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "Attack",
-        "value": 2,
-        "upgrade": 3
+        "value": 4,
+        "upgrade": 5
       },
       {
         "kind": "Draw",
@@ -734,6 +746,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaReplayFootnote",
     "name": "Flutter Echo",
+    "displayName": "颤动回声",
     "rarity": "Common",
     "cost": 1,
     "upgradeCost": 1,
@@ -741,19 +754,13 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "Block",
-        "value": 3,
-        "upgrade": 4
+        "value": 6,
+        "upgrade": 7
       },
       {
         "kind": "Signal",
-        "value": 1,
-        "upgrade": 1,
-        "condition": "replay"
-      },
-      {
-        "kind": "Draw",
-        "value": 1,
-        "upgrade": 1,
+        "value": 2,
+        "upgrade": 2,
         "condition": "replay"
       }
     ],
@@ -768,11 +775,12 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 14.9,
     "artSourceSha256": "74319d6d0c218f97fcea635efbe475f3e3d349bb86c7110d766d8b7af408904b",
     "keywords": [],
-    "description": "获得{V0:diff()}点格挡。\n若此次为重放，获得{V1:diff()}点[gold]信号[/gold]。\n若此次为重放，抽{V2:diff()}张牌。"
+    "description": "获得{V0:diff()}点格挡。\n若此次为重放，获得{V1:diff()}点[gold]信号[/gold]。"
   },
   {
     "className": "GeopeliaRest",
     "name": "The Whole Rest",
+    "displayName": "休止符",
     "rarity": "Common",
     "cost": 1,
     "upgradeCost": 0,
@@ -799,6 +807,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaRedline",
     "name": "Break Over",
+    "displayName": "突破界限",
     "rarity": "Common",
     "cost": 1,
     "upgradeCost": 1,
@@ -807,14 +816,14 @@ internal static class DesignJson { public const string Value = """
       {
         "kind": "AttackBonus",
         "value": 9,
-        "upgrade": 12,
+        "upgrade": 9,
         "x": 4,
-        "ux": 4,
-        "condition": "debt"
+        "ux": 6,
+        "condition": "perPlay"
       }
     ],
     "themes": [
-      "透支"
+      "多牌"
     ],
     "replays": 0,
     "portrait": "geopeliaredline.tres",
@@ -823,35 +832,28 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 14.9,
     "artSourceSha256": "2a71709035350490e0763757fc2db2299af6de557e4b596955792f2cd088b9a2",
     "keywords": [],
-    "description": "造成{V0:diff()}点伤害。若有待偿付的透支，额外造成{X0:diff()}点伤害。"
+    "description": "造成{V0:diff()}点伤害。本回合内此前你每打出一张牌，其伤害增加{X0:diff()}点。"
   },
   {
     "className": "GeopeliaScavenge",
     "name": "Get Back",
+    "displayName": "归来",
     "rarity": "Common",
     "cost": 0,
     "upgradeCost": 0,
     "type": "Skill",
     "steps": [
       {
-        "kind": "Draw",
-        "value": 3,
-        "upgrade": 4
-      },
-      {
-        "kind": "Signal",
-        "value": 1,
-        "upgrade": 1
-      },
-      {
-        "kind": "DrawDebt",
-        "value": 1,
-        "upgrade": 1
+        "kind": "BlockBonus",
+        "value": 8,
+        "upgrade": 8,
+        "x": 3,
+        "ux": 5,
+        "condition": "perPlay"
       }
     ],
     "themes": [
-      "透支",
-      "信号"
+      "多牌"
     ],
     "replays": 0,
     "portrait": "geopeliascavenge.tres",
@@ -860,11 +862,12 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 14.1,
     "artSourceSha256": "9638ef90de9d9f22390e4197825bc606ded47438c25b162d5c677160dc09d0d6",
     "keywords": [],
-    "description": "抽{V0:diff()}张牌。\n获得{V1:diff()}点[gold]信号[/gold]。\n[red]透支[/red]：下回合少抽{V2:diff()}张牌。"
+    "description": "获得{V0:diff()}点格挡。本回合内此前你每打出一张牌，其格挡增加{X0:diff()}点。"
   },
   {
     "className": "GeopeliaDelayBeat",
     "name": "End Me",
+    "displayName": "我之终点",
     "rarity": "Common",
     "cost": 1,
     "upgradeCost": 1,
@@ -896,6 +899,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaLowpass",
     "name": "Unorthodox Thoughts",
+    "displayName": "异端思绪",
     "rarity": "Common",
     "cost": 0,
     "upgradeCost": 0,
@@ -903,7 +907,7 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "Block",
-        "value": 5,
+        "value": 6,
         "upgrade": 8
       },
       {
@@ -927,6 +931,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaScanline",
     "name": "Träne",
+    "displayName": "泪",
     "rarity": "Common",
     "cost": 1,
     "upgradeCost": 1,
@@ -934,8 +939,8 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "AllAttack",
-        "value": 6,
-        "upgrade": 8
+        "value": 12,
+        "upgrade": 14
       },
       {
         "kind": "Draw",
@@ -960,6 +965,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaDistortedFate",
     "name": "Bounded Quietude",
+    "displayName": "静谧边界",
     "rarity": "Uncommon",
     "cost": 2,
     "upgradeCost": 2,
@@ -967,11 +973,11 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "Attack",
-        "value": 32,
+        "value": 36,
         "upgrade": 42
       },
       {
-        "kind": "DamageDebt",
+        "kind": "BlockDebt",
         "value": 50,
         "upgrade": 50
       }
@@ -986,25 +992,31 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 16.2,
     "artSourceSha256": "0af021d4efcd7ee35f4df6cd63c2174e08d1664e28bb0a445ac31930474caa92",
     "keywords": [],
-    "description": "造成{V0:diff()}点伤害。\n[red]透支[/red]：下回合牌的伤害减少{V1:diff()}%。同类透支不叠加。"
+    "description": "造成{V0:diff()}点伤害。\n[red]透支[/red]：下回合牌获得的格挡减少{V1:diff()}%。同类透支不叠加。"
   },
   {
     "className": "GeopeliaDanceWithSilence",
     "name": "Dance with Silence",
+    "displayName": "寂静之舞",
     "rarity": "Uncommon",
     "cost": 0,
     "upgradeCost": 0,
     "type": "Skill",
     "steps": [
       {
-        "kind": "Draw",
-        "value": 4,
-        "upgrade": 5
+        "kind": "AllWeak",
+        "value": 2,
+        "upgrade": 4
       },
       {
-        "kind": "BlockDebt",
-        "value": 50,
-        "upgrade": 50
+        "kind": "AllVulnerable",
+        "value": 2,
+        "upgrade": 4
+      },
+      {
+        "kind": "DamageDebt",
+        "value": 33,
+        "upgrade": 33
       }
     ],
     "themes": [
@@ -1018,11 +1030,12 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 15.2,
     "artSourceSha256": "31c7a98e31ba83620b28be6992982f583b28cb33508e77aa2435f3d67e2b271d",
     "keywords": [],
-    "description": "抽{V0:diff()}张牌。\n[red]透支[/red]：下回合牌获得的格挡减少{V1:diff()}%。同类透支不叠加。"
+    "description": "给予所有敌人{V0:diff()}层虚弱。\n给予所有敌人{V1:diff()}层易伤。\n[red]透支[/red]：下回合牌的伤害减少{V2:diff()}%。同类透支不叠加。"
   },
   {
     "className": "GeopeliaTerabyteConnection",
     "name": "Retribution",
+    "displayName": "报应",
     "rarity": "Uncommon",
     "cost": 2,
     "upgradeCost": 2,
@@ -1055,6 +1068,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaDiamondEyes",
     "name": "Reimei",
+    "displayName": "黎明",
     "rarity": "Uncommon",
     "cost": 0,
     "upgradeCost": 0,
@@ -1067,8 +1081,8 @@ internal static class DesignJson { public const string Value = """
       },
       {
         "kind": "Block",
-        "value": 4,
-        "upgrade": 6
+        "value": 6,
+        "upgrade": 8
       }
     ],
     "themes": [
@@ -1087,6 +1101,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaRetribution",
     "name": "Retribution ~ Cycle of Redemption ~",
+    "displayName": "轮回救赎",
     "rarity": "Uncommon",
     "cost": 1,
     "upgradeCost": 1,
@@ -1121,20 +1136,21 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaBelieveLight",
     "name": "Horizon Blue",
+    "displayName": "蓝色地平",
     "rarity": "Uncommon",
-    "cost": 1,
-    "upgradeCost": 1,
+    "cost": 2,
+    "upgradeCost": 2,
     "type": "Power",
     "steps": [
       {
         "kind": "Power",
-        "value": 1,
-        "upgrade": 2,
+        "value": 6,
+        "upgrade": 5,
         "power": "Aerial"
       }
     ],
     "themes": [
-      "信号"
+      "多牌"
     ],
     "replays": 0,
     "portrait": "geopeliabelievelight.tres",
@@ -1143,20 +1159,21 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 15.7,
     "artSourceSha256": "ca13fa65d2c5b4c66f7f3b9f6129bd1ff8aac580b5b813a61aa0e9f2d4217dfb",
     "keywords": [],
-    "description": "每回合前3张手动打出的技能牌结算后，各获得{V0:diff()}点信号。"
+    "description": "每打出{V0:diff()}张牌，[gold]重放[/gold]一次最后打出的牌。重放的牌也计入其中，计数跨回合保留。"
   },
   {
     "className": "GeopeliaDoubleExposure",
     "name": "Doppelganger",
+    "displayName": "镜中分身",
     "rarity": "Uncommon",
-    "cost": 0,
+    "cost": 1,
     "upgradeCost": 0,
     "type": "Skill",
     "steps": [
       {
         "kind": "Power",
         "value": 1,
-        "upgrade": 2,
+        "upgrade": 1,
         "power": "NextRepeat"
       }
     ],
@@ -1170,11 +1187,12 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 15.1,
     "artSourceSha256": "2175049f717ab3eb575c2812ff65cdfb2d7611a65a2947d802d2725306c06b45",
     "keywords": [],
-    "description": "获得[gold]Doppelganger[/gold]：本回合接下来{V0:diff()}张手动打出的攻击牌重放1。"
+    "description": "获得[gold]镜中分身[/gold]：本回合接下来{V0:diff()}张手动打出的攻击牌重放1。"
   },
   {
     "className": "GeopeliaCounterpoint",
     "name": "Nhelv",
+    "displayName": "神经节",
     "rarity": "Uncommon",
     "cost": 1,
     "upgradeCost": 1,
@@ -1206,6 +1224,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaPolyphony",
     "name": "Non-Melodic Ragez (MUG Edit)",
+    "displayName": "无调怒潮",
     "rarity": "Uncommon",
     "cost": 1,
     "upgradeCost": 1,
@@ -1213,8 +1232,8 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "Power",
-        "value": 3,
-        "upgrade": 4,
+        "value": 4,
+        "upgrade": 5,
         "power": "PulseGuard"
       }
     ],
@@ -1233,6 +1252,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaChannelMux",
     "name": "Concvssion",
+    "displayName": "震荡",
     "rarity": "Uncommon",
     "cost": 1,
     "upgradeCost": 1,
@@ -1240,8 +1260,8 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "Block",
-        "value": 5,
-        "upgrade": 8
+        "value": 8,
+        "upgrade": 11
       },
       {
         "kind": "Draw",
@@ -1266,6 +1286,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaSignalBurst",
     "name": "Another Me",
+    "displayName": "另一个我",
     "rarity": "Uncommon",
     "cost": 1,
     "upgradeCost": 1,
@@ -1273,10 +1294,10 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "SignalAttack",
-        "value": 4,
-        "upgrade": 6,
+        "value": 9,
+        "upgrade": 9,
         "x": 3,
-        "ux": 4,
+        "ux": 5,
         "cap": 4
       }
     ],
@@ -1295,6 +1316,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaShieldArray",
     "name": "opia",
+    "displayName": "视界",
     "rarity": "Uncommon",
     "cost": 1,
     "upgradeCost": 1,
@@ -1322,6 +1344,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaBorrowedLight",
     "name": "energy trixxx",
+    "displayName": "能量戏法",
     "rarity": "Uncommon",
     "cost": 0,
     "upgradeCost": 0,
@@ -1329,8 +1352,8 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "Energy",
-        "value": 2,
-        "upgrade": 3
+        "value": 3,
+        "upgrade": 4
       },
       {
         "kind": "EnergyDebt",
@@ -1354,6 +1377,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaDeadline",
     "name": "El Condor Pasa (Phigros Edit)",
+    "displayName": "山鹰之歌",
     "rarity": "Uncommon",
     "cost": 1,
     "upgradeCost": 1,
@@ -1381,6 +1405,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaRecharge",
     "name": "Re：birth",
+    "displayName": "诞生",
     "rarity": "Uncommon",
     "cost": 1,
     "upgradeCost": 1,
@@ -1398,7 +1423,7 @@ internal static class DesignJson { public const string Value = """
       },
       {
         "kind": "Draw",
-        "value": 2,
+        "value": 1,
         "upgrade": 2
       }
     ],
@@ -1418,6 +1443,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaRefinance",
     "name": "Feast远东之宴",
+    "displayName": "远东之宴",
     "rarity": "Uncommon",
     "cost": 0,
     "upgradeCost": 0,
@@ -1455,6 +1481,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaInterest",
     "name": "Labyrinth in Kowloon: Walled World",
+    "displayName": "迷宫城",
     "rarity": "Uncommon",
     "cost": 1,
     "upgradeCost": 1,
@@ -1482,6 +1509,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaOverspeed",
     "name": "Upshift",
+    "displayName": "升级",
     "rarity": "Uncommon",
     "cost": 0,
     "upgradeCost": 0,
@@ -1489,8 +1517,8 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "Attack",
-        "value": 12,
-        "upgrade": 16
+        "value": 14,
+        "upgrade": 18
       },
       {
         "kind": "EnergyDebt",
@@ -1514,6 +1542,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaAfterglow",
     "name": "Evanescent",
+    "displayName": "渐逝",
     "rarity": "Uncommon",
     "cost": 1,
     "upgradeCost": 1,
@@ -1541,6 +1570,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaTimeSignature",
     "name": "Chronomia",
+    "displayName": "天文钟",
     "rarity": "Uncommon",
     "cost": 1,
     "upgradeCost": 1,
@@ -1579,6 +1609,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaGraceNote",
     "name": "Radiance",
+    "displayName": "辉光",
     "rarity": "Uncommon",
     "cost": 1,
     "upgradeCost": 1,
@@ -1606,6 +1637,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaColdStart",
     "name": "[NWAD]",
+    "displayName": "无昼无夜",
     "rarity": "Uncommon",
     "cost": 1,
     "upgradeCost": 1,
@@ -1628,8 +1660,8 @@ internal static class DesignJson { public const string Value = """
       },
       {
         "kind": "EnergyDebt",
-        "value": 1,
-        "upgrade": 1
+        "value": 2,
+        "upgrade": 2
       }
     ],
     "themes": [
@@ -1648,6 +1680,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaHandOff",
     "name": "NO ONE YES MAN",
+    "displayName": "无人应许",
     "rarity": "Uncommon",
     "cost": 1,
     "upgradeCost": 1,
@@ -1655,8 +1688,8 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "Attack",
-        "value": 10,
-        "upgrade": 14
+        "value": 13,
+        "upgrade": 17
       },
       {
         "kind": "Energy",
@@ -1681,6 +1714,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaChorus",
     "name": "GOODFORTUNE",
+    "displayName": "良幸",
     "rarity": "Uncommon",
     "cost": 2,
     "upgradeCost": 2,
@@ -1688,13 +1722,13 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "AllAttack",
-        "value": 12,
-        "upgrade": 16
+        "value": 18,
+        "upgrade": 22
       },
       {
         "kind": "AllWeak",
         "value": 2,
-        "upgrade": 2,
+        "upgrade": 3,
         "pay": 2
       }
     ],
@@ -1713,6 +1747,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaCadence",
     "name": "Don't Never Around",
+    "displayName": "循环",
     "rarity": "Uncommon",
     "cost": 2,
     "upgradeCost": 2,
@@ -1720,10 +1755,10 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "AttackBonus",
-        "value": 5,
-        "upgrade": 6,
-        "x": 3,
-        "ux": 3,
+        "value": 7,
+        "upgrade": 7,
+        "x": 4,
+        "ux": 6,
         "condition": "signal",
         "threshold": 1,
         "pay": 1
@@ -1745,6 +1780,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaRehearsal",
     "name": "Better Graphic Animation",
+    "displayName": "更好的动画",
     "rarity": "Uncommon",
     "cost": 1,
     "upgradeCost": 1,
@@ -1752,13 +1788,13 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "Block",
-        "value": 3,
-        "upgrade": 4
+        "value": 2,
+        "upgrade": 3
       },
       {
         "kind": "EchoSelf",
-        "value": 6,
-        "upgrade": 6
+        "value": 99,
+        "upgrade": 99
       }
     ],
     "themes": [
@@ -1776,6 +1812,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaReplayBuffer",
     "name": "青丘",
+    "displayName": "青丘",
     "rarity": "Uncommon",
     "cost": 0,
     "upgradeCost": 0,
@@ -1813,6 +1850,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaCarrierWave",
     "name": "インフェルノシティ",
+    "displayName": "炼狱都市",
     "rarity": "Uncommon",
     "cost": 2,
     "upgradeCost": 2,
@@ -1850,6 +1888,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaPhaseShift",
     "name": "Temporal Shifting",
+    "displayName": "时相迁移",
     "rarity": "Uncommon",
     "cost": 0,
     "upgradeCost": 0,
@@ -1883,6 +1922,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaAbsoluteDisorder",
     "name": "AbsoluTe disoRdeR",
+    "displayName": "绝对混乱",
     "rarity": "Rare",
     "cost": 2,
     "upgradeCost": 2,
@@ -1911,6 +1951,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaFeast",
     "name": "Rrhar'il",
+    "displayName": "猎犬",
     "rarity": "Rare",
     "cost": 2,
     "upgradeCost": 1,
@@ -1939,9 +1980,10 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaChristmasCarol",
     "name": "Entrance to the Chaos",
+    "displayName": "混沌入口",
     "rarity": "Rare",
-    "cost": 0,
-    "upgradeCost": 0,
+    "cost": 1,
+    "upgradeCost": 1,
     "type": "Skill",
     "steps": [
       {
@@ -1970,6 +2012,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaCrushBeta",
     "name": "Petrichor",
+    "displayName": "救赎",
     "rarity": "Rare",
     "cost": 2,
     "upgradeCost": 2,
@@ -1977,8 +2020,8 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "Attack",
-        "value": 40,
-        "upgrade": 50
+        "value": 45,
+        "upgrade": 55
       },
       {
         "kind": "DamageDebt",
@@ -2004,6 +2047,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaHappyDisease",
     "name": "Der Schneid",
+    "displayName": "勇气",
     "rarity": "Rare",
     "cost": 1,
     "upgradeCost": 0,
@@ -2032,6 +2076,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaMomentarySunrise",
     "name": "Distorted Fate",
+    "displayName": "扭曲命运",
     "rarity": "Rare",
     "cost": 0,
     "upgradeCost": 0,
@@ -2071,6 +2116,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaOverdraftSuite",
     "name": "QZKago Requiem",
+    "displayName": "安魂曲",
     "rarity": "Rare",
     "cost": 1,
     "upgradeCost": 1,
@@ -2098,6 +2144,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaTimeMortgage",
     "name": "DESTRUCTION 3,2,1",
+    "displayName": "毁灭倒数",
     "rarity": "Rare",
     "cost": 0,
     "upgradeCost": 0,
@@ -2135,9 +2182,10 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaDebtClearing",
     "name": "+ERABY+E CONNEC+10N",
+    "displayName": "星兆连接",
     "rarity": "Rare",
-    "cost": 1,
-    "upgradeCost": 1,
+    "cost": 0,
+    "upgradeCost": 0,
     "type": "Skill",
     "steps": [
       {
@@ -2172,6 +2220,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaRainbowSignal",
     "name": "祈 -我ら神祖と共に歩む者なり-",
+    "displayName": "神明共行者",
     "rarity": "Rare",
     "cost": 1,
     "upgradeCost": 0,
@@ -2200,6 +2249,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaPhantomEnsemble",
     "name": "Stardust:RAY",
+    "displayName": "星尘之光",
     "rarity": "Rare",
     "cost": 1,
     "upgradeCost": 1,
@@ -2232,6 +2282,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaFullPlayback",
     "name": "Re：End of a Dream",
+    "displayName": "终梦",
     "rarity": "Rare",
     "cost": 2,
     "upgradeCost": 2,
@@ -2258,6 +2309,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaLastTransmission",
     "name": "Hydra",
+    "displayName": "九首蛇",
     "rarity": "Rare",
     "cost": 2,
     "upgradeCost": 2,
@@ -2265,10 +2317,10 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "SignalAttack",
-        "value": 6,
-        "upgrade": 6,
-        "x": 3,
-        "ux": 4,
+        "value": 0,
+        "upgrade": 0,
+        "x": 4,
+        "ux": 5,
         "cap": 10
       }
     ],
@@ -2283,11 +2335,12 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 17.1,
     "artSourceSha256": "abd3d10633f8163fcda527f64e46623079926c155450bbfc1dfd96518cd80e52",
     "keywords": [],
-    "description": "消耗至多10点信号。造成{V0:diff()}点伤害。每消耗1点信号，额外造成{X0:diff()}点伤害。"
+    "description": "消耗至多10点信号。每消耗1点信号，额外造成{X0:diff()}点伤害。"
   },
   {
     "className": "GeopeliaSignalSingularity",
     "name": "幻影鬼魅 (PLEASE)",
+    "displayName": "幻影鬼魅",
     "rarity": "Rare",
     "cost": 1,
     "upgradeCost": 1,
@@ -2317,6 +2370,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaNoiseGate",
     "name": "玩具狂奏曲 -終焉-",
+    "displayName": "玩具狂奏曲",
     "rarity": "Rare",
     "cost": 1,
     "upgradeCost": 1,
@@ -2324,16 +2378,17 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "Block",
-        "value": 9,
-        "upgrade": 12
-      },
-      {
-        "kind": "Draw",
-        "value": 1,
-        "upgrade": 2
+        "value": 11,
+        "upgrade": 14
       },
       {
         "kind": "RepayEnergy",
+        "value": 1,
+        "upgrade": 1,
+        "pay": 2
+      },
+      {
+        "kind": "RepayDraw",
         "value": 2,
         "upgrade": 2,
         "pay": 2
@@ -2350,11 +2405,12 @@ internal static class DesignJson { public const string Value = """
     "chartConstant": 17.0,
     "artSourceSha256": "a8b283c7f65559b03491ecdaa8546e8d827f073ec6c16848255286c33f620292",
     "keywords": [],
-    "description": "获得{V0:diff()}点格挡。\n抽{V1:diff()}张牌。\n消耗2点信号：减少{V2:diff()}点下回合的能量透支。"
+    "description": "获得{V0:diff()}点格挡。\n消耗2点信号：减少{V1:diff()}点下回合的能量透支。\n消耗2点信号：减少{V2:diff()}张下回合的抽牌透支。"
   },
   {
     "className": "GeopeliaSustainAmplifier",
     "name": "Archidoxen",
+    "displayName": "秘奥之书",
     "rarity": "Rare",
     "cost": 2,
     "upgradeCost": 1,
@@ -2382,6 +2438,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaTachycardia",
     "name": "INFiNiTE ENERZY -Overdoze-",
+    "displayName": "无尽超量",
     "rarity": "Rare",
     "cost": 2,
     "upgradeCost": 1,
@@ -2410,6 +2467,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaOpeningTheme",
     "name": "Der Richter",
+    "displayName": "法官",
     "rarity": "Rare",
     "cost": 2,
     "upgradeCost": 2,
@@ -2417,13 +2475,13 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "Strength",
-        "value": 3,
-        "upgrade": 5
+        "value": 4,
+        "upgrade": 6
       },
       {
         "kind": "Dexterity",
-        "value": 3,
-        "upgrade": 5
+        "value": 4,
+        "upgrade": 6
       },
       {
         "kind": "Power",
@@ -2447,6 +2505,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaSafetyCopy",
     "name": "sølips",
+    "displayName": "太阳",
     "rarity": "Rare",
     "cost": 1,
     "upgradeCost": 0,
@@ -2454,8 +2513,8 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "Block",
-        "value": 6,
-        "upgrade": 6
+        "value": 10,
+        "upgrade": 11
       },
       {
         "kind": "Replay",
@@ -2478,6 +2537,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaContinuousTake",
     "name": "Spasmodic",
+    "displayName": "痉挛",
     "rarity": "Rare",
     "cost": 0,
     "upgradeCost": 0,
@@ -2516,6 +2576,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaMastering",
     "name": "PRAGMATISM -RESURRECTION-",
+    "displayName": "复生",
     "rarity": "Rare",
     "cost": 1,
     "upgradeCost": 1,
@@ -2544,15 +2605,16 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaArchiveLost",
     "name": "BANGING STRIKE",
+    "displayName": "超级打击",
     "rarity": "Rare",
     "cost": 1,
-    "upgradeCost": 0,
+    "upgradeCost": 1,
     "type": "Skill",
     "steps": [
       {
         "kind": "Ancient",
         "value": 1,
-        "upgrade": 1
+        "upgrade": 2
       }
     ],
     "themes": [
@@ -2573,6 +2635,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaMonochromeBreak",
     "name": "Igallta",
+    "displayName": "方舟",
     "rarity": "Rare",
     "cost": 2,
     "upgradeCost": 2,
@@ -2580,7 +2643,7 @@ internal static class DesignJson { public const string Value = """
     "steps": [
       {
         "kind": "AllAttack",
-        "value": 23,
+        "value": 25,
         "upgrade": 30
       },
       {
@@ -2616,49 +2679,43 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaQuietCoda",
     "name": "Stasis",
+    "displayName": "船",
     "rarity": "Rare",
-    "cost": 0,
-    "upgradeCost": 0,
+    "cost": 1,
+    "upgradeCost": 1,
     "type": "Skill",
     "steps": [
       {
-        "kind": "Block",
-        "value": 11,
-        "upgrade": 15
-      },
-      {
-        "kind": "DrawDebt",
-        "value": 1,
-        "upgrade": 1
+        "kind": "AddReplay",
+        "value": 2,
+        "upgrade": 3
       }
     ],
     "themes": [
-      "透支",
       "多牌"
     ],
     "replays": 0,
-    "keywords": [
-      "Exhaust"
-    ],
     "portrait": "geopeliaquietcoda.tres",
     "entry": "PHIGROS_JIU_GEOPELIA_QUIET_CODA",
     "songId": "Stasis.Maozon",
     "chartConstant": 16.7,
     "artSourceSha256": "36dee2b4dffd00633674d892267040aba5e825c9edd903481b0aa11e102fe2fa",
-    "description": "获得{V0:diff()}点格挡。\n[red]透支[/red]：下回合少抽{V1:diff()}张牌。"
+    "keywords": [],
+    "description": "选择一张已有[gold]重放[/gold]的手牌，使其本场战斗的[gold]重放[/gold]次数增加{V0:diff()}。"
   },
   {
     "className": "GeopeliaWorldEcho",
     "name": "Cuvism³",
+    "displayName": "立方",
     "rarity": "Rare",
-    "cost": 3,
-    "upgradeCost": 3,
+    "cost": 4,
+    "upgradeCost": 2,
     "type": "Power",
     "steps": [
       {
         "kind": "Power",
         "value": 2,
-        "upgrade": 3,
+        "upgrade": 2,
         "power": "WorldEcho"
       }
     ],
@@ -2676,8 +2733,38 @@ internal static class DesignJson { public const string Value = """
     "description": "每回合前{V0:diff()}张可重放的手动非能力牌，各消耗2点信号并重放1。信号不足时不触发。"
   },
   {
+    "className": "GeopeliaHate",
+    "name": "ハテ",
+    "displayName": "幽蓝形态",
+    "rarity": "Rare",
+    "cost": 3,
+    "upgradeCost": 2,
+    "type": "Power",
+    "steps": [
+      {
+        "kind": "Power",
+        "value": 1,
+        "upgrade": 1,
+        "power": "Hate"
+      }
+    ],
+    "themes": [
+      "伤害",
+      "多牌"
+    ],
+    "replays": 0,
+    "portrait": "geopeliahate.tres",
+    "entry": "PHIGROS_JIU_GEOPELIA_HATE",
+    "songId": "ハテ.rNFrums",
+    "chartConstant": 17.9,
+    "artSourceSha256": "23dc63bb563c730864cbc2594253fc6965f8ab21172fdea46076246dd838973a",
+    "keywords": [],
+    "description": "回合开始时，你造成和受到的伤害翻倍。打出{V0:diff()}张牌后退出该状态，并令下次退出所需的出牌数增加1。"
+  },
+  {
     "className": "GeopeliaOldRecording",
     "name": "Desultory Signals",
+    "displayName": "断续“信号”",
     "rarity": "Ancient",
     "cost": 2,
     "upgradeCost": 2,
@@ -2767,6 +2854,7 @@ internal static class DesignJson { public const string Value = """
   {
     "className": "GeopeliaTowerResonance",
     "name": "Exoplanetary Mirage",
+    "displayName": "系外幻境",
     "rarity": "Ancient",
     "cost": 1,
     "upgradeCost": 1,

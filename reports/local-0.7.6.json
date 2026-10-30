@@ -1,0 +1,31 @@
+{
+  "version": "0.7.6",
+  "date": "2026-10-23",
+  "result": "PASS",
+  "installed": false,
+  "installedVersion": "0.7.5",
+  "installationDeferredByUser": true,
+  "gitCommitOrPush": false,
+  "chineseNames": 85,
+  "mechanicsUnchangedFromBeforeNaming": true,
+  "editorTests": 19,
+  "native": {
+    "timestamp_utc": "2026-10-23T14:33:18.2169723Z",
+    "cases": 31,
+    "checks": 2476,
+    "installed_dll_sha256": "2AC5B707E0FBE57B9409D4DB0CF57253CE4B277F9EE71BC44FB5C1A5E6220D4F",
+    "peer_tested_dll_sha256": "964DEB35218D94CC94080992C5B879B6C87FA7706F54BEEAF859DE7B01556AD8",
+    "peer_tested_pack_sha256": "70347B90384EE98CA4DA207E037CEC50937984DD50DB479FAECB344CCDD56F88",
+    "staged": true,
+    "result": "PASS",
+    "validation_mode": "editor-features",
+    "tested_pack_sha256": "9FDEF4060CF66C6412A550E5A646759BE613DD9B81C7572DD00CE799F1BFDD8A",
+    "design_sha256": "1D28F84C87D88585652BD02B03DF60743B1786E693542142D6466DAFB8497ACC",
+    "installed_pack_sha256": "5996EA247537119EE7E5669A38C1E24C7718B8E0FB671530E2DED43B41996DCC"
+  },
+  "resources": 818,
+  "coexistenceChecksPerOrder": 1248,
+  "peerFilesUnchanged": 6,
+  "editorPort": 18774,
+  "sourceDesignSha256": "9ffecff2e0e37d57b37c6d07d59e03ac01978f66ce70e04705bdc850cf8b6c76"
+}

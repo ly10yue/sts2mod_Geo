@@ -9,15 +9,15 @@ ROOT = Path(__file__).resolve().parents[1]
 def main():
     root=ROOT
     cards=json.loads((root/'content/cards.json').read_text(encoding='utf-8'))
-    rehearsal_name=next(c['name'] for c in cards if c['className']=='GeopeliaRehearsal')
-    archive_name=next(c['name'] for c in cards if c['className']=='GeopeliaArchiveLost')
+    rehearsal_name=next(c['displayName'] for c in cards if c['className']=='GeopeliaRehearsal')
+    archive_name=next(c['displayName'] for c in cards if c['className']=='GeopeliaArchiveLost')
     powers=re.findall(r'public sealed class (Geopelia\w+Power)\s*:',(root/'src/Powers.cs').read_text(encoding='utf-8'))
     def slug(s):return re.sub(r'(?<!^)(?=[A-Z])','_',s).lower()
     pack=root/'build/godot/PhigrosJiu'
     old_icon=pack/'icons/powers/geopelia_combo_power.png'
     for name in powers:
         p=pack/'icons/powers'/f'{slug(name)}.png'
-        if not p.exists():shutil.copyfile(old_icon,p)
+        # prepare_icons supplies a distinct illustration crop for every model.
     registry={'powers':[{'className':p,'entry':'PHIGROS_JIU_'+slug(p).upper(),'icon':slug(p)+'.png'} for p in powers],
               'rarities':card_design.EXPECTED,'signalCap':24}
     (root/'content/mechanics.json').write_text(json.dumps(registry,ensure_ascii=False,indent=2),encoding='utf-8')
@@ -59,7 +59,7 @@ def main():
         cp.write_text(json.dumps(ch,ensure_ascii=False,indent=2),encoding='utf-8')
     # Fully specified reference table: one row per real card and both upgrade states.
     labels={'Basic':'基础','Common':'普通','Uncommon':'罕见','Rare':'稀有','Ancient':'先古'}
-    lines=['# 鸠 · 卡牌设计','', '主卡池85张：基础4、普通25、罕见29、稀有25、先古2，与沙耶1.8.5 API1110标注主卡池的卡牌数量一致。','',
+    lines=['# 鸠 · 卡牌设计','', '主卡池86张：基础4、普通25、罕见29、稀有26、先古2。在原85张牌上新增HATE稀有能力牌。','',
       '信号是正面储存资源，初始上限24，可由 Evanescent 提高，不自然衰减；主动消耗由牌面规定。起始遗物在战斗开始时给予1点信号，每回合每3次出牌再给予1点。', '',
       '重复打出使用原生重复结算，额外打出也计入出牌数。历史回放只选本回合此前手动打出的非能力、非X费、非回放引擎牌，使用原牌免费自动打出，保留升级、附魔和原生重放次数，不额外添加消耗。'+rehearsal_name+' 只由其他手动牌触发。', '',
       '透支在下回合结算。能量与抽牌透支可累计且最低降至0；伤害、格挡减半的同类透支不叠加。跨战斗不保留透支或信号。','',
@@ -82,7 +82,7 @@ def main():
         kws='、'.join({'Exhaust':'消耗','Innate':'固有','Retain':'保留','Ethereal':'虚无','Unplayable':'不能被打出','Sly':'奇巧','Eternal':'永恒'}[k] for k in c.get('keywords',[]))
         upgrade_kws='、'.join({'Exhaust':'消耗','Innate':'固有','Retain':'保留','Ethereal':'虚无','Unplayable':'不能被打出','Sly':'奇巧','Eternal':'永恒'}[k] for k in c.get('upgradeKeywords',[]))
         if upgrade_kws:kws+='（升级新增：'+upgrade_kws+'）'
-        lines.append(f'| {labels[c["rarity"]]} | {c["name"]} | {c["cost"]}→{c["upgradeCost"]} | {c["type"]} | {" / ".join(c["themes"])} | {summary} {kws} |')
+        lines.append(f'| {labels[c["rarity"]]} | {c["displayName"]}（{c["name"]}） | {c["cost"]}→{c["upgradeCost"]} | {c["type"]} | {" / ".join(c["themes"])} | {summary} {kws} |')
     (root/'DESIGN.md').write_text('\n'.join(lines),encoding='utf-8')
     print('DESIGN_ASSETS_OK cards=%d powers=%d'%(len(cards),len(powers)))
 

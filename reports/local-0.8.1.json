@@ -1,0 +1,53 @@
+{
+  "version": "0.8.1",
+  "date": "2026-10-30",
+  "result": "PASS",
+  "installed": false,
+  "gitCommitOrPush": false,
+  "uniqueIcons": 38,
+  "uniqueSourceCrops": 38,
+  "relicOwnsRecorderTrigger": true,
+  "nativeCounterLabelUpdates": true,
+  "editorTests": 20,
+  "nativeChecks": 2605,
+  "nativeCases": 37,
+  "resourceChecks": 830,
+  "coexistenceChecksPerOrder": 1259,
+  "models": 226,
+  "installedAndPeerFilesUnchanged": true,
+  "preservedLatestUserEdits": true,
+  "nativeProof": {
+    "installed_pack_sha256": "9D2A2C535AAF1C356C7D8A3B3D41071AADC5638AF07EB90C41107DF5AFF1E719",
+    "checks": 2605,
+    "tested_pack_sha256": "F24F80C0AAAF1FC5B3D1631FFEF745F05FC59195CA92423E1CF85BE003B8AB8B",
+    "cases": 37,
+    "timestamp_utc": "2026-10-30T11:41:50.0550423Z",
+    "validation_mode": "editor-features",
+    "design_sha256": "15B88EB1ADECD933EBA316E725F361A87579818622710F435466B9491E8F76B7",
+    "staged": true,
+    "result": "PASS",
+    "installed_dll_sha256": "00B318EC1BBCE7CF171C4E5BE97002945DED3940AC92A56D78A7E2179306F767",
+    "peer_tested_dll_sha256": "964DEB35218D94CC94080992C5B879B6C87FA7706F54BEEAF859DE7B01556AD8",
+    "peer_tested_pack_sha256": "70347B90384EE98CA4DA207E037CEC50937984DD50DB479FAECB344CCDD56F88"
+  },
+  "packageManifest": {
+    "version": "0.8.1",
+    "text_hash_format": "UTF-8 with LF line endings",
+    "design_sha256": "1ec3093648e524ef8f9eceffda423f150e166130fc46a6c1a87bfc03b36e90ae",
+    "source_design_sha256": "6e78d9e4cefc313f95d3f8f34a23a8117ca7c67431f20f7968b46509e2a82dd1",
+    "files": {
+      "PhigrosJiu.dll": {
+        "bytes": 410624,
+        "sha256": "509f8422a9e89ec5d26941c7db08161e5d91bbcf0ee41d881e0e50c7ee2546fd"
+      },
+      "PhigrosJiu.pck": {
+        "bytes": 354502720,
+        "sha256": "f24f80c0aaaf1fc5b3d1631ffef745f05fc59195ca92423e1cf85be003b8ab8b"
+      },
+      "PhigrosJiu.json": {
+        "bytes": 427,
+        "sha256": "34fd77da9c0d8afb25503f5d0c33da42020d7a19c77363ea9fd44c1c7c58d2e8"
+      }
+    }
+  }
+}

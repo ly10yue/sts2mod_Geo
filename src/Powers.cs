@@ -84,9 +84,18 @@ public sealed class GeopeliaFutureRestartPower : GeopeliaPower
 public abstract class GeopeliaMechanicPower : GeopeliaPower
 {
     public virtual string Mode => "";
-    [SavedProperty] public int Plays { get; set; }
-    [SavedProperty] public int Used { get; set; }
-    [SavedProperty] public int Progress { get; set; }
+    public override int DisplayAmount => Mode switch {
+        "Rhythm"=>3-Plays%3, "PulseGuard"=>Used>=4?0:3-Plays%3, "RhythmDraw"=>Used>=3?0:3-Plays%3,
+        "EchoGuard"=>Math.Max(0,6-Used), "EchoSignal" or "OpeningSignal"=>Math.Max(0,Amount-Used),
+        _=>this switch { GeopeliaSignalDrawPower=>Used>=3?0:3-Progress%3, GeopeliaDebtDrawPower=>Math.Max(0,2-Used),
+        GeopeliaBeaconPower or GeopeliaSignalEchoPower=>Used>0?0:1, GeopeliaWorldEchoPower=>Math.Max(0,Amount-Used), _=>base.DisplayAmount }
+    };
+    private int _counterPlays;
+    [SavedProperty] public int Plays { get=>_counterPlays; set { _counterPlays=value; InvokeDisplayAmountChanged(); } }
+    private int _counterUsed;
+    [SavedProperty] public int Used { get=>_counterUsed; set { _counterUsed=value; InvokeDisplayAmountChanged(); } }
+    private int _counterProgress;
+    [SavedProperty] public int Progress { get=>_counterProgress; set { _counterProgress=value; InvokeDisplayAmountChanged(); } }
     public override Task BeforeSideTurnStart(PlayerChoiceContext context, CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {
         if (participants.Contains(Owner)) { Plays = Used = Progress = 0; }
@@ -104,8 +113,6 @@ public abstract class GeopeliaMechanicPower : GeopeliaPower
                 Used++; await CreatureCmd.GainBlock(Owner, Amount, ValueProp.Unpowered, null); break;
             case "RhythmDraw" when Plays % 3 == 0 && Used < 3:
                 Used++; await CardPileCmd.Draw(context, Amount, Owner.Player!); break;
-            case "Aerial" when !play.IsAutoPlay && play.IsFirstInSeries && play.Card.Type == CardType.Skill && Used < 3:
-                Used++; await Runtime.AddSignal(context, Owner.Player!, Amount); break;
             case "EchoGuard" when Runtime.IsRepeat(play) && Used < 6:
                 Used++; await CreatureCmd.GainBlock(Owner, Amount, ValueProp.Unpowered, null); break;
             case "EchoSignal" when Runtime.IsRepeat(play) && Used < Amount:
@@ -115,8 +122,81 @@ public abstract class GeopeliaMechanicPower : GeopeliaPower
         }
     }
 }
-public sealed class GeopeliaRhythmPower : GeopeliaMechanicPower { public override string Mode => "Rhythm"; }
-public sealed class GeopeliaAerialPower : GeopeliaMechanicPower { public override string Mode => "Aerial"; }
+public sealed class GeopeliaRhythmPower : GeopeliaMechanicPower
+{
+    public override string Mode=>"Rhythm";
+    protected override bool IsVisibleInternal=>Owner?.Player?.GetRelic<GeopeliaJudgmentLine>() is null;
+    public override Task AfterCardPlayed(PlayerChoiceContext context, CardPlay play)
+        =>Owner.Player?.GetRelic<GeopeliaJudgmentLine>() is not null?Task.CompletedTask:base.AfterCardPlayed(context,play);
+}
+// Separate native instances preserve each copy's interval and progress, including mixed upgrades.
+public sealed class GeopeliaAerialPower : GeopeliaPower
+{
+    public override int DisplayAmount=>Math.Max(0,Amount-Progress);
+    public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
+    private int _counterProgress;
+    [SavedProperty] public int Progress { get=>_counterProgress; set { _counterProgress=value; InvokeDisplayAmountChanged(); } }
+    [SavedProperty] public int AppliedAfterPlayCount { get; set; }
+    public override Task AfterApplied(Creature? applier, CardModel? cardSource)
+    {
+        AppliedAfterPlayCount = CombatManager.Instance.History.CardPlaysStarted.Count(e => e.CardPlay.Player == Owner.Player);
+        return Task.CompletedTask;
+    }
+    public override async Task AfterCardPlayedLate(PlayerChoiceContext context, CardPlay play)
+    {
+        if (play.Player != Owner.Player || CombatManager.Instance.IsOverOrEnding) return;
+        var started = CombatManager.Instance.History.CardPlaysStarted.Where(e => e.CardPlay.Player == Owner.Player).ToArray();
+        int index = Array.FindIndex(started, e => ReferenceEquals(e.CardPlay, play));
+        // A newly applied copy begins after its source resolution. Existing copies still count that card.
+        if (index >= 0 && index < AppliedAfterPlayCount) return;
+        Progress++;
+        if (Progress < Math.Max(1, Amount)) return;
+        Progress -= Math.Max(1, Amount); // Commit before native autoplay can reenter this hook.
+        Flash();
+        var target = play.Target is { IsAlive: true } ? play.Target : null;
+        // Supports attack, skill, power, X-cost and existing replay/enchantment effects.
+        // X repeats use the already-paid captured value; replay itself spends no resources.
+        await CardCmd.AutoPlay(context, play.Card, target, skipXCapture: true);
+    }
+}
+
+public sealed class GeopeliaHatePower : GeopeliaPower
+{
+    public override int DisplayAmount=>Active?Math.Max(0,Amount-Plays):0;
+    public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
+    private bool _counterActive;
+    [SavedProperty] public bool Active { get=>_counterActive; set { _counterActive=value; InvokeDisplayAmountChanged(); } }
+    private int _counterPlays;
+    [SavedProperty] public int Plays { get=>_counterPlays; set { _counterPlays=value; InvokeDisplayAmountChanged(); } }
+    [SavedProperty] public int ActivatedOnTurn { get; set; } = -1;
+    public override Task AfterApplied(Creature? applier, CardModel? cardSource)
+    {
+        // The cast grants the permanent engine; its damage state starts on the next owner turn.
+        ActivatedOnTurn = Owner.Player!.PlayerCombatState!.TurnNumber;
+        return Task.CompletedTask;
+    }
+    public override Task BeforeSideTurnStart(PlayerChoiceContext context, CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
+    {
+        int turn = Owner.Player!.PlayerCombatState!.TurnNumber;
+        if (side == CombatSide.Player && participants.Contains(Owner) && turn > ActivatedOnTurn)
+        {
+            Active = true; Plays = 0; ActivatedOnTurn = turn;
+            Flash();
+        }
+        return Task.CompletedTask;
+    }
+    public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? play)
+        => Active && !props.HasFlag(ValueProp.Unblockable) && (dealer == Owner || target == Owner) ? 2m : 1m;
+    public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay play)
+    {
+        if (!Active || play.Player != Owner.Player) return;
+        Plays++;
+        if (Plays < Amount) return;
+        Active = false; // The threshold card gets doubled; subsequent replays do not.
+        await PowerCmd.ModifyAmount(context, this, 1, Owner, null);
+    }
+}
+
 public sealed class GeopeliaBeaconPower : GeopeliaMechanicPower
 {
     public async Task Spent(PlayerChoiceContext context)
@@ -144,15 +224,20 @@ public sealed class GeopeliaRichterPower : GeopeliaPower
 
 public sealed class GeopeliaArchidoxenPower : GeopeliaPower
 {
+    public override int DisplayAmount=>3-(EnergyUsed?1:0)-(DrawUsed?1:0)-(TypeUsed?1:0);
     [SavedProperty] public bool HasPrevious { get; set; }
     [SavedProperty] public int PreviousCost { get; set; }
     [SavedProperty] public int PreviousRarity { get; set; }
     [SavedProperty] public int PreviousType { get; set; }
     [SavedProperty] public bool PreviousCostsX { get; set; }
-    [SavedProperty] public bool EnergyUsed { get; set; }
-    [SavedProperty] public bool DrawUsed { get; set; }
-    [SavedProperty] public bool TypeUsed { get; set; }
-    [SavedProperty] public int PendingDoubles { get; set; }
+    private bool _counterEnergyUsed;
+    [SavedProperty] public bool EnergyUsed { get=>_counterEnergyUsed; set { _counterEnergyUsed=value; InvokeDisplayAmountChanged(); } }
+    private bool _counterDrawUsed;
+    [SavedProperty] public bool DrawUsed { get=>_counterDrawUsed; set { _counterDrawUsed=value; InvokeDisplayAmountChanged(); } }
+    private bool _counterTypeUsed;
+    [SavedProperty] public bool TypeUsed { get=>_counterTypeUsed; set { _counterTypeUsed=value; InvokeDisplayAmountChanged(); } }
+    private int _counterPendingDoubles;
+    [SavedProperty] public int PendingDoubles { get=>_counterPendingDoubles; set { _counterPendingDoubles=value; InvokeDisplayAmountChanged(); } }
 
     private void Record(CardModel card,int cost)
     {

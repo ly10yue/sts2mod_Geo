@@ -1,5 +1,5 @@
 {
-  "version": "0.5.0",
+  "version": "0.8.0",
   "constantRule": "maximum chart constant (EZ/HD/IN/AT)",
   "metadataSource": "https://raw.githubusercontent.com/7aGiven/Phigros_Resource/info/difficulty.tsv",
   "illustrationTreeSha": "4988ce8cbb54246a3bbe0e2513b90ddde44be1bb",
@@ -1925,6 +1925,30 @@
       "width": 2048,
       "height": 1080,
       "portrait": "geopeliatowerresonance.tres"
+    },
+    {
+      "songId": "ハテ.rNFrums",
+      "name": "ハテ",
+      "composer": "rN || Frums",
+      "artist": "宙風みけ || rN",
+      "constant": 17.9,
+      "charts": [
+        9.0,
+        13.9,
+        16.7,
+        17.9
+      ],
+      "className": "GeopeliaHate",
+      "rarity": "Rare",
+      "oldName": "ハテ",
+      "sourceUrl": "https://raw.githubusercontent.com/7aGiven/Phigros_Resource/illustration/%E3%83%8F%E3%83%86.rNFrums.png",
+      "sourceFile": "assets/song_illustrations/ハテ.rNFrums.png",
+      "sha256": "23dc63bb563c730864cbc2594253fc6965f8ab21172fdea46076246dd838973a",
+      "gitBlobSha": "ad9a4e5291f357651809dbab77a0a345654bd87a",
+      "width": 2048,
+      "height": 1080,
+      "portrait": "geopeliahate.tres",
+      "rarityOverrideReason": "用户明确指定HATE为稀有牌，保留真实最高谱面定数17.9。"
     }
   ]
 }

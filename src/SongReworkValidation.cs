@@ -65,7 +65,8 @@ internal static partial class GameValidation
             if(upgraded){card.UpgradeInternal();card.FinalizeUpgradeInternal();}
             Check(card.EnergyCost.GetResolved()==2 && !card.Keywords.Contains(CardKeyword.Innate),"Richter is a two-cost power without old Innate");
             await f.Play(card);
-            int amount=upgraded?5:3;
+            var strength=((GeopeliaCard)card).Definition.Steps.Single(s=>s.Kind=="Strength");
+            int amount=upgraded?strength.Upgrade:strength.Value;
             Check(f.Player.Creature.GetPowerAmount<StrengthPower>()==amount && f.Player.Creature.GetPowerAmount<DexterityPower>()==amount,"Richter grants permanent Strength and Dexterity");
             Check(f.Player.PlayerCombatState!.Energy==97,"Richter does not charge its turn-start penalty on play");
             for(int turn=0;turn<2;turn++)

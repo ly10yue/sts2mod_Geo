@@ -1,4 +1,4 @@
-"""Loopback-only card editor. Writes numeric AST literals to the authoritative design."""
+"""Loopback-only card editor. Writes name, keyword and numeric AST literals to the authoritative design."""
 import ast
 import copy
 import hashlib
@@ -24,7 +24,7 @@ KINDS = dict(Attack='单体伤害', AllAttack='全体伤害', AttackBonus='伤�
     ExhaustDrawReplay='消耗选牌并抽牌，消耗状态或诅咒时重放', SignalExecute='按信号倍数斩杀（数值为倍数）', FatalRewardAttack='伤害与斩杀奖励稀有度提升', Draw='抽牌', Energy='获得能量', Signal='获得信号', EnergyDebt='能量透支', DrawDebt='抽牌透支', SignalDebt='信号透支',
     DamageDebt='伤害透支（%）', BlockDebt='格挡透支（%）', Weak='虚弱', AllWeak='全体虚弱', AllVulnerable='全体易伤',
     SignalAttack='消耗信号造成伤害', SignalBlock='消耗信号获得格挡', RepayEnergy='减少能量透支（99 为全部）', RepayDraw='减少抽牌透支（99 为全部）',
-    RareNonPower='生成随机稀有非能力牌', EndlessSignal='不息的信号（下回合生成免费技能并传递）', Power='能力层数', Strength='获得力量', Dexterity='获得敏捷', SignalStrength='全部信号转为力量', SignalRare='消耗信号生成稀有牌（数值为每张耗量）', DebtAttack='按本场透支出牌次数攻击', HandSignalAttack='全部能量 × 信号 × 消耗手牌数（1启用，0移除）', Replay='重放此前卡牌', EchoSelf='试演次数', Ancient='生成先古牌')
+    RareNonPower='生成随机稀有非能力牌', EndlessSignal='不息的信号（下回合生成免费技能并传递）', Power='能力层数', Strength='获得力量', Dexterity='获得敏捷', SignalStrength='全部信号转为力量', SignalRare='消耗信号生成稀有牌（数值为每张耗量）', DebtAttack='按本场透支出牌次数攻击', HandSignalAttack='全部能量 × 信号 × 消耗手牌数（1启用，0移除）', AddReplay='为已有重放的手牌增加重放次数', Replay='重放此前卡牌', EchoSelf='试演次数', Ancient='生成先古牌')
 KEYWORDS = dict(Exhaust=('消耗','打出后在本场战斗中移除。'), Ethereal=('虚无','回合结束时仍在手牌中则消耗。'),
     Innate=('固有','战斗开始时出现在起始手牌中。'), Retain=('保留','回合结束时不会自动弃掉。'),
     Unplayable=('不能被打出','无法手动打出。'), Sly=('奇巧','在回合结束前被弃掉时，免费打出。'),
@@ -65,7 +65,7 @@ def validate_steps(steps):
         for field in ('value','upgrade','x','ux','pay','cap','threshold'):
             if field in s and (type(s[field]) is not int or not 0<=s[field]<=9999):raise ValueError('效果数值应为0至9999的整数')
         if 'value' not in s or 'upgrade' not in s:raise ValueError('效果缺少基础或升级值')
-        if s.get('condition','') not in ('','replay','plays','lastAttack','lastSkill','debt','signal'):raise ValueError('未知触发条件')
+        if s.get('condition','') not in ('','replay','plays','lastAttack','lastSkill','debt','signal','perPlay'):raise ValueError('未知触发条件')
         if s['kind']=='Power' and s.get('power') not in card_design.POWER_TEXT:raise ValueError('未知能力')
         result.append(s)
     return result
@@ -107,6 +107,7 @@ def read_cards(source):
             replays=arg(call, 'replays', default=0), signalReplayCost=arg(call, 'signalReplayCost', default=0),
             playedReplayThreshold=arg(call, 'playedReplayThreshold', default=0), keywords=arg(call, 'keywords', default=[]),
             themes=arg(call, 'theme', 6).split('/'))
+        card['displayName']=arg(call,'displayName',default=card['name'])
         for optional in ('upgradeKeywords','descriptionOverride','costsX'):
             value=arg(call,optional,default=None)
             if value is not None:card[optional]=value
@@ -121,8 +122,8 @@ def read_cards(source):
             raise ValueError('重复卡牌标识')
         nodes[key] = call
         cards.append(card)
-    if len(cards) != 85:
-        raise ValueError('设计应包含 85 张卡牌')
+    if len(cards) != sum(card_design.EXPECTED.values()):
+        raise ValueError('设计卡牌数量与当前牌池配置不符')
     return cards, nodes
 
 
@@ -153,6 +154,10 @@ def patch_source(source, patches):
         if not isinstance(card, str) or card not in nodes or not isinstance(field, str):
             raise ValueError('卡牌或字段无效')
         call = nodes[card]
+        if field=='displayName':
+            if not isinstance(value,str) or not 1<=len(value.strip())<=24 or any(ord(ch)<32 or ch in '[]{}<>' for ch in value) or not value.isprintable():
+                raise ValueError('中文名须为1至24字，不能包含换行或格式标记')
+            put(call,field,value.strip());changed.add(card);continue
         if field=='steps':
             set_steps(call,validate_steps(value));changed.add(card);continue
         if field.startswith(('keywords.','upgradeKeywords.')):
@@ -188,7 +193,7 @@ def patch_source(source, patches):
     edits = []
     for key in changed:
         node = nodes[key]
-        normalize_call(node)
+        if any(p['card']==key and p['field']!='displayName' for p in patches):normalize_call(node)
         edits.append((offsets[node.lineno - 1] + node.col_offset,
             offsets[node.end_lineno - 1] + node.end_col_offset, ast.unparse(node).encode('utf-8')))
     result = source.encode('utf-8')
@@ -204,7 +209,7 @@ def decorate(cards):
         for step in card['steps']:
             if step['kind'] == 'Power':
                 old = card_design.POWER_TEXT[step['power']]
-                card_design.POWER_TEXT[step['power']] = (card['name'], old[1])
+                card_design.POWER_TEXT[step['power']] = (card['displayName'], old[1])
     for card in cards:
         descriptions = []
         for upgraded in (False, True):
@@ -218,6 +223,8 @@ def decorate(cards):
         card['rarityLabel'] = RARITIES[card['rarity']]
         for step in card['steps']:
             step['label'] = KINDS.get(step['kind'], step['kind'])
+            if step.get('power')=='Aerial':step['label']='每次重放所需出牌数'
+            if step.get('power')=='Hate':step['label']='初始退出状态所需出牌数'
     return cards
 
 
@@ -313,7 +320,7 @@ class Editor:
             return self.job_state()
 
 
-def make_server(editor, port=18772, token=None):
+def make_server(editor, port=18775, token=None):
     token = token or secrets.token_urlsafe(32)
     class Handler(BaseHTTPRequestHandler):
         def log_message(self, *args):
@@ -393,7 +400,7 @@ def make_server(editor, port=18772, token=None):
 def main():
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument('--port', type=int, default=18772)
+    parser.add_argument('--port', type=int, default=18775)
     parser.add_argument('--no-browser', action='store_true')
     args = parser.parse_args()
     server = make_server(Editor(), args.port, os.environ.get('JIU_EDITOR_TOKEN'))

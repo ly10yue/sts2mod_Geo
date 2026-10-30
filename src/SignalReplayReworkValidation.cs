@@ -128,7 +128,7 @@ internal static partial class GameValidation
         _current="power-card-description-prefix";
         foreach(var power in ModelDb.CardPool<GeopeliaCardPool>().AllCards.Cast<GeopeliaCard>().Where(c=>c.Type==CardType.Power))
             foreach(var step in power.Definition.Steps.Where(s=>s.Kind=="Power"))
-                Check(!power.GetDescriptionForPile(PileType.None).Contains("获得[gold]"+power.Definition.Name),"power card shows effect directly without acquiring its own name");
+                Check(!power.GetDescriptionForPile(PileType.None).Contains("获得[gold]"+power.Definition.DisplayName),"power card shows effect directly without acquiring its own name");
         Rows.Add(new{test="power-cards-show-effects-directly"});
     }
 }

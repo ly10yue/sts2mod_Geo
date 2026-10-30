@@ -17,10 +17,10 @@ def check(test, message):
     checks += 1
     assert test, message
 
-check(len(cards)==85 and len({c['name'] for c in cards})==85, '85 distinct cards and titles')
+check(len(cards)==len(artwork) and len({c['name'] for c in cards})==len(cards), 'Distinct cards and exact song titles')
 for c in cards:
     check(c['name'] in song_titles, 'Not a Phigros title: '+c['name'])
-    check(c['entry']==previous[c['className']]['entry'], 'Model ID changed: '+c['className'])
+    check(c['entry']==previous[c['className']]['entry'] if c['className'] in previous else c['className']=='GeopeliaHate' and c['entry']=='PHIGROS_JIU_GEOPELIA_HATE', 'Model ID changed: '+c['className'])
     check(c['portrait']==artwork[c['className']]['portrait'] and c['songId']==artwork[c['className']]['songId'], 'Portrait and song mismatch')
     check(not any(s['kind']=='NextEnergy' for s in c['steps']), 'Delayed energy reward')
 check('AfterPlayerTurnStart' not in (ROOT/'src/Powers.cs').read_text(encoding='utf-8'), 'Turn-start resource reward')

@@ -1,6 +1,6 @@
 # 0.5.0 曲名、曲绘与定数对应
 
-85张牌使用85首不同歌曲及85张不同原曲绘。原图字节保留，游戏通过 AtlasTexture 居中4:3取景，不生成重绘图片。定数使用该曲EZ/HD/IN/AT的最高值；高稀有度优先高定数。
+86张牌使用86首不同歌曲及86张不同原曲绘。HATE按用户要求作为稀有牌，真实最高定数17.9保留，不受旧分档限制。原图字节保留，游戏通过 AtlasTexture 居中4:3取景，不生成重绘图片。定数使用该曲EZ/HD/IN/AT的最高值；高稀有度优先高定数。
 
 [曲目信息](https://raw.githubusercontent.com/7aGiven/Phigros_Resource/info/info.tsv) / [定数来源](https://raw.githubusercontent.com/7aGiven/Phigros_Resource/info/difficulty.tsv) / [曲绘资源](https://github.com/7aGiven/Phigros_Resource/tree/illustration)
 
@@ -91,3 +91,4 @@
 | 稀有 | Cuvism³ | 16.7 | sikkari | [原图](https://raw.githubusercontent.com/7aGiven/Phigros_Resource/illustration/Cuvism.Fl00tvsHalv.png) |
 | 先古 | Desultory Signals | 18.0 | 月光大刺剑 | [原图](https://raw.githubusercontent.com/7aGiven/Phigros_Resource/illustration/DesultorySignals.technoplanet.png) |
 | 先古 | Exoplanetary Mirage | 17.9 | 神居冰绘 feat. 祈莲 | [原图](https://raw.githubusercontent.com/7aGiven/Phigros_Resource/illustration/ExoplanetaryMirage.%E3%81%8B%E3%82%81%E3%82%8A%E3%81%82.png) |
+| 稀有 | ハテ | 17.9 | 宙風みけ || rN | [原图](https://raw.githubusercontent.com/7aGiven/Phigros_Resource/illustration/%E3%83%8F%E3%83%86.rNFrums.png) |

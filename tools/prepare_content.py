@@ -1,6 +1,6 @@
 """Sync authored content while keeping the peer mod completely read-only.
 
-Card art already exists in build/godot/PhigrosJiu. This script performs no raster edits.
+Card art already exists in build/godot/PhigrosJiu. Original images remain unchanged; icon crops are generated reproducibly.
 Namespaced IDs belong to the source localization and remain stable when card effects change.
 """
 from pathlib import Path
@@ -10,12 +10,14 @@ import card_design
 import generate_design_assets
 import prepare_artwork
 import prepare_resources
+import prepare_icons
 
 root = Path(__file__).resolve().parents[1]
 prepare_resources.main()
 prepare_artwork.main()
 card_design.main()
 generate_design_assets.main()
+prepare_icons.main()
 pack = root / "build/godot/PhigrosJiu"
 cards = json.loads((root / "content/cards.json").read_text(encoding="utf-8-sig"))
 if len({c["entry"] for c in cards}) != len(cards):

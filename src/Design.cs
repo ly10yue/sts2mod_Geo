@@ -22,6 +22,7 @@ public sealed class CardDefinition
 {
     public string ClassName { get; set; } = "";
     public string Name { get; set; } = "";
+    public string DisplayName { get; set; } = "";
     public string Entry { get; set; } = "";
     public CardRarity Rarity { get; set; }
     public CardType Type { get; set; }

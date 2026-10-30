@@ -4,510 +4,602 @@
     {
       "className": "GeopeliaStrike",
       "name": "dB doll",
+      "displayName": "打击",
       "songId": "dBdoll.YUESTEVENuen",
       "composer": "YUE.STEVEN/uen"
     },
     {
       "className": "GeopeliaDefend",
       "name": "Glaciaxion",
+      "displayName": "防御",
       "songId": "Glaciaxion.SunsetRay",
       "composer": "SunsetRay"
     },
     {
       "className": "GeopeliaOpeningBeat",
       "name": "光",
+      "displayName": "光",
       "songId": "光.姜米條",
       "composer": "姜米條"
     },
     {
       "className": "GeopeliaCounterbeat",
       "name": "HumaN",
+      "displayName": "人",
       "songId": "HumaN.SOTUI",
       "composer": "SOTUI"
     },
     {
       "className": "GeopeliaEltaw",
       "name": "Eltaw",
+      "displayName": "回声",
       "songId": "Eltaw.Fl00t",
       "composer": "Fl00t"
     },
     {
       "className": "GeopeliaIMustSayNo",
       "name": "Disorder",
+      "displayName": "失序",
       "songId": "Disorder.HyuNfeatYURI",
       "composer": "HyuN feat. YURI"
     },
     {
       "className": "GeopeliaCereris",
       "name": "Cereris",
+      "displayName": "远星",
       "songId": "Cereris.SunsetRayNceS",
       "composer": "SunsetRay/NceS"
     },
     {
       "className": "GeopeliaReimei",
       "name": "Drop It",
+      "displayName": "碟",
       "songId": "DropIt.Asuka",
       "composer": "Asuka"
     },
     {
       "className": "GeopeliaRebirth",
       "name": "重生",
+      "displayName": "重生",
       "songId": "重生.姜米條",
       "composer": "姜米條"
     },
     {
       "className": "GeopeliaLuminescence",
       "name": "Luminescence",
+      "displayName": "冷光",
       "songId": "Luminescence.米虾Fomiki初云CLoudie",
       "composer": "米虾Fomiki & 初云CLoudie"
     },
     {
       "className": "GeopeliaTap",
       "name": "Bonus Time",
+      "displayName": "奖励时间！",
       "songId": "BonusTime.MegaloPaleWhite",
       "composer": "Megalo_PaleWhite"
     },
     {
       "className": "GeopeliaHold",
       "name": "Chronologika",
+      "displayName": "时序逻辑",
       "songId": "Chronologika.Hundotte",
       "composer": "Hundotte"
     },
     {
       "className": "GeopeliaFlick",
       "name": "DataErr0r",
+      "displayName": "病毒",
       "songId": "DataErr0r.Cosmograph",
       "composer": "Cosmograph"
     },
     {
       "className": "GeopeliaDrag",
       "name": "Luminescent",
+      "displayName": "流光",
       "songId": "Luminescent.Daison",
       "composer": "Daison"
     },
     {
       "className": "GeopeliaSync",
       "name": "ENERGY SYNERGY MATRIX",
+      "displayName": "能量矩阵",
       "songId": "ENERGYSYNERGYMATRIX.Tanchiky",
       "composer": "Tanchiky"
     },
     {
       "className": "GeopeliaProbe",
       "name": "Find_Me",
+      "displayName": "自我",
       "songId": "FindMe.Kforest",
       "composer": "K-forest"
     },
     {
       "className": "GeopeliaCarrier",
       "name": "GOODTEK",
+      "displayName": "良锤",
       "songId": "GOODTEK.EBIMAYO",
       "composer": "EBIMAYO"
     },
     {
       "className": "GeopeliaEnvelope",
       "name": "Magenta Potion",
+      "displayName": "洋红药水",
       "songId": "MagentaPotion.EmoCo",
       "composer": "EmoCo."
     },
     {
       "className": "GeopeliaAdvance",
       "name": "Speed Up!",
+      "displayName": "加速",
       "songId": "SpeedUp.DarTokki",
       "composer": "DarTokki"
     },
     {
       "className": "GeopeliaRush",
       "name": "FULi AUTO SHOOTER",
+      "displayName": "自动射击",
       "songId": "FULiAUTOSHOOTER.MYUKKE",
       "composer": "MYUKKE."
     },
     {
       "className": "GeopeliaBorrowShield",
       "name": "Parallel Retrogression(Game Ver.)",
+      "displayName": "平行；逆行",
       "songId": "ParallelRetrogressionGameVer.Tetrajectory",
       "composer": "Tetrajectory"
     },
     {
       "className": "GeopeliaEchoNeedle",
       "name": "Wavetapper",
+      "displayName": "编织波纹",
       "songId": "Wavetapper.Frums",
       "composer": "Frums"
     },
     {
       "className": "GeopeliaReplayFootnote",
       "name": "Flutter Echo",
+      "displayName": "颤动回声",
       "songId": "FlutterEcho.Cansol",
       "composer": "Cansol"
     },
     {
       "className": "GeopeliaRest",
       "name": "The Whole Rest",
+      "displayName": "休止符",
       "songId": "TheWholeRest.KIVΛ",
       "composer": "KIVΛ"
     },
     {
       "className": "GeopeliaRedline",
       "name": "Break Over",
+      "displayName": "突破界限",
       "songId": "BreakOver.Kforest",
       "composer": "K-forest"
     },
     {
       "className": "GeopeliaScavenge",
       "name": "Get Back",
+      "displayName": "归来",
       "songId": "GetBack.CAP3",
       "composer": "CAP3"
     },
     {
       "className": "GeopeliaDelayBeat",
       "name": "End Me",
+      "displayName": "我之终点",
       "songId": "EndMe.ZxNXasDelaina",
       "composer": "ZxNX as \"Delaina\""
     },
     {
       "className": "GeopeliaLowpass",
       "name": "Unorthodox Thoughts",
+      "displayName": "异端思绪",
       "songId": "UnorthodoxThoughts.Joulez",
       "composer": "Joulez"
     },
     {
       "className": "GeopeliaScanline",
       "name": "Träne",
+      "displayName": "泪",
       "songId": "Trane.MALVA",
       "composer": "MALVA."
     },
     {
       "className": "GeopeliaDistortedFate",
       "name": "Bounded Quietude",
+      "displayName": "静谧边界",
       "songId": "BoundedQuietude.FiniteLimitvsSiLiS",
       "composer": "Finite Limit vs SiLiS"
     },
     {
       "className": "GeopeliaDanceWithSilence",
       "name": "Dance with Silence",
+      "displayName": "寂静之舞",
       "songId": "DancewithSilence.かめりあ",
       "composer": "かめりあ"
     },
     {
       "className": "GeopeliaTerabyteConnection",
       "name": "Retribution",
+      "displayName": "报应",
       "songId": "Retribution.nmyKryexe",
       "composer": "nm-y & Kry.exe"
     },
     {
       "className": "GeopeliaDiamondEyes",
       "name": "Reimei",
+      "displayName": "黎明",
       "songId": "Reimei.影虎",
       "composer": "影虎。"
     },
     {
       "className": "GeopeliaRetribution",
       "name": "Retribution ~ Cycle of Redemption ~",
+      "displayName": "轮回救赎",
       "songId": "RetributionCycleofRedemption.ArdolfvsDaily天利",
       "composer": "Ardolf vs. Daily天利"
     },
     {
       "className": "GeopeliaBelieveLight",
       "name": "Horizon Blue",
+      "displayName": "蓝色地平",
       "songId": "HorizonBlue.NothingButRequiemfeatAikapinChiyoko",
       "composer": "Nothing But Requiem feat. Aikapin & Chiyoko"
     },
     {
       "className": "GeopeliaDoubleExposure",
       "name": "Doppelganger",
+      "displayName": "镜中分身",
       "songId": "Doppelganger.LeaF",
       "composer": "LeaF"
     },
     {
       "className": "GeopeliaCounterpoint",
       "name": "Nhelv",
+      "displayName": "神经节",
       "songId": "Nhelv.Silentroom",
       "composer": "Silentroom"
     },
     {
       "className": "GeopeliaPolyphony",
       "name": "Non-Melodic Ragez (MUG Edit)",
+      "displayName": "无调怒潮",
       "songId": "NonMelodicRagezMUGEdit.Normal1zer",
       "composer": "Normal1zer"
     },
     {
       "className": "GeopeliaChannelMux",
       "name": "Concvssion",
+      "displayName": "震荡",
       "songId": "Concvssion.Halv",
       "composer": "Halv"
     },
     {
       "className": "GeopeliaSignalBurst",
       "name": "Another Me",
+      "displayName": "另一个我",
       "songId": "AnotherMe.DAAN",
       "composer": "Neutral Moon"
     },
     {
       "className": "GeopeliaShieldArray",
       "name": "opia",
+      "displayName": "视界",
       "songId": "opia.rN",
       "composer": "rN"
     },
     {
       "className": "GeopeliaBorrowedLight",
       "name": "energy trixxx",
+      "displayName": "能量戏法",
       "songId": "energytrixxx.KAH",
       "composer": "KAH"
     },
     {
       "className": "GeopeliaDeadline",
       "name": "El Condor Pasa (Phigros Edit)",
+      "displayName": "山鹰之歌",
       "songId": "ElCondorPasaPhigrosEdit.PlasticFruits",
       "composer": "Plastic Fruits"
     },
     {
       "className": "GeopeliaRecharge",
       "name": "Re：birth",
+      "displayName": "诞生",
       "songId": "Rebirth.ああああ",
       "composer": "ああああ"
     },
     {
       "className": "GeopeliaRefinance",
       "name": "Feast远东之宴",
+      "displayName": "远东之宴",
       "songId": "Feast远东之宴.茶鸣拾贰律",
       "composer": "茶鸣拾贰律"
     },
     {
       "className": "GeopeliaInterest",
       "name": "Labyrinth in Kowloon: Walled World",
+      "displayName": "迷宫城",
       "songId": "LabyrinthinKowloonWalledWorld.かめりあ",
       "composer": "かめりあ"
     },
     {
       "className": "GeopeliaOverspeed",
       "name": "Upshift",
+      "displayName": "升级",
       "songId": "Upshift.Iriss-Frantzz",
       "composer": "Iriss-Frantzz"
     },
     {
       "className": "GeopeliaAfterglow",
       "name": "Evanescent",
+      "displayName": "渐逝",
       "songId": "Evanescent.LeaF",
       "composer": "LeaF"
     },
     {
       "className": "GeopeliaTimeSignature",
       "name": "Chronomia",
+      "displayName": "天文钟",
       "songId": "Chronomia.Lime",
       "composer": "Lime"
     },
     {
       "className": "GeopeliaGraceNote",
       "name": "Radiance",
+      "displayName": "辉光",
       "songId": "Radiance.Nhato",
       "composer": "Nhato"
     },
     {
       "className": "GeopeliaColdStart",
       "name": "[NWAD]",
+      "displayName": "无昼无夜",
       "songId": "NWAD.Knighthood",
       "composer": "Knighthood"
     },
     {
       "className": "GeopeliaHandOff",
       "name": "NO ONE YES MAN",
+      "displayName": "无人应许",
       "songId": "NOONEYESMAN.MYUKKE",
       "composer": "MYUKKE."
     },
     {
       "className": "GeopeliaChorus",
       "name": "GOODFORTUNE",
+      "displayName": "良幸",
       "songId": "GOODFORTUNE.EBIMAYO",
       "composer": "EBIMAYO"
     },
     {
       "className": "GeopeliaCadence",
       "name": "Don't Never Around",
+      "displayName": "循环",
       "songId": "DontNeverAround.HAMA",
       "composer": "HAMA"
     },
     {
       "className": "GeopeliaRehearsal",
       "name": "Better Graphic Animation",
+      "displayName": "更好的动画",
       "songId": "BetterGraphicAnimation.ルゼ",
       "composer": "ルゼ"
     },
     {
       "className": "GeopeliaReplayBuffer",
       "name": "青丘",
+      "displayName": "青丘",
       "songId": "青丘.BLACK0",
       "composer": "BLACK 0"
     },
     {
       "className": "GeopeliaCarrierWave",
       "name": "インフェルノシティ",
+      "displayName": "炼狱都市",
       "songId": "インフェルノシティ.Ponchifeatはぁち",
       "composer": "Ponchi♪ feat. はぁち"
     },
     {
       "className": "GeopeliaPhaseShift",
       "name": "Temporal Shifting",
+      "displayName": "时相迁移",
       "songId": "TemporalShifting.LureRabbitVC",
       "composer": "Lure Rabbit & V!C"
     },
     {
       "className": "GeopeliaAbsoluteDisorder",
       "name": "AbsoluTe disoRdeR",
+      "displayName": "绝对混乱",
       "songId": "AbsoluTedisoRdeR.AcuteDisarray",
       "composer": "Acute Disarray"
     },
     {
       "className": "GeopeliaFeast",
       "name": "Rrhar'il",
+      "displayName": "猎犬",
       "songId": "Rrharil.TeamGrimoire",
       "composer": "Team Grimoire"
     },
     {
       "className": "GeopeliaChristmasCarol",
       "name": "Entrance to the Chaos",
+      "displayName": "混沌入口",
       "songId": "EntrancetotheChaos.打打だいずvssiromaru",
       "composer": "打打だいず vs. siromaru"
     },
     {
       "className": "GeopeliaCrushBeta",
       "name": "Petrichor",
+      "displayName": "救赎",
       "songId": "Petrichor.voidMournfinale",
       "composer": "void (Mournfinale)"
     },
     {
       "className": "GeopeliaHappyDisease",
       "name": "Der Schneid",
+      "displayName": "勇气",
       "songId": "DerSchneid.Ωμεγα",
       "composer": "Ωμεγα"
     },
     {
       "className": "GeopeliaMomentarySunrise",
       "name": "Distorted Fate",
+      "displayName": "扭曲命运",
       "songId": "DistortedFate.Sakuzyo",
       "composer": "Sakuzyo"
     },
     {
       "className": "GeopeliaOverdraftSuite",
       "name": "QZKago Requiem",
+      "displayName": "安魂曲",
       "songId": "QZKagoRequiem.tpazolite",
       "composer": "t+pazolite"
     },
     {
       "className": "GeopeliaTimeMortgage",
       "name": "DESTRUCTION 3,2,1",
+      "displayName": "毁灭倒数",
       "songId": "DESTRUCTION321.Normal1zervsBrokenNerdz",
       "composer": "Normal1zer vs. Broken Nerdz"
     },
     {
       "className": "GeopeliaDebtClearing",
       "name": "+ERABY+E CONNEC+10N",
+      "displayName": "星兆连接",
       "songId": "ERABYECONNEC10N.かめりあ",
       "composer": "かめりあ"
     },
     {
       "className": "GeopeliaRainbowSignal",
       "name": "祈 -我ら神祖と共に歩む者なり-",
+      "displayName": "神明共行者",
       "songId": "祈-我ら神祖と共に歩む者なり-.光吉猛修VS穴山大輔VSKaiVS水野健治VS大国奏音",
       "composer": "光吉猛修 VS 穴山大輔 VS Kai VS 水野健治 VS 大国奏音"
     },
     {
       "className": "GeopeliaPhantomEnsemble",
       "name": "Stardust:RAY",
+      "displayName": "星尘之光",
       "songId": "StardustRAY.kanonevsBlackY",
       "composer": "kanone vs. BlackY"
     },
     {
       "className": "GeopeliaFullPlayback",
       "name": "Re：End of a Dream",
+      "displayName": "终梦",
       "songId": "ReEndofaDream.umavsモリモリあつし",
       "composer": "uma vs. モリモリあつし"
     },
     {
       "className": "GeopeliaLastTransmission",
       "name": "Hydra",
+      "displayName": "九首蛇",
       "songId": "Hydra.JamesLandinoXAkiraComplex",
       "composer": "James Landino X Akira Complex"
     },
     {
       "className": "GeopeliaSignalSingularity",
       "name": "幻影鬼魅 (PLEASE)",
+      "displayName": "幻影鬼魅",
       "songId": "幻影鬼魅PLEASE.R300K",
       "composer": "R300K"
     },
     {
       "className": "GeopeliaNoiseGate",
       "name": "玩具狂奏曲 -終焉-",
+      "displayName": "玩具狂奏曲",
       "songId": "玩具狂奏曲終焉.きくお",
       "composer": "きくお"
     },
     {
       "className": "GeopeliaSustainAmplifier",
       "name": "Archidoxen",
+      "displayName": "秘奥之书",
       "songId": "Archidoxen.Se_IRA",
       "composer": "Se_IRA"
     },
     {
       "className": "GeopeliaTachycardia",
       "name": "INFiNiTE ENERZY -Overdoze-",
+      "displayName": "无尽超量",
       "songId": "INFiNiTEENERZYOverdoze.RekuMochizuki",
       "composer": "Reku Mochizuki"
     },
     {
       "className": "GeopeliaOpeningTheme",
       "name": "Der Richter",
+      "displayName": "法官",
       "songId": "DerRichter.Ωμεγα",
       "composer": "Ωμεγα"
     },
     {
       "className": "GeopeliaSafetyCopy",
       "name": "sølips",
+      "displayName": "太阳",
       "songId": "slips.rintarosoma",
       "composer": "rintaro soma"
     },
     {
       "className": "GeopeliaContinuousTake",
       "name": "Spasmodic",
+      "displayName": "痉挛",
       "songId": "Spasmodic.姜米條颶風元力上人",
       "composer": "姜米條☆颶風 ~ ♫元力上人♫"
     },
     {
       "className": "GeopeliaMastering",
       "name": "PRAGMATISM -RESURRECTION-",
+      "displayName": "复生",
       "songId": "PRAGMATISMRESURRECTION.Laur",
       "composer": "Laur"
     },
     {
       "className": "GeopeliaArchiveLost",
       "name": "BANGING STRIKE",
+      "displayName": "超级打击",
       "songId": "BANGINGSTRIKE.DewPleiades",
       "composer": "Dew Pleiades"
     },
     {
       "className": "GeopeliaMonochromeBreak",
       "name": "Igallta",
+      "displayName": "方舟",
       "songId": "Igallta.SeURa",
       "composer": "Se-U-Ra"
     },
     {
       "className": "GeopeliaQuietCoda",
       "name": "Stasis",
+      "displayName": "船",
       "songId": "Stasis.Maozon",
       "composer": "Maozon"
     },
     {
       "className": "GeopeliaWorldEcho",
       "name": "Cuvism³",
+      "displayName": "立方",
       "songId": "Cuvism.Fl00tvsHalv",
       "composer": "Fl00t vs Halv"
     },
     {
+      "className": "GeopeliaHate",
+      "name": "ハテ",
+      "displayName": "幽蓝形态",
+      "songId": "ハテ.rNFrums",
+      "composer": "rN || Frums"
+    },
+    {
       "className": "GeopeliaOldRecording",
       "name": "Desultory Signals",
+      "displayName": "断续“信号”",
       "songId": "DesultorySignals.technoplanet",
       "composer": "technoplanet"
     },
     {
       "className": "GeopeliaTowerResonance",
       "name": "Exoplanetary Mirage",
+      "displayName": "系外幻境",
       "songId": "ExoplanetaryMirage.かめりあ",
       "composer": "Camellia"
     }

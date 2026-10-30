@@ -7,7 +7,7 @@ public static class Content
 
     public static string CardArt(string file) => Root + "cards/" + file;
 
-    public static string PowerIcon(string entry) => Root + "icons/powers/" + ModelIdentity.AssetEntry(entry) + ".png";
+    public static string PowerIcon(string entry) => Root + "icons/powers/" + ModelIdentity.AssetEntry(entry).ToLowerInvariant() + ".png";
 
     public static string RelicIcon(string entry) => Root + "icons/relics/" + ModelIdentity.AssetEntry(entry) + ".png";
 

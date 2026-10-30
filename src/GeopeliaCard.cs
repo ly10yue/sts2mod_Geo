@@ -53,6 +53,7 @@ public abstract class GeopeliaCard : CardModel
             if (Definition.Steps.Any(s => s.Kind is "Strength" or "SignalStrength")) yield return HoverTipFactory.FromPower<MegaCrit.Sts2.Core.Models.Powers.StrengthPower>();
             if (Definition.Steps.Any(s => s.Kind == "Dexterity")) yield return HoverTipFactory.FromPower<MegaCrit.Sts2.Core.Models.Powers.DexterityPower>();
             if (Definition.Steps.Any(s => s.Kind == "EndlessSignal")) yield return ModelDb.Enchantment<GeopeliaEndlessSignal>().HoverTip;
+            if (Definition.Steps.Any(s => s.Kind == "AddReplay" || s.Power == "Aerial")) yield return HoverTipFactory.Static(StaticHoverTip.ReplayStatic);
             if (Definition.Steps.Any(s => s.Kind == "FatalRewardAttack")) yield return HoverTipFactory.Static(StaticHoverTip.Fatal);
             if (Definition.Steps.Any(s => s.Kind == "ExhaustDrawReplay"))
             {
@@ -100,7 +101,8 @@ public abstract class GeopeliaCard : CardModel
             if (!bonus && !condition) continue;
             if (bonus)
             {
-                if (x > 0 && condition && (step.Pay == 0 || await Runtime.SpendSignal(context, Owner, step.Pay, this))) n += x;
+                if (step.Condition == "perPlay") n += x * Runtime.Played(Owner);
+                else if (x > 0 && condition && (step.Pay == 0 || await Runtime.SpendSignal(context, Owner, step.Pay, this))) n += x;
             }
             else if (step.Pay > 0 && !await Runtime.SpendSignal(context, Owner, step.Pay, this)) continue;
             if (n <= 0 && !signalBonus) continue;
@@ -110,6 +112,16 @@ public abstract class GeopeliaCard : CardModel
                     await ConsumeHandAttack(context, play, ResolveEnergyXValue()); break;
                 case "Attack": case "AttackBonus": await Attack(context, play, n); break;
                 case "AllAttack": await Attack(context, play, n, true); break;
+                case "AddReplay":
+                    var replayTargets = await CardSelectCmd.FromHand(context, Owner,
+                        new CardSelectorPrefs(SelectionScreenPrompt, 1), c => c != this && c.GetEnchantedReplayCount() > 0, this);
+                    foreach (var target in replayTargets)
+                    {
+                        // Match Transfigure/Hidden Gem: add to the native mutable count, preserving authored and enchanted repeats.
+                        target.BaseReplayCount += n;
+                        CardCmd.Preview(target);
+                    }
+                    break;
                 case "ExhaustDrawReplay":
                     var selected = (await CardSelectCmd.FromHand(context, Owner,
                         new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, 1), c => c != this, this)).FirstOrDefault();

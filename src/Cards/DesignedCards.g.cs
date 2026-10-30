@@ -83,5 +83,6 @@ public sealed class GeopeliaArchiveLost : GeopeliaCard { public GeopeliaArchiveL
 public sealed class GeopeliaMonochromeBreak : GeopeliaCard { public GeopeliaMonochromeBreak() : base(Design.Get(nameof(GeopeliaMonochromeBreak))) { } }
 public sealed class GeopeliaQuietCoda : GeopeliaCard { public GeopeliaQuietCoda() : base(Design.Get(nameof(GeopeliaQuietCoda))) { } }
 public sealed class GeopeliaWorldEcho : GeopeliaCard { public GeopeliaWorldEcho() : base(Design.Get(nameof(GeopeliaWorldEcho))) { } }
+public sealed class GeopeliaHate : GeopeliaCard { public GeopeliaHate() : base(Design.Get(nameof(GeopeliaHate))) { } }
 public sealed class GeopeliaOldRecording : GeopeliaCard { public GeopeliaOldRecording() : base(Design.Get(nameof(GeopeliaOldRecording))) { } }
 public sealed class GeopeliaTowerResonance : GeopeliaCard { public GeopeliaTowerResonance() : base(Design.Get(nameof(GeopeliaTowerResonance))) { } }

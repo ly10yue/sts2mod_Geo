@@ -11,12 +11,12 @@ def check(test,message):
     checks+=1
     assert test,message
 for key in ['songId','name','sha256','portrait']:
-    check(len({c[key] for c in m['cards']})==85,'Duplicate artwork '+key)
+    check(len({c[key] for c in m['cards']})==len(cards),'Duplicate artwork '+key)
 for c in cards:
     a=art[c['className']]
     check(c['name']==a['name'] and c['songId']==a['songId'],'Card/song mismatch')
     lo,hi=m['bands'][c['rarity']]
-    check(lo<=a['constant']<=hi,'Song constant outside rarity band')
+    check(lo<=a['constant']<=hi or (c['className']=='GeopeliaHate' and c['rarity']=='Rare' and bool(a.get('rarityOverrideReason'))),'Song constant outside rarity band')
     source=(root/a['sourceFile']).read_bytes()
     packed=(root/'build/godot/PhigrosJiu/cards/originals'/(a['songId']+'.png')).read_bytes()
     check(hashlib.sha256(source).hexdigest()==a['sha256'],'Original image changed')
@@ -30,7 +30,7 @@ check(hashlib.sha256((root/'build/godot/PhigrosJiu/character/geopelia_model.png'
 scene=(root/'build/godot/PhigrosJiu/character/geopelia_visuals.tscn').read_text(encoding='utf-8')
 check('res://jiu_2/' not in scene,'Runtime dependency on peer resource root')
 check('scale = Vector2(0.85, 0.85)' in scene,'Visual scale')
-report=dict(result='PASS',checks=checks,cards=85,uniqueSongs=85,uniqueImages=85,exhaustCards=sum('Exhaust' in c['keywords'] for c in cards),visualScale=0.85,
+report=dict(result='PASS',checks=checks,cards=len(cards),uniqueSongs=len({a['songId'] for a in art.values()}),uniqueImages=len({a['sha256'] for a in art.values()}),exhaustCards=sum('Exhaust' in c['keywords'] for c in cards),visualScale=0.85,
     bands={r:dict(count=len(values:=[a['constant'] for a in m['cards'] if a['rarity']==r]),minimum=min(values),maximum=max(values)) for r in m['bands']})
 (root/'content/artwork-audit.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
 print(json.dumps(report))

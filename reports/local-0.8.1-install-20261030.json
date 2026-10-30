@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-30",
+  "version": "0.8.1",
+  "result": "PASS",
+  "installed": true,
+  "fix": "Windows PowerShell 5.1 ProcessStartInfo argument compatibility and UTF-8 logs",
+  "argumentRoundtrip": {
+    "powershell51": 8,
+    "powershell7": 8
+  },
+  "resourceChecks": 830,
+  "coexistenceChecksPerOrder": 1259,
+  "peerUnchanged": true,
+  "gitCommitOrPush": false,
+  "files": {
+    "PhigrosJiu.dll": "509f8422a9e89ec5d26941c7db08161e5d91bbcf0ee41d881e0e50c7ee2546fd",
+    "PhigrosJiu.json": "34fd77da9c0d8afb25503f5d0c33da42020d7a19c77363ea9fd44c1c7c58d2e8",
+    "PhigrosJiu.pck": "f24f80c0aaaf1fc5b3d1631ffef745f05fc59195ca92423e1cf85be003b8ab8b"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "version": "0.8.0",
+  "date": "2026-10-29",
+  "result": "PASS",
+  "installed": false,
+  "installationDeferredByPriorUserRequest": true,
+  "gitCommitOrPush": false,
+  "editorPort": 18775,
+  "cardCount": 86,
+  "rarities": {
+    "Basic": 4,
+    "Common": 25,
+    "Uncommon": 29,
+    "Rare": 26,
+    "Ancient": 2
+  },
+  "nativeChecks": 2597,
+  "nativeCases": 35,
+  "editorTests": 20,
+  "resources": 830,
+  "coexistenceChecksPerOrder": 1259,
+  "models": 226,
+  "unchangedExistingCards": 82,
+  "changedExistingCards": [
+    "GeopeliaBelieveLight",
+    "GeopeliaRedline",
+    "GeopeliaScavenge"
+  ],
+  "addedCards": [
+    "GeopeliaHate"
+  ],
+  "sourceDesignSha256": "20ed2f069db4de95b09751c61cbcfe66438468bbaf60ed604ec74e07982207b2",
+  "nativeProof": {
+    "design_sha256": "2583FF8424475B9166852B6F922409AE88587B43A8E0C52C5B752D7451FF0700",
+    "cases": 35,
+    "tested_pack_sha256": "9D2A2C535AAF1C356C7D8A3B3D41071AADC5638AF07EB90C41107DF5AFF1E719",
+    "validation_mode": "editor-features",
+    "staged": true,
+    "installed_pack_sha256": "1989F474B53283AA7715C6EE871E41FF5F6ACE8B27583E66E9E5CDD6D294A685",
+    "checks": 2597,
+    "peer_tested_dll_sha256": "964DEB35218D94CC94080992C5B879B6C87FA7706F54BEEAF859DE7B01556AD8",
+    "timestamp_utc": "2026-10-29T15:56:45.6765859Z",
+    "installed_dll_sha256": "5F83DE810DDD271D7480CD19AD141A52A82C8FF6BB43D88326FB6EA8989C38BD",
+    "result": "PASS",
+    "peer_tested_pack_sha256": "70347B90384EE98CA4DA207E037CEC50937984DD50DB479FAECB344CCDD56F88"
+  },
+  "packageManifest": {
+    "version": "0.8.0",
+    "text_hash_format": "UTF-8 with LF line endings",
+    "design_sha256": "4ca7604a7677bf1eb75e5975f0cd9489d5498044109e592a5b49fe4f26ecd06c",
+    "source_design_sha256": "20ed2f069db4de95b09751c61cbcfe66438468bbaf60ed604ec74e07982207b2",
+    "files": {
+      "PhigrosJiu.dll": {
+        "bytes": 408576,
+        "sha256": "00b318ec1bbce7cf171c4e5be97002945ded3940ac92a56d78a7e2179306f767"
+      },
+      "PhigrosJiu.pck": {
+        "bytes": 355182624,
+        "sha256": "9d2a2c535aaf1c356c7d8a3b3d41071aadc5638af07eb90c41107df5aff1e719"
+      },
+      "PhigrosJiu.json": {
+        "bytes": 427,
+        "sha256": "143fb86216d7d965e48527a0a5d51c04e41e1c7dd22729482cad01a1b2b20f3e"
+      }
+    }
+  }
+}

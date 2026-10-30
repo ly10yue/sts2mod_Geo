@@ -1,0 +1,48 @@
+{
+  "version": "0.7.5",
+  "date": "2026-10-23",
+  "result": "PASS",
+  "native_checks": 1965,
+  "native_cases": 31,
+  "editor_tests": 17,
+  "root_cause": "Enchantment icon path case mismatch interrupts BeforeHandDraw during NCard.UpdateEnchantmentVisuals",
+  "reproduced_before_fix": true,
+  "real_card_visuals_tested": true,
+  "card_design_unchanged": true,
+  "peer_unchanged": true,
+  "git_sync": false,
+  "manifest": {
+    "version": "0.7.5",
+    "text_hash_format": "UTF-8 with LF line endings",
+    "design_sha256": "cad647b680956d0c7de71831e1e734612e53da4502294f90052cda4948ef829b",
+    "source_design_sha256": "e41ac74bd09da6084dde47e4ddddf3342c9119fedc2d1e358b034c5e46e96aa9",
+    "files": {
+      "PhigrosJiu.dll": {
+        "bytes": 393216,
+        "sha256": "2ac5b707e0fbe57b9409d4db0cf57253ce4b277f9ee71bc44fb5c1a5e6220d4f"
+      },
+      "PhigrosJiu.pck": {
+        "bytes": 352405792,
+        "sha256": "5996ea247537119ee7e5669a38c1e24c7718b8e0fb671530e2ded43b41996dcc"
+      },
+      "PhigrosJiu.json": {
+        "bytes": 427,
+        "sha256": "3f2188550480cb0efe4da76eccf0fc5002ba33629af2aee5cf0fc1a6b220d5fe"
+      }
+    }
+  },
+  "native_proof": {
+    "staged": false,
+    "cases": 31,
+    "peer_tested_pack_sha256": "70347B90384EE98CA4DA207E037CEC50937984DD50DB479FAECB344CCDD56F88",
+    "design_sha256": "D7E61D8A15C5D872B637393C32E4D64130A33C9D5DA7BDBA71454C2FD73C92C3",
+    "timestamp_utc": "2026-10-23T00:07:35.5314656Z",
+    "tested_pack_sha256": "5996EA247537119EE7E5669A38C1E24C7718B8E0FB671530E2DED43B41996DCC",
+    "validation_mode": "editor-features",
+    "installed_dll_sha256": "2AC5B707E0FBE57B9409D4DB0CF57253CE4B277F9EE71BC44FB5C1A5E6220D4F",
+    "peer_tested_dll_sha256": "964DEB35218D94CC94080992C5B879B6C87FA7706F54BEEAF859DE7B01556AD8",
+    "result": "PASS",
+    "checks": 1965,
+    "installed_pack_sha256": "5996EA247537119EE7E5669A38C1E24C7718B8E0FB671530E2DED43B41996DCC"
+  }
+}

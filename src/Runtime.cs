@@ -68,7 +68,7 @@ public static class Runtime
     public static Type PowerType(string kind) => kind switch
     {
         "FutureRestart" => typeof(GeopeliaFutureRestartPower),
-        "Aerial" => typeof(GeopeliaAerialPower), "NextRepeat" => typeof(GeopeliaNextRepeatPower),
+        "Hate" => typeof(GeopeliaHatePower), "Aerial" => typeof(GeopeliaAerialPower), "NextRepeat" => typeof(GeopeliaNextRepeatPower),
         "PulseGuard" => typeof(GeopeliaPulseGuardPower), "OverdriveGuard" => typeof(GeopeliaOverdriveGuardPower),
         "EchoGuard" => typeof(GeopeliaEchoGuardPower), "SignalEcho" => typeof(GeopeliaSignalEchoPower),
         "RhythmDraw" => typeof(GeopeliaRhythmDrawPower), "Beacon" => typeof(GeopeliaBeaconPower),

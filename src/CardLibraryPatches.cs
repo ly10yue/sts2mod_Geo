@@ -78,9 +78,10 @@ internal static class JiuCardLibraryDiscoveryPatch
         AccessTools.GetDeclaredMethods(type).Where(method => method.GetMethodBody() is not null)
             .Concat(type.GetNestedTypes(BindingFlags.Public | BindingFlags.NonPublic).SelectMany(MethodsIn));
 
-    private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, MethodBase __originalMethod)
     {
         var contains = AccessTools.Method(typeof(IReadOnlySet<ModelId>), nameof(IReadOnlySet<ModelId>.Contains));
+        var title = AccessTools.PropertyGetter(typeof(CardModel), nameof(CardModel.Title));
         foreach (var instruction in instructions)
         {
             if (instruction.Calls(contains))
@@ -88,12 +89,20 @@ internal static class JiuCardLibraryDiscoveryPatch
                 instruction.opcode = OpCodes.Call;
                 instruction.operand = AccessTools.Method(typeof(JiuCardLibraryDiscoveryPatch), nameof(IsVisible));
             }
+            if (__originalMethod.Name.Contains("TextFilter") && instruction.Calls(title))
+            {
+                instruction.opcode = OpCodes.Call;
+                instruction.operand = AccessTools.Method(typeof(JiuCardLibraryDiscoveryPatch), nameof(SearchTitle));
+            }
             yield return instruction;
         }
     }
 
     // Used only by the library's search and inspection checks, including its compiler-generated
     // navigation predicate. The original save-backed discovered set is never changed.
+    internal static string SearchTitle(CardModel card) =>
+        card is GeopeliaCard jiu ? card.Title + " " + jiu.Definition.Name : card.Title;
+
     internal static bool IsVisible(IReadOnlySet<ModelId> discovered, ModelId id) =>
         discovered.Contains(id) || ModelDb.GetByIdOrNull<CardModel>(id) is GeopeliaCard;
 }

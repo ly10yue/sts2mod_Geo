@@ -26,7 +26,7 @@ func _initialize():
     check(ProjectSettings.load_resource_pack(args[1], false), "mount mod")
     var cards = parse("res://PhigrosJiu/cards.json")
     var mechanics = parse("res://PhigrosJiu/mechanics.json")
-    check(cards.size() == 85, "85 main-pool cards")
+    check(cards.size() == 86, "86 main-pool cards")
     var rarities = {}
     for card in cards:
         rarities[card.rarity] = rarities.get(card.rarity, 0) + 1
@@ -49,6 +49,7 @@ func _initialize():
         var rt = parse("res://PhigrosJiu/localization/" + lang + "/relics.json")
         for card in cards:
             check(ct.has(card.entry + ".title") and ct.has(card.entry + ".description"), lang + "/" + card.entry)
+            check(ct[card.entry + ".title"] == (card.displayName if lang == "zhs" else card.name), lang + "/" + card.entry + " display title")
         for power in mechanics.powers:
             check(pt.has(power.entry + ".title") and pt.has(power.entry + ".description"), lang + "/" + power.entry)
         for relic in relics:
@@ -60,7 +61,7 @@ func _initialize():
         check(node is Control, "background root")
         node.free()
     if failures.is_empty():
-        print("JIU_DESIGN_RESOURCES=PASS checks=%d cards=85 powers=%d" % [checks, mechanics.powers.size()])
+        print("JIU_DESIGN_RESOURCES=PASS checks=%d cards=86 powers=%d" % [checks, mechanics.powers.size()])
         quit(0)
     else:
         for failure in failures:

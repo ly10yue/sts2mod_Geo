@@ -1,11 +1,11 @@
 {
   "result": "PASS",
-  "checks": 343,
+  "checks": 347,
   "counts": {
     "energyCardsBefore": 3,
     "energyCardsAfter": 8,
     "drawCardsBefore": 19,
-    "drawCardsAfter": 31
+    "drawCardsAfter": 25
   },
   "rows": [
     {
@@ -350,11 +350,11 @@
       "upgraded": false,
       "cost": 1,
       "Energy": 0,
-      "Draw": 2,
+      "Draw": 0,
       "EnergyDebt": 0,
       "DrawDebt": 0,
       "netEnergy": -1,
-      "netDraw": 1
+      "netDraw": -1
     },
     {
       "model": "GeopeliaSync",
@@ -362,11 +362,11 @@
       "upgraded": true,
       "cost": 1,
       "Energy": 0,
-      "Draw": 3,
+      "Draw": 0,
       "EnergyDebt": 0,
       "DrawDebt": 0,
       "netEnergy": -1,
-      "netDraw": 2
+      "netDraw": -1
     },
     {
       "model": "GeopeliaProbe",
@@ -494,11 +494,11 @@
       "upgraded": false,
       "cost": 1,
       "Energy": 0,
-      "Draw": 2,
+      "Draw": 0,
       "EnergyDebt": 0,
       "DrawDebt": 1,
       "netEnergy": -1,
-      "netDraw": 0
+      "netDraw": -2
     },
     {
       "model": "GeopeliaBorrowShield",
@@ -506,11 +506,11 @@
       "upgraded": true,
       "cost": 1,
       "Energy": 0,
-      "Draw": 3,
+      "Draw": 0,
       "EnergyDebt": 0,
       "DrawDebt": 1,
       "netEnergy": -1,
-      "netDraw": 1
+      "netDraw": -2
     },
     {
       "model": "GeopeliaEchoNeedle",
@@ -542,11 +542,11 @@
       "upgraded": false,
       "cost": 1,
       "Energy": 0,
-      "Draw": 1,
+      "Draw": 0,
       "EnergyDebt": 0,
       "DrawDebt": 0,
       "netEnergy": -1,
-      "netDraw": 0
+      "netDraw": -1
     },
     {
       "model": "GeopeliaReplayFootnote",
@@ -554,11 +554,11 @@
       "upgraded": true,
       "cost": 1,
       "Energy": 0,
-      "Draw": 1,
+      "Draw": 0,
       "EnergyDebt": 0,
       "DrawDebt": 0,
       "netEnergy": -1,
-      "netDraw": 0
+      "netDraw": -1
     },
     {
       "model": "GeopeliaRest",
@@ -614,11 +614,11 @@
       "upgraded": false,
       "cost": 0,
       "Energy": 0,
-      "Draw": 3,
+      "Draw": 0,
       "EnergyDebt": 0,
-      "DrawDebt": 1,
+      "DrawDebt": 0,
       "netEnergy": 0,
-      "netDraw": 1
+      "netDraw": -1
     },
     {
       "model": "GeopeliaScavenge",
@@ -626,11 +626,11 @@
       "upgraded": true,
       "cost": 0,
       "Energy": 0,
-      "Draw": 4,
+      "Draw": 0,
       "EnergyDebt": 0,
-      "DrawDebt": 1,
+      "DrawDebt": 0,
       "netEnergy": 0,
-      "netDraw": 2
+      "netDraw": -1
     },
     {
       "model": "GeopeliaDelayBeat",
@@ -734,11 +734,11 @@
       "upgraded": false,
       "cost": 0,
       "Energy": 0,
-      "Draw": 4,
+      "Draw": 0,
       "EnergyDebt": 0,
       "DrawDebt": 0,
       "netEnergy": 0,
-      "netDraw": 3
+      "netDraw": -1
     },
     {
       "model": "GeopeliaDanceWithSilence",
@@ -746,11 +746,11 @@
       "upgraded": true,
       "cost": 0,
       "Energy": 0,
-      "Draw": 5,
+      "Draw": 0,
       "EnergyDebt": 0,
       "DrawDebt": 0,
       "netEnergy": 0,
-      "netDraw": 4
+      "netDraw": -1
     },
     {
       "model": "GeopeliaTerabyteConnection",
@@ -828,36 +828,36 @@
       "model": "GeopeliaBelieveLight",
       "name": "Horizon Blue",
       "upgraded": false,
-      "cost": 1,
+      "cost": 2,
       "Energy": 0,
       "Draw": 0,
       "EnergyDebt": 0,
       "DrawDebt": 0,
-      "netEnergy": -1,
+      "netEnergy": -2,
       "netDraw": -1
     },
     {
       "model": "GeopeliaBelieveLight",
       "name": "Horizon Blue",
       "upgraded": true,
-      "cost": 1,
+      "cost": 2,
       "Energy": 0,
       "Draw": 0,
       "EnergyDebt": 0,
       "DrawDebt": 0,
-      "netEnergy": -1,
+      "netEnergy": -2,
       "netDraw": -1
     },
     {
       "model": "GeopeliaDoubleExposure",
       "name": "Doppelganger",
       "upgraded": false,
-      "cost": 0,
+      "cost": 1,
       "Energy": 0,
       "Draw": 0,
       "EnergyDebt": 0,
       "DrawDebt": 0,
-      "netEnergy": 0,
+      "netEnergy": -1,
       "netDraw": -1
     },
     {
@@ -996,18 +996,6 @@
       "model": "GeopeliaBorrowedLight",
       "name": "energy trixxx",
       "upgraded": false,
-      "cost": 0,
-      "Energy": 2,
-      "Draw": 0,
-      "EnergyDebt": 1,
-      "DrawDebt": 0,
-      "netEnergy": 1,
-      "netDraw": -1
-    },
-    {
-      "model": "GeopeliaBorrowedLight",
-      "name": "energy trixxx",
-      "upgraded": true,
       "cost": 0,
       "Energy": 3,
       "Draw": 0,
@@ -1017,6 +1005,18 @@
       "netDraw": -1
     },
     {
+      "model": "GeopeliaBorrowedLight",
+      "name": "energy trixxx",
+      "upgraded": true,
+      "cost": 0,
+      "Energy": 4,
+      "Draw": 0,
+      "EnergyDebt": 1,
+      "DrawDebt": 0,
+      "netEnergy": 3,
+      "netDraw": -1
+    },
+    {
       "model": "GeopeliaDeadline",
       "name": "El Condor Pasa (Phigros Edit)",
       "upgraded": false,
@@ -1046,11 +1046,11 @@
       "upgraded": false,
       "cost": 1,
       "Energy": 0,
-      "Draw": 2,
+      "Draw": 1,
       "EnergyDebt": 0,
       "DrawDebt": 0,
       "netEnergy": -1,
-      "netDraw": 1
+      "netDraw": 0
     },
     {
       "model": "GeopeliaRecharge",
@@ -1215,9 +1215,9 @@
       "cost": 1,
       "Energy": 2,
       "Draw": 2,
-      "EnergyDebt": 1,
+      "EnergyDebt": 2,
       "DrawDebt": 0,
-      "netEnergy": 0,
+      "netEnergy": -1,
       "netDraw": 1
     },
     {
@@ -1227,9 +1227,9 @@
       "cost": 1,
       "Energy": 3,
       "Draw": 3,
-      "EnergyDebt": 1,
+      "EnergyDebt": 2,
       "DrawDebt": 0,
-      "netEnergy": 1,
+      "netEnergy": 0,
       "netDraw": 2
     },
     {
@@ -1452,24 +1452,24 @@
       "model": "GeopeliaChristmasCarol",
       "name": "Entrance to the Chaos",
       "upgraded": false,
-      "cost": 0,
+      "cost": 1,
       "Energy": 0,
       "Draw": 2,
       "EnergyDebt": 0,
       "DrawDebt": 0,
-      "netEnergy": 0,
+      "netEnergy": -1,
       "netDraw": 1
     },
     {
       "model": "GeopeliaChristmasCarol",
       "name": "Entrance to the Chaos",
       "upgraded": true,
-      "cost": 0,
+      "cost": 1,
       "Energy": 0,
       "Draw": 3,
       "EnergyDebt": 0,
       "DrawDebt": 0,
-      "netEnergy": 0,
+      "netEnergy": -1,
       "netDraw": 2
     },
     {
@@ -1596,24 +1596,24 @@
       "model": "GeopeliaDebtClearing",
       "name": "+ERABY+E CONNEC+10N",
       "upgraded": false,
-      "cost": 1,
+      "cost": 0,
       "Energy": 0,
       "Draw": 0,
       "EnergyDebt": 0,
       "DrawDebt": 0,
-      "netEnergy": -1,
+      "netEnergy": 0,
       "netDraw": -1
     },
     {
       "model": "GeopeliaDebtClearing",
       "name": "+ERABY+E CONNEC+10N",
       "upgraded": true,
-      "cost": 1,
+      "cost": 0,
       "Energy": 0,
       "Draw": 0,
       "EnergyDebt": 0,
       "DrawDebt": 0,
-      "netEnergy": -1,
+      "netEnergy": 0,
       "netDraw": -1
     },
     {
@@ -1742,11 +1742,11 @@
       "upgraded": false,
       "cost": 1,
       "Energy": 0,
-      "Draw": 1,
+      "Draw": 0,
       "EnergyDebt": 0,
       "DrawDebt": 0,
       "netEnergy": -1,
-      "netDraw": 0
+      "netDraw": -1
     },
     {
       "model": "GeopeliaNoiseGate",
@@ -1754,11 +1754,11 @@
       "upgraded": true,
       "cost": 1,
       "Energy": 0,
-      "Draw": 2,
+      "Draw": 0,
       "EnergyDebt": 0,
       "DrawDebt": 0,
       "netEnergy": -1,
-      "netDraw": 1
+      "netDraw": -1
     },
     {
       "model": "GeopeliaSustainAmplifier",
@@ -1920,12 +1920,12 @@
       "model": "GeopeliaArchiveLost",
       "name": "BANGING STRIKE",
       "upgraded": true,
-      "cost": 0,
+      "cost": 1,
       "Energy": 0,
       "Draw": 0,
       "EnergyDebt": 0,
       "DrawDebt": 0,
-      "netEnergy": 0,
+      "netEnergy": -1,
       "netDraw": -1
     },
     {
@@ -1956,29 +1956,53 @@
       "model": "GeopeliaQuietCoda",
       "name": "Stasis",
       "upgraded": false,
-      "cost": 0,
+      "cost": 1,
       "Energy": 0,
       "Draw": 0,
       "EnergyDebt": 0,
-      "DrawDebt": 1,
-      "netEnergy": 0,
-      "netDraw": -2
+      "DrawDebt": 0,
+      "netEnergy": -1,
+      "netDraw": -1
     },
     {
       "model": "GeopeliaQuietCoda",
       "name": "Stasis",
       "upgraded": true,
-      "cost": 0,
+      "cost": 1,
       "Energy": 0,
       "Draw": 0,
       "EnergyDebt": 0,
-      "DrawDebt": 1,
-      "netEnergy": 0,
-      "netDraw": -2
+      "DrawDebt": 0,
+      "netEnergy": -1,
+      "netDraw": -1
     },
     {
       "model": "GeopeliaWorldEcho",
       "name": "Cuvism³",
+      "upgraded": false,
+      "cost": 4,
+      "Energy": 0,
+      "Draw": 0,
+      "EnergyDebt": 0,
+      "DrawDebt": 0,
+      "netEnergy": -4,
+      "netDraw": -1
+    },
+    {
+      "model": "GeopeliaWorldEcho",
+      "name": "Cuvism³",
+      "upgraded": true,
+      "cost": 2,
+      "Energy": 0,
+      "Draw": 0,
+      "EnergyDebt": 0,
+      "DrawDebt": 0,
+      "netEnergy": -2,
+      "netDraw": -1
+    },
+    {
+      "model": "GeopeliaHate",
+      "name": "ハテ",
       "upgraded": false,
       "cost": 3,
       "Energy": 0,
@@ -1989,15 +2013,15 @@
       "netDraw": -1
     },
     {
-      "model": "GeopeliaWorldEcho",
-      "name": "Cuvism³",
+      "model": "GeopeliaHate",
+      "name": "ハテ",
       "upgraded": true,
-      "cost": 3,
+      "cost": 2,
       "Energy": 0,
       "Draw": 0,
       "EnergyDebt": 0,
       "DrawDebt": 0,
-      "netEnergy": -3,
+      "netEnergy": -2,
       "netDraw": -1
     },
     {
@@ -2051,11 +2075,10 @@
   ],
   "nativeComparisons": [],
   "nativeMeasurementsCurrent": false,
-  "designSha256": "cc23f8833070dd9ea42d4e28dce36387fce6398f7b3f5b851429944373c77b9c",
+  "designSha256": "15b88eb1adecd933eba316e725f361a87579818622710f435466b9491e8f76b7",
   "balanceWarnings": [
     "Speed Up!: net energy below original design target",
     "Speed Up!+: net energy below original design target",
-    "energy trixxx: net energy below original design target",
     "Distorted Fate: net energy below original design target"
   ]
 }

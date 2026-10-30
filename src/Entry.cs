@@ -21,6 +21,6 @@ public static class Entry
         if (_initialized) return;
         new Harmony(HarmonyId).PatchAll(typeof(Entry).Assembly);
         _initialized = true;
-        Log.Info("[PhigrosJiu] 鸠 loaded: 85 cards, 4 relics; repeats, overdraft and signal.");
+        Log.Info("[PhigrosJiu] 鸠 loaded: 86 cards, 4 relics; repeats, overdraft and signal.");
     }
 }

@@ -27,7 +27,7 @@ internal static class EndlessSignalIconPatch
     private static bool Prefix(EnchantmentModel __instance, ref string __result)
     {
         if (__instance is not GeopeliaEndlessSignal) return true;
-        __result = Content.PowerIcon(ModelDb.GetId<GeopeliaEndlessSignalPower>().Entry);
+        __result = Content.Root+"icons/powers/geopelia_endless_signal_enchantment.png";
         return false;
     }
 }

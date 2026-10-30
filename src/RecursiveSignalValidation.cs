@@ -36,7 +36,7 @@ internal static partial class GameValidation
             var f=NewFixture("DEBT-CLEARING-RETAIN");
             var card=f.State.CreateCard(ModelDb.Card<GeopeliaDebtClearing>(),f.Player);
             if(upgraded){card.UpgradeInternal();card.FinalizeUpgradeInternal();}
-            Check(card.EnergyCost.GetResolved()==1 && card.Keywords.Contains(CardKeyword.Retain)==upgraded && card.Keywords.Contains(CardKeyword.Exhaust),"debt clearing only gains Retain on upgrade");
+            Check(card.EnergyCost.GetResolved()==(upgraded?Design.Get(nameof(GeopeliaDebtClearing)).UpgradeCost:Design.Get(nameof(GeopeliaDebtClearing)).Cost) && card.Keywords.Contains(CardKeyword.Retain)==upgraded && card.Keywords.Contains(CardKeyword.Exhaust),"debt clearing only gains Retain on upgrade");
             await Runtime.ApplyPower(f.Context,f.Player,typeof(GeopeliaEnergyDebtPower),150,null);
             await Runtime.ApplyPower(f.Context,f.Player,typeof(GeopeliaDrawDebtPower),150,null);
             await f.Play(card);
@@ -72,7 +72,7 @@ internal static partial class GameValidation
                 Check(cloned.Enchantment is GeopeliaEndlessSignal && cloned.EnergyCost.GetResolved()==0,"native copy preserves recursive effect and free cost");
                 int energy=f.Player.PlayerCombatState!.Energy;
                 await f.Play(next);
-                Check(f.Player.Creature.Block==8 && f.Player.PlayerCombatState.Energy==energy,"generated skill keeps its original effect and spends no energy");
+                Check(f.Player.Creature.Block==((GeopeliaCard)next).Definition.Steps.Single(s=>s.Kind=="Block").Value && f.Player.PlayerCombatState.Energy==energy,"generated skill keeps its original effect and spends no energy");
                 Check(next.Pile?.Type==PileType.Exhaust && f.Player.Creature.GetPowerAmount<GeopeliaEndlessSignalPower>()==1,"playing inherited skill exhausts it and queues exactly one successor");
                 await Hook.BeforeHandDraw(f.State,f.Player,f.Context);
                 Check(PileType.Hand.GetPile(f.Player).Cards.Count==0,"successor cannot appear during the current turn");
